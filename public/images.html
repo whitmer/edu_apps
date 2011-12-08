@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body>
+Everyone should love fish. These are some fish pictures I've collected for you to use for free:
+<div>
+  <a href="#"><img src='http://farm5.staticflickr.com/4060/4272330540_121214b881.jpg' style='width: 200px;'/></a>
+  <a href="#"><img src='http://farm2.staticflickr.com/1310/4726904401_97b9ae9f8f.jpg' style='width: 200px;'/></a>
+  <a href="#"><img src='http://farm4.staticflickr.com/3080/2848467651_79e65e0450.jpg' style='width: 200px;'/></a>
+  <a href="#"><img src='http://farm4.staticflickr.com/3111/2849276340_ca46076ae2.jpg' style='width: 200px;'/></a>
+  <a href="#"><img src='http://farm4.staticflickr.com/3062/2849454868_14a8240f90.jpg' style='width: 200px;'/></a>
+  <a href="#"><img src='http://farm4.staticflickr.com/3092/2849263556_568de4e198.jpg' style='width: 200px;'/></a>
+  <a href="#"><img src='http://farm4.staticflickr.com/3036/2849253618_fc6019324c.jpg' style='width: 200px;'/></a>
+  <a href="#"><img src='http://farm3.staticflickr.com/2784/4515407842_2b2b0b0b2e.jpg' style='width: 200px;'/></a>
+</div>
+<script>
+(function() {
+  var url = location.href;
+  var args = (url.split(/\?/)[1] || "").split(/\&/);
+  var params = {}
+  for(var idx in args) {
+    var arg = args[idx].split(/\=/);
+    var key = arg[0];
+    var value = arg[1];
+    if(key && value) {
+      params[key] = decodeURIComponent(value);
+    }
+  }
+  var links = document.getElementsByTagName('A');
+  if(!params['launch_presentation_return_url'].match(/\?/)) {
+    params['launch_presentation_return_url'] = params['launch_presentation_return_url'] + "?";
+  }
+  if(params['selection_directive'] != "embed_content") {
+    alert("This page is normally used an an example of embedding content, but you've referenced it some other way. As such, it's not going to be very useful to you. Sorry.");
+  }
+  for(var idx in links) {
+    var link = links[idx];
+    if(link && link.children) {
+      var img = link.children[0];
+      link.href = [params['launch_presentation_return_url'], 'embed_type=image', ('url=' + encodeURIComponent(img.src))].join('&');
+    }
+  }
+})();
+</script>
+</body>
+</html>

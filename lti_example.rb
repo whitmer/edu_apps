@@ -16,6 +16,7 @@ end
 
 require 'sinatra'
 require 'oauth'
+require 'json'
 require 'oauth/request_proxy/rack_request'
 
 # hard-coded oauth information for testing convenience
@@ -133,4 +134,48 @@ Your score has #{response.body.match(/\bsuccess\b/) ? "been posted" : "failed in
 
 #{response.body}
   }
+end
+
+get "/config/editor_button" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  <<-XML
+<?xml version="1.0" encoding="UTF-8"?>
+<cartridge_basiclti_link xmlns="http://www.imsglobal.org/xsd/imslticc_v1p0"
+    xmlns:blti = "http://www.imsglobal.org/xsd/imsbasiclti_v1p0"
+    xmlns:lticm ="http://www.imsglobal.org/xsd/imslticm_v1p0"
+    xmlns:lticp ="http://www.imsglobal.org/xsd/imslticp_v1p0"
+    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation = "http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd
+    http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0.xsd
+    http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd
+    http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd">
+    <blti:title>I Like Fish</blti:title>
+    <blti:description>I'm a big fan of fish, and I want to share the love</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/fish_icon.png</lticm:property>
+        <lticm:property name="text">Pick a Fish</lticm:property>
+        <lticm:property name="selection_width">500</lticm:property>
+        <lticm:property name="selection_height">300</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/fish_icon.png</blti:icon>
+    <cartridge_bundle identifierref="BLTI001_Bundle"/>
+    <cartridge_icon identifierref="BLTI001_Icon"/>
+</cartridge_basiclti_link>  
+  XML
+end
+
+post "/tool_redirect" do
+  url = params['url']
+  args = []
+  params.each do |key, val|
+    args << "#{CGI.escape(key)}=#{CGI.escape(val)}" if key.match(/^custom_/) || ['launch_presentation_return_url', 'selection_directive'].include?(key)
+  end
+  url = url + (url.match(/\?/) ? "&" : "?") + args.join('&')
+  redirect to(url)
 end
