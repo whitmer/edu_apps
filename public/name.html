@@ -1,0 +1,52 @@
+<html>
+<head>
+</head>
+<body>
+<div id="not_named">
+  Fish deserve names, just like the rest of us. Pick a name for this fish:
+  <br/>
+  <a href="#"><img src='http://farm4.staticflickr.com/3062/2849454868_14a8240f90.jpg' style='width: 200px;'/></a>
+  <br/>
+  <input type="text" id="name">
+  <button type="button" id="save">Save</button>
+</div>
+<div id="named" style="display: none;">
+  This is a picture of a fish named <span id="fish_name">&nbsp;</span>
+  <a href="#"><img src='http://farm4.staticflickr.com/3062/2849454868_14a8240f90.jpg' style='width: 200px;'/></a>
+</div>
+<script>
+(function() {
+  var url = location.href;
+  var args = (url.split(/\?/)[1] || "").split(/\&/);
+  var params = {}
+  for(var idx in args) {
+    var arg = args[idx].split(/\=/);
+    var key = arg[0];
+    var value = arg[1];
+    if(key && value) {
+      params[key] = decodeURIComponent(value);
+    }
+  }
+  if(params['selection_directive'] != "select_link") {
+    alert("This page is normally used an an example of selecting or creating a resource, but you've referenced it some other way. As such, it's not going to be very useful to you. Sorry.");
+    return;
+  }
+  if(params['custom_fish_name']) {
+    document.getElementById('not_named').style.display = 'none';
+    document.getElementById('named').style.display = 'block';
+    document.getElementById('fish_name').innerHTML = params['custom_fish_name'];
+  }
+  document.getElementById('save').addEventListener('click', function(e) {
+    if(!params['launch_presentation_return_url'].match(/\?/)) {
+      params['launch_presentation_return_url'] = params['launch_presentation_return_url'] + "?";
+    }
+    var args = [];
+    args.push("embed_type=basic_lti");
+    var url = location.protocol + "//" + location.host + "/tool_redirect?custom_fish_name=" + encodeURIComponent(document.getElementById('name').value) + "&url=" + encodeURIComponent("/name.html");
+    args.push("url=" + encodeURIComponent(url));
+    location.href = params['launch_presentation_return_url'] + args.join('&');
+  });
+})();
+</script>
+</body>
+</html>
