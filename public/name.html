@@ -27,14 +27,14 @@
       params[key] = decodeURIComponent(value);
     }
   }
-  if(params['selection_directive'] != "select_link") {
-    alert("This page is normally used an an example of selecting or creating a resource, but you've referenced it some other way. As such, it's not going to be very useful to you. Sorry.");
-    return;
-  }
   if(params['custom_fish_name']) {
     document.getElementById('not_named').style.display = 'none';
     document.getElementById('named').style.display = 'block';
     document.getElementById('fish_name').innerHTML = params['custom_fish_name'];
+  }
+  else if(params['selection_directive'] != "select_link") {
+    alert("This page is normally used an an example of selecting or creating a resource, but you've referenced it some other way. As such, it's not going to be very useful to you. Sorry.");
+    return;
   }
   document.getElementById('save').addEventListener('click', function(e) {
     if(!params['launch_presentation_return_url'].match(/\?/)) {
