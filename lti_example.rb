@@ -273,37 +273,9 @@ get "/" do
   HTML
 end
 
-get "/config/grade_passback.xml" do
-  host = request.scheme + "://" + request.host_with_port
-  headers 'Content-Type' => 'text/xml'
-  <<-XML
-<?xml version="1.0" encoding="UTF-8"?>
-    <!--  -->
-<cartridge_basiclti_link xmlns="http://www.imsglobal.org/xsd/imslticc_v1p0"
-    xmlns:blti = "http://www.imsglobal.org/xsd/imsbasiclti_v1p0"
-    xmlns:lticm ="http://www.imsglobal.org/xsd/imslticm_v1p0"
-    xmlns:lticp ="http://www.imsglobal.org/xsd/imslticp_v1p0"
-    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation = "http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd
-    http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0.xsd
-    http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd
-    http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd">
-    <blti:title>Grade Passback Demo</blti:title>
-    <blti:description>This tool demos the LTI Outcomes (grade passback) available as part of LTI</blti:description>
-    <blti:launch_url>#{host}/assessment/start</blti:launch_url>
-    <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
-    </blti:extensions>
-    <cartridge_bundle identifierref="BLTI001_Bundle"/>
-    <cartridge_icon identifierref="BLTI001_Icon"/>
-</cartridge_basiclti_link>  
-  XML
-end
-
 def config_wrap(xml)
   res = <<-XML
-  <?xml version="1.0" encoding="UTF-8"?>
-      <!--  -->
+<?xml version="1.0" encoding="UTF-8"?>
   <cartridge_basiclti_link xmlns="http://www.imsglobal.org/xsd/imslticc_v1p0"
       xmlns:blti = "http://www.imsglobal.org/xsd/imsbasiclti_v1p0"
       xmlns:lticm ="http://www.imsglobal.org/xsd/imslticm_v1p0"
@@ -371,6 +343,19 @@ get "/config/user_navigation.xml" do
       </lticm:options>
     </blti:extensions>
     <blti:icon>#{host}/fish_icon.png</blti:icon>
+  XML
+end
+
+get "/config/grade_passback.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Grade Passback Demo</blti:title>
+    <blti:description>This tool demos the LTI Outcomes (grade passback) available as part of LTI</blti:description>
+    <blti:launch_url>#{host}/assessment/start</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+    </blti:extensions>
   XML
 end
 
