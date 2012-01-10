@@ -136,7 +136,144 @@ Your score has #{response.body.match(/\bsuccess\b/) ? "been posted" : "failed in
   }
 end
 
-get "/config/editor_button.xml" do
+get "/" do
+  <<-HTML
+  <html>
+    <head>
+      <title>LTI Examples</title>
+      <style>
+      body {
+        width: 700px;
+        margin: 0 auto;
+      }
+      ul li {
+        clear: both;
+      }
+      ul li > div {
+        padding: 5px 0 15px 20px;
+      }
+      ul li > div img {
+        width: 250px;
+        float: right;
+        padding-right: 10px;
+        padding-bottom: 20px;
+      }
+      </style>
+    </head>
+    <body>
+      <h1>LTI Examples</h1>
+      
+      <p>
+        This repo contains working examples of LTI integrations, including
+        LTI extensions as documented in the 
+        <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API docs</a>.
+        The source code is freely available as
+        <a href="https://github.com/instructure/lti_example">a github repository</a>
+        and can be run locally or easily deployed to a public environment.
+      </p>
+      <p>
+        If you are unfamiliar with LTI (or Basic LTI), please check out the 
+        <a href="http://www.imsglobal.org/lti/">IMS LTI documentation</a>
+      </p>
+      
+      <h2>Default Configurations</h2>
+      <p>These are basic XML configurations for LTI tools with extensions. You
+      can copy and paste these URLs as standard configuration, or try modifying
+      the configuration XML to set up more advanced configurations. More information
+      on tool configuration is availabe in the <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API docs</a></p>
+      <ul>
+        <li><a href="/config/course_navigation.xml">Course Navigation Demo</a>
+          <div>
+            <img src="/course_navigation_example.png" alt=""/>
+            This is an example of a standard configuration for adding a link to
+            course navigation. This link is available to anyone with access to 
+            the course. If it's configured at the account level, the link will
+            be added to all courses within that account.
+            <a href="https://canvas.instructure.com/doc/api/navigation_tools.html#course_navigation">more information</a>
+          </div>
+        </li>
+        <li><a href="/config/account_navigation.xml">Account Navigation Demo</a>
+          <div>
+            <img src="/account_navigation_example.png" alt=""/>
+            This is an example of a standard configuration for adding a link to
+            account navigation. This link is available to anyone with access to 
+            the account. The link will appear in the current account and any
+            sub-accounts of that account.
+            <a href="https://canvas.instructure.com/doc/api/navigation_tools.html#account_navigation">more information</a>
+          </div>
+        </li>
+        <li><a href="/config/user_navigation.xml">User Navigation Demo</a>
+          <div>
+            <img src="/user_navigation_example.png" alt=""/>
+            This is an example of a standard configuration for adding a link to
+            user navigation. This link is available to anyone with access to 
+            the institution, and will appear whent hey click the profile link.
+            <a href="https://canvas.instructure.com/doc/api/navigation_tools.html#user_navigation">more information</a>
+          </div>
+        </li>
+        <li><a href="/config/grade_passback.xml">Grade Passback (LTI Outcomes) Demo</a>
+          <div>
+            This example showcases the LTI Outcomes functionality which is
+            part of LTI 1.1. After this tool is configured, create a new assignment
+            with type "External Tool". Select the configured tool and then
+            access the assignment as a student to test its functionality.
+            <a href="https://canvas.instructure.com/doc/api/assignment_tools.html">more information</a>
+          </div>
+        </li>
+        <li><a href="/config/editor_button.xml">Rich Editor Button Demo</a>
+          <div>
+            <img src="/editor_button_example.png" alt=""/>
+            This shows adding an editor button to the rich editor
+            in course/group content. Clicking the new fish icon will pop up a dialog
+            with pictures of fish. Clicking any of the fish will insert that
+            image into the rich content pane. If the tool is configured at the account
+            level, then the button will appear for any courses/groups within 
+            that account.
+            <a href="https://canvas.instructure.com/doc/api/editor_button_tools.html">more information</a>
+          </div>
+        </li>
+        <li><a href="/config/resource_selection.xml">Links in Modules Demo</a>
+          <div>
+            <img src="/resource_selection_example.png" alt=""/>
+            This tool allows the user to pick and insert custom content as link
+            in course modules. When inserting content into a module, if the user
+            picks "External Tools" they'll see the configured tool with a "find"
+            icon. Clicking the tool will bring up a new dialog where the user
+            can pick/build content (in this case creating a page that shows an
+            image of a fish with a user-specified name for the fish) 
+            to be inserted as a page or resource within
+            the current module. If the tool is configured at the account level,
+            then it will be available for any courses within that account.
+            <a href="https://canvas.instructure.com/doc/api/link_selection_tools.html">more information</a>
+          </div>
+        </li>
+        <li><a href="/config/editor_button_and_resource_selection.xml">Combination Rich Editor Button and Module Links Demo</a>
+          <div>
+            This example shows configuring a tool to serve multiple purposes at
+            the same time. In this case, a single tool can add both a fish 
+            icon to the rich editor, and the ability to add named fish pages to
+            course modules.
+            <a href="https://canvas.instructure.com/doc/api/tools_xml.html">more information about advanced configuration</a>
+          </div>
+        </li>
+        <li><a href="/config/inline_graph.xml">Inline Graphs Demo</a>
+          <div>
+            <img src="/graph_tk_example.png" alt=""/>
+            This is a real-world example that allows users to insert rich,
+            interactive graphs into course content. Users can type in arbitrary
+            equations (similar to the Canvas equation editor) and see them
+            rendered in the graph. They can then position the graph and click
+            to insert it into the page.
+            <a href="https://github.com/aantthony/graph.tk">more information about graph.tk</a>
+          </div>
+        </li>
+      </ul>
+    </body>
+  </html>
+  HTML
+end
+
+get "/config/grade_passback.xml" do
   host = request.scheme + "://" + request.host_with_port
   headers 'Content-Type' => 'text/xml'
   <<-XML
@@ -151,6 +288,96 @@ get "/config/editor_button.xml" do
     http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0.xsd
     http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd
     http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd">
+    <blti:title>Grade Passback Demo</blti:title>
+    <blti:description>This tool demos the LTI Outcomes (grade passback) available as part of LTI</blti:description>
+    <blti:launch_url>#{host}/assessment/start</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+    </blti:extensions>
+    <cartridge_bundle identifierref="BLTI001_Bundle"/>
+    <cartridge_icon identifierref="BLTI001_Icon"/>
+</cartridge_basiclti_link>  
+  XML
+end
+
+def config_wrap(xml)
+  res = <<-XML
+  <?xml version="1.0" encoding="UTF-8"?>
+      <!--  -->
+  <cartridge_basiclti_link xmlns="http://www.imsglobal.org/xsd/imslticc_v1p0"
+      xmlns:blti = "http://www.imsglobal.org/xsd/imsbasiclti_v1p0"
+      xmlns:lticm ="http://www.imsglobal.org/xsd/imslticm_v1p0"
+      xmlns:lticp ="http://www.imsglobal.org/xsd/imslticp_v1p0"
+      xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation = "http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd
+      http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0.xsd
+      http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd
+      http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd">
+  XML
+  res += xml
+  res += <<-XML
+      <cartridge_bundle identifierref="BLTI001_Bundle"/>
+      <cartridge_icon identifierref="BLTI001_Icon"/>
+  </cartridge_basiclti_link>  
+  XML
+end
+
+get "/config/course_navigation.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Course Wanda Fish</blti:title>
+    <blti:description>This tool adds a course navigation link to a page on a fish called "Wanda"</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:options name="course_navigation">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html?custom_fish_name=wanda')}</lticm:property>
+        <lticm:property name="text">Course Wanda Fish</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+  XML
+end
+
+get "/config/account_navigation.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Account Phil Fish</blti:title>
+    <blti:description>This tool adds an account navigation link to a page on a fish named "Phil"</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:options name="account_navigation">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html?custom_fish_name=phil')}</lticm:property>
+        <lticm:property name="text">Account Phil Fish</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+  XML
+end
+
+get "/config/user_navigation.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>User Alexander Fish</blti:title>
+    <blti:description>This tool adds a user navigation link (in a user's profile) to a page on a fish called "Alexander"</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:options name="user_navigation">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html?custom_fish_name=alexander')}</lticm:property>
+        <lticm:property name="text">User Alexander Fish</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/fish_icon.png</blti:icon>
+  XML
+end
+
+get "/config/editor_button.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
     <blti:title>I Like Fish</blti:title>
     <blti:description>I'm a big fan of fish, and I want to share the love</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
@@ -165,26 +392,13 @@ get "/config/editor_button.xml" do
       </lticm:options>
     </blti:extensions>
     <blti:icon>#{host}/fish_icon.png</blti:icon>
-    <cartridge_bundle identifierref="BLTI001_Bundle"/>
-    <cartridge_icon identifierref="BLTI001_Icon"/>
-</cartridge_basiclti_link>  
   XML
 end
 
 get "/config/resource_selection.xml" do
   host = request.scheme + "://" + request.host_with_port
   headers 'Content-Type' => 'text/xml'
-  <<-XML
-<?xml version="1.0" encoding="UTF-8"?>
-<cartridge_basiclti_link xmlns="http://www.imsglobal.org/xsd/imslticc_v1p0"
-    xmlns:blti = "http://www.imsglobal.org/xsd/imsbasiclti_v1p0"
-    xmlns:lticm ="http://www.imsglobal.org/xsd/imslticm_v1p0"
-    xmlns:lticp ="http://www.imsglobal.org/xsd/imslticp_v1p0"
-    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation = "http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd
-    http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0.xsd
-    http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd
-    http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd">
+  config_wrap <<-XML
     <blti:title>I Like Fish</blti:title>
     <blti:description>I'm a big fan of fish, and I want to share the love</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
@@ -197,26 +411,13 @@ get "/config/resource_selection.xml" do
         <lticm:property name="selection_height">300</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <cartridge_bundle identifierref="BLTI001_Bundle"/>
-    <cartridge_icon identifierref="BLTI001_Icon"/>
-</cartridge_basiclti_link>  
   XML
 end
 
 get "/config/editor_button_and_resource_selection.xml" do
   host = request.scheme + "://" + request.host_with_port
   headers 'Content-Type' => 'text/xml'
-  <<-XML
-<?xml version="1.0" encoding="UTF-8"?>
-<cartridge_basiclti_link xmlns="http://www.imsglobal.org/xsd/imslticc_v1p0"
-    xmlns:blti = "http://www.imsglobal.org/xsd/imsbasiclti_v1p0"
-    xmlns:lticm ="http://www.imsglobal.org/xsd/imslticm_v1p0"
-    xmlns:lticp ="http://www.imsglobal.org/xsd/imslticp_v1p0"
-    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation = "http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd
-    http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0.xsd
-    http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd
-    http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd">
+  config_wrap <<-XML
     <blti:title>I Like Fish</blti:title>
     <blti:description>I'm a big fan of fish, and I want to share the love</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
@@ -236,27 +437,13 @@ get "/config/editor_button_and_resource_selection.xml" do
         <lticm:property name="selection_height">300</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <cartridge_bundle identifierref="BLTI001_Bundle"/>
-    <cartridge_icon identifierref="BLTI001_Icon"/>
-</cartridge_basiclti_link>  
   XML
 end
 
 get "/config/inline_graph.xml" do
   host = request.scheme + "://" + request.host_with_port
   headers 'Content-Type' => 'text/xml'
-  <<-XML
-<?xml version="1.0" encoding="UTF-8"?>
-    <!--  -->
-<cartridge_basiclti_link xmlns="http://www.imsglobal.org/xsd/imslticc_v1p0"
-    xmlns:blti = "http://www.imsglobal.org/xsd/imsbasiclti_v1p0"
-    xmlns:lticm ="http://www.imsglobal.org/xsd/imslticm_v1p0"
-    xmlns:lticp ="http://www.imsglobal.org/xsd/imslticp_v1p0"
-    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation = "http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd
-    http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0.xsd
-    http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd
-    http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd">
+  config_wrap <<-XML
     <blti:title>Embeddable Graphs</blti:title>
     <blti:description>This tool allows for the creation and insertion of rich, interactive graphs.</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
@@ -271,9 +458,6 @@ get "/config/inline_graph.xml" do
       </lticm:options>
     </blti:extensions>
     <blti:icon>#{host}/graph.tk/favicon.ico</blti:icon>
-    <cartridge_bundle identifierref="BLTI001_Bundle"/>
-    <cartridge_icon identifierref="BLTI001_Icon"/>
-</cartridge_basiclti_link>  
   XML
 end
 
