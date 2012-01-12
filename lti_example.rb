@@ -175,7 +175,20 @@ get "/" do
         If you are unfamiliar with LTI (or Basic LTI), please check out the 
         <a href="http://www.imsglobal.org/lti/">IMS LTI documentation</a>
       </p>
-      
+      <h2>Configuring Tools in Canvas</h2>
+      <img src="/tool_config.png" style="width: 300px; float: right;" alt=""/>
+      <p>LTI tool configuration in Canvas can happen on the course or account.
+      Click the "Settings" link in the left sidebar of the course or account
+      where you want to add the tool. Click the "External Tools" tab and click
+      "Add External Tool".
+      </p>
+      <p>Enter the name, consumer key and shared secret for the
+      tool (for these demo tools you can put any key and secret that you like).
+      For "configuration type" select "By URL" and paste in the full URL of the
+      link configuration (copy the URL from one of the links below).
+      </p>
+      <p>After the tool is saved you should see it appear as configured in the
+      course our account content.</p>
       <h2>Default Configurations</h2>
       <p>These are basic XML configurations for LTI tools with extensions. You
       can copy and paste these URLs as standard configuration, or try modifying
