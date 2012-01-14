@@ -1,0 +1,64 @@
+<html>
+<head>
+<style>
+body {
+  font-family: Arial;
+}
+h1 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+#results {
+  width: 560px;
+}
+#results .result {
+  float: left;
+  width: 130px;
+  padding: 5px;
+}
+#results .result:hover {
+  background: #ccc;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#results .result .img {
+  padding: 0 5px;
+}
+#results .result .title {
+  height: 28px;
+  font-size: 12px;
+  padding-left: 5px;
+  overflow: hidden;
+  color: #444;
+}
+#message {
+  font-weight: bold;
+  margin: 10px;
+}
+</style>
+</head>
+<body>
+<img src="khan.png" style="width: 70px; vertical-align: middle; float: left;"/>
+<h1>
+Search Khan Academy videos:
+</h1>
+
+<form id="search">
+<input type="text" id="query"/>
+<button type="submit">Search</button>
+</form>
+
+<div id="message"></div>
+
+<div id="results"></div>
+<div id="result" style="display: none;" class="result" title="Click to embed">
+  <img class="img"/>
+  <div class="duration"></div>
+  <div class="title"></div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="khan.js"></script>
+</body>
+</html>

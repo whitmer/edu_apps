@@ -280,6 +280,15 @@ get "/" do
             <a href="https://github.com/aantthony/graph.tk">more information about graph.tk</a>
           </div>
         </li>
+        <li><a href="/config/khan_academy.xml">Khan Academy Videos Demo</a>
+          <div>
+            <img src="/khan_academy_example.png" alt=""/>
+            This is a real-world example that allows users to search through
+            the list of Khan Academy videos and embed links to these videos
+            directly into course material.
+            <a href="http://www.khanacademy.com">more information about Khan Academy</a>
+          </div>
+        </li>
       </ul>
     </body>
   </html>
@@ -456,6 +465,27 @@ get "/config/inline_graph.xml" do
       </lticm:options>
     </blti:extensions>
     <blti:icon>#{host}/graph.tk/favicon.ico</blti:icon>
+  XML
+end
+
+get "/config/khan_academy.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Khan Academy Videos</blti:title>
+    <blti:description>Search for and insert links to Khan Academy lecture videos.</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/khan.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/khan.ico</lticm:property>
+        <lticm:property name="text">Find Khan Academy Video</lticm:property>
+        <lticm:property name="selection_width">590</lticm:property>
+        <lticm:property name="selection_height">450</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/khan.ico</blti:icon>
   XML
 end
 
