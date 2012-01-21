@@ -245,6 +245,18 @@ get "/" do
             <a href="https://canvas.instructure.com/doc/api/editor_button_tools.html">more information</a>
           </div>
         </li>
+        <li><a href="/config/editor_button2.xml">Another Rich Editor Button Demo</a>
+          <div>
+            <img src="/kitten_example.png" alt=""/>
+            This shows adding an editor button to the rich editor
+            in course/group content. Clicking the new kitten icon will pop up a dialog
+            that uses placekitten.com to generate an image of a kitten set
+            to the user's specified dimensions. If the tool is configured at the account
+            level, then the button will appear for any courses/groups within 
+            that account.
+            <a href="https://canvas.instructure.com/doc/api/editor_button_tools.html">more information</a>
+          </div>
+        </li>
         <li><a href="/config/resource_selection.xml">Links in Modules Demo</a>
           <div>
             <img src="/resource_selection_example.png" alt=""/>
@@ -399,6 +411,27 @@ get "/config/editor_button.xml" do
       </lticm:options>
     </blti:extensions>
     <blti:icon>#{host}/fish_icon.png</blti:icon>
+  XML
+end
+
+get "/config/editor_button2.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Placekitten.com</blti:title>
+    <blti:description>Placekitten.com is a quick and simple service for adding pictures of kittens to your site</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/kitten.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/cat_icon.png</lticm:property>
+        <lticm:property name="text">Insert a Kitten</lticm:property>
+        <lticm:property name="selection_width">500</lticm:property>
+        <lticm:property name="selection_height">400</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/cat_icon.png</blti:icon>
   XML
 end
 

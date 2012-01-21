@@ -1,0 +1,57 @@
+<!-- cat icon provided by http://www.fatcow.com/ -->
+<html>
+<head>
+</head>
+<body>
+Kittens are an important part of life, and society. Placekitten.com makes it easier to add perfectly-sized images of kittens to your site.
+<br/><br/>
+width: <input type="number" min="10" max="600" id="width" value="300" style="width: 50px;"/>
+<span style="padding-right: 10px;"></span>
+height: <input type="number" min="10" max="600" id="height" value="200" style="width: 50px;"/>
+<br/>
+<input type="checkbox" id="grayscale"><label for="grayscale">grayscale kitten</label>
+<div style="text-align: center; margin-top: 10px;">
+  <a href="#" id="link"><img src='http://placekitten.com/300/200' title='Click to add image'/></a>
+</div>
+<script>
+(function() {
+  var url = location.href;
+  var args = (url.split(/\?/)[1] || "").split(/\&/);
+  var params = {}
+  for(var idx in args) {
+    var arg = args[idx].split(/\=/);
+    var key = arg[0];
+    var value = arg[1];
+    if(key && value) {
+      params[key] = decodeURIComponent(value);
+    }
+  }
+  if(params['launch_presentation_return_url'] && !params['launch_presentation_return_url'].match(/\?/)) {
+    params['launch_presentation_return_url'] = params['launch_presentation_return_url'] + "?";
+  }
+  if(params['selection_directive'] != "embed_content") {
+    alert("This page is normally used an an example of embedding content, but you've referenced it some other way. As such, it's not going to be very useful to you. Sorry.");
+  }
+  function settingsChanged() {
+    var width = parseInt(document.getElementById('width').value, 10) || 300;
+    var height = parseInt(document.getElementById('height').value, 10) || 200;
+    var grayscale = document.getElementById('grayscale').checked;
+    var link = document.getElementById('link');
+    var img = link.children[0];
+    img.src = 'http://placekitten.com/' + (grayscale ? 'g/' : '') + width + '/' + height;
+    link.href = [params['launch_presentation_return_url'], 'embed_type=image', ('url=' + encodeURIComponent(img.src))].join('&');
+  }
+  document.getElementById('width').addEventListener('change', function() {
+    settingsChanged();
+  });
+  document.getElementById('height').addEventListener('change', function() {
+    settingsChanged();
+  });
+  document.getElementById('grayscale').addEventListener('change', function() {
+    settingsChanged();
+  });
+  settingsChanged();
+})();
+</script>
+</body>
+</html>
