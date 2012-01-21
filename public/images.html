@@ -27,7 +27,7 @@ Everyone should love fish. These are some fish pictures I've collected for you t
     }
   }
   var links = document.getElementsByTagName('A');
-  if(!params['launch_presentation_return_url'].match(/\?/)) {
+  if(params['launch_presentation_return_url'] && !params['launch_presentation_return_url'].match(/\?/)) {
     params['launch_presentation_return_url'] = params['launch_presentation_return_url'] + "?";
   }
   if(params['selection_directive'] != "embed_content") {
