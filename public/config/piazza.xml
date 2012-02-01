@@ -8,11 +8,15 @@
     http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0.xsd
     http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd
     http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd">
-  <blti:title>IMathAS</blti:title>
-  <blti:description>This tool allows the instructor to use the IMathAS system to build and distribute online math assessments.</blti:description>
-  <blti:launch_url>http://www.imathas.com/cur/bltilaunch.php</blti:launch_url>
+  <blti:title>Piazza</blti:title>
+  <blti:description>This tool adds the Piazza discussion tool as a link in the course navigation.</blti:description>
+  <blti:launch_url>https://piazza.com/basic_lti</blti:launch_url>
   <blti:extensions platform="canvas.instructure.com">
     <lticm:property name="privacy_level">public</lticm:property>
+    <lticm:options name="course_navigation">
+      <lticm:property name="url">https://piazza.com/basic_lti</lticm:property>
+      <lticm:property name="text">Piazza</lticm:property>
+    </lticm:options>
   </blti:extensions>
   <cartridge_bundle identifierref="BLTI001_Bundle"/>
   <cartridge_icon identifierref="BLTI001_Icon"/>
