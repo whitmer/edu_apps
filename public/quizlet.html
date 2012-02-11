@@ -1,0 +1,139 @@
+<html>
+<head>
+<style>
+body {
+  font-family: Arial;
+}
+h1 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 20px;
+}
+#results {
+  width: 650px;
+}
+#results .result {
+  float: left;
+  width: 200px;
+  padding: 5px;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #eee;
+  margin: 2px;
+}
+#results .result:hover {
+  background: #ddd;
+  border-radius: 5px;
+}
+#results .result .img {
+  padding: 0 5px;
+}
+#results .result .title {
+  height: 28px;
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 5px;
+  overflow: hidden;
+  color: #444;
+}
+#results .result .description {
+  color: #888;
+  padding-left: 15px;
+}
+#results .result .add_form {
+  clear: both;
+}
+#results .result .term_count {
+  float: left;
+  font-size: 24px;
+  width: 40px;
+}
+#results .result .terms {
+  float: left;
+  clear: left;
+  font-size: 10px;
+  width: 40px;
+}
+#results .result .author {
+  font-size: 11px;
+  width: 100px;
+  overflow: hidden;
+}
+#results .result .has_images {
+  visibility: hidden;
+  padding-top: 10px;
+}
+#results .result.has_images .has_images {
+  visibility: visible;
+  font-size: 11px;
+  
+}
+
+#results .result select {
+  opacity: 0.3;
+}
+#results .result:hover select {
+  opacity: 1.0;
+}
+#message {
+  font-weight: bold;
+  margin: 10px;
+}
+#quizlet {
+  display: none;
+}
+#quizlet_wrapper {
+}
+#quizlet_preview {
+  border: 2px solid #888;
+  padding: 5px 0 5px 5px;
+  width: 600px;
+  height: 350px;
+  margin-bottom: 5px;
+}
+#add {
+  font-size: 14px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<a href="http://quizlet.com/"><img src="quizlet.png" style="padding-right: 10px; vertical-align: middle; float: left;"/></a>
+<h1>
+Search flash card sets:
+</h1>
+<form id="search">
+<input type="text" id="query"/>
+<button type="submit">Search</button>
+</form>
+<div style="clear: both;"></div>
+
+<div id="message"></div>
+
+<div id="results"></div>
+<div id="result" style="display: none;" class="result">
+  <div class="title"></div>
+  <div class="description">
+    <div class="term_count"></div>
+    <div class="terms">terms</div>
+    <div class="has_images">has images</div>
+    <div class="author"></div>
+  </div>
+</div>
+<div id="quizlet">
+  <div class="title"></div>
+  <div id="quizlet_wrapper">
+    <iframe frameborder="0" data-id="5084165" id="quizlet_preview" src="http://quizlet.com/5084165/familiarize/embed/?hideLinks"></iframe>
+  </div>
+  <select id="quizlet_type">
+    <option value="familiarize">Flashcards</option>
+    <option value="learn">Learn</option>
+    <option value="scatter">Scatter Game</option>
+  </select>
+  <button type="button" id="add">Add Quizlet</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="quizlet.js"></script>
+</body>
+</html>

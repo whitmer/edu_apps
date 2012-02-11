@@ -17,6 +17,8 @@ end
 require 'sinatra'
 require 'oauth'
 require 'json'
+require 'dm-core'
+require 'dm-migrations'
 require 'oauth/request_proxy/rack_request'
 
 # hard-coded oauth information for testing convenience
@@ -28,6 +30,30 @@ disable :protection
 # enable sessions so we can remember the launch info between http requests, as
 # the user takes the assessment
 enable :sessions
+
+class ExternalConfig
+  include DataMapper::Resource
+  property :id, Serial
+  property :config_type, String
+  property :value, String
+end
+
+configure do
+  DataMapper.setup(:default, (ENV["DATABASE_URL"] || "sqlite3:///#{Dir.pwd}/development.sqlite3"))
+  DataMapper.auto_upgrade!
+  @@quizlet_config = ExternalConfig.first(:config_type => 'quizlet')
+end
+
+get "/quizlet_search" do
+  return "Quizlet not propertly configured" unless @@quizlet_config
+  uri = URI.parse("https://api.quizlet.com/2.0/search/sets")
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  tmp_url = uri.path+"?q=#{params['q']}&client_id=#{@@quizlet_config.value}"
+  request = Net::HTTP::Get.new(tmp_url)
+  response = http.request(request)
+  return response.body
+end
 
 # this is the entry action that Canvas (the LTI Tool Consumer) sends the
 # browser to when launching the tool.
@@ -516,6 +542,27 @@ get "/config/khan_academy.xml" do
         <lticm:property name="text">Find Khan Academy Video</lticm:property>
         <lticm:property name="selection_width">590</lticm:property>
         <lticm:property name="selection_height">450</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/khan.ico</blti:icon>
+  XML
+end
+
+get "/config/quizlet.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Quizlet Flash Cards</blti:title>
+    <blti:description>Search for and insert publicly available flash card sets from quizlet.com</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/quizlet.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/quizlet.ico</lticm:property>
+        <lticm:property name="text">Embed Quizlet Flash Cards</lticm:property>
+        <lticm:property name="selection_width">690</lticm:property>
+        <lticm:property name="selection_height">510</lticm:property>
       </lticm:options>
     </blti:extensions>
     <blti:icon>#{host}/khan.ico</blti:icon>
