@@ -318,6 +318,16 @@ get "/" do
             <a href="https://github.com/aantthony/graph.tk">more information about graph.tk</a>
           </div>
         </li>
+        <li><a href="/config/quizlet.xml">Quizlet Flash Cards Demo</a>
+          <div>
+            <img src="/quizlet_example.png" alt=""/>
+            This is a real-world example that allows users to search through
+            the flash cards sets available at quizlet.com and embed sets
+            as flash cards, practice quizzes, or matching games directly 
+            into course material.
+            <a href="http://www.quizlet.com">more information about Quizlet</a>
+          </div>
+        </li>
         <li><a href="/config/khan_academy.xml">Khan Academy Videos Demo</a>
           <div>
             <img src="/khan_academy_example.png" alt=""/>
