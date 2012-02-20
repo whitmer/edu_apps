@@ -579,6 +579,27 @@ get "/config/quizlet.xml" do
   XML
 end
 
+get "/config/tools.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Public Resource Libraries</blti:title>
+    <blti:description>Collection of resources from multiple sources, including Kahn Academy, Quizlet, etc.</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/tools.png</lticm:property>
+        <lticm:property name="text">Search Resource Libraries</lticm:property>
+        <lticm:property name="selection_width">800</lticm:property>
+        <lticm:property name="selection_height">600</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/khan.ico</blti:icon>
+  XML
+end
+
 post "/tool_redirect" do
   url = params['url']
   args = []
@@ -587,4 +608,16 @@ post "/tool_redirect" do
   end
   url = url + (url.match(/\?/) ? "&" : "?") + args.join('&')
   redirect to(url)
+end
+
+get "/oembed" do
+  url = params['url']
+  code = CGI.unescape(url.split(/code=/)[1])
+  {
+    'version' => '1.0',
+    'type'    => 'rich',
+    'html'    => code,
+    'width'   => 600,
+    'height'  => 400
+  }.to_json
 end
