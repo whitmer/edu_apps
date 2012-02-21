@@ -23,28 +23,28 @@
     {
       name: "Khan Academy",
       logo_url: "/tools/khan.png",
-      description: "",
+      description: "Online video lessons for math, science, etc.",
       markets: "",
       launch_url: "https://lti-examples.heroku.com/khan.html"
     },
     {
       name: "Graph Builder",
       logo_url: "/tools/graph_tk.png",
-      description: "",
+      description: "Build and embed rich interactive graphs into course content",
       markets: "",
       launch_url: "https://lti-examples.heroku.com/graph.html"
     },
     {
       name: "Quizlet Flash Cards",
       logo_url: "/tools/quizlet.png",
-      description: "",
+      description: "Search Quizlet for flash card and study tools",
       markets: "",
       launch_url: "https://lti-examples.heroku.com/quizlet.html"
     },
     {
       name: "Codecademy",
       logo_url: "/tools/codecademy.png",
-      description: "",
+      description: "Interactive programming lessons",
       markets: "",
       resources:
 [
@@ -373,11 +373,56 @@
     "url": "/courses/4f1f8f67aef7bc000100e2cd"
   }
 ]
-},
+    },
+    {
+      name: "Elementary Paper",
+      logo_url: "/tools/elementary_paper.png",
+      description: "Browse printable writing practice sheets",
+      markets: "",
+      resources: 
+[
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=185",
+    "image_url": "/elementary_paper/alphabet.png",
+    "name": "Alphabet",
+    "description": "All letters of the Alphabet."
+  },
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=188",
+    "image_url": "/elementary_paper/months.png",
+    "name": "Calendar Months",
+    "description": "All the months in a calendar year."
+  },
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=187",
+    "image_url": "/elementary_paper/days.png",
+    "name": "Days of the Week",
+    "description": "All the days of the week."
+  },
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=186",
+    "image_url": "/elementary_paper/numbers.png",
+    "name": "Numbers",
+    "description": "The numbers 0 through 9."
+  },
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=183",
+    "image_url": "/elementary_paper/colors.png",
+    "name": "Rainbow",
+    "description": "All the colors in the rainbow."
+  },
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=184",
+    "image_url": "/elementary_paper/colors_in_color.png",
+    "name": "Rainbow (with Colors)",
+    "description": "All the colors in the rainbow - set on a worksheet with colored lines and font."
+  }
+]
+    },
     {
       name: "Hooda Math",
       logo_url: "/tools/hooda_math.png",
-      description: "",
+      description: "Link to online math learning games",
       markets: "",
       resources: 
         [
@@ -584,7 +629,7 @@
     {
       name: "PlaceKitten",
       logo_url: "/tools/place_kitten.png",
-      description: "",
+      description: "Browse kitten images",
       markets: "",
       resources: [
         {
@@ -689,7 +734,8 @@
       var tool = matches[idx];
       var $tool = $("<div/>", {'class': 'tool'}).append(
         $("<img/>", {src: tool.logo_url, 'class': 'logo'})).append(
-        $("<span/>", {'class': 'name'}).text(tool.name));
+        $("<span/>", {'class': 'name'}).text(tool.name)).append(
+        $("<span/>", {'class': 'description'}).text(tool.description));
       $tool.data('tool', tool);
       $tool.click(function() {
         var tool = $(this).data('tool');
