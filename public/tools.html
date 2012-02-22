@@ -50,7 +50,9 @@ h1 {
 #resources .resource {
   float: left;
   width: 250px;
+  height: 160px;
   padding: 5px;
+  position: relative;
 }
 #resources .resource .name {
   white-space: nowrap;
@@ -76,6 +78,15 @@ h1 {
   height: 125px;
   overflow: auto;
   font-size: 12px;
+}
+#resources .resource .preview {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  display: none;
+}
+#resources .resource:hover .preview {
+  display: inline;
 }
 #message {
   font-weight: bold;
