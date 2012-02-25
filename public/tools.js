@@ -25,21 +25,28 @@
       logo_url: "/tools/khan.png",
       description: "Online video lessons for math, science, etc.",
       markets: "",
-      launch_url: "https://lti-examples.heroku.com/khan.html"
+      launch_url: "/khan.html"
+    },
+    {
+      name: "USA Today",
+      logo_url: "/tools/usa_today.png",
+      description: "Search articles on USA Today",
+      markets: "",
+      launch_url: "/usatoday.html"
     },
     {
       name: "Graph Builder",
       logo_url: "/tools/graph_tk.png",
       description: "Build and embed rich interactive graphs into course content",
       markets: "",
-      launch_url: "https://lti-examples.heroku.com/graph.html"
+      launch_url: "/graph.html"
     },
     {
       name: "Quizlet Flash Cards",
       logo_url: "/tools/quizlet.png",
       description: "Search Quizlet for flash card and study tools",
       markets: "",
-      launch_url: "https://lti-examples.heroku.com/quizlet.html"
+      launch_url: "/quizlet.html"
     },
     {
       name: "Codecademy",
