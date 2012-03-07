@@ -28,6 +28,13 @@
       launch_url: "/khan.html"
     },
     {
+      name: "Slideshare",
+      logo_url: "/tools/slideshare.png",
+      description: "Creative Commons-licensed presentations",
+      markets: "",
+      launch_url: "/slideshare.html"
+    },
+    {
       name: "USA Today",
       logo_url: "/tools/usa_today.png",
       description: "Search articles on USA Today",

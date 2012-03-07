@@ -19,6 +19,7 @@ require 'oauth'
 require 'json'
 require 'dm-core'
 require 'dm-migrations'
+require 'nokogiri'
 require 'oauth/request_proxy/rack_request'
 
 # hard-coded oauth information for testing convenience
@@ -36,12 +37,15 @@ class ExternalConfig
   property :id, Serial
   property :config_type, String
   property :value, String
+  property :secret, String
 end
 
 configure do
   DataMapper.setup(:default, (ENV["DATABASE_URL"] || "sqlite3:///#{Dir.pwd}/development.sqlite3"))
   DataMapper.auto_upgrade!
   @@quizlet_config = ExternalConfig.first(:config_type => 'quizlet')
+  @@slideshare_config = ExternalConfig.first(:config_type => 'slideshare')
+  puts "found #{@@slideshare_config}"
 end
 
 get "/quizlet_search" do
@@ -53,6 +57,30 @@ get "/quizlet_search" do
   request = Net::HTTP::Get.new(tmp_url)
   response = http.request(request)
   return response.body
+end
+
+get '/slideshare_search' do
+  return "Slideshare not properly configured" unless @@slideshare_config
+  uri = URI.parse("http://www.slideshare.net/api/2/search_slideshows")
+  ts = Time.now.to_i.to_s
+  sig = Digest::SHA1.hexdigest(@@slideshare_config.secret + ts)
+  http = Net::HTTP.new(uri.host, uri.port)
+  tmp_url = uri.path+"?q=#{params['q']}&api_key=#{@@slideshare_config.value}&ts=#{ts}&hash=#{sig}&items_per_page=24&cc=1"
+  request = Net::HTTP::Get.new(tmp_url)
+  response = http.request(request)
+  xml = Nokogiri(response.body)
+  res = []
+  xml.css('Slideshow').each do |slideshow|
+    res << {
+      :title => slideshow.css('Title')[0].content,
+      :description => slideshow.css('Description')[0].content,
+      :url => slideshow.css('URL')[0].content,
+      :image_url => slideshow.css('ThumbnailURL')[0].content,
+      :embed_code => slideshow.css('Embed')[0].content,
+      :author => slideshow.css('Username')[0].content
+    }
+  end
+  return res.to_json
 end
 
 # this is the entry action that Canvas (the LTI Tool Consumer) sends the
@@ -328,6 +356,18 @@ get "/" do
             <a href="http://www.quizlet.com">more information about Quizlet</a>
           </div>
         </li>
+        <li><a href="/config/slideshare.xml">Slideshare CC Search Demo</a>
+          <div>
+            <img src="/slideshare_example.png" alt=""/>
+            This is a real-world example that allows users to search through
+            Creative Commons-licensed presentations available on Slideshare
+            and embed or link to them within course material.
+            the flash cards sets available at quizlet.com and embed sets
+            as flash cards, practice quizzes, or matching games directly 
+            into course material.
+            <a href="http://www.slideshare.com">more information about Slideshare</a>
+          </div>
+        </li>
         <li><a href="/config/khan_academy.xml">Khan Academy Videos Demo</a>
           <div>
             <img src="/khan_academy_example.png" alt=""/>
@@ -573,6 +613,27 @@ get "/config/quizlet.xml" do
         <lticm:property name="text">Embed Quizlet Flash Cards</lticm:property>
         <lticm:property name="selection_width">690</lticm:property>
         <lticm:property name="selection_height">510</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/khan.ico</blti:icon>
+  XML
+end
+
+get "/config/slideshare.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Slideshare CC Slideshows</blti:title>
+    <blti:description>Search for and link to or embed Creative Commons-licensed presentations</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/slideshare.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/slideshare.ico</lticm:property>
+        <lticm:property name="text">Slideshare CC</lticm:property>
+        <lticm:property name="selection_width">690</lticm:property>
+        <lticm:property name="selection_height">530</lticm:property>
       </lticm:options>
     </blti:extensions>
     <blti:icon>#{host}/khan.ico</blti:icon>
