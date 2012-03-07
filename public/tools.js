@@ -37,9 +37,16 @@
     {
       name: "USA Today",
       logo_url: "/tools/usa_today.png",
-      description: "Search articles on USA Today",
+      description: "Articles from USA Today",
       markets: "",
       launch_url: "/usatoday.html"
+    },
+    {
+      name: "Flat World Knowledge",
+      logo_url: "/tools/flat_world_knowledge.png",
+      description: "Free, open online textbooks",
+      markets: "",
+      data_url: "/data/flat_world_knowledge.json"
     },
     {
       name: "Graph Builder",
@@ -51,7 +58,7 @@
     {
       name: "Quizlet Flash Cards",
       logo_url: "/tools/quizlet.png",
-      description: "Search Quizlet for flash card and study tools",
+      description: "Flash card and study help tools",
       markets: "",
       launch_url: "/quizlet.html"
     },
@@ -79,14 +86,14 @@
     {
       name: "BrainPOP",
       logo_url: "/tools/brainpop.png",
-      description: "Link to online interactive lessons",
+      description: "Online interactive lessons, quizzes, activities",
       markets: "",
       data_url: "/data/brainpop.json"
     },
     {
       name: "Hooda Math",
       logo_url: "/tools/hooda_math.png",
-      description: "Link to online math learning games",
+      description: "Online math learning games",
       markets: "",
       data_url: "/data/hooda_math.json"
     },
