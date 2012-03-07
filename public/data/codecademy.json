@@ -1,0 +1,332 @@
+[
+  {
+    "description": "Javascript Glossary",
+    "image_url": "/prompt.png",
+    "name": "Javascript Glossary",
+    "url": "http://www.codecademy.com/glossary"
+  },
+  {
+    "description": "1. Getting to Know You, Part I. See what you can do with programming!",
+    "image_url": "/prompt.png",
+    "name": "Introduction: 1. Getting to Know You, Part I",
+    "url": "http://www.codecademy.com/courses/programming-intro/0"
+  },
+  {
+    "description": "2. Confirm or Deny. Alerting users and more.",
+    "image_url": "/prompt.png",
+    "name": "Introduction: 2. Confirm or Deny",
+    "url": "http://www.codecademy.com/courses/programming-intro/1"
+  },
+  {
+    "description": "3. Variables. Let's start saving what you're working on!",
+    "image_url": "/prompt.png",
+    "name": "Introduction: 3. Variables",
+    "url": "http://www.codecademy.com/courses/programming-intro/2"
+  },
+  {
+    "description": "4. Numbers n' Strings. Learning what separates text from numbers and more",
+    "image_url": "/prompt.png",
+    "name": "Introduction: 4. Numbers n' Strings",
+    "url": "http://www.codecademy.com/courses/programming-intro/3"
+  },
+  {
+    "description": "5. Editor and Arrays. The console's not the only game in town.",
+    "image_url": "/prompt.png",
+    "name": "Introduction: 5. Editor and Arrays",
+    "url": "http://www.codecademy.com/courses/programming-intro/4"
+  },
+  {
+    "description": "6. What If?. If Statements and More",
+    "image_url": "/prompt.png",
+    "name": "Introduction: 6. What If?",
+    "url": "http://www.codecademy.com/courses/programming-intro/5"
+  },
+  {
+    "description": "7. Bringing It Up (and Down). Incrementing and Decrementing",
+    "image_url": "/prompt.png",
+    "name": "Introduction: 7. Bringing It Up (and Down)",
+    "url": "http://www.codecademy.com/courses/programming-intro/6"
+  },
+  {
+    "description": "8. While You Wait. The while loop is just as useful as for!",
+    "image_url": "/prompt.png",
+    "name": "Introduction: 8. While You Wait",
+    "url": "http://www.codecademy.com/courses/programming-intro/7"
+  },
+  {
+    "description": "The only thing more fun than playing games is automating games.",
+    "image_url": "/prompt.png",
+    "name": "Introduction Project: Fizzing and Buzzing",
+    "url": "http://www.codecademy.com/courses/4f08e38e9bced80001000e58"
+  },
+  {
+    "description": "1. Defining Functions. How to define functions.",
+    "image_url": "/prompt.png",
+    "name": "Functions: 1. Defining Functions",
+    "url": "http://www.codecademy.com/courses/functions-in-javascript-2-0/0"
+  },
+  {
+    "description": "2. Variables in functions. Declaring and using variables within functions.",
+    "image_url": "/prompt.png",
+    "name": "Functions: 2. Variables in functions",
+    "url": "http://www.codecademy.com/courses/functions-in-javascript-2-0/1"
+  },
+  {
+    "description": "3. Return. Making use of 'return' in a function.",
+    "image_url": "/prompt.png",
+    "name": "Functions: 3. Return",
+    "url": "http://www.codecademy.com/courses/functions-in-javascript-2-0/2"
+  },
+  {
+    "description": "4. Function calls as values. Learning about how functions can interact.",
+    "image_url": "/prompt.png",
+    "name": "Functions: 4. Function calls as values",
+    "url": "http://www.codecademy.com/courses/functions-in-javascript-2-0/3"
+  },
+  {
+    "description": "5. Understanding parameters. How to have more than one parameter in the function.",
+    "image_url": "/prompt.png",
+    "name": "Functions: 5. Understanding parameters",
+    "url": "http://www.codecademy.com/courses/functions-in-javascript-2-0/4"
+  },
+  {
+    "description": "1. Introducing Functions. See how a function is defined and used.  Learn to define your first simple function.",
+    "image_url": "/prompt.png",
+    "name": "Functions: 1. Introducing Functions",
+    "url": "http://www.codecademy.com/courses/functions_in_javascript/0"
+  },
+  {
+    "description": "2. Understanding Parameters. Functions can accept input known as arguments. We'll explore how to work with arguments.",
+    "image_url": "/prompt.png",
+    "name": "Functions: 2. Understanding Parameters",
+    "url": "http://www.codecademy.com/courses/functions_in_javascript/1"
+  },
+  {
+    "description": "3. Local Variables. Storing data, such as intermediate values of a calculation, in variables inside of a function.",
+    "image_url": "/prompt.png",
+    "name": "Functions: 3. Local Variables",
+    "url": "http://www.codecademy.com/courses/functions_in_javascript/2"
+  },
+  {
+    "description": "Let's combine all the basics covered in the getting started lesson to create a program that calculates taxi fare based upon distance traveled and the time of day.",
+    "image_url": "/prompt.png",
+    "name": "Functions Project: New York, New York",
+    "url": "http://www.codecademy.com/courses/hello_new_york"
+  },
+  {
+    "description": "It's an Olympic year! Write a program to determine who qualifies for the Olympic team. We'll be covering primitives, functions, arrays and loops!",
+    "image_url": "/prompt.png",
+    "name": "Functions Project: Time Trials",
+    "url": "http://www.codecademy.com/courses/olympic-trials"
+  },
+  {
+    "description": "1. Review: The story so far.... We review concepts learned in previous weeks!",
+    "image_url": "/prompt.png",
+    "name": "Conditionals: 1. Review: The story so far...",
+    "url": "http://www.codecademy.com/courses/conditionals-in-javascript/0"
+  },
+  {
+    "description": "2. If else statements. Review the fundamentals of using if else statements",
+    "image_url": "/prompt.png",
+    "name": "Conditionals: 2. If else statements",
+    "url": "http://www.codecademy.com/courses/conditionals-in-javascript/1"
+  },
+  {
+    "description": "3. Using if else statements in functions. We want to see how functions can use if else statements, and how if else statements can use functions",
+    "image_url": "/prompt.png",
+    "name": "Conditionals: 3. Using if else statements in functions",
+    "url": "http://www.codecademy.com/courses/conditionals-in-javascript/2"
+  },
+  {
+    "description": "4. Introducing the Switch statement. Switch statements can help simplify long if else statements!",
+    "image_url": "/prompt.png",
+    "name": "Conditionals: 4. Introducing the Switch statement",
+    "url": "http://www.codecademy.com/courses/conditionals-in-javascript/3"
+  },
+  {
+    "description": "5. Ternary operators. We look at some nice shortcuts to make writing conditional statements easier!",
+    "image_url": "/prompt.png",
+    "name": "Conditionals: 5. Ternary operators",
+    "url": "http://www.codecademy.com/courses/conditionals-in-javascript/4"
+  },
+  {
+    "description": "6. Summary of conditionals. We provide a recap of some of the key concepts learned in this course",
+    "image_url": "/prompt.png",
+    "name": "Conditionals: 6. Summary of conditionals",
+    "url": "http://www.codecademy.com/courses/conditionals-in-javascript/5"
+  },
+  {
+    "description": "1. Review: The story so far.... We cover three issues that users have emailed asking about.",
+    "image_url": "/prompt.png",
+    "name": "Review: 1. Review: The story so far...",
+    "url": "http://www.codecademy.com/courses/primitives-development-course/0"
+  },
+  {
+    "description": "2. Strings and numbers are values. Primitive data types include both \"strings\" and numb3rs.",
+    "image_url": "/prompt.png",
+    "name": "Review: 2. Strings and numbers are values",
+    "url": "http://www.codecademy.com/courses/primitives-development-course/1"
+  },
+  {
+    "description": "3. Can it be true?. Booleans are primitives too!",
+    "image_url": "/prompt.png",
+    "name": "Review: 3. Can it be true?",
+    "url": "http://www.codecademy.com/courses/primitives-development-course/2"
+  },
+  {
+    "description": "4. Boolean in the wild. The many talents of the Boolean data type.",
+    "image_url": "/prompt.png",
+    "name": "Review: 4. Boolean in the wild",
+    "url": "http://www.codecademy.com/courses/primitives-development-course/3"
+  },
+  {
+    "description": "5. More on arrays. We can store primitive values in arrays, and then manipulate them. Sounds like fun.",
+    "image_url": "/prompt.png",
+    "name": "Review: 5. More on arrays",
+    "url": "http://www.codecademy.com/courses/primitives-development-course/4"
+  },
+  {
+    "description": "6. Random stuff!. Let's learn how to generate numbers between 1 and any number!",
+    "image_url": "/prompt.png",
+    "name": "Review: 6. Random stuff!",
+    "url": "http://www.codecademy.com/courses/primitives-development-course/5"
+  },
+  {
+    "description": "7. Summary of primitive data types. We've learned a lot about primitives. Let's make sure we remember it all.",
+    "image_url": "/prompt.png",
+    "name": "Review: 7. Summary of primitive data types",
+    "url": "http://www.codecademy.com/courses/primitives-development-course/6"
+  },
+  {
+    "description": "1. Review: The story so far.... Can you believe we've done a month of courses? Let's reminisce about all those sweet coding memories!",
+    "image_url": "/prompt.png",
+    "name": "Objects: 1. Review: The story so far...",
+    "url": "http://www.codecademy.com/courses/spencer-sandbox/0"
+  },
+  {
+    "description": "2. What's an Object. Let's start by learning how to create objects and use the information inside them",
+    "image_url": "/prompt.png",
+    "name": "Objects: 2. What's an Object",
+    "url": "http://www.codecademy.com/courses/spencer-sandbox/1"
+  },
+  {
+    "description": "3. A Method to the Madness. Learn to add methods to objects and create objects through constructors",
+    "image_url": "/prompt.png",
+    "name": "Objects: 3. A Method to the Madness",
+    "url": "http://www.codecademy.com/courses/spencer-sandbox/2"
+  },
+  {
+    "description": "4. Construction Junction. Learn to how to make constructors for objects, which allow you to define properties and methods as you create the object.",
+    "image_url": "/prompt.png",
+    "name": "Objects: 4. Construction Junction",
+    "url": "http://www.codecademy.com/courses/spencer-sandbox/3"
+  },
+  {
+    "description": "5. Combining Objects With Our Other Tools. See how objects can be used with conditionals, functions, arrays, and loops",
+    "image_url": "/prompt.png",
+    "name": "Objects: 5. Combining Objects With Our Other Tools",
+    "url": "http://www.codecademy.com/courses/spencer-sandbox/4"
+  },
+  {
+    "description": "6. Objects In Review. We review all the important aspects from this first lesson in objects.",
+    "image_url": "/prompt.png",
+    "name": "Objects: 6. Objects In Review",
+    "url": "http://www.codecademy.com/courses/spencer-sandbox/5"
+  },
+  {
+    "description": "1. Review: The story so far.... Let's review objects and introduce some new concepts to familiar constructions",
+    "image_url": "/prompt.png",
+    "name": "Objects: 1. Review: The story so far...",
+    "url": "http://www.codecademy.com/courses/objects-ii/0"
+  },
+  {
+    "description": "2. Objects, Objects Everywhere. A deeper look into the true nature of objects in JavaScript",
+    "image_url": "/prompt.png",
+    "name": "Objects: 2. Objects, Objects Everywhere",
+    "url": "http://www.codecademy.com/courses/objects-ii/1"
+  },
+  {
+    "description": "3. You Down With OOP?. Introduction to classes and the prototype",
+    "image_url": "/prompt.png",
+    "name": "Objects: 3. You Down With OOP?",
+    "url": "http://www.codecademy.com/courses/objects-ii/2"
+  },
+  {
+    "description": "4. Inheriting a Fortune. Inheritance in object-oriented programming",
+    "image_url": "/prompt.png",
+    "name": "Objects: 4. Inheriting a Fortune",
+    "url": "http://www.codecademy.com/courses/objects-ii/3"
+  },
+  {
+    "description": "5. Privacy Please!. Public and private properties and methods of objects",
+    "image_url": "/prompt.png",
+    "name": "Objects: 5. Privacy Please!",
+    "url": "http://www.codecademy.com/courses/objects-ii/4"
+  },
+  {
+    "description": "6. Objects in Review Are Closer Than They Appear. Reviewing the nature of objects and introduction to object-oriented programming",
+    "image_url": "/prompt.png",
+    "name": "Objects: 6. Objects in Review Are Closer Than They Appear",
+    "url": "http://www.codecademy.com/courses/objects-ii/5"
+  },
+  {
+    "description": "We make use of arrays, functions and for loops.",
+    "image_url": "/prompt.png",
+    "name": "Objects Project: Objects in address books are fun!",
+    "url": "http://www.codecademy.com/courses/building-an-address-book"
+  },
+  {
+    "description": "Save the day and build a cash register!",
+    "image_url": "/prompt.png",
+    "name": "Objects Project: Cha Ching",
+    "url": "http://www.codecademy.com/courses/close-the-super-makert"
+  },
+  {
+    "description": "1. Review: The story so far.... Let's review some things about objects before diving into loops!",
+    "image_url": "/prompt.png",
+    "name": "For / While Loops: 1. Review: The story so far...",
+    "url": "http://www.codecademy.com/courses/loops/0"
+  },
+  {
+    "description": "2. Review continued.... So much review we put it into TWO sections!",
+    "image_url": "/prompt.png",
+    "name": "For / While Loops: 2. Review continued...",
+    "url": "http://www.codecademy.com/courses/loops/1"
+  },
+  {
+    "description": "3. Counting with Loops. An overview of what you can do with `for` loops",
+    "image_url": "/prompt.png",
+    "name": "For / While Loops: 3. Counting with Loops",
+    "url": "http://www.codecademy.com/courses/loops/2"
+  },
+  {
+    "description": "4. Looping in Arrays and Strings. Printing arrays and strings; manipulating strings",
+    "image_url": "/prompt.png",
+    "name": "For / While Loops: 4. Looping in Arrays and Strings",
+    "url": "http://www.codecademy.com/courses/loops/3"
+  },
+  {
+    "description": "5. While Loops. Learning to use condition-based loops",
+    "image_url": "/prompt.png",
+    "name": "For / While Loops: 5. While Loops",
+    "url": "http://www.codecademy.com/courses/loops/4"
+  },
+  {
+    "description": "6. Recursion. It's recursion!",
+    "image_url": "/prompt.png",
+    "name": "For / While Loops: 6. Recursion",
+    "url": "http://www.codecademy.com/courses/loops/5"
+  },
+  {
+    "description": "7. Extra Tricks. Nesting loops, looping through objects, and using `break`",
+    "image_url": "/prompt.png",
+    "name": "For / While Loops: 7. Extra Tricks",
+    "url": "http://www.codecademy.com/courses/loops/6"
+  },
+  {
+    "description": "We cover loops and arrays!",
+    "image_url": "/prompt.png",
+    "name": "For / While Loops Project: Getting Dicey",
+    "url": "http://www.codecademy.com/courses/4f1f8f67aef7bc000100e2cd"
+  }
+]

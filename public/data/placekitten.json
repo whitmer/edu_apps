@@ -1,0 +1,56 @@
+      [
+        {
+          name: "100x100 kitten",
+          image_url: "http://placekitten.com/100/100",
+          html: "<img src='http://placekitten.com/100/100'/>",
+          description: "I call this kitten, \"Mittens\". I don't know if the cat is male or female."
+        },
+        {
+          name: "200x200 kitten",
+          image_url: "http://placekitten.com/200/200",
+          html: "<img src='http://placekitten.com/200/200'/>",
+          description: "...actually, I don't know if *any* of these cats are male or female..."
+        },
+        {
+          name: "200x100 kitten",
+          image_url: "http://placekitten.com/200/100",
+          html: "<img src='http://placekitten.com/200/100'/>",
+          description: "This is cheating, because it is more than one cat. What's that about?"
+        },
+        {
+          name: "100x200 kitten",
+          image_url: "http://placekitten.com/100/200",
+          html: "<img src='http://placekitten.com/100/200'/>",
+          description: "This is also cheating. It looks suspiciously similar to 100x100..."
+        },
+        {
+          name: "300x300 kitten",
+          image_url: "http://placekitten.com/300/300",
+          html: "<img src='http://placekitten.com/300/300'/>",
+          description: "I have a lot to say about this kitten, even though I don't really have much to say. I just want to give an example of a blurb for a kitten that is larger than the alotted space, so you can see what happens when there are tons and tons of words. On a semi-related note, I tend to type \"tongs\" instead of \"tons\". It's not on purpose, and it's not even muscle memory because, really, how often do you type the word \"tongs\"?"
+        },
+        {
+          name: "200x300 kitten",
+          image_url: "http://placekitten.com/200/300",
+          html: "<img src='http://placekitten.com/200/300'/>",
+          description: "This little guy seems a bit apathetic."
+        },
+        {
+          name: "300x200 kitten",
+          image_url: "http://placekitten.com/300/200",
+          html: "<img src='http://placekitten.com/300/200'/>",
+          description: "Standard kitten fare."
+        },
+        {
+          name: "300x100 kitten",
+          image_url: "http://placekitten.com/300/100",
+          html: "<img src='http://placekitten.com/300/100'/>",
+          description: "I actually prefer puppies to kittens."
+        },
+        {
+          name: "100x300 kitten",
+          image_url: "http://placekitten.com/100/300",
+          html: "<img src='http://placekitten.com/100/300'/>",
+          description: "How come there's no placepuppy.com?"
+        },
+      ]

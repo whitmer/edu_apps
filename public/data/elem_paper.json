@@ -1,0 +1,38 @@
+[
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=185",
+    "image_url": "/elementary_paper/alphabet.png",
+    "name": "Alphabet",
+    "description": "All letters of the Alphabet."
+  },
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=188",
+    "image_url": "/elementary_paper/months.png",
+    "name": "Calendar Months",
+    "description": "All the months in a calendar year."
+  },
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=187",
+    "image_url": "/elementary_paper/days.png",
+    "name": "Days of the Week",
+    "description": "All the days of the week."
+  },
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=186",
+    "image_url": "/elementary_paper/numbers.png",
+    "name": "Numbers",
+    "description": "The numbers 0 through 9."
+  },
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=183",
+    "image_url": "/elementary_paper/colors.png",
+    "name": "Rainbow",
+    "description": "All the colors in the rainbow."
+  },
+  {
+    "url": "http://www.ElementaryPaper.com/practice.php?template=184",
+    "image_url": "/elementary_paper/colors_in_color.png",
+    "name": "Rainbow (with Colors)",
+    "description": "All the colors in the rainbow - set on a worksheet with colored lines and font."
+  }
+]
