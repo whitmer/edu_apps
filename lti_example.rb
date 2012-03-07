@@ -45,7 +45,6 @@ configure do
   DataMapper.auto_upgrade!
   @@quizlet_config = ExternalConfig.first(:config_type => 'quizlet')
   @@slideshare_config = ExternalConfig.first(:config_type => 'slideshare')
-  puts "found #{@@slideshare_config}"
 end
 
 get "/quizlet_search" do
