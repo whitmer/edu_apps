@@ -653,7 +653,7 @@ get "/config/tools.xml" do
         <lticm:property name="icon_url">#{host}/tools.png</lticm:property>
         <lticm:property name="text">Search Resource Libraries</lticm:property>
         <lticm:property name="selection_width">800</lticm:property>
-        <lticm:property name="selection_height">600</lticm:property>
+        <lticm:property name="selection_height">550</lticm:property>
       </lticm:options>
     </blti:extensions>
     <blti:icon>#{host}/khan.ico</blti:icon>
