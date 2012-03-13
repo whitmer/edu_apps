@@ -28,6 +28,13 @@
       launch_url: "/khan.html"
     },
     {
+      name: "TED Ed",
+      logo_url: "/tools/ted_ed.png",
+      description: "Online instructional videos",
+      markets: "",
+      launch_url: "/ted_ed.html"
+    },
+    {
       name: "Slideshare",
       logo_url: "/tools/slideshare.png",
       description: "Creative Commons-licensed presentations",
@@ -141,6 +148,7 @@
       if(name_idx > -1) { rank = name_idx; }
       else if(desc_idx > -1) { rank = desc_idx + 500; }
       tool.rank = rank;
+      tool.position = idx;
       if(tool.rank > -1) { 
         matches.push(tool);
       }
@@ -150,11 +158,12 @@
       $message.show().text("No Results Found");
     }
     matches = matches.sort(function(a, b) {
-      return a.rank - b.rank;
+      return [a.rank - b.rank, a.position - b.position];
     });
     $tools.empty();
     for(var idx = 0; idx < matches.length; idx++) {
       var tool = matches[idx];
+      console.log(tool.rank);
       var $tool = $("<div/>", {'class': 'tool'}).append(
         $("<img/>", {src: tool.logo_url, 'class': 'logo'})).append(
         $("<span/>", {'class': 'name'}).text(tool.name)).append(
