@@ -105,7 +105,7 @@
       description: "Browse kitten images",
       markets: "",
       data_url: "/data/placekitten.json"
-    },
+    }
   ];
   var $message = $("#message"),
       $tools = $("#tools"),
