@@ -1,0 +1,292 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LTI Examples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      img.preview {
+        width: 250px;
+        padding-right: 10px;
+        padding-bottom: 20px;
+      }
+      .data-row {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #E5E5E5;
+      }
+    </style>
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">LTI of Magic</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="/index.html">Home</a></li>
+              <li><a href="/examples.html">Examples</a></li>
+              <li><a href="https://github.com/whitmer/lti_example">Source</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    <div class="hero-unit">
+      <h1>LTI Examples</h1>
+      
+      <p>
+        This repo contains working examples of LTI integrations, including
+        LTI extensions as documented in the 
+        <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API docs</a>.
+        The source code is freely available as
+        <a href="https://github.com/whitmer/lti_example">a github repository</a>
+        and can be run locally or easily deployed to a public environment.
+      </p>
+      <p>
+        If you are unfamiliar with LTI (or Basic LTI), please check out the 
+        <a href="http://www.imsglobal.org/lti/">IMS LTI documentation</a>
+      </p>
+    </div>
+    <div class="row">
+      <span class="span8">
+        <h2>Configuring Tools in Canvas</h2>
+        <p>LTI tool configuration in Canvas can happen on the course or account.
+        Click the "Settings" link in the left sidebar of the course or account
+        where you want to add the tool. Click the "External Tools" tab and click
+        "Add External Tool".
+        </p>
+        <p>Enter the name, consumer key and shared secret for the
+        tool (for these demo tools you can put any key and secret that you like).
+        For "configuration type" select "By URL" and paste in the full URL of the
+        link configuration (copy the URL from one of the links below).
+        </p>
+        <p>After the tool is saved you should see it appear as configured in the
+        course our account content.</p>
+      </span>
+      <span class="span4">
+        <img src="/tool_config.png" class="thumbnail" style="width: 300px;" alt=""/>
+      </span>
+    </div>
+    <div class="row">
+      <span class="span12">
+        <h2>Default Configurations</h2>
+        <p>These are basic XML configurations for LTI tools with extensions. You
+        can copy and paste these URLs as standard configuration, or try modifying
+        the configuration XML to set up more advanced configurations. More information
+        on tool configuration is availabe in the <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API docs</a></p>
+      </span>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/course_navigation.xml">Course Navigation Demo</a></h3>
+        <p>
+          This is an example of a standard configuration for adding a link to
+          course navigation. This link is available to anyone with access to 
+          the course. If it's configured at the account level, the link will
+          be added to all courses within that account.
+          <a href="https://canvas.instructure.com/doc/api/navigation_tools.html#course_navigation">more information</a>
+        </p>
+      </span>
+      <span class="span4">
+        <img src="/course_navigation_example.png" alt="" class="preview thumbnail"/>
+      </soan>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/account_navigation.xml">Account Navigation Demo</a></h3>
+        <p>
+          This is an example of a standard configuration for adding a link to
+          account navigation. This link is available to anyone with access to 
+          the account. The link will appear in the current account and any
+          sub-accounts of that account.
+          <a href="https://canvas.instructure.com/doc/api/navigation_tools.html#account_navigation">more information</a>
+        </p>
+      </span>
+      <span class="span4">
+      </span>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/user_navigation.xml">User Navigation Demo</a></h3>
+          <div>
+            This is an example of a standard configuration for adding a link to
+            user navigation. This link is available to anyone with access to 
+            the institution, and will appear whent hey click the profile link.
+            <a href="https://canvas.instructure.com/doc/api/navigation_tools.html#user_navigation">more information</a>
+          </div>
+      </span>
+      <span class="span4">
+        <img src="/user_navigation_example.png" alt="" class="preview thumbnail"/>
+      </span>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/grade_passback.xml">Grade Passback (LTI Outcomes) Demo</a></h3>
+          <div>
+            This example showcases the LTI Outcomes functionality which is
+            part of LTI 1.1. After this tool is configured, create a new assignment
+            with type "External Tool". Select the configured tool and then
+            access the assignment as a student to test its functionality.
+            <a href="https://canvas.instructure.com/doc/api/assignment_tools.html">more information</a>
+          </div>
+      </span>
+      <span class="span4">
+      </span>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/editor_button.xml">Rich Editor Button Demo</a></h3>
+          <div>
+            This shows adding an editor button to the rich editor
+            in course/group content. Clicking the new fish icon will pop up a dialog
+            with pictures of fish. Clicking any of the fish will insert that
+            image into the rich content pane. If the tool is configured at the account
+            level, then the button will appear for any courses/groups within 
+            that account.
+            <a href="https://canvas.instructure.com/doc/api/editor_button_tools.html">more information</a>
+          </div>
+      </span>
+      <span class="span4">
+        <img src="/editor_button_example.png" alt="" class="preview thumbnail"/>
+      </span>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/editor_button2.xml">Another Rich Editor Button Demo</a></h3>
+          <div>
+            This shows adding an editor button to the rich editor
+            in course/group content. Clicking the new kitten icon will pop up a dialog
+            that uses placekitten.com to generate an image of a kitten set
+            to the user's specified dimensions. If the tool is configured at the account
+            level, then the button will appear for any courses/groups within 
+            that account.
+            <a href="https://canvas.instructure.com/doc/api/editor_button_tools.html">more information</a>
+          </div>
+      </span>
+      <span class="span4">
+        <img src="/kitten_example.png" alt="" class="preview thumbnail"/>
+      </span>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/resource_selection.xml">links in Modules Demo</a></h3>
+          <div>
+            This tool allows the user to pick and insert custom content as link
+            in course modules. When inserting content into a module, if the user
+            picks "External Tools" they'll see the configured tool with a "find"
+            icon. Clicking the tool will bring up a new dialog where the user
+            can pick/build content (in this case creating a page that shows an
+            image of a fish with a user-specified name for the fish) 
+            to be inserted as a page or resource within
+            the current module. If the tool is configured at the account level,
+            then it will be available for any courses within that account.
+            <a href="https://canvas.instructure.com/doc/api/link_selection_tools.html">more information</a>
+          </div>
+      </span>
+      <span class="span4">
+        <img src="/resource_selection_example.png" alt="" class="preview thumbnail"/>
+      </span>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/editor_button_and_resource_selection.xml">Combination Rich Editor Button and Module links Demo</a></h3>
+          <div>
+            This example shows configuring a tool to serve multiple purposes at
+            the same time. In this case, a single tool can add both a fish 
+            icon to the rich editor, and the ability to add named fish pages to
+            course modules.
+            <a href="https://canvas.instructure.com/doc/api/tools_xml.html">more information about advanced configuration</a>
+          </div>
+      </span>
+      <span class="span4">
+      </span>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/inline_graph.xml">inline Graphs Demo</a></h3>
+          <div>
+            This is a real-world example that allows users to insert rich,
+            interactive graphs into course content. Users can type in arbitrary
+            equations (similar to the Canvas equation editor) and see them
+            rendered in the graph. They can then position the graph and click
+            to insert it into the page.
+            <a href="https://github.com/aantthony/graph.tk">more information about graph.tk</a>
+          </div>
+      </span>
+      <span class="span4">
+        <img src="/graph_tk_example.png" alt="" class="preview thumbnail"/>
+      </span>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/quizlet.xml">Quizlet Flash Cards Demo</a></h3>
+          <div>
+            This is a real-world example that allows users to search through
+            the flash cards sets available at quizlet.com and embed sets
+            as flash cards, practice quizzes, or matching games directly 
+            into course material.
+            <a href="http://www.quizlet.com">more information about Quizlet</a>
+          </div>
+      </span>
+      <span class="span4">
+        <img src="/quizlet_example.png" alt="" class="preview thumbnail"/>
+      </span>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/slideshare.xml">Slideshare CC Search Demo</a></h3>
+          <div>
+            This is a real-world example that allows users to search through
+            Creative Commons-licensed presentations available on slideshare
+            and embed or link to them within course material.
+            the flash cards sets available at quizlet.com and embed sets
+            as flash cards, practice quizzes, or matching games directly 
+            into course material.
+            <a href="http://www.slideshare.com">more information about slideshare</a>
+          </div>
+      </span>
+      <span class="span4">
+        <img src="/slideshare_example.png" alt="" class="preview thumbnail"/>
+      </span>
+    </div>
+    <div class="row data-row">
+      <span class="span8">
+        <h3><a href="/config/khan_academy.xml">Khan Academy Videos Demo</a></h3>
+          <div>
+            This is a real-world example that allows users to search through
+            the list of Khan Academy videos and embed links to these videos
+            directly into course material.
+            <a href="http://www.khanacademy.com">more information about Khan Academy</a>
+          </div>
+        </h3>
+      </span>
+      <span class="span4">
+        <img src="/khan_academy_example.png" alt="" class="preview thumbnail"/>
+      </span>
+    </div>
+  </div>
+  </body>
+</html>
