@@ -16,6 +16,13 @@
       launch_url: "/ted_ed.html"
     },
     {
+      name: "MIT OCW",
+      logo_url: "/tools/mit_ocw.png",
+      description: "OCW lectures, videos, etc. from MIT",
+      markets: "",
+      data_url: "/data/mit_ocw.json"
+    },
+    {
       name: "Slideshare",
       logo_url: "/tools/slideshare.png",
       description: "Creative Commons-licensed presentations",
