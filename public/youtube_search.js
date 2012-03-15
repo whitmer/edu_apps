@@ -1,34 +1,16 @@
+var lti;
 (function() {
-  var url = location.href;
-  var args = (url.split(/\?/)[1] || "").split(/\&/);
-  var params = {}
-  for(var idx in args) {
-    var arg = args[idx].split(/\=/);
-    var key = arg[0];
-    var value = arg[1];
-    if(key && value) {
-      params[key] = decodeURIComponent(value);
-    }
-  }
-  if(params['selection_directive'] != "embed_content" || !params['launch_presentation_return_url']) {
-    alert("This page is normally used an an example of embedding content, but you've referenced it some other way. As such, it's not going to be very useful to you. Sorry.");
-    callbackUrl = null;
-  } else if(!params['launch_presentation_return_url'].match(/\?/)) {
-    params['launch_presentation_return_url'] = params['launch_presentation_return_url'] + "?";
-  }
-  var returnUrl = params['launch_presentation_return_url'];
-
   var $results = $("#results");
   var $message = $("#message");
   var $result = $("#result").detach().removeAttr('id');
   $result.click(function() {
     var videoUrl = $(this).attr('rel');
-    if(returnUrl) {
-      var entry = $(this).data('entry');
-      location.href = returnUrl + "&embed_type=link&url=" + encodeURIComponent(entry.link[0].href) + "&text=" + encodeURIComponent(entry.title['$t']);
-    } else {
-      alert('click');
-    }
+    var entry = $(this).data('entry');
+    lti.resourceSelected({
+      embed_type: 'link',
+      url: entry.link[0].href,
+      text: entry.title['$t']
+    });
   });
   $("#search").submit(function(event) {
     event.preventDefault();
@@ -36,7 +18,7 @@
     $results.empty().hide();
     $message.show().text("Loading...");
     var query = encodeURIComponent($("#query").val());
-    var url = "http://gdata.youtube.com/feeds/api/users/TEDEducation/uploads?v=2&q=" + query + "&orderby=relevance&alt=json-in-script";
+    var url = "http://gdata.youtube.com/feeds/api/users/" + window.youtubeAccount + "/uploads?v=2&q=" + query + "&orderby=relevance&alt=json-in-script";
     $.ajax({
       url: url,
       success: function(data) {
@@ -63,5 +45,5 @@
       },
       dataType: 'jsonp'
     });
-  }).submit();
+  });
 })();

@@ -51,6 +51,60 @@ h1 {
   padding: 5px 10px;
   position: relative;
 }
+#resources .resource.single_resource {
+  float: none;
+  width: 705px;
+  height: 320px;
+}
+#resources .resource.single_resource:hover {
+  background: transparent;
+  cursor: inherit;
+}
+#resources .resource.single_resource .name:hover {
+  background: #ccc;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#resources .resource.single_resource .name_link {
+  color: #444;
+}
+#resources .resource.single_resource .link_set .link {
+  font-size: 14px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  padding: 3px 2px;
+}
+#resources .resource.single_resource .link_set .link:hover {
+  background: #ccc;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#resources .resource.single_resource .link_set .link img {
+  max-width: 50px;
+  max-height: 50px;
+  vertical-align: middle;
+  padding-right: 10px;
+}
+#resources .resource.single_resource .link_set .link a {
+  color: #444;
+}
+#resources .resource.single_resource .content {
+  height: auto;
+  font-size: 12px;
+  white-space: pre-line;
+  margin-bottom: 10px;
+}
+#resources .resource.single_resource:hover .preview {
+  display: none;
+}
+#resources .resource.single_resource .img_holder img {
+  max-width: 100px;
+  max-height: 100px;
+}
 #resources .resource .name {
   white-space: nowrap;
   overflow: hidden;
@@ -127,6 +181,7 @@ h1 {
   </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="lti.js"></script>
 <script src="tools.js"></script>
 </body>
 </html>

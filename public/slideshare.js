@@ -1,23 +1,4 @@
 (function() {
-  var url = location.href;
-  var args = (url.split(/\?/)[1] || "").split(/\&/);
-  var params = {}
-  for(var idx in args) {
-    var arg = args[idx].split(/\=/);
-    var key = arg[0];
-    var value = arg[1];
-    if(key && value) {
-      params[key] = decodeURIComponent(value);
-    }
-  }
-  if(params['selection_directive'] != "embed_content" || !params['launch_presentation_return_url']) {
-    alert("This page is normally used an an example of embedding content, but you've referenced it some other way. As such, it's not going to be very useful to you. Sorry.");
-    callbackUrl = null;
-  } else if(!params['launch_presentation_return_url'].match(/\?/)) {
-    params['launch_presentation_return_url'] = params['launch_presentation_return_url'] + "?";
-  }
-  var returnUrl = params['launch_presentation_return_url'];
-
   var $results = $("#results");
   var $message = $("#message");
   var $slideshare = $("#slideshare");
@@ -38,19 +19,19 @@
   });
   $link.click(function() {
     var slideshare = $slideshare.data('slideshare');
-    if(returnUrl) {
-      location.href = returnUrl + "&embed_type=link&url=" + encodeURIComponent(slideshare.url) + "&title=" + encodeURIComponent(slideshare.title);
-    } else {
-      alert('link click');
-    }
+    lti.resourceSelected({
+      embed_type: 'link',
+      url: slideshare.url,
+      title: slideshare.title
+    });
   });
   $embed.click(function() {
     var slideshare = $slideshare.data('slideshare');
-    if(returnUrl) {
-      location.href = returnUrl + "&embed_type=oembed&url=" + encodeURIComponent(slideshare.url) + "&endpoint=" + encodeURIComponent("http://www.slideshare.net/api/oembed/2");
-    } else {
-      alert('embed click');
-    }
+    lti.resourceSelected({
+      embed_type: 'oembed',
+      url: slideshare.url,
+      endpoint: "http://www.slideshare.net/api/oembed/2"
+    });
   });
   $("#search").submit(function(event) {
     event.preventDefault();

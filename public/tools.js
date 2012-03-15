@@ -1,23 +1,4 @@
 (function() {
-  var url = location.href;
-  var args = (url.split(/\?/)[1] || "").split(/\&/);
-  var params = {};
-  for(var idx in args) {
-    var arg = args[idx].split(/\=/);
-    var key = arg[0];
-    var value = arg[1];
-    if(key && value) {
-      params[key] = decodeURIComponent(value);
-    }
-  }
-  if(params['selection_directive'] != "embed_content" || !params['launch_presentation_return_url']) {
-    alert("This page is normally used an an example of embedding content, but you've referenced it some other way. As such, it's not going to be very useful to you. Sorry.");
-    callbackUrl = null;
-  } else if(!params['launch_presentation_return_url'].match(/\?/)) {
-    params['launch_presentation_return_url'] = params['launch_presentation_return_url'] + "?";
-  }
-  var returnUrl = params['launch_presentation_return_url'];
-
   var searchMode = "tools";
   var tools = [
     {
@@ -163,7 +144,6 @@
     $tools.empty();
     for(var idx = 0; idx < matches.length; idx++) {
       var tool = matches[idx];
-      console.log(tool.rank);
       var $tool = $("<div/>", {'class': 'tool'}).append(
         $("<img/>", {src: tool.logo_url, 'class': 'logo'})).append(
         $("<span/>", {'class': 'name'}).text(tool.name)).append(
@@ -172,7 +152,7 @@
       $tool.click(function() {
         var tool = $(this).data('tool');
         if(tool.launch_url) {
-          location.href = tool.launch_url + "?selection_directive=embed_content&launch_presentation_return_url=" + encodeURIComponent(returnUrl);
+          location.href = tool.launch_url + "?selection_directive=embed_content&launch_presentation_return_url=" + encodeURIComponent(lti.returnUrl);
         } else {
           $tools.hide();
           $back.show();
@@ -202,19 +182,61 @@
       $tools.append($tool);
     }
   }
+  $resources.delegate('.single_resource .link', 'click', function(event) {
+    var resource = $(this).closest(".resource").data('resource');
+    var refs = $(this).attr('data-index').split(',');
+    var link = resource.links[refs[0]].links[refs[1]];
+    if(link.url) {
+      lti.resourceSelected({
+        embed_type: 'link',
+        url: link.url,
+        text: link.name
+      });
+    } else if(link.html) {
+      var oembedUrl = location.protocol + "//" + location.host + "/oembed";
+      var url = oembedUrl + "?code=" + encodeURIComponent(link.html);
+      lti.resourceSelected({
+        embed_type: 'oembed',
+        endpoint: oembedUrl,
+        url: url
+      });
+    }
+  });
   $resources.delegate('.resource', 'click', function(event) {
-    if($(event.target).hasClass('preview')) { return; }
+    if($(event.target).hasClass('preview') || ($(this).hasClass('single_resource') && !$(event.target).hasClass('name'))) { return; }
     var resource = $(this).data('resource');
-    if(returnUrl) {
-      if(resource.url) {
-        location.href = returnUrl + "&embed_type=link&url=" + encodeURIComponent(resource.url) + "&text=" + encodeURIComponent(resource.name);
-      } else if(resource.html) {
-        var oembedUrl = location.protocol + "//" + location.host + "/oembed";
-        var url = oembedUrl + "?code=" + encodeURIComponent(resource.html);
-        location.href = returnUrl + "&embed_type=oembed&endpoint=" + encodeURIComponent(oembedUrl) + "&url=" + encodeURIComponent(url);
+    if(resource.links && !$(this).hasClass('single_resource')) {
+      var $resource = $(this).detach().addClass('single_resource');
+      $resource.find(".name").html("<a href='" + resource.url + "' class='name_link'>" + resource.name + "</a>");
+      for(var idx = 0; idx < resource.links.length; idx++) {
+        var links = resource.links[idx];
+        var $content = "<div class='link_set'><div class='header'>" + links.name + "</div>";
+        for(var jdx = 0; jdx < links.links.length; jdx++) {
+          var link = links.links[jdx];
+          $content = $content + "<div class='link' data-index='" + idx + "," + jdx + "'>";
+          if(link.image_url) {
+            $content = $content + "<img src='" + link.image_url + "' alt=''/>";
+          }
+          $content = $content + "<a href='" + link.url + "'>" + link.name + "</a></div>";
+        }
+        $content = $content + "</div>";
+        $resource.append($content);
       }
-    } else {
-      alert('click');
+      $resources.empty().append($resource);
+    } else if(resource.url) {
+      lti.resourceSelected({
+        embed_type: 'link',
+        url: resource.url,
+        text: resource.name
+      });
+    } else if(resource.html) {
+      var oembedUrl = location.protocol + "//" + location.host + "/oembed";
+      var url = oembedUrl + "?code=" + encodeURIComponent(resource.html);
+      lti.resourceSelected({
+        embed_type: 'oembed',
+        endpoint: oembedUrl,
+        url: url
+      });
     }
   });
   function searchResources() {
@@ -252,8 +274,15 @@
     });
     $resources.empty();
     d3 = new Date();    
-    for(var idx = 0; idx < matches.length; idx++) {
+    for(var idx = 0; idx < matches.length && idx < 500; idx++) {
       var resource = matches[idx];
+      if(resource.links) {
+        var linkCount = 0;
+        for(var jdx = 0; jdx < resource.links.length; jdx++) {
+          linkCount = linkCount + resource.links[jdx].links.length;
+        }
+        resource.description = "<b>" + linkCount + " link" + (linkCount == 1 ? "" : "s") + "</b><br/>" + resource.description;
+      }
       var $resource = $("<div/>", {'class': 'resource'})
       var $content = "<div class='name'>" + resource.name + "</div>";
       $content = $content + "<div class='content'>";
@@ -274,6 +303,9 @@
       $holder.append($resource);
     }
     $resources.append($holder);
+    if(matches.length > 500) {
+      $resources.append("<div style='clear: both;'>Too many results, only 500 shown</div>");
+    }
     function fill(list) {
       for(var i = 0; i < 5; i++) {
         if(list.length > 0) {
