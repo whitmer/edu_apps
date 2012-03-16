@@ -289,6 +289,7 @@
         $span.append("<div class='fb-comments' data-href='" + refUrl + "' data-num-posts='2'></div>");
         $div.append($spacer_span.clone());
         $(".app .config").css('visibility', 'visible');
+        $("title,h1").text(tools[0].name);
       }
       mod = (mod + 1) % 4;
     }
