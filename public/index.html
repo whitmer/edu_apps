@@ -9,6 +9,10 @@
     <!-- Le styles -->
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
+      footer {
+        border-top: 1px solid #e5e5e5;
+        margin-top: 40px;
+      }
       .app .icon {
         text-align: center;
       }
@@ -93,9 +97,13 @@
       <p>
         Awesome stuff happens with <a href="http://www.imsglobal.org/lti/">LTI</a>. You know this is true. Here's some examples of LTI integrations you can use today.
       </p>
-        Not familiar with LTI? The <a href="/tutorials.html">tutorials page</a> shows how to configure LTI tools in supported systems. There's also some handy extensions to LTI that you can learn more about on the <a href="/examples.html">extensions page</a>. Tools with a gray label under their configuration xml support LTI extensions, and won't work in all systems. Currently these are only supported by Canvas.
+        Not familiar with LTI? The <a href="/tutorials.html">tutorials page</a> shows how to configure LTI tools in supported systems. There's also some handy extensions to LTI that you can learn more about on the <a href="/examples.html">extensions page</a>. Tools with a gray label under their configuration xml support LTI extensions, and won't work in all systems. Currently LTI extensions are only supported by Canvas.
       </p>
     </div>
+    <div id="contents"></div>
+    <footer class="footer">
+      <p>Interested in writing your own LTI integrations? Check out the <a href="http://www.imsglobal.org/lti/">IMS page</a> for official specs, and the <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API documentation</a> for some simple but powerful LTI extensions.</p>
+    </footer>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script>
@@ -257,7 +265,7 @@
       var refUrl = location.protocol + "//" + location.host + "/index.html?tool=" + tool.id;
       if(mod == 0) {
         $div = $("<div/>", {'class': 'row'});
-        $("#content").append($div);
+        $("#contents").append($div);
       }
       var $span = $("<span/>", {'class': 'span3 app'});
       var $spacer_span = $("<span/>", {'class': 'span2 app'});
