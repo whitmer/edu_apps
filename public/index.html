@@ -15,6 +15,9 @@
       .app h3 {
         text-align: center;
       }
+      .app h3 a {
+        color: #000;
+      }
       .app {
         margin-bottom: 20px;
       }
@@ -62,6 +65,7 @@
     <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
   </head>
   <body>
+    <div id="fb-root"></div>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -91,9 +95,11 @@
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="/store.js"></script>
   <script>
   var tools = [
     {
+      id: 'ted_ed',
       name: "TED Ed",
       image_url: "/tools/ted_ed.png",
       description: "TED Ed is a collection of quality videos that can be used for instructional purposes. This tool lets you search for and embed TED Ed vidoes in your course material.",
@@ -101,24 +107,28 @@
       extensions: ['editor_button']
     },
     {
+      id: 'nook_study_links',
       name: "Nook Study Links",
       image_url: "/tools/nook_study.png",
       description: "This would allow you to insert a link as an item in a module, and then when the teacher accessed that link for the first time they could choose a book or chapter in a textbook to load for students.",
       config_url: "/config/nook_study_links.xml"
     },
     {
+      id: 'nook_study_books',
       name: "Nook Study Textbooks List",
       image_url: "/tools/nook_study.png",
       description: "This would allow you to insert a link as an item in a module that the teacher can use to specify a set of require reading materials for the course.",
       config_url: "/config/nook_textbooks_list.xml"
     },
     {
+      id: 'tegrity',
       name: "McGraw Hill Tegrity",
       image_url: "/tools/tegrity.png",
       description: "Supports course-level support for the Tegrity lecture capture solution. Visit the Tegrity web site for instructions on how to sign up and get a consumer key and shared secret.",
       config_url: "/config/tegrity.xml"
     },
     {
+      id: 'piazza',
       name: "Piazza",
       image_url: "/tools/piazza.png",
       description: "Piazza is a new style of discussion/Q&A site with a focus on educational institutions. This integration adds a link to the course navigation (if supported) for Piazza discussions. Contact Piazza for instructions on getting a consumer key and secret.",
@@ -126,6 +136,7 @@
       extensions: ['course_nav']
     },
     {
+      id: 'slideshare',
       name: "Slideshare",
       image_url: "/tools/slideshare.png",
       description: "Slideshare is a site that enables viewing and interacting with presentations without needing desktop software. Search for and embed Creative Commons-licensed presentations hosted on Slideshare.",
@@ -133,6 +144,7 @@
       extensions: ['editor_button']
     },
     {
+      id: 'quizlet',
       name: "Quizlet Flash Cards",
       image_url: "/tools/quizlet.png",
       description: "Search for and embed publicly available question sets on Quizlet. Questions can be embedded as flash cards, review, or as a study game.",
@@ -140,30 +152,35 @@
       extensions: ['editor_button']
     },
     {
+      id: 'coursesmart',
       name: "CourseSmart",
       image_url: "/tools/course_smart.png",
       description: "Add links to rich online textbooks, chapters, etc.",
-      config_directions: "Contact CourseSmart for configuration instructions. "
+      config_directions: "Contact CourseSmart for configuration instructions. ",
     },
     {
+      id: 'chem_vantage',
       name: "ChemVantage",
       image_url: "/tools/chemvantage.png",
       description: "Lets teachers build and distribute science education focused homework, video lectures, graded quizzes, etc. Contact admin@chemvantage.org about getting a consumer key and shared secret.",
       config_url: "/config/chem_vantage.xml"
     },
     {
+      id: 'noteflight',
       name: "Noteflight",
       image_url: "/tools/noteflight.png",
       description: "Build musical annotations on the web. This could be useful in music classes for both teaching and assigning to students as homework.",
-      config_directions: "Contact Noteflight for configuration instructions."
+      config_directions: "Contact Noteflight for configuration instructions.",
     },
     {
+      id: 'courseload',
       name: "Courseload",
       image_url: "/tools/courseload.png",
       description: "Add links to rich online textbooks, chapters, etc.",
-      config_directions: "Contact Courseload for configuration instructions. "
+      config_directions: "Contact Courseload for configuration instructions. ",
     },
     {
+      id: 'khan_academy',
       name: "Khan Academy",
       image_url: "/tools/khan.png",
       description: "Search for and embed Khan Academy lessons into course material. Khan Academy focuses on short lessons on math, science, etc.",
@@ -171,12 +188,14 @@
       extensions: ['editor_button']
     },
     {
+      id: 'my_open_math',
       name: "MyOpenMath",
       image_url: "/tools/imathas.png",
       description: "Internet Math Assessment System lets you create and administer auto-graded math assessments to students. It has experimental support for passing grades back to the LMS. Visit the web site for instructions on how to sign up and get a consumer key and shared secret.",
       config_url: "/config/my_open_math.xml"
     },
     {
+      id: 'graph_builder',
       name: "Graph Builder",
       image_url: "/tools/graph_tk.png",
       description: "Build and embed rich interactive graphs into course content",
@@ -184,6 +203,7 @@
       extensions: ['editor_button']
     },
     {
+      id: 'public_collections',
       name: "Public Collections",
       image_url: "/collections.png",
       description: "Browse or search through multiple content repositories including MIT OCW, Softchalk Connect, Khan Academy, USA Today, etc.",
@@ -191,6 +211,7 @@
       extensions: ['editor_button']
     },
     {
+      id: 'place_kitten',
       name: "PlaceKitten",
       image_url: "/tools/place_kitten.png",
       description: "PlaceKitten lets you embed perfectly-size kitten images into any online content. You pick the dimensions, whether it's color or grayscale, and then embed it into your content.",
@@ -203,6 +224,31 @@
     'course_nav': "course navigation"
   }
   $(document).ready(function() {
+    var url = location.href;
+    var args = (url.split(/\?/)[1] || "").split(/\&/);
+    var params = {}
+    for(var idx in args) {
+      var arg = args[idx].split(/\=/);
+      var key = arg[0];
+      var value = arg[1];
+      if(key && value) {
+        params[key] = decodeURIComponent(value);
+      }
+    }
+    var refUrl = "";
+    if(params.tool) {
+      var tool = null;
+      for(var idx = 0; idx < tools.length; idx++) {
+        if(tools[idx].id == params.tool) {
+          tool = tools[idx];
+        }
+      }
+      if(tool) {
+        tools = [tool];
+        refUrl = location.protocol + "//" + location.host + "/index.html?tool=" + tool.id;
+      }
+    }
+    
     var mod = 0;
     var $div = null;
     for(var idx = 0; idx < tools.length; idx++) {
@@ -212,8 +258,17 @@
         $("#content").append($div);
       }
       var $span = $("<span/>", {'class': 'span3 app'});
-      var html = "<div class='header'><div class='icon'><img src='" + tool.image_url + "' alt=''/></div>";
-      html = html + "<h3>" + tool.name + "</h3>";
+      var $spacer_span = $("<span/>", {'class': 'span2 app'});
+      if(tools.length == 1) {
+        $div.append($spacer_span);
+        $span = $("<span/>", {'class': 'span8 app'});
+      }
+      var html = "<div class='header'><div class='icon'><a href='/index.html?tool=" + tool.id + "'><img src='" + tool.image_url + "' alt=''/></a></div>";
+      html = html + "<h3><a href='/index.html?tool=" + tool.id + "'>" + tool.name + "</a></h3>";
+      html = html + "<div style='float: left; width: 55px; margin-right: 7px;'><a href='https://twitter.com/share' class='twitter-share-button' data-lang='en' data-count='vertical' data-url='" + refUrl + "' data-text='cool tool!'>Tweet</a></div>";
+      html = html + "<div class='fb-like' data-send='false' data-layout='box_count' data-width='55' data-show-faces='false' data-href='" + refUrl + "' style='float: left; width: 55px;'></div>";
+      html = html + "<div style='float: left; padding-top: 1px;'><div class='g-plusone' data-annotation='bubble' data-size='tall' data-width='55' data-href='" + refUrl + "'></div></div>";
+      html = html + "<div style='clear: left;'></div>";
       html = html + "<div class='description'>" + tool.description + "</div></div>";
       html = html + "<div class='config alert alert-info'>";
       if(tool.config_url) {
@@ -231,9 +286,20 @@
       html = html + "</div>";
       $span.html(html);
       $div.append($span);
+      if(tools.length == 1) {
+        $span.append("<div class='fb-comments' data-href='" + refUrl + "' data-num-posts='2'></div>");
+        $div.append($spacer_span.clone());
+        $(".app .config").css('visibility', 'visible');
+      }
       mod = (mod + 1) % 4;
     }
+    gapi.plusone.go();
   });
   </script>
+  <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+    {parsetags: 'explicit'}
+  </script>
+  <script src="//platform.twitter.com/widgets.js"></script>
+  <script src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=197367153633354"></script>
   </body>
 </html>
