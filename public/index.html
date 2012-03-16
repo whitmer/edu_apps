@@ -97,7 +97,7 @@
       <p>
         Awesome stuff happens with <a href="http://www.imsglobal.org/lti/">LTI</a>. You know this is true. Here's some examples of LTI integrations you can use today.
       </p>
-        Not familiar with LTI? The <a href="/tutorials.html">tutorials page</a> shows how to configure LTI tools in supported systems. There's also some handy extensions to LTI that you can learn more about on the <a href="/examples.html">extensions page</a>. Tools with a gray label under their configuration xml support LTI extensions, and won't work in all systems. Currently LTI extensions are only supported by Canvas.
+        Not familiar with LTI? The <a href="/tutorials.html">tutorials page</a> shows how to configure LTI tools in supported systems. There's also some handy extensions to LTI that you can learn more about on the <a href="/examples.html">extensions page</a>. Tools with a gray label under their configuration xml support LTI extensions that won't work in all systems. Currently LTI extensions are only supported by Canvas.
       </p>
     </div>
     <div id="contents"></div>
@@ -105,7 +105,7 @@
       <p>Interested in writing your own LTI integrations? Check out the <a href="http://www.imsglobal.org/lti/">IMS page</a> for official specs, and the <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API documentation</a> for some simple but powerful LTI extensions.</p>
     </footer>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="jquery.min.js"></script>
   <script>
   var tools = [
     {
@@ -166,7 +166,7 @@
       name: "CourseSmart",
       image_url: "/tools/course_smart.png",
       description: "Add links to rich online textbooks, chapters, etc.",
-      config_directions: "Contact CourseSmart for configuration instructions. ",
+      config_directions: "Contact <a href='http://www.coursesmart.com/'>CourseSmart</a> for configuration instructions. ",
     },
     {
       id: 'chem_vantage',
@@ -180,14 +180,14 @@
       name: "Noteflight",
       image_url: "/tools/noteflight.png",
       description: "Build musical annotations on the web. This could be useful in music classes for both teaching and assigning to students as homework.",
-      config_directions: "Contact Noteflight for configuration instructions.",
+      config_directions: "Contact <a href='http://www.noteflight.com/'>Noteflight</a> for configuration instructions.",
     },
     {
       id: 'courseload',
       name: "Courseload",
       image_url: "/tools/courseload.png",
       description: "Add links to rich online textbooks, chapters, etc.",
-      config_directions: "Contact Courseload for configuration instructions. ",
+      config_directions: "Contact <a href='http://courseload.com/'>Courseload</a> for configuration instructions. ",
     },
     {
       id: 'khan_academy',
@@ -220,6 +220,42 @@
       config_url: "/config/tools.xml",
       extensions: ['editor_button']
     },
+// haven't yet confirmed that any of these are running in production
+//    {
+//      id: 'campus_pack',
+//      name: "Campus Pack",
+//      image_url: "/tools/learning_objects.png",
+//      description: "Load Campus Pack inside the LMS to add ePortfolios, blogs, wikis, etc.",
+//      config_directions: "Contact <a href='http://www.learningobjects.com/'>Learning Objects</a> for configuration instructions."
+//    },
+//    {
+//      id: 'pathbrite',
+//      name: "Pathbrite",
+//      image_url: "/tools/pathbrite.png",
+//      description: "Pathbrite is an ePortfolio tool that can be integrated into the LMS.",
+//      config_directions: "Contact <a href='http://www.pathbrite.com/'>Pathbrite</a> for configuration instructions."
+//    },
+//    {
+//      id: 'pebble_pad',
+//      name: "PebblePad",
+//      image_url: "/tools/pebble_pad.png",
+//      description: "PebblePad is an ePortfolio tool that can be integrated into the LMS.",
+//      config_directions: "Contact <a href='http://www.pebblepad.co.uk/'>PebblePad</a> for configuration instructions."
+//    },
+//    {
+//      id: 'mediasite',
+//      name: "MediaSite",
+//      image_url: "/tools/mediasite.png",
+//      description: "MediaSite is a webcasting and lecture capture solution that can be integrated into the LMS.",
+//      config_directions: "Contact <a href='http://www.sonicfoundry.com/mediasite'>Sonic Foundry</a> for configuration instructions."
+//    },
+//    {
+//      id: 'aleks',
+//      name: "Aleks",
+//      image_url: "/tools/aleks.png",
+//      description: "Aleks is a site that offers customized assessment and learning resources that can be integrated into the LMS.",
+//      config_directions: "Contact <a href='http://www.aleks.com/'>Aleks</a> for configuration instructions."
+//    },
     {
       id: 'place_kitten',
       name: "PlaceKitten",
