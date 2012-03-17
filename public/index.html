@@ -34,6 +34,9 @@
         -moz-border-radius: 3px;
         -webkit-border-radius: 3px;
       }
+      .app.single_app:hover .header {
+        background: transparent;
+      }
       .app .description {
         height: 130px;
         overflow: hidden;
@@ -43,7 +46,6 @@
       }
       .app .config {
         margin-top: 2px;
-        height: 35px;
         visibility: hidden;
       }
       .app:hover .config {
@@ -54,6 +56,10 @@
         padding-top: 10px;
         border-top: 1px solid #E5E5E5;
       }
+      .config_field {
+        height: auto;
+        width: 300px;
+       }
     </style>
     <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -117,169 +123,13 @@
   </div>
   <script src="jquery.min.js"></script>
   <script>
-  var tools = [
-    {
-      id: 'ted_ed',
-      name: "TED Ed",
-      image_url: "/tools/ted_ed.png",
-      description: "TED Ed is a collection of quality videos that can be used for instructional purposes. This tool lets you search for and embed TED Ed vidoes in your course material.",
-      config_url: "/config/ted_ed.xml",
-      extensions: ['editor_button']
-    },
-    {
-      id: 'nook_study_links',
-      name: "Nook Study Links",
-      image_url: "/tools/nook_study.png",
-      description: "This would allow you to insert a link as an item in a module, and then when the teacher accessed that link for the first time they could choose a book or chapter in a textbook to load for students.",
-      config_url: "/config/nook_study_links.xml"
-    },
-    {
-      id: 'nook_study_books',
-      name: "Nook Study Textbooks List",
-      image_url: "/tools/nook_study.png",
-      description: "This would allow you to insert a link as an item in a module that the teacher can use to specify a set of require reading materials for the course.",
-      config_url: "/config/nook_textbooks_list.xml"
-    },
-    {
-      id: 'tegrity',
-      name: "McGraw Hill Tegrity",
-      image_url: "/tools/tegrity.png",
-      description: "Supports course-level support for the Tegrity lecture capture solution. Visit the Tegrity web site for instructions on how to sign up and get a consumer key and shared secret.",
-      config_url: "/config/tegrity.xml"
-    },
-    {
-      id: 'piazza',
-      name: "Piazza",
-      image_url: "/tools/piazza.png",
-      description: "Piazza is a new style of discussion/Q&A site with a focus on educational institutions. This integration adds a link to the course navigation (if supported) for Piazza discussions. Contact Piazza for instructions on getting a consumer key and secret.",
-      config_url: "/config/piazza.xml",
-      extensions: ['course_nav']
-    },
-    {
-      id: 'slideshare',
-      name: "Slideshare",
-      image_url: "/tools/slideshare.png",
-      description: "Slideshare is a site that enables viewing and interacting with presentations without needing desktop software. Search for and embed Creative Commons-licensed presentations hosted on Slideshare.",
-      config_url: "/config/slideshare.xml",
-      extensions: ['editor_button']
-    },
-    {
-      id: 'quizlet',
-      name: "Quizlet Flash Cards",
-      image_url: "/tools/quizlet.png",
-      description: "Search for and embed publicly available question sets on Quizlet. Questions can be embedded as flash cards, review, or as a study game.",
-      config_url: "/config/quizlet.xml",
-      extensions: ['editor_button']
-    },
-    {
-      id: 'coursesmart',
-      name: "CourseSmart",
-      image_url: "/tools/course_smart.png",
-      description: "Add links to rich online textbooks, chapters, etc.",
-      config_directions: "Contact <a href='http://www.coursesmart.com/'>CourseSmart</a> for configuration instructions. ",
-    },
-    {
-      id: 'chem_vantage',
-      name: "ChemVantage",
-      image_url: "/tools/chemvantage.png",
-      description: "Lets teachers build and distribute science education focused homework, video lectures, graded quizzes, etc. Contact admin@chemvantage.org about getting a consumer key and shared secret.",
-      config_url: "/config/chem_vantage.xml"
-    },
-    {
-      id: 'noteflight',
-      name: "Noteflight",
-      image_url: "/tools/noteflight.png",
-      description: "Build musical annotations on the web. This could be useful in music classes for both teaching and assigning to students as homework.",
-      config_directions: "Contact <a href='http://www.noteflight.com/'>Noteflight</a> for configuration instructions.",
-    },
-    {
-      id: 'courseload',
-      name: "Courseload",
-      image_url: "/tools/courseload.png",
-      description: "Add links to rich online textbooks, chapters, etc.",
-      config_directions: "Contact <a href='http://courseload.com/'>Courseload</a> for configuration instructions. ",
-    },
-    {
-      id: 'khan_academy',
-      name: "Khan Academy",
-      image_url: "/tools/khan.png",
-      description: "Search for and embed Khan Academy lessons into course material. Khan Academy focuses on short lessons on math, science, etc.",
-      config_url: "/config/khan.xml",
-      extensions: ['editor_button']
-    },
-    {
-      id: 'my_open_math',
-      name: "MyOpenMath",
-      image_url: "/tools/imathas.png",
-      description: "Internet Math Assessment System lets you create and administer auto-graded math assessments to students. It has experimental support for passing grades back to the LMS. Visit the web site for instructions on how to sign up and get a consumer key and shared secret.",
-      config_url: "/config/my_open_math.xml"
-    },
-    {
-      id: 'graph_builder',
-      name: "Graph Builder",
-      image_url: "/tools/graph_tk.png",
-      description: "Build and embed rich interactive graphs into course content",
-      config_url: "/config/graph_tk.xml",
-      extensions: ['editor_button']
-    },
-    {
-      id: 'public_collections',
-      name: "Public Collections",
-      image_url: "/collections.png",
-      description: "Browse or search through multiple content repositories including MIT OCW, Softchalk Connect, Khan Academy, USA Today, etc.",
-      config_url: "/config/tools.xml",
-      extensions: ['editor_button']
-    },
-// haven't yet confirmed that any of these are running in production
-//    {
-//      id: 'campus_pack',
-//      name: "Campus Pack",
-//      image_url: "/tools/learning_objects.png",
-//      description: "Load Campus Pack inside the LMS to add ePortfolios, blogs, wikis, etc.",
-//      config_directions: "Contact <a href='http://www.learningobjects.com/'>Learning Objects</a> for configuration instructions."
-//    },
-//    {
-//      id: 'pathbrite',
-//      name: "Pathbrite",
-//      image_url: "/tools/pathbrite.png",
-//      description: "Pathbrite is an ePortfolio tool that can be integrated into the LMS.",
-//      config_directions: "Contact <a href='http://www.pathbrite.com/'>Pathbrite</a> for configuration instructions."
-//    },
-//    {
-//      id: 'pebble_pad',
-//      name: "PebblePad",
-//      image_url: "/tools/pebble_pad.png",
-//      description: "PebblePad is an ePortfolio tool that can be integrated into the LMS.",
-//      config_directions: "Contact <a href='http://www.pebblepad.co.uk/'>PebblePad</a> for configuration instructions."
-//    },
-//    {
-//      id: 'mediasite',
-//      name: "MediaSite",
-//      image_url: "/tools/mediasite.png",
-//      description: "MediaSite is a webcasting and lecture capture solution that can be integrated into the LMS.",
-//      config_directions: "Contact <a href='http://www.sonicfoundry.com/mediasite'>Sonic Foundry</a> for configuration instructions."
-//    },
-//    {
-//      id: 'aleks',
-//      name: "Aleks",
-//      image_url: "/tools/aleks.png",
-//      description: "Aleks is a site that offers customized assessment and learning resources that can be integrated into the LMS.",
-//      config_directions: "Contact <a href='http://www.aleks.com/'>Aleks</a> for configuration instructions."
-//    },
-    {
-      id: 'place_kitten',
-      name: "PlaceKitten",
-      image_url: "/tools/place_kitten.png",
-      description: "PlaceKitten lets you embed perfectly-size kitten images into any online content. You pick the dimensions, whether it's color or grayscale, and then embed it into your content.",
-      config_url: "/config/editor_button2.xml",
-      extensions: ['editor_button']
-    }
-  ];
+  var tools = [];
   var extensions = {
     'editor_button': "rich editor",
     'course_nav': "course navigation"
   }
-  $(document).ready(function() {
+  $.getJSON('/data/lti_examples.json', function(data) {
+    tools = data;
     var url = location.href;
     var args = (url.split(/\?/)[1] || "").split(/\&/);
     var params = {}
@@ -308,6 +158,9 @@
     var $div = null;
     for(var idx = 0; idx < tools.length; idx++) {
       var tool = tools[idx];
+      if(tool.pending) {
+        continue;
+      }
       var refUrl = location.protocol + "//" + location.host + "/index.html?tool=" + tool.id;
       if(mod == 0) {
         $div = $("<div/>", {'class': 'row'});
@@ -319,6 +172,7 @@
         $div.append($spacer_span);
         $span = $("<span/>", {'class': 'span8 app'});
       }
+      $span.toggleClass('single_app', tools.length == 1);
       var html = "<div class='header'><div class='icon'><a href='/index.html?tool=" + tool.id + "'><img src='" + tool.image_url + "' alt=''/></a></div>";
       html = html + "<h3><a href='/index.html?tool=" + tool.id + "'>" + tool.name + "</a></h3>";
       if(tools.length == 1) {
@@ -332,7 +186,12 @@
         html = html + "<div class='config alert alert-info'>";
         if(tools.length == 1) {
           if(tool.config_url) {
-            html = html + "<a href='" + tool.config_url + "'>configuration xml</a>";
+            var url = tool.config_url;
+            if(!url.match(/\/\//)) {
+              url = location.protocol + "//" + location.host + tool.config_url;
+            }
+
+            html = html + "configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='" + url + "'/>";
           } else if(tool.config_directions) {
             html = html + tool.config_directions;
           }
@@ -357,15 +216,23 @@
       mod = (mod + 1) % 4;
     }
     if(tools.length == 1) {
-      gapi.plusone.go();
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://apis.google.com/js/plusone.js';
+      script.async = true;
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = '//platform.twitter.com/widgets.js';
+      script.async = true;
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
     }
   });
+  $(".config_field").live('click focus', function() {
+    $(this).select();
+  });
   </script>
-  <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-    {parsetags: 'explicit'}
-  </script>
-  <script src="//platform.twitter.com/widgets.js"></script>
-  <script src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=197367153633354"></script>
   <script src="/analytics.js"></script>
+  <script src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=197367153633354"></script>
   </body>
 </html>
