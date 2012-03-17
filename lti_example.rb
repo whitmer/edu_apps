@@ -47,6 +47,11 @@ configure do
   @@slideshare_config = ExternalConfig.first(:config_type => 'slideshare')
 end
 
+get "/analytics_key.json" do
+  config = ExternalConfig.first(:config_type => 'google_analytics')
+  return {:key => (config && config.value)}.to_json
+end
+
 get "/quizlet_search" do
   return "Quizlet not propertly configured" unless @@quizlet_config
   uri = URI.parse("https://api.quizlet.com/2.0/search/sets")
