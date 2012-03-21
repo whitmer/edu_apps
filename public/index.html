@@ -175,7 +175,7 @@
       $span.toggleClass('single_app', tools.length == 1);
       var html = "<div class='header'><div class='icon'><a href='/index.html?tool=" + tool.id + "'><img src='" + tool.image_url + "' alt=''/></a></div>";
       html = html + "<h3><a href='/index.html?tool=" + tool.id + "'>" + tool.name + "</a></h3>";
-      if(tools.length == 1) {
+      if(tools.length == 1 || params['show_votes']) {
         html = html + "<div style='float: left; width: 55px; margin-right: 7px;'><a href='https://twitter.com/share' class='twitter-share-button' data-lang='en' data-count='vertical' data-url='" + refUrl + "' data-text='LTI Tool: " + tool.name + "'>Tweet</a></div>";
         html = html + "<div class='fb-like' data-send='false' data-layout='box_count' data-width='55' data-show-faces='false' data-href='" + refUrl + "' style='float: left; width: 55px;'></div>";
         html = html + "<div style='float: left; padding-top: 1px;'><div class='g-plusone' data-annotation='bubble' data-size='tall' data-width='55' data-href='" + refUrl + "'></div></div>";
@@ -215,7 +215,7 @@
       }
       mod = (mod + 1) % 4;
     }
-    if(tools.length == 1) {
+    if(tools.length == 1 || params['show_votes']) {
       var script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = 'https://apis.google.com/js/plusone.js';
