@@ -88,7 +88,11 @@ get '/slideshare_search' do
 end
 
 get "/" do
+  if request.host == 'lti-examples.heroku.com' && !request.ssl?
+    redirect to('https://lti-examples.heroku.com/index.html') 
+  else
     redirect to('/index.html')
+  end  
 end
 
 # this is the entry action that Canvas (the LTI Tool Consumer) sends the
