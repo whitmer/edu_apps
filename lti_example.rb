@@ -88,7 +88,7 @@ get '/slideshare_search' do
 end
 
 get "/" do
-  if request.host == 'lti-examples.heroku.com'
+  if request.host == 'lti-examples.heroku.com' && request.protocol == 'http'
     redirect to('https://lti-examples.heroku.com/index.html') 
   else
     redirect to('/index.html')

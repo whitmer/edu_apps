@@ -123,6 +123,9 @@
   </div>
   <script src="jquery.min.js"></script>
   <script>
+  if(location.href.match(/http:\/\/lti-examples\.heroku\.com/)) {
+    location.href = location.href.replace(/^http/, 'https')
+  }
   var tools = [];
   var extensions = {
     'editor_button': "rich editor",
