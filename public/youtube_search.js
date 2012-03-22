@@ -18,7 +18,8 @@ var lti;
     $results.empty().hide();
     $message.show().text("Loading...");
     var query = encodeURIComponent($("#query").val());
-    var url = "http://gdata.youtube.com/feeds/api/users/" + window.youtubeAccount + "/uploads?v=2&q=" + query + "&orderby=relevance&alt=json-in-script";
+    var userPathPart = window.youtubeAccount ? ("/users/" + window.youtubeAccount + "/uploads") : '/videos';
+    var url = "http://gdata.youtube.com/feeds/api" + userPathPart + "?v=2&q=" + query + "&orderby=relevance&alt=json-in-script";
     $.ajax({
       url: url,
       success: function(data) {

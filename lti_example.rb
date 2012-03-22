@@ -88,7 +88,11 @@ get '/slideshare_search' do
 end
 
 get "/" do
-  redirect to('/index.html')
+  if request.host == 'lti-examples.heroku.com'
+    redirect to('https://lti-examples.heroku.com/index.html') 
+  else
+    redirect to('/index.html')
+  end  
 end
 
 # this is the entry action that Canvas (the LTI Tool Consumer) sends the
@@ -433,6 +437,27 @@ get "/config/ted_ed.xml" do
     <blti:icon>#{host}/khan.ico</blti:icon>
   XML
 end
+get "/config/youtube.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>YouTube Videos</blti:title>
+    <blti:description>Search for and insert links to videos hosted on YouTube.</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/youtube.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/youtube.ico</lticm:property>
+        <lticm:property name="text">YouTube Video</lticm:property>
+        <lticm:property name="selection_width">590</lticm:property>
+        <lticm:property name="selection_height">450</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/youtube.ico</blti:icon>
+  XML
+end
+
 
 get "/config/quizlet.xml" do
   host = request.scheme + "://" + request.host_with_port

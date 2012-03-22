@@ -165,5 +165,13 @@
       "description": "PlaceKitten lets you embed perfectly-size kitten images into any online content. You pick the dimensions, whether it's color or grayscale, and then embed it into your content.",
       "config_url": "/config/editor_button2.xml",
       "extensions": ["editor_button"]
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "image_url": "/tools/youtube.png",
+      "description": "Search publicly available YouTube videos. A new icon will show up in your course rich editor letting you search YouTube and click to embed videos in your course material.",
+      "config_url": "/config/youtube.xml",
+      "extensions": ["editor_button"]
     }
 ]
