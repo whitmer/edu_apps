@@ -117,7 +117,7 @@
       "name": "Campus Pack",
       "image_url": "/tools/learning_objects.png",
       "description": "Load Campus Pack inside the LMS to add ePortfolios, blogs, wikis, etc.",
-      "config_directions": "Contact <a href='http:www.learningobjects.com/'>Learning Objects</a> for configuration instructions."
+      "config_directions": "Contact <a href='http://www.learningobjects.com/'>Learning Objects</a> for configuration instructions."
     },
     {
       "pending": true,
@@ -125,7 +125,7 @@
       "name": "Pathbrite",
       "image_url": "/tools/pathbrite.png",
       "description": "Pathbrite is an ePortfolio tool that can be integrated into the LMS.",
-      "config_directions": "Contact <a href='http:www.pathbrite.com/'>Pathbrite</a> for configuration instructions."
+      "config_directions": "Contact <a href='http://www.pathbrite.com/'>Pathbrite</a> for configuration instructions."
     },
     {
       "pending": true,
@@ -133,7 +133,14 @@
       "name": "PebblePad",
       "image_url": "/tools/pebble_pad.png",
       "description": "PebblePad is an ePortfolio tool that can be integrated into the LMS.",
-      "config_directions": "Contact <a href='http:www.pebblepad.co.uk/'>PebblePad</a> for configuration instructions."
+      "config_directions": "Contact <a href='http://www.pebblepad.co.uk/'>PebblePad</a> for configuration instructions."
+    },
+    {
+      "id": "wikispaces",
+      "name": "Wikispaces",
+      "image_url": "/tools/wikispaces.png",
+      "description": "Wikispaces offers free wikis for educational purposes. Private label sites can be configured to use LTI for authentication.",
+      "config_directions": "Visit <a href='https://help.wikispaces.com/basic+lti'>the Wikispages LTI configuration page</a> for directions on configuring your Wikispaces private label site."
     },
     {
       "pending": true,
@@ -141,7 +148,7 @@
       "name": "MediaSite",
       "image_url": "/tools/mediasite.png",
       "description": "MediaSite is a webcasting and lecture capture solution that can be integrated into the LMS.",
-      "config_directions": "Contact <a href='http:www.sonicfoundry.com/mediasite'>Sonic Foundry</a> for configuration instructions."
+      "config_directions": "Contact <a href='http://www.sonicfoundry.com/mediasite'>Sonic Foundry</a> for configuration instructions."
     },
     {
       "pending": true,
@@ -149,7 +156,7 @@
       "name": "Aleks",
       "image_url": "/tools/aleks.png",
       "description": "Aleks is a site that offers customized assessment and learning resources that can be integrated into the LMS.",
-      "config_directions": "Contact <a href='http:www.aleks.com/'>Aleks</a> for configuration instructions."
+      "config_directions": "Contact <a href='http://www.aleks.com/'>Aleks</a> for configuration instructions."
     },
     {
       "id": "place_kitten",
