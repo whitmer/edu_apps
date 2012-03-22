@@ -112,6 +112,14 @@
       "extensions": ["editor_button"]
     },
     {
+      "id": "wikipedia",
+      "name": "Wikipedia",
+      "image_url": "/tools/wikipedia.png",
+      "description": "Search through English Wikipedia articles and link to or embed these articles into course material.",
+      "config_url": "/config/wikipedia.xml",
+      "extensions": ["editor_button"]
+    },
+    {
       "pending": true,
       "id": "campus_pack",
       "name": "Campus Pack",

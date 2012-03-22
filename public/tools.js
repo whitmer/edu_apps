@@ -100,6 +100,13 @@
       data_url: "/data/educreations.json"
     },
     {
+      name: "Wikipedia",
+      logo_url: "/tools/wikipedia.png",
+      description: "Articles from The Free Encyclopedia",
+      markets: "",
+      launch_url: "/wikipedia.html"
+    },
+    {
       name: "PlaceKitten",
       logo_url: "/tools/place_kitten.png",
       description: "Browse kitten images",

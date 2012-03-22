@@ -87,6 +87,26 @@ get '/slideshare_search' do
   return res.to_json
 end
 
+get '/wikipedia_search' do
+  uri = URI.parse("https://en.wikipedia.org/w/api.php")
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  tmp_url = uri.path + "?action=query&list=search&srsearch=#{CGI.escape(params['q'])}&srprop=snippet&srlimit=21&format=json"
+  request = Net::HTTP::Get.new(tmp_url)
+  request['User-Agent'] = "LTI-Examples Searcher"
+  response = http.request(request)
+  res = []
+  json = JSON.parse(response.body)
+  json['query']['search'].each do |result|
+    res << {
+      :title => result['title'],
+      :description => result['snippet'],
+      :url => "http://en.wikipedia.org/wiki/#{result['title']}"
+    }
+  end
+  return res.to_json
+end
+
 get "/" do
   if request.host == 'lti-examples.heroku.com' && !request.ssl?
     redirect to('https://lti-examples.heroku.com/index.html') 
@@ -409,6 +429,27 @@ get "/config/khan_academy.xml" do
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/khan.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/khan.ico</lticm:property>
         <lticm:property name="text">Find Khan Academy Video</lticm:property>
+        <lticm:property name="selection_width">590</lticm:property>
+        <lticm:property name="selection_height">450</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/khan.ico</blti:icon>
+  XML
+end
+
+get "/config/wikipedia.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Wikipedia Articles</blti:title>
+    <blti:description>Search for and insert links to Wikipedia articles.</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wikipedia.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/wikipedia.ico</lticm:property>
+        <lticm:property name="text">Wikipedia Articles</lticm:property>
         <lticm:property name="selection_width">590</lticm:property>
         <lticm:property name="selection_height">450</lticm:property>
       </lticm:options>
