@@ -280,8 +280,8 @@ post "/assessment" do
       </div>
       <div id="contents">
         <div class='row'>
-          <span class='span10 offset1'>
-            <h2>Your score has #{response.body.match(/\bsuccess\b/) ? "been posted" : "failed in posting"} to Canvas.</h2>
+          <span class='span12'>
+            <h2>Your score has #{response.body.match(/\bsuccess\b/) ? "been posted" : "failed in posting"} to the LMS.</h2>
             The response was:
               <pre>#{CGI.escapeHTML(response.body)}</pre>
           </span>

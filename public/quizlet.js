@@ -25,7 +25,7 @@
     var url = $quizlet.attr('rel');
     lti.resourceSelected({
       embed_type: 'iframe',
-      width: '600',
+      width: '640',
       height: '350',
       url: url
     });
