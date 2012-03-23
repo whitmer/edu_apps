@@ -183,7 +183,7 @@ get "/assessment" do
     <body>
     <div class="container">
       <div class="hero-unit" style="padding-top: 30px; padding-bottom: 30px;">
-        <h1>Demo LTI Assessment Tool</h1>
+        <h1>Pick a Grade!</h1>
       </div>
       <div id="contents">
         <div class='row'>
@@ -276,11 +276,11 @@ post "/assessment" do
     <body>
     <div class="container">
       <div class="hero-unit" style="padding-top: 30px; padding-bottom: 30px;">
-        <h1>Demo LTI Assessment Tool</h1>
+        <h1>Pick a Grade!</h1>
       </div>
       <div id="contents">
         <div class='row'>
-          <span class='span8 offset2'>
+          <span class='span10 offset1'>
             <h2>Your score has #{response.body.match(/\bsuccess\b/) ? "been posted" : "failed in posting"} to Canvas.</h2>
             The response was:
               <pre>#{CGI.escapeHTML(response.body)}</pre>
