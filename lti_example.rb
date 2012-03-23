@@ -125,7 +125,7 @@ post "/assessment/start" do
     signature.verify() or raise OAuth::Unauthorized
   rescue OAuth::Signature::UnknownSignatureMethod,
          OAuth::Unauthorized
-    return %{unauthorized attempt. make sure you used the consumer secret "#{$oauth_secret}"}
+    return %{unauthorized attempt. make sure you used the consumer key "#{$oauth_key}" and shared secret "#{$oauth_secret}"}
   end
 
   # make sure this is an assignment tool launch, not another type of launch.
@@ -158,15 +158,49 @@ get "/assessment" do
   # now render a simple form the user will submit to "take the quiz"
   <<-HTML
   <html>
-    <head><title>Demo LTI Assessment Tool</title></head>
+    <head>
+      <meta charset="utf-8">
+      <title>Demo LTI Assessment Tool</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="">
+  
+      <!-- Le styles -->
+      <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+      <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+  
+      <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+      <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+  
+      <!-- Le fav and touch icons -->
+      <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+    </head>
     <body>
-      <h1>Demo LTI Assessment Tool</h1>
-      <form action="/assessment" method="post">
-        <p>Hi, #{username}. On a scale of <code>0.0</code> to <code>1.0</code>, how well would you say you did on this assessment?</p>
-        <input name='score' type='text' width='5' id='score' />
-        <input type='submit' value='Submit' />
-        <p>If you want to enter an invalid score here, you can see how Canvas will reject it.</p>
-      </form>
+    <div class="container">
+      <div class="hero-unit" style="padding-top: 30px; padding-bottom: 30px;">
+        <h1>Demo LTI Assessment Tool</h1>
+      </div>
+      <div id="contents">
+        <div class='row'>
+          <span class='span8 offset2'>
+            <form action="/assessment" method="post" class='well'>
+              <h2>Hi, #{username}.</h2>
+              <p>On a scale of <code>0.0</code> to <code>1.0</code>, how well would you say you did on this assessment?</p>
+              <div style="margin: 40px 10px 20px;">
+                <input name='score' type='text' class='span1' id='score' placeholder='##' style="height: auto; margin-bottom: auto;"/>
+                <input type='submit' value='Submit' class='btn btn-primary'/>
+                <p><em>If you want to enter an invalid score here, you can test how the LMS will reject it.</em></p>
+              </div>
+            </form>
+          </span>
+        </div>
+      </div>
+    </div>
     </body>
   </html>
   HTML
@@ -216,9 +250,46 @@ post "/assessment" do
 
   headers 'Content-Type' => 'text'
   %{
-Your score has #{response.body.match(/\bsuccess\b/) ? "been posted" : "failed in posting"} to Canvas. The response was:
-
-#{response.body}
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Demo LTI Assessment Tool</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="">
+  
+      <!-- Le styles -->
+      <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+      <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+  
+      <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+      <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+  
+      <!-- Le fav and touch icons -->
+      <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+    </head>
+    <body>
+    <div class="container">
+      <div class="hero-unit" style="padding-top: 30px; padding-bottom: 30px;">
+        <h1>Demo LTI Assessment Tool</h1>
+      </div>
+      <div id="contents">
+        <div class='row'>
+          <span class='span8 offset2'>
+            <h2>Your score has #{response.body.match(/\bsuccess\b/) ? "been posted" : "failed in posting"} to Canvas.</h2>
+            The response was:
+              <pre>#{CGI.escapeHTML(response.body)}</pre>
+          </span>
+        </div>
+      </div>
+    </div>
+    </body>
+  </html>
   }
 end
 
