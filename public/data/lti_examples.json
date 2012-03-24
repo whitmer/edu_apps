@@ -182,4 +182,11 @@
       "config_url": "/config/youtube.xml",
       "extensions": ["editor_button"]
     }
+    {
+      "id": "titanpad",
+      "name": "TitanPad",
+      "image_url": "/tools/titanpad.png",
+      "description": "TitanPad offers free, public collaborative documents based on EtherPad. Every placement of a TitanPad in your content will result in a new pad being created. Students can also chat while working together on a pad.",
+      "config_url": "/config/titanpad.xml"
+    },
 ]

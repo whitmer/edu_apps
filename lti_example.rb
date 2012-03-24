@@ -21,6 +21,7 @@ require 'dm-core'
 require 'dm-migrations'
 require 'nokogiri'
 require 'oauth/request_proxy/rack_request'
+require 'digest/md5'
 
 # hard-coded oauth information for testing convenience
 $oauth_key = "test"
@@ -293,6 +294,31 @@ post "/assessment" do
   }
 end
 
+post "/titanpad" do
+  return "invalid parameters" unless params['context_id'] && params['resource_link_id']
+  str = "#{params['context_id']}-#{params['resource_link_id']}"
+  redirect to("http://titanpad.com/lti-" + Digest::MD5.hexdigest(str))
+end
+
+post "/bumpin" do
+  return "invalid parameters" unless params['context_id'] && params['resource_link_id']
+  str = "#{params['context_id']}-#{params['resource_link_id']}"
+  session['name'] = params['lis_person_name_full']
+  redirect to("/bumpin/room?id=#{str}")
+end
+
+get "/bumpin/room" do
+  return <<-HTML
+  <html>
+  <body>
+    <script type="text/javascript" src="http://www.bumpin.com/web_widget/users/bar/jquery-1.3.2.min.js"></script><script type="text/javascript" src="http://www.bumpin.com/new_web_widget_js_shoutbox/js_shoutbox_widget.js"></script>
+    <div id="bumpin-embedded-div" style="width:800px;"><div id="bumpin-widget"></div><div id="bumpin-link-div"><a target="_blank" href="http://www.ticketmy.com/bumpin/index.php">Shoutbox</a></div></div>
+    <script>window.onload =function(){loadNewBumpinJSWidgetWithoutPeoplelist({ height: "500", width: "800", language: "English", color_string: "", color_theme: "default", enable_login: "false", bumpin_policy: "page", bumpin_url: "", widget_title: "Chat Room", enable_guest_login: "true", show_people_list: "true", enable_sound: "false", nick_name: "#{session['name']}" });}</script>
+  </body>
+  </html>
+  HTML
+end
+
 def config_wrap(xml)
   res = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -322,7 +348,7 @@ get "/config/course_navigation.xml" do
     <blti:description>This tool adds a course navigation link to a page on a fish called "Wanda"</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="course_navigation">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html?custom_fish_name=wanda')}</lticm:property>
         <lticm:property name="text">Course Wanda Fish</lticm:property>
@@ -339,7 +365,7 @@ get "/config/account_navigation.xml" do
     <blti:description>This tool adds an account navigation link to a page on a fish named "Phil"</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="account_navigation">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html?custom_fish_name=phil')}</lticm:property>
         <lticm:property name="text">Account Phil Fish</lticm:property>
@@ -356,7 +382,7 @@ get "/config/user_navigation.xml" do
     <blti:description>This tool adds a user navigation link (in a user's profile) to a page on a fish called "Alexander"</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="user_navigation">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html?custom_fish_name=alexander')}</lticm:property>
         <lticm:property name="text">User Alexander Fish</lticm:property>
@@ -374,7 +400,7 @@ get "/config/grade_passback.xml" do
     <blti:description>This tool demos the LTI Outcomes (grade passback) available as part of LTI</blti:description>
     <blti:launch_url>#{host}/assessment/start</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">name_only</lticm:property>
     </blti:extensions>
   XML
 end
@@ -387,7 +413,7 @@ get "/config/editor_button.xml" do
     <blti:description>I'm a big fan of fish, and I want to share the love</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/fish_icon.png</lticm:property>
@@ -408,7 +434,7 @@ get "/config/editor_button2.xml" do
     <blti:description>Placekitten.com is a quick and simple service for adding pictures of kittens to your site</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/kitten.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/cat_icon.png</lticm:property>
@@ -429,7 +455,7 @@ get "/config/resource_selection.xml" do
     <blti:description>I'm a big fan of fish, and I want to share the love</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="resource_selection">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/name.html')}</lticm:property>
         <lticm:property name="text">Pick a Fish Name</lticm:property>
@@ -448,7 +474,7 @@ get "/config/editor_button_and_resource_selection.xml" do
     <blti:description>I'm a big fan of fish, and I want to share the love</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/fish_icon.png</lticm:property>
@@ -474,7 +500,7 @@ get "/config/inline_graph.xml" do
     <blti:description>This tool allows for the creation and insertion of rich, interactive graphs.</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/graph.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/graph.tk/favicon.ico</lticm:property>
@@ -495,7 +521,7 @@ get "/config/khan_academy.xml" do
     <blti:description>Search for and insert links to Khan Academy lecture videos.</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/khan.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/khan.ico</lticm:property>
@@ -516,7 +542,7 @@ get "/config/wikipedia.xml" do
     <blti:description>Search for and insert links to Wikipedia articles.</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wikipedia.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/wikipedia.ico</lticm:property>
@@ -537,7 +563,7 @@ get "/config/ted_ed.xml" do
     <blti:description>Search for and insert links to high quality instructional videos from TED Ed.</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/ted_ed.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/ted_ed.ico</lticm:property>
@@ -557,7 +583,7 @@ get "/config/youtube.xml" do
     <blti:description>Search for and insert links to videos hosted on YouTube.</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/youtube.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/youtube.ico</lticm:property>
@@ -579,7 +605,7 @@ get "/config/quizlet.xml" do
     <blti:description>Search for and insert publicly available flash card sets from quizlet.com</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/quizlet.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/quizlet.ico</lticm:property>
@@ -600,7 +626,7 @@ get "/config/slideshare.xml" do
     <blti:description>Search for and link to or embed Creative Commons-licensed presentations</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/slideshare.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/slideshare.ico</lticm:property>
@@ -621,7 +647,7 @@ get "/config/tools.xml" do
     <blti:description>Collection of resources from multiple sources, including Kahn Academy, Quizlet, etc.</blti:description>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/tools.png</lticm:property>
@@ -633,6 +659,37 @@ get "/config/tools.xml" do
     <blti:icon>#{host}/khan.ico</blti:icon>
   XML
 end
+
+get "/config/titanpad.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>TitanPad (adding to modules)</blti:title>
+    <blti:description>Allow inserting TitanPad links into modules</blti:description>
+    <blti:launch_url>#{host}/titanpad</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+    </blti:extensions>
+  XML
+end
+
+get "/config/titanpad_course_nav.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>TitanPad (adding to modules)</blti:title>
+    <blti:description>Allow inserting TitanPad links into modules</blti:description>
+    <blti:launch_url>#{host}/titanpad</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="course_navigation">
+        <lticm:property name="url">#{host}/titanpad</lticm:property>
+        <lticm:property name="text">TitanPad </lticm:property>
+      </lticm:options>
+    </blti:extensions>
+  XML
+end
+
 
 post "/tool_redirect" do
   url = params['url']
