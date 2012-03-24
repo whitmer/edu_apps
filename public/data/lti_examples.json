@@ -181,7 +181,7 @@
       "description": "Search publicly available YouTube videos. A new icon will show up in your course rich editor letting you search YouTube and click to embed videos in your course material.<br/><br/>Any key and secret will work.",
       "config_url": "/config/youtube.xml",
       "extensions": ["editor_button"]
-    }
+    },
     {
       "id": "titanpad",
       "name": "TitanPad",
@@ -189,4 +189,12 @@
       "description": "TitanPad offers free, public collaborative documents based on EtherPad. Every placement of a TitanPad in your content will result in a new pad being created. Students can also chat while working together on a pad.",
       "config_url": "/config/titanpad.xml"
     },
+    {
+      "id": "bumpin",
+      "name": "Bumpin Social Chat",
+      "image_url": "/tools/bumpin.png",
+      "description": "Bumpin social chat allows you to add chat rooms to web pages. This tool lets you add a chat room as a course navigation link for your students.",
+      "config_url": "/config/bumpin.xml",
+      "extensions": ["course_nav"]
+    }
 ]

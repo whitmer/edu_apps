@@ -313,7 +313,8 @@ get "/bumpin/room/:ids" do
     <script type="text/javascript" src="http://www.bumpin.com/web_widget/users/swfobject.js"></script>
     <script type="text/javascript" src="http://www.bumpin.com/web_widget/users/bar/jquery-1.3.2.min.js"></script>
     <script type="text/javascript" src="http://www.bumpin.com/new_web_widget/widget.js"></script>
-    <div id="bumpin-embedded-div" style="width:800px;"><div id="bumpin-widget"></div><div id="bumpin-link-div"><a target="_blank" href="http://www.ticketmy.com/bumpin/index.php">Shoutbox</a></div></div>
+    <div id="bumpin-embedded-div" style="width:800px;"><div id="bumpin-widget"></div><div id="bumpin-link-div">
+    </div></div>
     <script>window.onload =function(){loadNewBumpinWidget({ height: "500", width: "800", language: "English", color_string: "", color_theme: "default", enable_login: "false", bumpin_policy: "page", bumpin_url: "", widget_title: "Chat Room", enable_guest_login: "true", show_people_list: "true", enable_sound: "false", nick_name: "#{params['name']}" });}</script>
   </body>
   </html>
@@ -686,6 +687,23 @@ get "/config/titanpad_course_nav.xml" do
       <lticm:options name="course_navigation">
         <lticm:property name="url">#{host}/titanpad</lticm:property>
         <lticm:property name="text">TitanPad </lticm:property>
+      </lticm:options>
+    </blti:extensions>
+  XML
+end
+
+get "/config/bumpin.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Bumpin</blti:title>
+    <blti:description>Add course navigation to allow a Bumpin Social chat room to your courses</blti:description>
+    <blti:launch_url>#{host}/bumpin</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">name_only</lticm:property>
+      <lticm:options name="course_navigation">
+        <lticm:property name="url">#{host}/bumpin</lticm:property>
+        <lticm:property name="text">Bumpin Chat</lticm:property>
       </lticm:options>
     </blti:extensions>
   XML
