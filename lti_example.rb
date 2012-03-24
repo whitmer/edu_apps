@@ -303,17 +303,16 @@ end
 post "/bumpin" do
   return "invalid parameters" unless params['context_id'] && params['resource_link_id']
   str = "#{params['context_id']}-#{params['resource_link_id']}"
-  session['name'] = params['lis_person_name_full']
-  redirect to("/bumpin/room?id=#{str}")
+  redirect to("/bumpin/room/#{str}?name=#{params['lis_person_name_full']}")
 end
 
-get "/bumpin/room" do
+get "/bumpin/room/:name" do
   return <<-HTML
   <html>
   <body>
     <script type="text/javascript" src="http://www.bumpin.com/web_widget/users/bar/jquery-1.3.2.min.js"></script><script type="text/javascript" src="http://www.bumpin.com/new_web_widget_js_shoutbox/js_shoutbox_widget.js"></script>
     <div id="bumpin-embedded-div" style="width:800px;"><div id="bumpin-widget"></div><div id="bumpin-link-div"><a target="_blank" href="http://www.ticketmy.com/bumpin/index.php">Shoutbox</a></div></div>
-    <script>window.onload =function(){loadNewBumpinJSWidgetWithoutPeoplelist({ height: "500", width: "800", language: "English", color_string: "", color_theme: "default", enable_login: "false", bumpin_policy: "page", bumpin_url: "", widget_title: "Chat Room", enable_guest_login: "true", show_people_list: "true", enable_sound: "false", nick_name: "#{session['name']}" });}</script>
+    <script>window.onload =function(){loadNewBumpinJSWidgetWithoutPeoplelist({ height: "500", width: "800", language: "English", color_string: "", color_theme: "default", enable_login: "false", bumpin_policy: "page", bumpin_url: "", widget_title: "Chat Room", enable_guest_login: "true", show_people_list: "true", enable_sound: "false", nick_name: "#{params['name']}" });}</script>
   </body>
   </html>
   HTML
