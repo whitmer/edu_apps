@@ -297,7 +297,7 @@ end
 post "/titanpad" do
   return "invalid parameters" unless params['context_id'] && params['resource_link_id']
   str = "#{params['context_id']}-#{params['resource_link_id']}"
-  redirect to("http://titanpad.com/lti-" + Digest::MD5.hexdigest(str))
+  redirect to("http://titanpad.com/lti-" + Digest::MD5.hexdigest(str) + "?fullScreen=1&displayName=#{CGI.escape(params['lis_person_name_full'] || '')}")
 end
 
 post "/bumpin" do
@@ -671,7 +671,7 @@ get "/config/titanpad.xml" do
     <blti:description>Allow inserting TitanPad links into modules</blti:description>
     <blti:launch_url>#{host}/titanpad</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:property name="privacy_level">name_only</lticm:property>
     </blti:extensions>
   XML
 end
@@ -684,7 +684,7 @@ get "/config/titanpad_course_nav.xml" do
     <blti:description>Allow inserting TitanPad links into modules</blti:description>
     <blti:launch_url>#{host}/titanpad</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:property name="privacy_level">name_only</lticm:property>
       <lticm:options name="course_navigation">
         <lticm:property name="url">#{host}/titanpad</lticm:property>
         <lticm:property name="text">TitanPad </lticm:property>
