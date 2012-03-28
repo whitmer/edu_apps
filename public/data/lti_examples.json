@@ -1,10 +1,35 @@
 [
     {
+      "new": true,
+      "id": "twitter",
+      "name": "Twitter",
+      "image_url": "/tools/twitter.png",
+      "description": "Embed lists of tweets from Twitter. Lists can be derived from search results, or from a user's twitter feed.<br/><br/>Any key and secret will work.",
+      "config_url": "/config/twitter.xml",
+      "extensions": ["editor_button"]
+    },
+    {
+      "id": "public_collections",
+      "name": "Public Collections",
+      "image_url": "/collections.png",
+      "description": "Browse or search through multiple content repositories including MIT OCW, Softchalk Connect, Khan Academy, USA Today, etc.<br/><br/>Any key and secret will work.",
+      "config_url": "/config/tools.xml",
+      "extensions": ["editor_button"]
+    },
+    {
       "id": "ted_ed",
       "name": "TED Ed",
       "image_url": "/tools/ted_ed.png",
       "description": "TED Ed is a collection of quality videos that can be used for instructional purposes. This tool lets you search for and embed TED Ed vidoes in your course material.<br/><br/>Any key and secret will work.",
       "config_url": "/config/ted_ed.xml",
+      "extensions": ["editor_button"]
+    },
+    {
+      "id": "graph_builder",
+      "name": "Graph Builder",
+      "image_url": "/tools/graph_tk.png",
+      "description": "Build and embed rich interactive graphs into course content.<br/><br/>Any key and secret will work.",
+      "config_url": "/config/inline_graph.xml",
       "extensions": ["editor_button"]
     },
     {
@@ -27,14 +52,6 @@
       "image_url": "/tools/tegrity.png",
       "description": "Supports course-level support for the Tegrity lecture capture solution. Visit the Tegrity web site for instructions on how to sign up and get a consumer key and shared secret.",
       "config_url": "/config/tegrity.xml"
-    },
-    {
-      "id": "public_collections",
-      "name": "Public Collections",
-      "image_url": "/collections.png",
-      "description": "Browse or search through multiple content repositories including MIT OCW, Softchalk Connect, Khan Academy, USA Today, etc.<br/><br/>Any key and secret will work.",
-      "config_url": "/config/tools.xml",
-      "extensions": ["editor_button"]
     },
     {
       "id": "piazza",
@@ -89,14 +106,6 @@
       "config_directions": "Contact <a href='http:courseload.com/'>Courseload</a> for configuration instructions. "
     },
     {
-      "id": "twitter",
-      "name": "Twitter",
-      "image_url": "/tools/twitter.png",
-      "description": "Embed lists of tweets from Twitter. Lists can be derived from search results, or from a user's twitter feed.<br/><br/>Any key and secret will work.",
-      "config_url": "/config/twitter.xml",
-      "extensions": ["editor_button"]
-    },
-    {
       "id": "khan_academy",
       "name": "Khan Academy",
       "image_url": "/tools/khan.png",
@@ -110,14 +119,6 @@
       "image_url": "/tools/imathas.png",
       "description": "Internet Math Assessment System lets you create and administer auto-graded math assessments to students. It has experimental support for passing grades back to the LMS. Visit the web site for instructions on how to sign up and get a consumer key and shared secret.",
       "config_url": "/config/my_open_math.xml"
-    },
-    {
-      "id": "graph_builder",
-      "name": "Graph Builder",
-      "image_url": "/tools/graph_tk.png",
-      "description": "Build and embed rich interactive graphs into course content.<br/><br/>Any key and secret will work.",
-      "config_url": "/config/inline_graph.xml",
-      "extensions": ["editor_button"]
     },
     {
       "id": "wikipedia",
@@ -152,6 +153,7 @@
       "config_directions": "Contact <a href='http://www.pebblepad.co.uk/'>PebblePad</a> for configuration instructions."
     },
     {
+      "new": true,
       "id": "wikispaces",
       "name": "Wikispaces",
       "image_url": "/tools/wikispaces.png",
@@ -191,6 +193,7 @@
       "extensions": ["editor_button"]
     },
     {
+      "new": true,
       "id": "titanpad",
       "name": "TitanPad",
       "image_url": "/tools/titanpad.png",
@@ -198,6 +201,7 @@
       "config_url": "/config/titanpad.xml"
     },
     {
+      "new": true,
       "id": "bumpin",
       "name": "Bumpin Social Chat",
       "image_url": "/tools/bumpin.png",

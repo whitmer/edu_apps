@@ -184,7 +184,11 @@
         html = html + "<div style='float: left; padding-top: 1px;'><div class='g-plusone' data-annotation='bubble' data-size='tall' data-width='55' data-href='" + refUrl + "'></div></div>";
         html = html + "<div style='clear: left;'></div>";
       }
-      html = html + "<div class='description'>" + tool.description + "</div></div>";
+      html = html + "<div class='description'>";
+      if(tool['new']) {
+        html = html + "<span class='label label-important'>NEW</span>&nbsp;";
+      }
+      html = html + tool.description + "</div></div>";
       if(tools.length == 1 || tool.extensions) {
         html = html + "<div class='config alert alert-info'>";
         if(tools.length == 1) {
