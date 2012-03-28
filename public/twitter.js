@@ -72,7 +72,7 @@ $("#search").submit(function(event) {
   $("iframe").remove();
   var $iframe = $("<iframe/>", {
     src: iframeUrl(),
-    style: "width: 100%; height: 350px; border: 0; overflow: auto;",
+    style: "width: 100%; height: 375px; border: 0; overflow: auto;",
     frameborder: 0
   });
   $("#header").after($iframe);

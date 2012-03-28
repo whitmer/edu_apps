@@ -89,6 +89,14 @@
       "config_directions": "Contact <a href='http:courseload.com/'>Courseload</a> for configuration instructions. "
     },
     {
+      "id": "twitter",
+      "name": "Twitter",
+      "image_url": "/tools/twitter.png",
+      "description": "Embed lists of tweets from Twitter. Lists can be derived from search results, or from a user's twitter feed.<br/><br/>Any key and secret will work.",
+      "config_url": "/config/twitter.xml",
+      "extensions": ["editor_button"]
+    },
+    {
       "id": "khan_academy",
       "name": "Khan Academy",
       "image_url": "/tools/khan.png",
