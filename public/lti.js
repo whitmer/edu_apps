@@ -14,7 +14,7 @@ if(!skipValidation) {
       }
     }
     if(params['selection_directive'] != "embed_content" || !params['launch_presentation_return_url']) {
-      alert("This page is normally used an an example of embedding content, but you've referenced it some other way. As such, it's not going to be very useful to you. Sorry.");
+      alert("This page is normally used an an example of embedding content, but you've referenced it some other way. As such, it's not going to be very useful to you, other than maybe for demo purposes.");
       callbackUrl = null;
     } else if(!params['launch_presentation_return_url'].match(/\?/)) {
       params['launch_presentation_return_url'] = params['launch_presentation_return_url'] + "?";
@@ -28,7 +28,7 @@ if(!skipValidation) {
         }
         location.href = url;
       } else {
-        alert('resource selected');
+        alert('You selected a resource. If this were in an LMS the resource would have been added just then.');
         console.log(data);
       }
     };

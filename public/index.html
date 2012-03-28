@@ -60,6 +60,9 @@
         height: auto;
         width: 300px;
        }
+       #preview {
+        vertical-align: top;
+       }
     </style>
     <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -130,7 +133,19 @@
   var extensions = {
     'editor_button': "rich editor",
     'course_nav': "course navigation"
-  }
+  };
+  $("#preview").live('click', function() {
+    var tool = tools[0];
+    $(".preview_pane").remove();
+    var $div = $("<div/>", {'class': 'preview_pane well'});
+    $div.append("<h2>Tool Preview:</h2>");
+    $div.append($("<iframe/>", {
+      src: tool.preview.url,
+      frameborder: '0',
+      style: "background: #fff; border: 1px solid #ccc; height: " + tool.preview.height + "px;"
+    }).css('width', tool.preview.width ? (tool.preview.width + "px") : "100%"));
+    $(".config").after($div);
+  });
   $.getJSON('/data/lti_examples.json', function(data) {
     tools = data;
     var url = location.href;
@@ -201,6 +216,9 @@
             html = html + "configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='" + url + "'/>";
           } else if(tool.config_directions) {
             html = html + tool.config_directions;
+          }
+          if(tool.preview) {
+            html = html + "&nbsp;&nbsp;<button id='preview' class='btn btn-primary'>Preview</button>"
           }
         }
         if(tool.extensions) {

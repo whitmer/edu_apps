@@ -107,6 +107,13 @@
       launch_url: "/wikipedia.html"
     },
     {
+      name: "Twitter",
+      logo_url: "/tools/twitter.png",
+      description: "Embed tweet streams",
+      markets: "",
+      launch_url: "/twitter.html"
+    },
+    {
       name: "PlaceKitten",
       logo_url: "/tools/place_kitten.png",
       description: "Browse kitten images",

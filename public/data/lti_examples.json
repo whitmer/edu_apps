@@ -6,7 +6,11 @@
       "image_url": "/tools/twitter.png",
       "description": "Embed lists of tweets from Twitter. Lists can be derived from search results, or from a user's twitter feed.<br/><br/>Any key and secret will work.",
       "config_url": "/config/twitter.xml",
-      "extensions": ["editor_button"]
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/twitter.html",
+        "height": 475
+      }
     },
     {
       "id": "public_collections",
@@ -14,7 +18,11 @@
       "image_url": "/collections.png",
       "description": "Browse or search through multiple content repositories including MIT OCW, Softchalk Connect, Khan Academy, USA Today, etc.<br/><br/>Any key and secret will work.",
       "config_url": "/config/tools.xml",
-      "extensions": ["editor_button"]
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/tools.html",
+        "height": 475
+      }
     },
     {
       "id": "ted_ed",
@@ -22,7 +30,11 @@
       "image_url": "/tools/ted_ed.png",
       "description": "TED Ed is a collection of quality videos that can be used for instructional purposes. This tool lets you search for and embed TED Ed vidoes in your course material.<br/><br/>Any key and secret will work.",
       "config_url": "/config/ted_ed.xml",
-      "extensions": ["editor_button"]
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/ted_ed.html",
+        "height": 475
+      }
     },
     {
       "id": "graph_builder",
@@ -30,7 +42,12 @@
       "image_url": "/tools/graph_tk.png",
       "description": "Build and embed rich interactive graphs into course content.<br/><br/>Any key and secret will work.",
       "config_url": "/config/inline_graph.xml",
-      "extensions": ["editor_button"]
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/graph.html",
+        "height": 475,
+        "width": 770
+      }
     },
     {
       "id": "nook_study_links",
@@ -67,7 +84,11 @@
       "image_url": "/tools/slideshare.png",
       "description": "Slideshare is a site that enables viewing and interacting with presentations without needing desktop software. Search for and embed Creative Commons-licensed presentations hosted on Slideshare.<br/><br/>Any key and secret will work.",
       "config_url": "/config/slideshare.xml",
-      "extensions": ["editor_button"]
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/slideshare.html",
+        "height": 475
+      }
     },
     {
       "id": "quizlet",
@@ -75,7 +96,11 @@
       "image_url": "/tools/quizlet.png",
       "description": "Search for and embed publicly available question sets on Quizlet. Questions can be embedded as flash cards, review, or as a study game.<br/><br/>Any key and secret will work.",
       "config_url": "/config/quizlet.xml",
-      "extensions": ["editor_button"]
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/quizlet.html",
+        "height": 475
+      }
     },
     {
       "id": "coursesmart",
@@ -111,7 +136,11 @@
       "image_url": "/tools/khan.png",
       "description": "Search for and embed Khan Academy lessons into course material. Khan Academy focuses on short lessons on math, science, etc.<br/><br/>Any key and secret will work.",
       "config_url": "/config/khan.xml",
-      "extensions": ["editor_button"]
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/khan.html",
+        "height": 475
+      }
     },
     {
       "id": "my_open_math",
@@ -126,7 +155,11 @@
       "image_url": "/tools/wikipedia.png",
       "description": "Search through English Wikipedia articles and link to or embed these articles into course material.<br/><br/>Any key and secret will work.",
       "config_url": "/config/wikipedia.xml",
-      "extensions": ["editor_button"]
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/wikipedia.html",
+        "height": 475
+      }
     },
     {
       "pending": true,
@@ -182,7 +215,11 @@
       "image_url": "/tools/place_kitten.png",
       "description": "PlaceKitten lets you embed perfectly-size kitten images into any online content. You pick the dimensions, whether it's color or grayscale, and then embed it into your content.<br/><br/>Any key and secret will work.",
       "config_url": "/config/editor_button2.xml",
-      "extensions": ["editor_button"]
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/kitten.html",
+        "height": 475
+      }
     },
     {
       "id": "youtube",
@@ -190,7 +227,11 @@
       "image_url": "/tools/youtube.png",
       "description": "Search publicly available YouTube videos. A new icon will show up in your course rich editor letting you search YouTube and click to embed videos in your course material.<br/><br/>Any key and secret will work.",
       "config_url": "/config/youtube.xml",
-      "extensions": ["editor_button"]
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/youtube.html",
+        "height": 475
+      }
     },
     {
       "new": true,
