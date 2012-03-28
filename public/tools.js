@@ -173,7 +173,7 @@
       $tool.click(function() {
         var tool = $(this).data('tool');
         if(tool.launch_url) {
-          location.href = tool.launch_url + "?selection_directive=embed_content&launch_presentation_return_url=" + encodeURIComponent(lti.returnUrl);
+          location.href = tool.launch_url + "?selection_directive=embed_content&custom_lti_back_button=1&launch_presentation_return_url=" + encodeURIComponent(lti.returnUrl);
         } else {
           $tools.hide();
           $back.show();
