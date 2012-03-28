@@ -1,4 +1,26 @@
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
 <body>
 <iframe style="border: 2px solid #888; width: 500px;height:400px; float: left;" src="about:blank" id="inline_graph_iframe"></iframe>
 <div style='float: right; width: 200px;'>
@@ -16,27 +38,27 @@
   </div>
   <div>
     <input type="checkbox" checked="true" id="inline_graph_show_formulas">
-    <label for="inline_graph_show_formulas">Show Formulas</label>
+    <label for="inline_graph_show_formulas" style="display: inline;">Show Formulas</label>
   </div>
   <div class="allow_console_option" style="display: none;">
     <input type="checkbox" id="inline_graph_allow_console">
-    <label for="inline_graph_allow_console">Allow Console</label>
+    <label for="inline_graph_allow_console" style="display: inline;">Allow Console</label>
   </div>
   <div style="display: none;">
     <input type="checkbox" id="inline_graph_show_console">
-    <label for="inline_graph_show_console">Show Console</label>
+    <label for="inline_graph_show_console" style="display: inline;">Show Console</label>
   </div>
   <div>
     <input type="checkbox" id="inline_graph_lock_graph">
-    <label for="inline_graph_lock_graph">Lock the Graph in Place</label>
+    <label for="inline_graph_lock_graph" style="display: inline;">Lock the Graph in Place</label>
   </div>
   <div style="margin-top: 5px;">
     Zoom: 
-    <button type="button" id="zoom_out" class="button small-button zoom_out">&nbsp;-&nbsp;</button>
-    <button type="button" id="zoom_in" class="button small-button zoom_in">&nbsp;+&nbsp;</button>
+    <button type="button" id="zoom_out" class="btn btn-mini button small-button zoom_out"><span class='icon-minus'></span></button>
+    <button type="button" id="zoom_in" class="btn btn-mini button small-button zoom_in"><span class='icon-plus'></span></button>
   </div>
   <div style="margin-top: 20px;">
-    <button type="button" class="button insert_graph">Insert this Graph</button>
+    <button type="button" class="btn btn-primary button insert_graph">Insert this Graph</button>
   </div>
 </div>
 <script src="graph.js"></script>

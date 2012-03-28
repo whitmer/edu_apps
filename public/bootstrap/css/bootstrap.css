@@ -619,7 +619,6 @@ select,
 .uneditable-input {
   display: inline-block;
   width: 210px;
-  height: 18px;
   padding: 4px;
   margin-bottom: 9px;
   font-size: 13px;
@@ -629,6 +628,9 @@ select,
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+}
+.uneditable-input {
+  height: 18px;
 }
 .uneditable-textarea {
   width: auto;

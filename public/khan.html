@@ -1,5 +1,24 @@
 <html>
-<head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
 <style>
 body {
   font-family: Arial;
@@ -32,6 +51,7 @@ h1 {
   padding-left: 5px;
   overflow: hidden;
   color: #444;
+  line-height: 14px;
 }
 #message {
   font-weight: bold;
@@ -40,14 +60,14 @@ h1 {
 </style>
 </head>
 <body>
-<img src="khan.png" style="width: 70px; vertical-align: middle; float: left;"/>
+<img src="khan.png" style="padding-right: 10px; width: 70px; vertical-align: middle; float: left;"/>
 <h1>
 Search Khan Academy videos:
 </h1>
 
-<form id="search">
+<form id="search" class="form-inline">
 <input type="text" id="query"/>
-<button type="submit">Search</button>
+<button type="submit" class="btn"><span class="icon-search"></span> Search</button>
 </form>
 
 <div id="message"></div>
