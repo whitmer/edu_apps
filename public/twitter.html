@@ -1,0 +1,37 @@
+<html>
+<head>
+<style>
+body {
+  font-family: Arial;
+}
+h1 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+</style>
+</head>
+<body>
+<div id="header" style="display: none;">
+  <img src="/tools/twitter.png" style="width: 70px; vertical-align: middle; float: left;"/>
+  <h1>
+  Embed Twitter results:
+  </h1>
+  
+  <form id="search">
+  <select id="type">
+    <option value="search">Search Results</option>
+    <option value="user">User Tweets</option>
+  </select>
+  <input type="text" id="query" style="width: 100px;"/>
+  <button type="submit">Preview</button>
+  <button type="submit" id="add">Add</button>
+  </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script src="twitter.js"></script>
+<script src="lti.js"></script>
+</body>
+</html>
+

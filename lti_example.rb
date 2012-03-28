@@ -554,7 +554,7 @@ get "/config/wikipedia.xml" do
         <lticm:property name="selection_height">450</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/khan.ico</blti:icon>
+    <blti:icon>#{host}/wikipedia.ico</blti:icon>
   XML
 end
 
@@ -575,7 +575,7 @@ get "/config/ted_ed.xml" do
         <lticm:property name="selection_height">450</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/khan.ico</blti:icon>
+    <blti:icon>#{host}/ted_ed.ico</blti:icon>
   XML
 end
 get "/config/youtube.xml" do
@@ -617,7 +617,7 @@ get "/config/quizlet.xml" do
         <lticm:property name="selection_height">510</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/khan.ico</blti:icon>
+    <blti:icon>#{host}/quizlet.ico</blti:icon>
   XML
 end
 
@@ -638,7 +638,7 @@ get "/config/slideshare.xml" do
         <lticm:property name="selection_height">530</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/khan.ico</blti:icon>
+    <blti:icon>#{host}/slideshare.ico</blti:icon>
   XML
 end
 
@@ -659,7 +659,7 @@ get "/config/tools.xml" do
         <lticm:property name="selection_height">550</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/khan.ico</blti:icon>
+    <blti:icon>#{host}/tools.png</blti:icon>
   XML
 end
 
@@ -710,6 +710,26 @@ get "/config/bumpin.xml" do
   XML
 end
 
+get "/config/twitter.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Twitter List</blti:title>
+    <blti:description>Embed a list of tweets based on search results or a user's profile</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/twitter.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/twitter.ico</lticm:property>
+        <lticm:property name="text">Twitter List</lticm:property>
+        <lticm:property name="selection_width">690</lticm:property>
+        <lticm:property name="selection_height">530</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/twitter.ico</blti:icon>
+  XML
+end
 
 post "/tool_redirect" do
   url = params['url']
