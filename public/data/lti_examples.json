@@ -50,6 +50,14 @@
       }
     },
     {
+      "pending": true,
+      "id": "opentapestry",
+      "name": "OpenTapestry",
+      "image_url": "/tools/opentapestry.png",
+      "description": "Browse and insert private and public collections tapestries from OpenTapestry. Each tapestry is a collection of content from anywhere on the web. Content can be annotated and enhanced to tailor it to your specific learning environment.<br/><br/><a href='http://opentapestry.com'>Register on OpenTapestry</a> to retrieve your consumer key and shared secret.",
+      "config_url": "/config/opentapestry.xml"
+    },
+    {
       "id": "nook_study_links",
       "name": "Nook Study Links",
       "image_url": "/tools/nook_study.png",
@@ -61,7 +69,11 @@
       "name": "Nook Study Textbooks List",
       "image_url": "/tools/nook_study.png",
       "description": "This would allow you to insert a link as an item in a module that the teacher can use to specify a set of require reading materials for the course.",
-      "config_url": "/config/nook_textbooks_list.xml"
+      "config_url": "/config/nook_textbooks_list.xml",
+      "preview": {
+        "url": "http://www.youtube.com/embed/SwtcDKxclbw?rel=0",
+        "height": 400
+      }
     },
     {
       "id": "tegrity",
@@ -147,7 +159,11 @@
       "name": "MyOpenMath",
       "image_url": "/tools/imathas.png",
       "description": "Internet Math Assessment System lets you create and administer auto-graded math assessments to students. It has experimental support for passing grades back to the LMS. Visit the web site for instructions on how to sign up and get a consumer key and shared secret.",
-      "config_url": "/config/my_open_math.xml"
+      "config_url": "/config/my_open_math.xml",
+      "preview": {
+        "url": "http://www.youtube.com/embed/QDXRys2o1eY?rel=0",
+        "height": 400
+      }
     },
     {
       "id": "wikipedia",
