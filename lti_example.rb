@@ -731,6 +731,27 @@ get "/config/twitter.xml" do
   XML
 end
 
+get "/config/archive.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Internet Archive</blti:title>
+    <blti:description>Search public domain videos, audio files, books, images, etc. on archive.org.</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/archive.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/archive.png</lticm:property>
+        <lticm:property name="text">Internet Archive</lticm:property>
+        <lticm:property name="selection_width">690</lticm:property>
+        <lticm:property name="selection_height">530</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/archive.png</blti:icon>
+  XML
+end
+
 post "/tool_redirect" do
   url = params['url']
   args = []
