@@ -59,6 +59,7 @@ var lti;
           $entry.attr('rel', url);
           $results.append($entry.show());
         }
+        $(".result .img").tooltip();
         $results.show();
         $message.hide();
       },
