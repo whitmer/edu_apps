@@ -114,6 +114,13 @@
       launch_url: "/twitter.html"
     },
     {
+      name: "Internet Archive",
+      logo_url: "/tools/archive.png",
+      description: "Search public videos, books, etc.",
+      markets: "",
+      launch_url: "/archive.html"
+    },
+    {
       name: "PlaceKitten",
       logo_url: "/tools/place_kitten.png",
       description: "Browse kitten images",

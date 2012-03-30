@@ -50,6 +50,19 @@
       }
     },
     {
+      "new": true,
+      "id": "archive",
+      "name": "Internet Archive",
+      "image_url": "/tools/archive.png",
+      "description": "The Internet Archive hosts public domain video, audio, books, images and other resources. Links to any of these resources can easily be added to any course content.<br/><br/>Any key and secret will work.",
+      "config_url": "/config/archive.xml",
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/archive.html",
+        "height": 475
+      }
+    },
+    {
       "pending": true,
       "id": "opentapestry",
       "name": "OpenTapestry",
