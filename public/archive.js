@@ -10,7 +10,7 @@ var lti;
     video: "/icons/video.png",
     movingimage: "/icons/video.png",
     movies: "/icons/video.png",
-    other: "/icons/collection.png",
+    other: "/icons/other.png",
     collection: "/icons/collection.png",
     education: "/icons/collection.png",
     items: "/icons/collection.png",
@@ -54,7 +54,7 @@ var lti;
           var url = "http://archive.org/details/" + entry.identifier;
           $entry.find(".title").text(entry.title);
           $entry.find(".description").html(entry.description);
-          $entry.find(".img").attr('src', mediaTypes[entry.mediatype] || mediaTypes['other']);
+          $entry.find(".img").attr('src', mediaTypes[entry.mediatype.toLowerCase()] || mediaTypes['other']).attr('title', entry.mediatype).attr('alt', entry.mediatype);
           $entry.find(".preview").attr('href', url);
           $entry.attr('rel', url);
           $results.append($entry.show());
