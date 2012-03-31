@@ -1,0 +1,415 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Writing LTI Stuff</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      footer {
+        border-top: 1px solid #e5e5e5;
+        margin-top: 40px;
+      }
+      .row.description span > p {
+        margin-bottom: 35px;
+      }
+    </style>
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">LTI of Magic</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/talk.html">Talk</a></li>
+              <li><a href="/tutorials.html">Tutorials</a></li>
+              <li class="active"><a href="/code.html">Coding</a></li>
+              <li><a href="/extensions.html">Extensions</a></li>
+              <li><a href="https://github.com/whitmer/lti_example">Source</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container" id="content">
+    <div class="hero-unit">
+      <h1>Writing LTI Stuff</h1>
+      
+      <p>
+        This page goes over the basics of creating a tool that leverages LTI. There's
+        a lot of great links at the bottom that may help out, but it's probably a good
+        idea to at least read the intro first to get a feel for what LTI does exactly.
+      </p>
+      <p style="float: right;">
+        <a href="https://github.com/instructure/ims-lti">ruby</a> | 
+        <a href="http://code.google.com/p/ims-dev/">java</a> | 
+        <a href="http://code.google.com/p/ims-dev/">php</a> | 
+        <a href="http://swl10.blogspot.com/2011/03/oauth-python-and-basic-lti.html">python</a>
+      </p>
+    </div>
+    <div id="contents">
+      <div class="row description">
+        <span class="span10 offset1">
+          <h2>Introduction</h2>
+          <div class="thumbnail" style="float: right; width: 300px; padding-left: 10px;">
+            <img src="/tool_launch.png" alt=""/>
+            <p>Identity assertion is a one-way "handshake" coming from the learning platform (consumer) to the tool (provider).</p>
+          </div>
+          <p>
+            The main thing with LTI is the identity assertion. LTI is a way for 
+            one system (the tool <span class='label label-warning'>consumer</span>, typically an LMS) 
+            to send a user to 
+            another system (the tool <span class='label label-info'>provider</span>, 
+            some service that integrates with
+            the LMS -- sorry, I know the names are confusing) in a trusted way. The most
+            common reason for the trust assertion is to allow the user to be automatically
+            signed in and directed to a specific course or module when 
+            the <span class='label label-info'>provider</span> renders content.
+          </p>
+          <p>
+            The
+            <span class='label label-warning'>consumer</span> and 
+            <span class='label label-info'>provider</span> 
+            have some predefined relationship via a consumer key and shared
+            secret that are used to sign any messages passed between systems. All messages
+            are <a href='http://oauth.googlecode.com/svn/code/javascript/example/signature.html'>signed with an OAuth signature</a>
+            that can be verified by either party. For the most part information only travels one
+            way, from the <span class='label label-warning'>consumer</span> to the
+            <span class='label label-info'>provider</span>.
+          </p>
+          <div class="thumbnail" style="float: right; clear: right; width: 200px; padding-left: 10px;">
+            <img src="/tool_iframe.png" alt=""/>
+            <p>Tools (providers) are launched from within the learning platform (consumer) in an iframe so they feel like a native part of the platform.</p>
+          </div>
+          <p>
+            The identity assertion happens through
+            an HTTP POST request from the <span class='label label-warning'>consumer</span> to the
+            <span class='label label-info'>provider</span>. The POST request must happen
+            in the user's browser, which means it needs to be 
+            launched by submitting a form. Most of the time the form is submitted via
+            JavaScript to an iframe rendered on a page within the <span class='label label-warning'>consumer</span>, 
+            so the user doesn't have an extra step when trying to launch
+            a tool.
+          </p>
+          <p>
+            Below are a list of parameters that can be sent as part of the POST
+            request. Some are required, some are optional. Most tools shouldn't need more
+            than the first seven parameters and can probably just ignore the rest.
+          </p>
+        </span>
+        <span class="span10 offset1">
+          <h2>POST Parameters</h2>
+          <table class='table table-bordered table-striped'>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Status</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>lti_message_type</code></td>
+                <td><span class='label label-success'>required</span></td>
+                <td>set to <code>basic-lti-launch-request</code></td>
+              </tr>
+              <tr>
+                <td><code>lti_version</code></td>
+                <td><span class='label label-success'>required</span></td>
+                <td>set to <code>LTI-1p0</code></td>
+              </tr>
+              <tr>
+                <td><code>resource_link_id</code></td>
+                <td><span class='label label-success'>required</span></td>
+                <td>
+                unique id referencing the link, or "placement", of the tool in the
+                <span class='label label-warning'>consumer</span>. If a tool was added twice
+                to the same class, each placement would send a different id, and
+                should be considered a unique "launch". For example, if the
+                <span class='label label-info'>provider</span> were a chat room
+                tool, then each <code>resource_link_id</code> would be a separate
+                room.
+                </td>
+              </tr>
+              <tr>
+                <td><code>user_id</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>
+                unique id referencing the user accessing the
+                tool. <span class='label label-info'>providers</span> should
+                consider this id an opaque identifier.
+                </td>
+              </tr>
+              <tr>
+                <td><code>user_image</code></td>
+                <td><span class='label'>optional</span></td>
+                <td>if provided, this would be a url to an avatar image for
+                the current user. We recommend that these urls be 50px wide
+                and tall, and don't expire for at least 3 months.</td>
+              </tr>
+              <tr>
+                <td><code>roles</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>
+                  <p>there's a long list of possible roles, but here's the
+                  most common ones:</p>
+                  <ul>
+                    <li><code>Learner</code></li>
+                    <li><code>Instructor</code></li>
+                    <li><code>ContentDeveloper</code></li>
+                    <li><code>urn:lti:instrole:ims/lis/Observer</code></li>
+                    <li><code>urn:lti:instrole:ims/lis/Administrator</code></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td><code>lis_person_name_full</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>Full name of the user accessing the tool. This won't be sent if tools are configured to launch users anonymously or with minimal information.</td>
+              </tr>
+              <tr>
+                <td><code>lis_person_name_given</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>First name of the user accessing the tool. This won't be sent if tools are configured to launch users anonymously or with minimal information.</td>
+              </tr>
+              <tr>
+                <td><code>lis_person_name_family</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>Last name of the user accessing the tool. This won't be sent if tools are configured to launch users anonymously or with minimal information.</td>
+              </tr>
+              <tr>
+                <td><code>lis_person_contact_email_primary</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>Email address of the user accessing the tool. This won't be sent if tools are configured to launch users anonymously or with minimal information.</td>
+              </tr>
+              <tr>
+                <td><code>resource_link_title</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>name of the link that launched the tool</td>
+              </tr>
+              <tr>
+                <td><code>resource_link_description</code></td>
+                <td><span class='label'>optional</span></td>
+                <td>description of the link that launched the tool</td>
+              </tr>
+              <tr>
+                <td><code>context_id</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>unique id of the course from which the user is accessing the tool. If a tool were added multiple times to the same course, this id would be the same regardless of which link was used to launch the tool.</td>
+              </tr>
+              <tr>
+                <td><code>context_type</code></td>
+                <td><span class='label'>optional</span></td>
+                <td>this is the type of context from which the user is accessing the tool. If it's provided, this will most likely be <code>CourseSection</code></td>
+              </tr>
+              <tr>
+                <td><code>context_title</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>name of the course from which the user is accessing the tool</td>
+              </tr>
+              <tr>
+                <td><code>context_label</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>short name or course code of the course from which the user is accessing the tool</td>
+              </tr>
+              <tr>
+                <td><code>launch_presentation_locale</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>locale (i.e. <code>en-US</code>) for the user accessing the tool</td>
+              </tr>
+              <tr>
+                <td><code>launch_presentation_document_target</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>if provided, this value will be either <code<window</code> (if the tool has been launched in a new window) or <code>iframe</code>.</td>
+              </tr>
+              <tr>
+                <td><code>launch_presentation_css_url</code></td>
+                <td><span class='label'>optional</span></td>
+                <td>css file that could be included by the <span class='label label-info'>provider</span> to help its styling better match the <span class='label label-warning'>consumer</span> styling. This isn't well-documented, so I typically pretend it doesn't exist.</td>
+              </tr>
+              <tr>
+                <td><code>launch_presentation_width</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>width of the frame or window in which the tool is launched. This is only a starting point, since the frame could change if the user resizes their window.</td>
+              </tr>
+              <tr>
+                <td><code>launch_presentation_height</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>height of the frame or window in which the tool is launched. This is only a starting point, since the frame could change if the user resizes their window.</td>
+              </tr>
+              <tr>
+                <td><code>launch_presentation_return_url</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>
+                  <p>url to send the user to when they're finished with the <span class='label label-info'>provider</span>. The <span class='label label-info'>provider</span> can optionally send one of four values as query parameters appended to the url:</p>
+                  <ul>
+                    <li><code>lti_errormsg</code> - error message to show to the user</li>
+                    <li><code>lti_errorlog</code> - error message for the <span class='label label-warning'>consumer</span> to optionally store without showing the user</li>
+                    <li><code>lti_msg</code> - success message to show to the user</li>
+                    <li><code>lti_log</code> - success message for the <span class='label label-warning'>consumer</span> to optionally store without showing the user</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td><code>tool_consumer_info_product_family_code</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>product name for the <span class='label label-warning'>consumer</span>. This could
+                be something like <code>moodle</code>, <code>sakai</code> or <code>canvas</code></td>
+              </tr>
+              <tr>
+                <td><code>tool_consumer_info_version</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>version number of the <span class='label label-warning'>consumer</span> product.</td>
+              </tr>
+              <tr>
+                <td><code>tool_consumer_instance_guid</code></td>
+                <td><span class='label'>strongly recommended</span></td>
+                <td>unique id referencing the instance from which the user is accessing the tool. This mostly makes sense only in a multi-tenant environment.</td>
+              </tr>
+              <tr>
+                <td><code>tool_consumer_instance_name</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>name of the instance from which the user is accessing the tool.</td>
+              </tr>
+              <tr>
+                <td><code>tool_consumer_instance_description</code></td>
+                <td><span class='label'>optional</span></td>
+                <td>description of the instance from which the user is accessing the tool.</td>
+              </tr>
+              <tr>
+                <td><code>tool_consumer_instance_url</code></td>
+                <td><span class='label'>optional</span></td>
+                <td>url of the instance from which the user is accessing the tool.</td>
+              </tr>
+              <tr>
+                <td><code>tool_consumer_instance_contact_email</code></td>
+                <td><span class='label'>recommended</span></td>
+                <td>email address of a contact at the instance from which the user is accessing the tool.</td>
+              </tr>
+              <tr>
+                <td><code>custom_*</code></td>
+                <td><span class='label'>optional</span></td>
+                <td>
+                  any number of custom values can optionally be sent across. The key
+                  for any custom values should start with <code>custom_</code> and should
+                  be in snake case. Custom values can optionally be defined on the 
+                  <span class='label label-warning'>consumer</span> side as part of the tool configuration
+                  process.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </span>
+        <span class="span10 offset1">
+          <h2>Building an LTI Tool</h2>
+          <p>If you want to build an LTI-compliant tool or <span class='label label-info'>provider</span>
+          then there's really only a couple things you need to worry about: how users can
+          configure your tool, how to accept a launch from a <span class='label label-warning'>consumer</span>,
+          and potentially handling some of the extra goodies LTI makes possible.</p>
+          
+          <h3>Tool Configuration</h3>
+          <p>Tool configuration is <a href="/tutorials.html">different for every LMS</a> right
+          now, but we're working on that. The best way to provide a standard configuration
+          for your tool is by providing a url that returns an xml configuration for your
+          tool. There's a lot of 
+          <a href="https://canvas.instructure.com/doc/api/tools_xml.html">examples of tool 
+          configurations in the Canvas API documentation</a>. Remember, if there's custom
+          values you want to make sure come across with every user, this is the place
+          to include them. The only really crucial piece to specify is the url endpoint that will
+          accept the POST requests, <code>blti:launch_url</code>.</p>
+          <p>Typically users will either copy the url to your xml configuration, or copy
+          and paste the configuration itself.
+          Notice that the configuration does not include the consumer key or shared
+          secret. These are account-specific values, and if they were included they'd prevent
+          the xml from being reusable. Admins will still have to enter the key and
+          secret values that a <span class='label label-info'>provider</span> gives them
+          into the <span class='label label-warning'>consumer</span> manually.</p>
+          
+          <h3>Tool Launch</h3>
+          <p>Once a tool is configured, it will be added by one or more instructors into
+          their material as some sort of link or button in the <span class='label label-warning'>consumer</span>.
+          Any time a student, instructor, administrator, or random internet passersby clicks
+          the link they will be directed to the <span class='label label-info'>provider</span>
+          via a signed POST request. It is the <span class='label label-info'>provider's</span> 
+          responsibility to confirm the signature on the POST request. If the signature is
+          invalid then none of the information should be trusted.</p>
+          <p>If the signature is 
+          valid then you should accept the identity assertion provided by the <span class='label label-warning'>consumer</span>
+          and log the user in to your service. Many services have their own registration flow,
+          so it's not uncommon to require an additional registration step the first
+          time a user launches your tool.</p>
+          <p>Signatures are generated using <a href="http://oauth.net/core/1.0/#signing_process">the OAuth signing process</a>.
+          Google provides <a href="http://oauth.googlecode.com/svn/code/javascript/example/signature.html">a nice tool for generating OAuth signatures</a>
+          that you can use to test your signing code, although you'll probably save yourself
+          some trouble if you can find a library to do the work for you.</p>
+          
+          <h3>Extras</h3>
+          <p>This page has described the most basic type of LTI integration. There's a number of
+          other things you can do on top of this, including passing scores from the
+          <span class='label label-info'>provider</span> back to the gradebook of the
+          </span class='label label-warning'>consumer</span>, or adding buttons to the 
+          rich editor in the <span class='label label-warning'>consumer</span> to insert
+          rich content generated or curated by the <span class='label label-info'>provider</span>.
+          <a href="/extensions">Check out the extensions demos page</a> or the 
+          <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API documentation on external tools</a>
+          for more detail on these extensions and how they work.
+        </span>
+        <span class="span10 offset1">
+          <h2>Other Resources</h2>
+          <ul>
+            <li>
+              <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas documentation on LTI external tools</a>
+            </li>
+            <li>
+              <a href="/extensions.html">Examples of tools that leverage LTI extensions</a>
+            </li>
+            <li>
+              <a href="https://github.com/instructure/ims-lti">Source code for LTI ruby gem</a>
+            </li>
+            <li>
+              <a href="http://code.google.com/p/ims-dev/">Source code for LTI java and php libraries</a>
+            </li>
+            <li>
+              <a href="http://swl10.blogspot.com/2011/03/oauth-python-and-basic-lti.html">Details of leveraging LTI using the python oauth libraries, and a source link to an example lti implementation in python</a>
+            </li>
+            <li>
+              <a href="http://www.edugarage.com/download/attachments/72811512/Code+Your+Own+Tool+Integration+Using+the+Basic+Learning+Tools+Interoperability+(LTI)+Standard.pdf?version=1&modificationDate=1311710692377&ei=_3d2T_XuN7H9iQKQyei9DA&usg=AFQjCNF9taxr5y951oY-s0GKcLlFecpk1A&sig2=TLVyrX-TUU5fADlHikNJVQ">Blackboard presentation on LTI</a>
+            </li>
+            <li>
+              <a href="http://www.imsglobal.org/lti/">Official LTI documentation</a>
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>Interested in writing your own LTI integrations? Check out the <a href="http://www.imsglobal.org/lti/">IMS page</a> for official specs, and the <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API documentation</a> for some simple but powerful LTI extensions.</p>
+    </footer>
+  </div>
+  <script src="jquery.min.js"></script>
+  <script src="/analytics.js"></script>
+  </body>
+</html>
