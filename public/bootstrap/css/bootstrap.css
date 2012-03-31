@@ -2859,6 +2859,7 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar .brand:hover {
   text-decoration: none;
+  text-shadow: 0 0 0.4em #fff, 0 0 0.4em #fff, 0 0 0.4em #fff;
 }
 .navbar .brand {
   float: left;
