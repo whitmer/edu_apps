@@ -5,12 +5,21 @@
       "name": "Twitter",
       "image_url": "/tools/twitter.png",
       "description": "Embed lists of tweets from Twitter. Lists can be derived from search results, or from a user's twitter feed.<br/><br/>Any key and secret will work.",
+      "short_description": "Embed tweet streams",
       "config_url": "/config/twitter.xml",
+      "launch_url": "/twitter.html",
       "extensions": ["editor_button"],
       "preview": {
         "url": "/twitter.html",
         "height": 475
       }
+    },
+    {
+      "id": "mit_ocw",
+      "name": "MIT OCW",
+      "image_url": "/tools/mit_ocw.png",
+      "short_description": "OCW lectures, videos, etc. from MIT",
+      "data_url": "/data/mit_ocw.json"
     },
     {
       "id": "public_collections",
@@ -29,7 +38,9 @@
       "name": "TED Ed",
       "image_url": "/tools/ted_ed.png",
       "description": "TED Ed is a collection of quality videos that can be used for instructional purposes. This tool lets you search for and embed TED Ed vidoes in your course material.<br/><br/>Any key and secret will work.",
+      "short_description": "Online instructional videos",
       "config_url": "/config/ted_ed.xml",
+      "launch_url": "/ted_ed.html",
       "extensions": ["editor_button"],
       "preview": {
         "url": "/ted_ed.html",
@@ -41,7 +52,9 @@
       "name": "Graph Builder",
       "image_url": "/tools/graph_tk.png",
       "description": "Build and embed rich interactive graphs into course content.<br/><br/>Any key and secret will work.",
+      "short_description": "Build and embed rich interactive graphs into course content",
       "config_url": "/config/inline_graph.xml",
+      "launch_url": "/graph.html",
       "extensions": ["editor_button"],
       "preview": {
         "url": "/graph.html",
@@ -50,17 +63,40 @@
       }
     },
     {
+      "id": "codecademy",
+      "name": "Codecademy",
+      "image_url": "/tools/codecademy.png",
+      "short_description": "Interactive programming lessons",
+      "data_url": "/data/codecademy.json"
+    },
+    {
+      "id": "educreations",
+      "name": "educreations",
+      "image_url": "/tools/educreations.png",
+      "short_description": "Teacher-recorded whiteboard sessions",
+      "data_url": "/data/educreations.json"
+    },
+    {
       "new": true,
       "id": "archive",
       "name": "Internet Archive",
       "image_url": "/tools/archive.png",
       "description": "The Internet Archive hosts public domain video, audio, books, images and other resources. Links to any of these resources can easily be added to any course content.<br/><br/>Any key and secret will work.",
+      "short_description": "Search public videos, books, etc.",
       "config_url": "/config/archive.xml",
+      "launch_url": "/archive.html",
       "extensions": ["editor_button"],
       "preview": {
         "url": "/archive.html",
         "height": 475
       }
+    },
+    {
+      "id": "brainpop",
+      "name": "BrainPOP",
+      "image_url": "/tools/brainpop.png",
+      "short_description": "Online interactive lessons, quizzes, activities",
+      "data_url": "/data/brainpop.json"
     },
     {
       "pending": true,
@@ -108,7 +144,9 @@
       "name": "Slideshare",
       "image_url": "/tools/slideshare.png",
       "description": "Slideshare is a site that enables viewing and interacting with presentations without needing desktop software. Search for and embed Creative Commons-licensed presentations hosted on Slideshare.<br/><br/>Any key and secret will work.",
+      "short_description": "Creative Commons-licensed presentations",
       "config_url": "/config/slideshare.xml",
+      "launch_url": "/slideshare.html",
       "extensions": ["editor_button"],
       "preview": {
         "url": "/slideshare.html",
@@ -120,7 +158,9 @@
       "name": "Quizlet Flash Cards",
       "image_url": "/tools/quizlet.png",
       "description": "Search for and embed publicly available question sets on Quizlet. Questions can be embedded as flash cards, review, or as a study game.<br/><br/>Any key and secret will work.",
+      "short_description": "Flash card and study help tools",
       "config_url": "/config/quizlet.xml",
+      "launch_url": "/quizlet.html",
       "extensions": ["editor_button"],
       "preview": {
         "url": "/quizlet.html",
@@ -160,7 +200,9 @@
       "name": "Khan Academy",
       "image_url": "/tools/khan.png",
       "description": "Search for and embed Khan Academy lessons into course material. Khan Academy focuses on short lessons on math, science, etc.<br/><br/>Any key and secret will work.",
+      "short_description": "Online video lessons for math, science, etc.",
       "config_url": "/config/khan.xml",
+      "launch_url": "/khan.html",
       "extensions": ["editor_button"],
       "preview": {
         "url": "/khan.html",
@@ -183,7 +225,9 @@
       "name": "Wikipedia",
       "image_url": "/tools/wikipedia.png",
       "description": "Search through English Wikipedia articles and link to or embed these articles into course material.<br/><br/>Any key and secret will work.",
+      "short_description": "Articles from The Free Encyclopedia",
       "config_url": "/config/wikipedia.xml",
+      "launch_url": "/wikipedia.html",
       "extensions": ["editor_button"],
       "preview": {
         "url": "/wikipedia.html",
@@ -244,6 +288,7 @@
       "image_url": "/tools/place_kitten.png",
       "description": "PlaceKitten lets you embed perfectly-size kitten images into any online content. You pick the dimensions, whether it's color or grayscale, and then embed it into your content.<br/><br/>Any key and secret will work.",
       "config_url": "/config/editor_button2.xml",
+      "launch_url": "/kitten.html",
       "extensions": ["editor_button"],
       "preview": {
         "url": "/kitten.html",
@@ -278,5 +323,41 @@
       "description": "Bumpin social chat allows you to add chat rooms to web pages. This tool lets you add a chat room as a course navigation link for your students.<br/><br/>Any key and secret will work.",
       "config_url": "/config/bumpin.xml",
       "extensions": ["course_nav"]
+    },
+    {
+      "id": "flat_world_knowledge",
+      "name": "Flat World Knowledge",
+      "image_url": "/tools/flat_world_knowledge.png",
+      "short_description": "Free, open online textbooks",
+      "data_url": "/data/flat_world_knowledge.json"
+    },
+    {
+      "id": "elementary_paper",
+      "name": "Elementary Paper",
+      "image_url": "/tools/elementary_paper.png",
+      "short_description": "Browse printable writing practice sheets",
+      "data_url": "/data/elem_paper.json"
+    },
+    {
+      "id": "usa_today",
+      "pending": true,
+      "name": "USA Today",
+      "image_url": "/tools/usa_today.png",
+      "short_description": "Articles from USA Today",
+      "launch_url": "/usatoday.html"
+    },
+    {
+      "id": "softchalk_connect",
+      "name": "SoftChalk Connect",
+      "image_url": "/tools/softchalk.png",
+      "short_description": "Reusable content built using SoftChalk Connect",
+      "data_url": "/data/softchalk.json"
+    },
+    {
+      "id": "hooda_math",
+      "name": "Hooda Math",
+      "image_url": "/tools/hooda_math.png",
+      "short_description": "Online math learning games",
+      "data_url": "/data/hooda_math.json"
     }
 ]

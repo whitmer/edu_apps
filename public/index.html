@@ -178,7 +178,7 @@
     var $div = null;
     for(var idx = 0; idx < tools.length; idx++) {
       var tool = tools[idx];
-      if(tool.pending) {
+      if(tool.pending || tool.data_url) {
         continue;
       }
       var refUrl = location.protocol + "//" + location.host + "/index.html?tool=" + tool.id;

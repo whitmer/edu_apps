@@ -1,133 +1,14 @@
 (function() {
   var searchMode = "tools";
-  var tools = [
-    {
-      name: "Khan Academy",
-      logo_url: "/tools/khan.png",
-      description: "Online video lessons for math, science, etc.",
-      markets: "",
-      launch_url: "/khan.html"
-    },
-    {
-      name: "TED Ed",
-      logo_url: "/tools/ted_ed.png",
-      description: "Online instructional videos",
-      markets: "",
-      launch_url: "/ted_ed.html"
-    },
-    {
-      name: "MIT OCW",
-      logo_url: "/tools/mit_ocw.png",
-      description: "OCW lectures, videos, etc. from MIT",
-      markets: "",
-      data_url: "/data/mit_ocw.json"
-    },
-    {
-      name: "Slideshare",
-      logo_url: "/tools/slideshare.png",
-      description: "Creative Commons-licensed presentations",
-      markets: "",
-      launch_url: "/slideshare.html"
-    },
-    {
-      name: "USA Today",
-      logo_url: "/tools/usa_today.png",
-      description: "Articles from USA Today",
-      markets: "",
-      launch_url: "/usatoday.html"
-    },
-    {
-      name: "Flat World Knowledge",
-      logo_url: "/tools/flat_world_knowledge.png",
-      description: "Free, open online textbooks",
-      markets: "",
-      data_url: "/data/flat_world_knowledge.json"
-    },
-    {
-      name: "Graph Builder",
-      logo_url: "/tools/graph_tk.png",
-      description: "Build and embed rich interactive graphs into course content",
-      markets: "",
-      launch_url: "/graph.html"
-    },
-    {
-      name: "Quizlet Flash Cards",
-      logo_url: "/tools/quizlet.png",
-      description: "Flash card and study help tools",
-      markets: "",
-      launch_url: "/quizlet.html"
-    },
-    {
-      name: "Codecademy",
-      logo_url: "/tools/codecademy.png",
-      description: "Interactive programming lessons",
-      markets: "",
-      data_url: "/data/codecademy.json"
-    },
-    {
-      name: "Elementary Paper",
-      logo_url: "/tools/elementary_paper.png",
-      description: "Browse printable writing practice sheets",
-      markets: "",
-      data_url: "/data/elem_paper.json"
-    },
-    {
-      name: "SoftChalk Connect",
-      logo_url: "/tools/softchalk.png",
-      description: "Reusable content built using SoftChalk Connect",
-      markets: "",
-      data_url: "/data/softchalk.json"
-    },
-    {
-      name: "BrainPOP",
-      logo_url: "/tools/brainpop.png",
-      description: "Online interactive lessons, quizzes, activities",
-      markets: "",
-      data_url: "/data/brainpop.json"
-    },
-    {
-      name: "Hooda Math",
-      logo_url: "/tools/hooda_math.png",
-      description: "Online math learning games",
-      markets: "",
-      data_url: "/data/hooda_math.json"
-    },
-    {
-      name: "educreations",
-      logo_url: "/tools/educreations.png",
-      description: "Teacher-recorded whiteboard sessions",
-      markets: "",
-      data_url: "/data/educreations.json"
-    },
-    {
-      name: "Wikipedia",
-      logo_url: "/tools/wikipedia.png",
-      description: "Articles from The Free Encyclopedia",
-      markets: "",
-      launch_url: "/wikipedia.html"
-    },
-    {
-      name: "Twitter",
-      logo_url: "/tools/twitter.png",
-      description: "Embed tweet streams",
-      markets: "",
-      launch_url: "/twitter.html"
-    },
-    {
-      name: "Internet Archive",
-      logo_url: "/tools/archive.png",
-      description: "Search public videos, books, etc.",
-      markets: "",
-      launch_url: "/archive.html"
-    },
-    {
-      name: "PlaceKitten",
-      logo_url: "/tools/place_kitten.png",
-      description: "Browse kitten images",
-      markets: "",
-      data_url: "/data/placekitten.json"
+  var tools = [];
+  $.getJSON('/data/lti_examples.json', function(data) {
+    for(var idx = 0; idx < data.length; idx++) {
+      if(data[idx].data_url || data[idx].launch_url) {
+        tools.push(data[idx]);
+      }
     }
-  ];
+    searchTools();
+  });
   var $message = $("#message"),
       $tools = $("#tools"),
       $launch = $("#launch"),
@@ -148,11 +29,12 @@
     $collection_name.text("Collections");
     var query = $query.val();
     var matches = [];
+    console.log(tools);
     for(var idx = 0; idx < tools.length; idx++) {
       var tool = $.extend({}, tools[idx]);
       var re = new RegExp(query, "i");
       var name_idx = (tool.name || "").search(re);
-      var desc_idx = (tool.description || "").search(re);
+      var desc_idx = (tool.short_description || "").search(re);
       var rank = query == "" ? 0 : -1;
       if(name_idx > -1) { rank = name_idx; }
       else if(desc_idx > -1) { rank = desc_idx + 500; }
@@ -164,7 +46,7 @@
     }
     if(matches.length == 0) {
       $tools.hide();
-      $message.show().text("No Results Found");
+      $message.show().text(tools.length == 0 ? "Loading..." : "No Results Found");
     }
     matches = matches.sort(function(a, b) {
       return [a.rank - b.rank, a.position - b.position];
@@ -173,9 +55,9 @@
     for(var idx = 0; idx < matches.length; idx++) {
       var tool = matches[idx];
       var $tool = $("<div/>", {'class': 'tool'}).append(
-        $("<img/>", {src: tool.logo_url, 'class': 'logo'})).append(
+        $("<img/>", {src: tool.image_url, 'class': 'logo'})).append(
         $("<span/>", {'class': 'name'}).text(tool.name)).append(
-        $("<span/>", {'class': 'description'}).text(tool.description));
+        $("<span/>", {'class': 'description'}).text(tool.short_description));
       $tool.data('tool', tool);
       $tool.click(function() {
         var tool = $(this).data('tool');
@@ -184,7 +66,7 @@
         } else {
           $tools.hide();
           $back.show();
-          $logo.attr('src', tool.logo_url);
+          $logo.attr('src', tool.image_url);
           searchMode = "resources";
           $resources.show();
           $resources.data('tool', tool);
@@ -283,7 +165,7 @@
     for(var idx = 0; idx < tool.resources.length; idx++) {
       var resource = $.extend({}, tool.resources[idx]);
       var name_idx = (resource.name || "").search(re);
-      var desc_idx = (resource.description || "").search(re);
+      var desc_idx = (resource.short_description || "").search(re);
       var rank = query == "" ? 0 : -1;
       if(name_idx > -1) { rank = name_idx; }
       else if(desc_idx > -1) { rank = desc_idx + 500; }
@@ -309,7 +191,7 @@
         for(var jdx = 0; jdx < resource.links.length; jdx++) {
           linkCount = linkCount + resource.links[jdx].links.length;
         }
-        resource.description = "<b>" + linkCount + " link" + (linkCount == 1 ? "" : "s") + "</b><br/>" + resource.description;
+        resource.short_description = "<b>" + linkCount + " link" + (linkCount == 1 ? "" : "s") + "</b><br/>" + resource.short_description;
       }
       var $resource = $("<div/>", {'class': 'resource'})
       var $content = "<div class='name'>" + resource.name + "</div>";
@@ -317,7 +199,7 @@
       if(resource.image_url) {
         $content = $content + "<div class='img_holder'><img src='" + resource.image_url + "' class='img'/></div>";
       }
-      $content = $content + "<span class='description'>" + resource.description + "</span>";
+      $content = $content + "<span class='description'>" + resource.short_description + "</span>";
       if(resource.url) {
         $content = $content + "<a href='" + resource.url + "' class='preview' target='_blank'>preview</a>";
       }
