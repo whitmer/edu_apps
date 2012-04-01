@@ -89,7 +89,7 @@
         <span class="span12">
           <a name="intro"></a>
           <h2>Introduction</h2>
-          <div class="thumbnail" style="float: right; width: 300px; padding-left: 10px;">
+          <div class="thumbnail" style="float: right; width: 300px; margin-left: 10px;">
             <img src="/tool_launch.png" alt=""/>
             <p>Identity assertion is a one-way "handshake" coming from the learning platform (consumer) to the tool (provider).</p>
           </div>
@@ -99,11 +99,16 @@
             to send a user to 
             another system (the tool <span class='label label-info'>provider</span>, 
             some service that integrates with
-            the LMS -- sorry, I know the names are confusing) in a trusted way. The most
+            the LMS -- sorry, I know the names are confusing. I've tried using colors to
+            help make things clearer, but that may just make it worse...) in a trusted way. The most
             common reason for the trust assertion is to allow the user to be automatically
             signed in and directed to a specific course or module when 
             the <span class='label label-info'>provider</span> renders content.
           </p>
+          <div class="thumbnail" style="float: left; width: 200px; margin-right: 20px;">
+            <img src="/tool_iframe.png" alt=""/>
+            <p>Tools (providers) are launched from within the learning platform (consumer) in an iframe so they feel like a native part of the platform.</p>
+          </div>
           <p>
             The
             <span class='label label-warning'>consumer</span> and 
@@ -115,10 +120,6 @@
             way, from the <span class='label label-warning'>consumer</span> to the
             <span class='label label-info'>provider</span>.
           </p>
-          <div class="thumbnail" style="margin-top: 10px; float: right; clear: right; width: 200px; padding-left: 10px;">
-            <img src="/tool_iframe.png" alt=""/>
-            <p>Tools (providers) are launched from within the learning platform (consumer) in an iframe so they feel like a native part of the platform.</p>
-          </div>
           <p>
             The identity assertion happens through
             an HTTP POST request from the <span class='label label-warning'>consumer</span> to the
@@ -130,15 +131,75 @@
             a tool.
           </p>
           <p>
-            Below are a list of parameters that can be sent as part of the POST
+            <a href="#params">Below are a list of parameters</a> that can be sent as part of the POST
             request. Some are required, some are optional. Most tools shouldn't need more
-            than the first seven parameters and can probably just ignore the rest.
+            than the first set of parameters and can probably just ignore the rest.
           </p>
+          <div style="clear:both;"></div>
+        </span>
+        <span class="span12">
+          <a name="building"></a>
+          <h2>Building an LTI Tool</h2>
+          <p>If you want to build an LTI-compliant tool or <span class='label label-info'>provider</span>
+          then there's really only a couple things you need to worry about: how users can
+          configure your tool, how to accept a launch from a <span class='label label-warning'>consumer</span>,
+          and potentially handling some of the extra goodies LTI makes possible.</p>
+          
+          <h3>Tool Configuration</h3>
+          <p>Tool configuration is <a href="/tutorials.html">different for every LMS</a> right
+          now, but we're working on that. The best way to provide a standard configuration
+          for your tool is by providing a url that returns an xml configuration for your
+          tool. There's a lot of 
+          <a href="https://canvas.instructure.com/doc/api/tools_xml.html">examples of tool 
+          configurations in the Canvas API documentation</a>. Remember, if there's custom
+          values you want to make sure come across with every user, this is the place
+          to include them. The only really crucial piece to specify is the url endpoint that will
+          accept the POST requests, <code>blti:launch_url</code>.</p>
+          <p>Typically users will either copy the url to your xml configuration, or copy
+          and paste the configuration itself.
+          Notice that the configuration does not include the consumer key or shared
+          secret. These are account-specific values, and if they were included they'd prevent
+          the xml from being reusable. Admins will still have to enter the key and
+          secret values that a <span class='label label-info'>provider</span> gives them
+          into the <span class='label label-warning'>consumer</span> manually.</p>
+          
+          <h3>Tool Launch</h3>
+          <p>Once a tool is configured, it will be added by one or more instructors into
+          their material as some sort of link or button in the <span class='label label-warning'>consumer</span>.
+          Any time a student, instructor, administrator, or random internet passersby clicks
+          the link they will be directed to the <span class='label label-info'>provider</span>
+          via a signed POST request. It is the <span class='label label-info'>provider's</span> 
+          responsibility to confirm the signature on the POST request. If the signature is
+          invalid then none of the information should be trusted.</p>
+          <p>If the signature is 
+          valid then you should accept the identity assertion provided by the <span class='label label-warning'>consumer</span>
+          and log the user in to your service. Many services have their own registration flow,
+          so it's not uncommon to require an additional registration step the first
+          time a user launches your tool.</p>
+          <p>Signatures are generated using <a href="http://oauth.net/core/1.0/#signing_process">the OAuth signing process</a>.
+          Google provides <a href="http://oauth.googlecode.com/svn/code/javascript/example/signature.html">a nice tool for generating OAuth signatures</a>
+          that you can use to test your signing code, although you'll probably save yourself
+          some trouble if you can find a library to do the work for you.</p>
+          
+          <h3>Extras</h3>
+          <p>This page has described the most basic type of LTI integration. There's a number of
+          other things you can do on top of this, including passing scores from the
+          <span class='label label-info'>provider</span> back to the gradebook of the
+          </span class='label label-warning'>consumer</span>, or adding buttons to the 
+          rich editor in the <span class='label label-warning'>consumer</span> to insert
+          rich content generated or curated by the <span class='label label-info'>provider</span>.
+          <a href="/extensions">Check out the extensions demos page</a> or the 
+          <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API documentation on external tools</a>
+          for more detail on these extensions and how they work.
         </span>
         <span class="span12">
           <a name="params"></a>
           <h2>POST Parameters</h2>
+          <p>These are all of the known values that can be passed from the 
+          <span class='label label-warning'>consumer</span> to the <span class='label label-info'>provider</span>
+          when a user clicks a link to launch the tool.
           <div style='margin: 0 50px;'>
+          <h3>Most Common Parameters</h3>
           <table class='table table-bordered table-striped'>
             <thead>
               <tr>
@@ -207,6 +268,28 @@
                 <td><span class='label'>recommended</span></td>
                 <td>Full name of the user accessing the tool. This won't be sent if tools are configured to launch users anonymously or with minimal information.</td>
               </tr>
+              <tr>
+                <td><code>lis_outcome_service_url</code></td>
+                <td><span class='label'>optional</span></td>
+                <td>If this url is passed to the <span class='label label-info'>provider</span> then it means the tool is authorized to send grade values back to the <span class='label label-warning'>consumer</span> gradebook for any students that access the tool. There's more information available in the <a href="https://canvas.instructure.com/doc/api/assignment_tools.html">Canvas API documentation</a>.</td>
+              </tr>
+              <tr>
+                <td><code>selection_directive</code></td>
+                <td><span class='label'>optional</span></td>
+                <td>If this parameter is passed to the <span class='label label-info'>provider</span> then it means the <span class='label label-warning'>consumer</span> is expecting the <span class='label label-info'>provider</span> to return some piece of information such as a url, an html snippet, etc. There's more information available in the <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API documentation</a>.</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>Additional Parameters</h3>
+          <table class='table table-bordered table-striped'>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Status</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
               <tr>
                 <td><code>lis_person_name_given</code></td>
                 <td><span class='label'>recommended</span></td>
@@ -340,61 +423,6 @@
             </tbody>
           </table>
           </div>
-        </span>
-        <span class="span12">
-          <a name="building"></a>
-          <h2>Building an LTI Tool</h2>
-          <p>If you want to build an LTI-compliant tool or <span class='label label-info'>provider</span>
-          then there's really only a couple things you need to worry about: how users can
-          configure your tool, how to accept a launch from a <span class='label label-warning'>consumer</span>,
-          and potentially handling some of the extra goodies LTI makes possible.</p>
-          
-          <h3>Tool Configuration</h3>
-          <p>Tool configuration is <a href="/tutorials.html">different for every LMS</a> right
-          now, but we're working on that. The best way to provide a standard configuration
-          for your tool is by providing a url that returns an xml configuration for your
-          tool. There's a lot of 
-          <a href="https://canvas.instructure.com/doc/api/tools_xml.html">examples of tool 
-          configurations in the Canvas API documentation</a>. Remember, if there's custom
-          values you want to make sure come across with every user, this is the place
-          to include them. The only really crucial piece to specify is the url endpoint that will
-          accept the POST requests, <code>blti:launch_url</code>.</p>
-          <p>Typically users will either copy the url to your xml configuration, or copy
-          and paste the configuration itself.
-          Notice that the configuration does not include the consumer key or shared
-          secret. These are account-specific values, and if they were included they'd prevent
-          the xml from being reusable. Admins will still have to enter the key and
-          secret values that a <span class='label label-info'>provider</span> gives them
-          into the <span class='label label-warning'>consumer</span> manually.</p>
-          
-          <h3>Tool Launch</h3>
-          <p>Once a tool is configured, it will be added by one or more instructors into
-          their material as some sort of link or button in the <span class='label label-warning'>consumer</span>.
-          Any time a student, instructor, administrator, or random internet passersby clicks
-          the link they will be directed to the <span class='label label-info'>provider</span>
-          via a signed POST request. It is the <span class='label label-info'>provider's</span> 
-          responsibility to confirm the signature on the POST request. If the signature is
-          invalid then none of the information should be trusted.</p>
-          <p>If the signature is 
-          valid then you should accept the identity assertion provided by the <span class='label label-warning'>consumer</span>
-          and log the user in to your service. Many services have their own registration flow,
-          so it's not uncommon to require an additional registration step the first
-          time a user launches your tool.</p>
-          <p>Signatures are generated using <a href="http://oauth.net/core/1.0/#signing_process">the OAuth signing process</a>.
-          Google provides <a href="http://oauth.googlecode.com/svn/code/javascript/example/signature.html">a nice tool for generating OAuth signatures</a>
-          that you can use to test your signing code, although you'll probably save yourself
-          some trouble if you can find a library to do the work for you.</p>
-          
-          <h3>Extras</h3>
-          <p>This page has described the most basic type of LTI integration. There's a number of
-          other things you can do on top of this, including passing scores from the
-          <span class='label label-info'>provider</span> back to the gradebook of the
-          </span class='label label-warning'>consumer</span>, or adding buttons to the 
-          rich editor in the <span class='label label-warning'>consumer</span> to insert
-          rich content generated or curated by the <span class='label label-info'>provider</span>.
-          <a href="/extensions">Check out the extensions demos page</a> or the 
-          <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API documentation on external tools</a>
-          for more detail on these extensions and how they work.
         </span>
         <span class="span12">
           <a name="links"></a>
