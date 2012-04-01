@@ -287,6 +287,7 @@
       "name": "PlaceKitten",
       "image_url": "/tools/place_kitten.png",
       "description": "PlaceKitten lets you embed perfectly-size kitten images into any online content. You pick the dimensions, whether it's color or grayscale, and then embed it into your content.<br/><br/>Any key and secret will work.",
+      "short_description": "Embed kitten images",
       "config_url": "/config/editor_button2.xml",
       "launch_url": "/kitten.html",
       "extensions": ["editor_button"],

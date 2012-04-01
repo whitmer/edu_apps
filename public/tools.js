@@ -1,10 +1,13 @@
 (function() {
   var searchMode = "tools";
   var tools = [];
+  var toolsHash = {};
+  var maxRecentTools = 6;
   $.getJSON('/data/lti_examples.json', function(data) {
     for(var idx = 0; idx < data.length; idx++) {
       if(data[idx].data_url || data[idx].launch_url) {
         tools.push(data[idx]);
+        toolsHash[data[idx].id] = data[idx];
       }
     }
     searchTools();
@@ -21,6 +24,48 @@
   function search() {
     searchMode == "tools" ? searchTools() : searchResources();
   }
+  function launchTool(id) {
+    var recent = $.store.get('recent_tools') || [];
+    recent.unshift(id);
+    var recentHash = {};
+    var newRecent = []
+    for(var idx = 0; idx < recent.length; idx++) {
+      if(!recentHash[recent[idx]]) {
+        recentHash[recent[idx]] = true;
+        newRecent.push(recent[idx]);
+      }
+    }
+    $.store.set('recent_tools', newRecent.slice(0, maxRecentTools));
+    
+    var tool = toolsHash[id];
+    if(tool.launch_url) {
+      location.href = tool.launch_url + "?selection_directive=embed_content&custom_lti_back_button=1&launch_presentation_return_url=" + encodeURIComponent(lti.returnUrl);
+    } else {
+      $tools.hide();
+      $back.show();
+      $logo.attr('src', tool.image_url);
+      searchMode = "resources";
+      $resources.show();
+      $resources.data('tool', tool);
+      $query.val("");
+      $query.attr('disabled', false);
+      if(tool.resources) {
+        search();
+      } else {
+        $resources.html("Loading...");
+        $query.attr('disabled', true);
+        $.ajax({
+          url: tool.data_url,
+          success: function(data) {
+            $query.attr('disabled', false);
+            tool.resources = data;
+            search();
+          },
+          dataType: 'json'
+        });
+      }
+    }
+  }
   function searchTools() { 
     $message.hide();
     $resources.hide();
@@ -29,7 +74,6 @@
     $collection_name.text("Collections");
     var query = $query.val();
     var matches = [];
-    console.log(tools);
     for(var idx = 0; idx < tools.length; idx++) {
       var tool = $.extend({}, tools[idx]);
       var re = new RegExp(query, "i");
@@ -52,6 +96,18 @@
       return [a.rank - b.rank, a.position - b.position];
     });
     $tools.empty();
+    var recent = $.store.get('recent_tools') || [];
+    if(recent.length && tools.length && !query.length) {
+      var $div = $("<div/>", {'class': 'recent well'});
+      $div.append("<h3>Recent:</h3>");
+      for(var idx = 0; idx < recent.length; idx++) {
+        var tool = toolsHash[recent[idx]];
+        var $img = $("<img/>", {'src': tool.image_url, 'title': tool.name, 'class': 'recent_tool', 'data-id': tool.id})
+        $div.append($img);
+      }
+      $tools.append($div);
+    }
+    $tools.find(".recent_tool").tooltip();
     for(var idx = 0; idx < matches.length; idx++) {
       var tool = matches[idx];
       var $tool = $("<div/>", {'class': 'tool'}).append(
@@ -61,37 +117,14 @@
       $tool.data('tool', tool);
       $tool.click(function() {
         var tool = $(this).data('tool');
-        if(tool.launch_url) {
-          location.href = tool.launch_url + "?selection_directive=embed_content&custom_lti_back_button=1&launch_presentation_return_url=" + encodeURIComponent(lti.returnUrl);
-        } else {
-          $tools.hide();
-          $back.show();
-          $logo.attr('src', tool.image_url);
-          searchMode = "resources";
-          $resources.show();
-          $resources.data('tool', tool);
-          $query.val("");
-          $query.attr('disabled', false);
-          if(tool.resources) {
-            search();
-          } else {
-            $resources.html("Loading...");
-            $query.attr('disabled', true);
-            $.ajax({
-              url: tool.data_url,
-              success: function(data) {
-                $query.attr('disabled', false);
-                tool.resources = data;
-                search();
-              },
-              dataType: 'json'
-            });
-          }
-        }
+        launchTool(tool.id);
       });
       $tools.append($tool);
     }
   }
+  $tools.delegate('.recent_tool', 'click', function(event) {
+    launchTool($(this).attr('data-id'));
+  });
   $resources.delegate('.single_resource .link', 'click', function(event) {
     var resource = $(this).closest(".resource").data('resource');
     var refs = $(this).attr('data-index').split(',');
@@ -165,7 +198,7 @@
     for(var idx = 0; idx < tool.resources.length; idx++) {
       var resource = $.extend({}, tool.resources[idx]);
       var name_idx = (resource.name || "").search(re);
-      var desc_idx = (resource.short_description || "").search(re);
+      var desc_idx = (resource.description || "").search(re);
       var rank = query == "" ? 0 : -1;
       if(name_idx > -1) { rank = name_idx; }
       else if(desc_idx > -1) { rank = desc_idx + 500; }
@@ -191,7 +224,7 @@
         for(var jdx = 0; jdx < resource.links.length; jdx++) {
           linkCount = linkCount + resource.links[jdx].links.length;
         }
-        resource.short_description = "<b>" + linkCount + " link" + (linkCount == 1 ? "" : "s") + "</b><br/>" + resource.short_description;
+        resource.description = "<b>" + linkCount + " link" + (linkCount == 1 ? "" : "s") + "</b><br/>" + resource.description;
       }
       var $resource = $("<div/>", {'class': 'resource'})
       var $content = "<div class='name'>" + resource.name + "</div>";
@@ -199,7 +232,7 @@
       if(resource.image_url) {
         $content = $content + "<div class='img_holder'><img src='" + resource.image_url + "' class='img'/></div>";
       }
-      $content = $content + "<span class='description'>" + resource.short_description + "</span>";
+      $content = $content + "<span class='description'>" + resource.description + "</span>";
       if(resource.url) {
         $content = $content + "<a href='" + resource.url + "' class='preview' target='_blank'>preview</a>";
       }
@@ -242,6 +275,7 @@
       $collection_name.text("Collections");
       $resources.hide();
       searchMode = "tools";
+      search();
     });
     $form.submit(function(event) {
       event.preventDefault();
