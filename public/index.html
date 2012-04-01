@@ -206,7 +206,7 @@
         html = html + "<span class='label label-important'>NEW</span>&nbsp;";
       }
       html = html + tool.description + "</div></div>";
-      if(tools.length == 1 || tool.extensions) {
+      if(tools.length == 1 || tool.extensions || tool.preview) {
         html = html + "<div class='config alert alert-info'>";
         if(tools.length == 1) {
           if(tool.config_url) {
@@ -223,11 +223,18 @@
             html = html + "&nbsp;&nbsp;<button id='preview' class='btn btn-primary'>Preview</button>"
           }
         }
-        if(tool.extensions) {
+        if(tool.extensions || tool.preview) {
           html = html + "<div class='extensions'>";
+        }
+        if(tool.preview) {
+          html = html + "<span class='label label-info'>preview</span>&nbsp;";
+        }
+        if(tool.extensions) {
           for(var jdx = 0; jdx < tool.extensions.length; jdx++) {
-            html = html + "<span class='label'>" + extensions[tool.extensions[jdx]] + "</span>";
+            html = html + "<span class='label'>" + extensions[tool.extensions[jdx]] + "</span>&nbsp;";
           }
+        }
+        if(tool.extensions || tool.preview) {
           html = html + "</div>";
         }
         html = html + "</div>";
