@@ -148,6 +148,22 @@
     }).css('width', tool.preview.width ? (tool.preview.width + "px") : "100%"));
     $(".config").after($div);
   });
+  $(".config_option").live('change keyup', function() {
+    $(".config_field").each(function() {
+      if(!$(this).attr('rel')) {
+        $(this).attr('rel', $(this).val());
+      }
+      var url = $(this).attr('rel');
+      var append = url.match(/\?/) ? "&" : "?";
+      $(".config_option").each(function() {
+        if($(this).attr('type') != 'checkbox' || $(this).attr('checked')) {
+          append = append + encodeURIComponent($(this).attr('name')) + "=" + encodeURIComponent($(this).val()) + "&";
+        }
+      });
+      append = append.substring(0, append.length - 1);
+      $(this).val(url + append);
+    });
+  });
   $.getJSON('/data/lti_examples.json', function(data) {
     tools = data;
     var url = location.href;
@@ -210,23 +226,43 @@
         html = html + "<div class='config alert alert-info'>";
         if(tools.length == 1) {
           if(tool.config_url) {
-            var url = tool.config_url;
-            if(!url.match(/\/\//)) {
-              url = location.protocol + "//" + location.host + tool.config_url;
+            if(tool.config_options) {
+              for(var jdx = 0; jdx < tool.config_options.length; jdx++) {
+                var option = tool.config_options[jdx];
+                if(option.type == "checkbox") {
+                  html = html + "<div class='form-horizontal'><label><input style='margin: -4px 3px 0 0;' type='checkbox' class='config_option' name='" + option.name + "' value='" + option.value + "'/> " + option.description + "</label></div>";
+                } else if(option.type == "text") {
+                  html = html + "<div class='form-horizontal'><label>" + option.description + ": <input type='text' class='config_option' name='" + option.name + "' value='" + option.value + "'/></label></div>";
+                }
+              }
+              html = html + "<br/>";
             }
-
-            html = html + "configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='" + url + "'/>";
+            if(typeof(tool.config_url) == "string") {
+              var url = tool.config_url;
+              if(!url.match(/\/\//)) {
+                url = location.protocol + "//" + location.host + url;
+              }
+              html = html + "<label>configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='" + url + "'/></label>";
+            } else {
+              for(var jdx = 0; jdx < tool.config_url.length; jdx++) {
+                var url = tool.config_url[jdx].url;
+                if(!url.match(/\/\//)) {
+                  url = location.protocol + "//" + location.host + url;
+                }
+                html = html + "<label>" + tool.config_url[jdx].description + ": <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='" + url + "'/></label>";
+              }
+            }
           } else if(tool.config_directions) {
             html = html + tool.config_directions;
           }
           if(tool.preview) {
-            html = html + "&nbsp;&nbsp;<button id='preview' class='btn btn-primary'>Preview</button>"
+            html = html + "<button id='preview' class='btn btn-primary'>Preview</button>"
           }
         }
         if(tool.extensions || tool.preview) {
           html = html + "<div class='extensions'>";
         }
-        if(tool.preview) {
+        if(tool.preview && tools.length > 1) {
           html = html + "<span class='label label-info'>preview</span>&nbsp;";
         }
         if(tool.extensions) {
@@ -261,6 +297,7 @@
       script.async = true;
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
     }
+    $(".config_option").change();
   });
   $(".config_field").live('click focus', function() {
     $(this).select();

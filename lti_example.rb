@@ -752,6 +752,57 @@ get "/config/archive.xml" do
   XML
 end
 
+get "/config/piazza.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  xml =  <<-XML
+    <blti:title>Piazza</blti:title>
+    <blti:description>This tool adds the Piazza discussion tool as a link in the course navigation.</blti:description>
+    <blti:launch_url>https://piazza.com/basic_lti</blti:launch_url>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+  XML
+  if params['course_nav']
+    xml +=  <<-XML
+      <lticm:options name="course_navigation">
+        <lticm:property name="url">https://piazza.com/basic_lti</lticm:property>
+        <lticm:property name="text">Piazza</lticm:property>
+      </lticm:options>
+    XML
+  end
+  xml +=  <<-XML
+    </blti:extensions>
+  XML
+  config_wrap(xml)
+end
+
+get "/config/panopto.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  return "domain required" if !params['domain'] || params['domain'] == ''
+  xml =  <<-XML
+    <blti:title>Panopto</blti:title>
+    <blti:description>Panopto is a lecture capture solution</blti:description>
+    <blti:launch_url>https://#{params['domain']}.hosted.panopto.com/Panopto/BasicLTI/BasicLTILanding.aspx</blti:launch_url>
+    <blti:description>Piazza discussions</blti:description>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+  XML
+  if params['course_nav']
+    xml +=  <<-XML
+      <lticm:options name="course_navigation">
+        <lticm:property name="url">https://#{params['domain']}.hosted.panopto.com/Panopto/BasicLTI/BasicLTILanding.aspx</lticm:property>
+        <lticm:property name="text">Panopto</lticm:property>
+      </lticm:options>
+    XML
+  end
+  xml +=  <<-XML
+    </blti:extensions>
+  XML
+  config_wrap(xml)
+end
+
 post "/tool_redirect" do
   url = params['url']
   args = []

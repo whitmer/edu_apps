@@ -107,18 +107,18 @@
       "config_url": "/config/opentapestry.xml"
     },
     {
-      "id": "nook_study_links",
-      "name": "Nook Study Links",
+      "id": "nook_study",
+      "name": "Nook Study",
       "image_url": "/tools/nook_study.png",
-      "description": "This would allow you to insert a link as an item in a module, and then when the teacher accessed that link for the first time they could choose a book or chapter in a textbook to load for students.",
-      "config_url": "/config/nook_study_links.xml"
-    },
-    {
-      "id": "nook_study_books",
-      "name": "Nook Study Textbooks List",
-      "image_url": "/tools/nook_study.png",
-      "description": "This would allow you to insert a link as an item in a module that the teacher can use to specify a set of require reading materials for the course.",
-      "config_url": "/config/nook_textbooks_list.xml",
+      "description": "This would allow you to insert link as items in a module that the teacher can use to specify a set of require reading materials for the course, or to link to specific textbook material that will load for students.",
+      "config_url": [{
+        "url": "/config/nook_textbooks_list.xml",
+        "description": "Required reading list"
+      },
+      {
+        "url": "/config/nook_study_links.xml",
+        "description": "Link to book/chapter"
+      }],
       "preview": {
         "url": "http://www.youtube.com/embed/SwtcDKxclbw?rel=0",
         "height": 400
@@ -132,11 +132,42 @@
       "config_url": "/config/tegrity.xml"
     },
     {
+      "id": "panopto",
+      "name": "Panopto",
+      "image_url": "/tools/panopto.png",
+      "description": "Supports course-level support for the Tegrity lecture capture solution. Visit the Tegrity web site for instructions on how to sign up and get a consumer key and shared secret.",
+      "config_url": "/config/panopto.xml",
+      "config_options": [
+        {
+            "name": "domain",
+            "description": "Domain",
+            "required": true,
+            "type": "text",
+            "value": "myschool"
+        },
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        }
+      ],
+      "config_directions": "Contact <a href='http:www.panopto.com/'>Panopto</a> for configuration instructions."
+    },
+    {
       "id": "piazza",
       "name": "Piazza",
       "image_url": "/tools/piazza.png",
       "description": "Piazza is a new style of discussion/Q&A site with a focus on educational institutions. This integration adds a link to the course navigation (if supported) for Piazza discussions. Contact Piazza for instructions on getting a consumer key and secret.",
       "config_url": "/config/piazza.xml",
+      "config_options": [
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        }
+      ],
       "extensions": ["course_nav"]
     },
     {
@@ -172,7 +203,7 @@
       "name": "CourseSmart",
       "image_url": "/tools/course_smart.png",
       "description": "Add links to rich online textbooks, chapters, etc.",
-      "config_directions": "Contact <a href='http:www.coursesmart.com/'>CourseSmart</a> for configuration instructions. "
+      "config_directions": "Contact <a href='http:www.coursesmart.com/'>CourseSmart</a> for configuration instructions."
     },
     {
       "id": "chem_vantage",
@@ -201,7 +232,7 @@
       "image_url": "/tools/khan.png",
       "description": "Search for and embed Khan Academy lessons into course material. Khan Academy focuses on short lessons on math, science, etc.<br/><br/>Any key and secret will work.",
       "short_description": "Online video lessons for math, science, etc.",
-      "config_url": "/config/khan.xml",
+      "config_url": "/config/khan_academy.xml",
       "launch_url": "/khan.html",
       "extensions": ["editor_button"],
       "preview": {
