@@ -506,13 +506,13 @@ get "/config/inline_graph.xml" do
       <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/graph.html')}</lticm:property>
-        <lticm:property name="icon_url">#{host}/graph.tk/favicon.ico</lticm:property>
+        <lticm:property name="icon_url">#{host}/graph.tk/favicon.png</lticm:property>
         <lticm:property name="text">Embed Graph</lticm:property>
         <lticm:property name="selection_width">740</lticm:property>
         <lticm:property name="selection_height">450</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/graph.tk/favicon.ico</blti:icon>
+    <blti:icon>#{host}/graph.tk/favicon.png</blti:icon>
   XML
 end
 
@@ -527,13 +527,13 @@ get "/config/khan_academy.xml" do
       <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/khan.html')}</lticm:property>
-        <lticm:property name="icon_url">#{host}/khan.ico</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/khan.png</lticm:property>
         <lticm:property name="text">Find Khan Academy Video</lticm:property>
         <lticm:property name="selection_width">590</lticm:property>
         <lticm:property name="selection_height">450</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/khan.ico</blti:icon>
+    <blti:icon>#{host}/icons/khan.png</blti:icon>
   XML
 end
 
@@ -548,13 +548,13 @@ get "/config/wikipedia.xml" do
       <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wikipedia.html')}</lticm:property>
-        <lticm:property name="icon_url">#{host}/wikipedia.ico</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/wikipedia.png</lticm:property>
         <lticm:property name="text">Wikipedia Articles</lticm:property>
         <lticm:property name="selection_width">590</lticm:property>
         <lticm:property name="selection_height">450</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/wikipedia.ico</blti:icon>
+    <blti:icon>#{host}/icons/wikipedia.png</blti:icon>
   XML
 end
 
@@ -569,13 +569,13 @@ get "/config/ted_ed.xml" do
       <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/ted_ed.html')}</lticm:property>
-        <lticm:property name="icon_url">#{host}/ted_ed.ico</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/ted_ed.png</lticm:property>
         <lticm:property name="text">TED Ed Video</lticm:property>
         <lticm:property name="selection_width">590</lticm:property>
         <lticm:property name="selection_height">450</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/ted_ed.ico</blti:icon>
+    <blti:icon>#{host}/icons/ted_ed.png</blti:icon>
   XML
 end
 get "/config/youtube.xml" do
@@ -589,13 +589,13 @@ get "/config/youtube.xml" do
       <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/youtube.html')}</lticm:property>
-        <lticm:property name="icon_url">#{host}/youtube.ico</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/youtube.png</lticm:property>
         <lticm:property name="text">YouTube Video</lticm:property>
         <lticm:property name="selection_width">590</lticm:property>
         <lticm:property name="selection_height">450</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/youtube.ico</blti:icon>
+    <blti:icon>#{host}/icons/youtube.png</blti:icon>
   XML
 end
 
@@ -611,13 +611,13 @@ get "/config/quizlet.xml" do
       <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/quizlet.html')}</lticm:property>
-        <lticm:property name="icon_url">#{host}/quizlet.ico</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/quizlet.png</lticm:property>
         <lticm:property name="text">Embed Quizlet Flash Cards</lticm:property>
         <lticm:property name="selection_width">690</lticm:property>
         <lticm:property name="selection_height">510</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/quizlet.ico</blti:icon>
+    <blti:icon>#{host}/icons/quizlet.png</blti:icon>
   XML
 end
 
@@ -632,13 +632,13 @@ get "/config/slideshare.xml" do
       <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/slideshare.html')}</lticm:property>
-        <lticm:property name="icon_url">#{host}/slideshare.ico</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/slideshare.png</lticm:property>
         <lticm:property name="text">Slideshare CC</lticm:property>
         <lticm:property name="selection_width">690</lticm:property>
         <lticm:property name="selection_height">530</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/slideshare.ico</blti:icon>
+    <blti:icon>#{host}/icons/slideshare.png</blti:icon>
   XML
 end
 
@@ -721,13 +721,13 @@ get "/config/twitter.xml" do
       <lticm:property name="privacy_level">anonymous</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/twitter.html')}</lticm:property>
-        <lticm:property name="icon_url">#{host}/twitter.ico</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/twitter.png</lticm:property>
         <lticm:property name="text">Twitter List</lticm:property>
         <lticm:property name="selection_width">690</lticm:property>
         <lticm:property name="selection_height">530</lticm:property>
       </lticm:options>
     </blti:extensions>
-    <blti:icon>#{host}/twitter.ico</blti:icon>
+    <blti:icon>#{host}/icons/twitter.png</blti:icon>
   XML
 end
 
