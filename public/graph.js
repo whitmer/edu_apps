@@ -1,22 +1,4 @@
 (function() {
-  var url = location.href;
-  var args = (url.split(/\?/)[1] || "").split(/\&/);
-  var params = {}
-  for(var idx in args) {
-    var arg = args[idx].split(/\=/);
-    var key = arg[0];
-    var value = arg[1];
-    if(key && value) {
-      params[key] = decodeURIComponent(value);
-    }
-  }
-  var links = document.getElementsByTagName('A');
-  if(params['selection_directive'] != "embed_content") {
-    alert("This page is normally used an an example of embedding content, but you've referenced it some other way. As such, it's not going to be very useful to you. Sorry.");
-  } else if(!params['launch_presentation_return_url'].match(/\?/)) {
-    params['launch_presentation_return_url'] = params['launch_presentation_return_url'] + "?";
-  }
-  
   var insert_graph = document.getElementsByClassName('insert_graph')[0];
   var zoom_out = document.getElementsByClassName('zoom_out')[0];
   var zoom_ind = document.getElementsByClassName('zoom_in')[0];
@@ -74,7 +56,12 @@
     var data_uri = win().app.ui.png(false);
   
     var link = location.protocol + "//" + location.host + "/graph.tk/index.html#json=" + encodeURIComponent(JSON.stringify(state));
-    location.href = [params['launch_presentation_return_url'], 'embed_type=iframe', 'width=500px', 'height=400px', ('url=' + encodeURIComponent(link))].join('&');
+    lti.resourceSelected({
+      embed_type: 'iframe',
+      width: '500',
+      height: '400',
+      url: link
+    });
   });
   var options = {};
   var state = options.state || {console: 0, legend: 1};
