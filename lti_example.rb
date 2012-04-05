@@ -757,7 +757,7 @@ get "/config/piazza.xml" do
   headers 'Content-Type' => 'text/xml'
   xml =  <<-XML
     <blti:title>Piazza</blti:title>
-    <blti:description>This tool adds the Piazza discussion tool as a link in the course navigation.</blti:description>
+    <blti:description>This tool allows you to add the Piazza discussion tool to your course.</blti:description>
     <blti:launch_url>https://piazza.com/basic_lti</blti:launch_url>
     <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
@@ -785,7 +785,6 @@ get "/config/panopto.xml" do
     <blti:title>Panopto</blti:title>
     <blti:description>Panopto is a lecture capture solution</blti:description>
     <blti:launch_url>https://#{params['domain']}.hosted.panopto.com/Panopto/BasicLTI/BasicLTILanding.aspx</blti:launch_url>
-    <blti:description>Piazza discussions</blti:description>
     <blti:extensions platform="canvas.instructure.com">
       <lticm:property name="privacy_level">public</lticm:property>
   XML
@@ -794,6 +793,83 @@ get "/config/panopto.xml" do
       <lticm:options name="course_navigation">
         <lticm:property name="url">https://#{params['domain']}.hosted.panopto.com/Panopto/BasicLTI/BasicLTILanding.aspx</lticm:property>
         <lticm:property name="text">Panopto</lticm:property>
+      </lticm:options>
+    XML
+  end
+  xml +=  <<-XML
+    </blti:extensions>
+  XML
+  config_wrap(xml)
+end
+
+get "/config/campus_pack.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  return "domain required" if !params['domain'] || params['domain'] == ''
+  long_type = "Collaboration Space"
+  if params['type'] == 'wiki'
+    long_type = 'Wiki'
+  elsif params['type'] == 'blog'
+    long_type = 'Blog'
+  elsif params['type'] == 'journal'
+    long_type = 'Journal'
+  elsif params['type'] == 'podcast'
+    long_type = 'Podcast'
+  else
+    params['type'] = nil
+  end
+  xml =  <<-XML
+    <blti:title>Campus Pack</blti:title>
+    <blti:description>Campus Pack #{long_type} - Learning Objects, Inc.</blti:description>
+    <blti:launch_url>https://#{params['domain']}.learningobjects.com/control/lti#{params['type'] && ("?custom_request_type=" + params['type'])}</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+  XML
+  if params['course_nav']
+    xml +=  <<-XML
+      <lticm:options name="course_navigation">
+        <lticm:property name="url">https://#{params['domain']}.learningobjects.com/control/lti#{params['type'] && ("?custom_request_type=" + params['type'])}</lticm:property>
+        <lticm:property name="text">#{long_type}</lticm:property>
+      </lticm:options>
+    XML
+  end
+  xml +=  <<-XML
+    </blti:extensions>
+  XML
+  config_wrap(xml)
+end
+
+get "/config/noteflight.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  return "domain required" if !params['domain'] || params['domain'] == ''
+  xml =  <<-XML
+    <blti:title>Noteflight</blti:title>
+    <blti:description>Build musical annotations on the web.</blti:description>
+    <blti:launch_url>http://#{params['domain']}.noteflight.com/</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+    </blti:extensions>
+  XML
+  config_wrap(xml)
+end
+
+get "/config/elgg.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  return "domain required" if !params['domain'] || params['domain'] == ''
+  xml =  <<-XML
+    <blti:title>Elgg</blti:title>
+    <blti:description>Elgg is an open source social network</blti:description>
+    <blti:launch_url>https://#{params['domain'].sub(/\/$/, '')}/pg/blti/</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+  XML
+  if params['course_nav']
+    xml +=  <<-XML
+      <lticm:options name="course_navigation">
+        <lticm:property name="url">https://#{params['domain'].sub(/\/$/, '')}/pg/blti/</lticm:property>
+        <lticm:property name="text">Elgg</lticm:property>
       </lticm:options>
     XML
   end

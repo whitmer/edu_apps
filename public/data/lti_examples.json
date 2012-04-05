@@ -132,6 +132,7 @@
       "config_url": "/config/tegrity.xml"
     },
     {
+      "new": true,
       "id": "panopto",
       "name": "Panopto",
       "image_url": "/tools/panopto.png",
@@ -152,7 +153,7 @@
             "value": "1"
         }
       ],
-      "config_directions": "Contact <a href='http:www.panopto.com/'>Panopto</a> for configuration instructions."
+      "extensions": ["course_nav"]
     },
     {
       "id": "piazza",
@@ -213,11 +214,42 @@
       "config_url": "/config/chem_vantage.xml"
     },
     {
+      "new": true,
+      "id": "elgg",
+      "name": "Elgg",
+      "image_url": "/tools/elgg.png",
+      "description": "Open source social networking. You can add a link to your course navigation that will send users to an Elgg network already logged in.<br/><br/>You'll need to install the <a href='http://community.elgg.org/pg/plugins/project/851496/developer/spb1/www.celtic-project.org'>LTI plugin for Elgg</a> in order for this integration to work.",
+      "config_url": "/config/elgg.xml",
+      "config_options": [
+        {
+            "name": "domain",
+            "description": "Domain",
+            "type": "text",
+            "value": "myelgg.com"
+        },
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        }        
+      ],
+      "extensions": ["course_nav"]
+    },
+    {
       "id": "noteflight",
       "name": "Noteflight",
       "image_url": "/tools/noteflight.png",
       "description": "Build musical annotations on the web. This could be useful in music classes for both teaching and assigning to students as homework.",
-      "config_directions": "Contact <a href='http:www.noteflight.com/'>Noteflight</a> for configuration instructions."
+      "config_url": "/config/noteflight.xml",
+      "config_options": [
+        {
+            "name": "domain",
+            "description": "Domain",
+            "type": "text",
+            "value": "myschool"
+        }
+      ]
     },
     {
       "id": "courseload",
@@ -266,12 +298,48 @@
       }
     },
     {
-      "pending": true,
+      "new": true,
       "id": "campus_pack",
       "name": "Campus Pack",
       "image_url": "/tools/learning_objects.png",
-      "description": "Load Campus Pack inside the LMS to add ePortfolios, blogs, wikis, etc.",
-      "config_directions": "Contact <a href='http://www.learningobjects.com/'>Learning Objects</a> for configuration instructions."
+      "description": "Load Campus Pack inside the LMS to add ePortfolios, blogs, wikis, etc.<br/><br/><b>Directions for configuring Campus Pack:</b><ol><li>Login to Campus Pack as an administrator.</li><li>Click Administrator Portal.</li><li>Click External System Connectors.</li><li>Click Create.</li><li>Click Basic LTI Tool Producer.</li><li>Fill out the form.  These values will be important later.</li><ol><li>Set Connector Id to blti-producer.</li><li>Set Name to your institution name.</li><li>Do not alter Shared Secret Key.</li><li>Ignore URL.</li><li>Ignore IP address.</li></ol><li>Click Submit.</li></ol>",
+      "config_url": [
+          {
+            "url": "/config/campus_pack.xml",
+            "description": "Collaboration Space"
+          },
+          {
+            "url": "/config/campus_pack.xml?type=wiki",
+            "description": "Wiki"
+          },
+          {
+            "url": "/config/campus_pack.xml?type=blog",
+            "description": "Blog"
+          },
+          {
+            "url": "/config/campus_pack.xml?type=journal",
+            "description": "Journal"
+          },
+          {
+            "url": "/config/campus_pack.xml?type=podcast",
+            "description": "Podcast"
+          }
+      ],
+      "config_options": [
+        {
+            "name": "domain",
+            "description": "Domain",
+            "required": true,
+            "type": "text",
+            "value": "myschool"
+        },
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        }
+      ]
     },
     {
       "pending": true,
@@ -348,7 +416,6 @@
       "config_url": "/config/titanpad.xml"
     },
     {
-      "new": true,
       "id": "bumpin",
       "name": "Bumpin Social Chat",
       "image_url": "/tools/bumpin.png",
