@@ -58,7 +58,7 @@ if(!skipValidation) {
     }
     var returnUrl = params['launch_presentation_return_url'];
     lti.resourceSelected = function(data) {
-      if(returnUrl) {
+      if(returnUrl && returnUrl != "undefined" && returnUrl != "undefined?") {
         var url = returnUrl;
         for(var idx in data) {
           url = url + (url.match(/\?/) ? "&" : "?") + idx + "=" + encodeURIComponent(data[idx]);

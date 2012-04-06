@@ -11,6 +11,9 @@
       }
     }
     searchTools();
+    if(lti.params['tool']) {
+      launchTool(lti.params['tool']);
+    }
   });
   var $message = $("#message"),
       $tools = $("#tools"),
@@ -38,11 +41,12 @@
     $.store.set('recent_tools', newRecent.slice(0, maxRecentTools));
     
     var tool = toolsHash[id];
+    $collection_name.text(tool.name);
     if(tool.launch_url) {
-      location.href = tool.launch_url + "?selection_directive=embed_content&custom_lti_back_button=1&launch_presentation_return_url=" + encodeURIComponent(lti.returnUrl);
+      location.href = tool.launch_url + "?selection_directive=embed_content&custom_lti_back_button=" + (lti.params['tool'] ? '' : '1') + "&launch_presentation_return_url=" + encodeURIComponent(lti.returnUrl);
     } else {
       $tools.hide();
-      $back.show();
+      $back.toggle(!lti.params['tool']);
       $logo.attr('src', tool.image_url);
       searchMode = "resources";
       $resources.show();

@@ -663,6 +663,27 @@ get "/config/tools.xml" do
   XML
 end
 
+get "/config/merlot.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Merlot</blti:title>
+    <blti:description>Collection of multimedia resources collected and curated by MERLOT.</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=merlot')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/merlot.png</lticm:property>
+        <lticm:property name="text">Merlot</lticm:property>
+        <lticm:property name="selection_width">700</lticm:property>
+        <lticm:property name="selection_height">550</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/icons/merlot.png</blti:icon>
+  XML
+end
+
 get "/config/titanpad.xml" do
   host = request.scheme + "://" + request.host_with_port
   headers 'Content-Type' => 'text/xml'

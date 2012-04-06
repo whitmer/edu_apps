@@ -197,6 +197,10 @@
     var $div = null;
     for(var idx = 0; idx < tools.length; idx++) {
       var tool = tools[idx];
+      if(tool.full_tool) {
+        tool.launch_url = "/tools.html?tool=" + tool.id;
+        delete tool['data_url'];
+      }
       if(tool.pending || tool.data_url) {
         continue;
       }
