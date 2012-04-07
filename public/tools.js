@@ -253,6 +253,7 @@
       } else {
         $resource.html($content);
       }
+      $resource.addClass(resource.resource_class || '');
       $resource.data('resource', resource);
       $holder.append($resource);
     }
