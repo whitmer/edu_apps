@@ -150,25 +150,32 @@
     }
   });
   $resources.delegate('.resource', 'click', function(event) {
-    if($(event.target).hasClass('preview') || ($(this).hasClass('single_resource') && !$(event.target).hasClass('name'))) { return; }
+    if($(event.target).hasClass('preview')) { return; }
+    event.preventDefault();
+    if(($(this).hasClass('single_resource') && !$(event.target).hasClass('name'))) { return; }
     var resource = $(this).data('resource');
     if(resource.links && !$(this).hasClass('single_resource')) {
       var $resource = $(this).detach().addClass('single_resource');
       $resource.find(".name").html("<a href='" + resource.url + "' class='name_link'>" + resource.name + "</a>");
+      var $well = $("<div/>", {'class': 'well'});
       for(var idx = 0; idx < resource.links.length; idx++) {
         var links = resource.links[idx];
-        var $content = "<div class='link_set'><div class='header'>" + links.name + "</div>";
+        var $content = "<ul class='nav nav-list'><li class='nav-header'>" + links.name + "</li>";
         for(var jdx = 0; jdx < links.links.length; jdx++) {
           var link = links.links[jdx];
-          $content = $content + "<div class='link' data-index='" + idx + "," + jdx + "'>";
+          $content = $content + "<li class='link' data-index='" + idx + "," + jdx + "'>";
+          $content = $content + "<a href='" + link.url + "'>";
           if(link.image_url) {
             $content = $content + "<img src='" + link.image_url + "' alt=''/>";
+          } else if(link.icon) {
+            $content = $content + "<span class='" + link.icon + "'></span>&nbsp;";
           }
-          $content = $content + "<a href='" + link.url + "'>" + link.name + "</a></div>";
+          $content = $content + link.name + "</a></li>";
         }
-        $content = $content + "</div>";
-        $resource.append($content);
+        $content = $content + "</ul>";
+        $well.append($content);
       }
+      $resource.append($well);
       $resources.empty().append($resource);
     } else if(resource.url) {
       lti.resourceSelected({
@@ -228,7 +235,7 @@
         for(var jdx = 0; jdx < resource.links.length; jdx++) {
           linkCount = linkCount + resource.links[jdx].links.length;
         }
-        resource.description = "<b>" + linkCount + " link" + (linkCount == 1 ? "" : "s") + "</b><br/>" + resource.description;
+        resource.description = "<span class='link_count'>" + linkCount + " link" + (linkCount == 1 ? "" : "s") + "</span><br/>" + resource.description;
       }
       var $resource = $("<div/>", {'class': 'resource'})
       var $content = "<div class='name'>" + resource.name + "</div>";
@@ -279,6 +286,7 @@
       $collection_name.text("Collections");
       $resources.hide();
       searchMode = "tools";
+      $query.val("");
       search();
     });
     $form.submit(function(event) {

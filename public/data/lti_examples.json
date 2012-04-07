@@ -481,6 +481,13 @@
       }
     },
     {
+      "id": "spelling_city",
+      "name": "Spelling City",
+      "image_url": "/tools/spelling_city.png",
+      "short_description": "Online spelling practice",
+      "data_url": "/data/spelling_city.json"
+    },
+    {
       "id": "hooda_math",
       "name": "Hooda Math",
       "image_url": "/tools/hooda_math.png",
