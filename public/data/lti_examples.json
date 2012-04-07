@@ -125,6 +125,19 @@
       }
     },
     {
+      "new": true,
+      "id": "schooltube",
+      "name": "SchoolTube",
+      "image_url": "/tools/schooltube.png",
+      "description": "SchoolTube is a collection of videos uploaded from schools that is publicly searchable. Videos can be inserted as links or embedded in course material.<br/><br/>Any key and secret will work for this tool.",
+      "config_url": "/config/schooltube.xml",
+      "preview": {
+        "url": "/schooltube.html",
+        "height": 500
+      },
+      "extensions": ["editor_button"]
+    },
+    {
       "id": "tegrity",
       "name": "McGraw Hill Tegrity",
       "image_url": "/tools/tegrity.png",
@@ -358,7 +371,6 @@
       "config_directions": "Contact <a href='http://www.pebblepad.co.uk/'>PebblePad</a> for configuration instructions."
     },
     {
-      "new": true,
       "id": "wikispaces",
       "name": "Wikispaces",
       "image_url": "/tools/wikispaces.png",

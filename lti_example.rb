@@ -537,6 +537,27 @@ get "/config/khan_academy.xml" do
   XML
 end
 
+get "/config/schooltube.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>SchoolTube Videos</blti:title>
+    <blti:description>Search for and insert links to SchoolTube-hosted videos.</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/schooltube.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/schooltube.png</lticm:property>
+        <lticm:property name="text">SchoolTube Video</lticm:property>
+        <lticm:property name="selection_width">660</lticm:property>
+        <lticm:property name="selection_height">450</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/icons/schooltube.png</blti:icon>
+  XML
+end
+
 get "/config/wikipedia.xml" do
   host = request.scheme + "://" + request.host_with_port
   headers 'Content-Type' => 'text/xml'
