@@ -130,7 +130,9 @@
       "name": "SchoolTube",
       "image_url": "/tools/schooltube.png",
       "description": "SchoolTube is a collection of videos uploaded from schools that is publicly searchable. Videos can be inserted as links or embedded in course material.<br/><br/>Any key and secret will work for this tool.",
+      "short_description": "Videos contributed by schools",
       "config_url": "/config/schooltube.xml",
+      "launch_url": "/schooltube.html",
       "preview": {
         "url": "/schooltube.html",
         "height": 500
