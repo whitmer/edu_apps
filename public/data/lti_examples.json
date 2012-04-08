@@ -483,6 +483,7 @@
       }
     },
     {
+      "new": true,
       "id": "spelling_city",
       "name": "Spelling City",
       "image_url": "/tools/spelling_city.png",

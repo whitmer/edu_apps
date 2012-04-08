@@ -66,5 +66,5 @@ var lti;
       },
       dataType: 'jsonp'
     });
-  });
+  }).submit();
 })();
