@@ -496,5 +496,19 @@
       "image_url": "/tools/hooda_math.png",
       "short_description": "Online math learning games",
       "data_url": "/data/hooda_math.json"
+    },
+    {
+      "id": "google_art",
+      "name": "Google Art Project",
+      "image_url": "/tools/google_art.png",
+      "short_description": "Digital tours of famous museum artwork",
+      "data_url": "/data/google_art.json"
+    },
+    {
+      "id": "programr",
+      "name": "Programr",
+      "image_url": "/tools/programr.png",
+      "short_description": "Coding challenges in Java, C# and C++",
+      "data_url": "/data/programr.json"
     }
 ]

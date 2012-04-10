@@ -1,0 +1,1268 @@
+[
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as integer and display the binary triangle on the basis of...",
+    "url": "http://www.programr.com/challenges/print-binary-triangle",
+    "name": "C#: Print Binary Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string  and sort all these letters in string.\n...",
+    "url": "http://www.programr.com/challenges/string-sort",
+    "name": "C#: String Sort"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes integer number and prints the table of this number.\nExample...",
+    "url": "http://www.programr.com/challenges/multiplication-table",
+    "name": "C#: Multiplication Table"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very simple challenge for beginners\nWrite a program which accepts a number and prints...",
+    "url": "http://www.programr.com/challenges/factorial-given-number",
+    "name": "C#: Factorial of a given number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts an integer as decimal number and prints its octal form.\nAn...",
+    "url": "http://www.programr.com/challenges/decimal-octal-conversion",
+    "name": "C#: Decimal to Octal Conversion"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes the number as input and print the\nSequences of...",
+    "url": "http://www.programr.com/challenges/triangular-numbers",
+    "name": "C#: Triangular Numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A mathematician named Ulam proposed generating a sequence of numbers from any positive integer n...",
+    "url": "http://www.programr.com/challenges/ulam-sequence",
+    "name": "C#: Ulam Sequence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes number as a input and prints the\nFibonacci...",
+    "url": "http://www.programr.com/challenges/fibonacci-series",
+    "name": "C#: Fibonacci Series"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input length and width of rectangle as integer and print the...",
+    "url": "http://www.programr.com/challenges/print-rectangle",
+    "name": "C#: Print Rectangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to take input integer array and a single integer number and findout the...",
+    "url": "http://www.programr.com/challenges/number-occurrence-array",
+    "name": "C#: Number Occurrence in Array"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program that takes input array daily temperatures, as floats. and findout the maximum...",
+    "url": "http://www.programr.com/challenges/find-maximum-and-minimum-temperature",
+    "name": "C#: Find Maximum and Minimum Temperature"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to takes input two matrix(3*3) array and calculate the multiplication of both...",
+    "url": "http://www.programr.com/challenges/matrix-multiplication",
+    "name": "C#: Matrix Multiplication"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to take input as integer value and print Pascal Triangle till entered number....",
+    "url": "http://www.programr.com/challenges/pascal-triangle",
+    "name": "C#: Pascal Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input a string and a character then remove this character in this...",
+    "url": "http://www.programr.com/challenges/remove-character",
+    "name": "C#: Remove Character"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write the program which takes input 10 elements in the array and reverse the elements in the...",
+    "url": "http://www.programr.com/challenges/reverse-array-0",
+    "name": "C#: Reverse Array"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and also takes input one character and find out the...",
+    "url": "http://www.programr.com/challenges/count-occurrence-character-string",
+    "name": "C#: Count Occurrence of Character in string"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input Hours, Minutes, Seconds as integer and Calculates the total...",
+    "url": "http://www.programr.com/challenges/convert-seconds",
+    "name": "C#: Convert in Seconds"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input string and capitalizes the first character of each word in a...",
+    "url": "http://www.programr.com/challenges/capitalization",
+    "name": "C#: Capitalization"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input binary number and convert this number in to decimal format....",
+    "url": "http://www.programr.com/challenges/convert-binary-decimal-1",
+    "name": "C#: Convert binary to decimal"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input integer array which contains positive and negative numbers and...",
+    "url": "http://www.programr.com/challenges/average-positive-and-negative-numbers",
+    "name": "C#: Average of positive and negative numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A binary number is written as combination of 1 and 0.\nBinary number 100 indicates 4....",
+    "url": "http://www.programr.com/challenges/binary-or-not",
+    "name": "C#: Is Binary or not"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts elements of matrix of size 3x3 i.e. 9 elements and show transpose...",
+    "url": "http://www.programr.com/challenges/transpose-matrix",
+    "name": "C#: Transpose of Matrix"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "The duration between March 20 (inclusive) and June 20 (inclusive) is Spring time.\nWrite a...",
+    "url": "http://www.programr.com/challenges/spring-month-check",
+    "name": "C#: Spring month check"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very easy challenge.\nWrite a program which accepts 3 integers and sort them in ascending...",
+    "url": "http://www.programr.com/challenges/sort-three-numbers",
+    "name": "C#: Sort Three numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "An algorithm given by Lothar Collatz produces sequences of integers, and is described as follows...",
+    "url": "http://www.programr.com/challenges/collatz-sequence",
+    "name": "C#: Collatz Sequence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Gray Code is a modified binary code in which sequential numbers are represented by expressions...",
+    "url": "http://www.programr.com/challenges/gray-code",
+    "name": "C#: Gray Code"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which converts all lowercase letter in a sentence to uppercase.\nFor. Ex...",
+    "url": "http://www.programr.com/challenges/convert-uppercase",
+    "name": "C#: Convert to uppercase"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program for displaying the triangular output of the stars depending upon...",
+    "url": "http://www.programr.com/challenges/triangular-star-2",
+    "name": "C#: triangular star"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "complete the following simple code of date sorting in which program will take two dates from the...",
+    "url": "http://www.programr.com/challenges/date-sort-2",
+    "name": "C#: date sort"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to calculate Wind chill.\nAccept temperature (in Fahrenheit) and the wind...",
+    "url": "http://www.programr.com/challenges/wind-chill",
+    "name": "C#: Wind Chill"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes two integers N and M and produces last samples of N of the integers...",
+    "url": "http://www.programr.com/challenges/last-samples-number-0",
+    "name": "C#: Last Samples of a number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "GCD of two numbers is Greatest Common Divisor of that numbers.\nconsider GCD for 12 and 24...",
+    "url": "http://www.programr.com/challenges/euclids-gcd-algorithm",
+    "name": "C#: Euclids GCD Algorithm"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts an integer and print its factors but the factors must be prime....",
+    "url": "http://www.programr.com/challenges/prime-factors-0",
+    "name": "C#: Prime Factors"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very simple challenge for a beginner.\nWrite a program which validates whether the given...",
+    "url": "http://www.programr.com/challenges/leap-year-check",
+    "name": "C#: Leap Year check"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts cartesian coordinates x and y, and prints its polar coordinates...",
+    "url": "http://www.programr.com/challenges/cartesian-polar-co-ordinates",
+    "name": "C#: Cartesian to Polar co-ordinates"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "An ISBN number is legal if it consists of 10 digits and\n  d_1 + 2*d_2 + 3*d_3 + ... + 10*...",
+    "url": "http://www.programr.com/challenges/isbn-validation",
+    "name": "C#: ISBN Validation"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts an integer n and calculates sum, product and average from 1 to 1/n...",
+    "url": "http://www.programr.com/challenges/reciprocals-sum-average-and-product",
+    "name": "C#: Reciprocals Sum average and Product"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very simple challenge.\nWrite a program which accepts an Integer which is an Angle and...",
+    "url": "http://www.programr.com/challenges/quadrant-angle",
+    "name": "C#: Quadrant of an Angle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to takes input date as [dd/mm/yyyy] formate and find out the day of entered date...",
+    "url": "http://www.programr.com/challenges/find-day-given-date",
+    "name": "C#: Find Day of Given Date"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and  check it is palindrom or not.If the string and...",
+    "url": "http://www.programr.com/challenges/palindrom-string",
+    "name": "C#: Palindrom String"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and then implement the logic to reverse this string...",
+    "url": "http://www.programr.com/challenges/word-reverse",
+    "name": "C#: Word Reverse"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and then implement the logic to findout Uppercase...",
+    "url": "http://www.programr.com/challenges/find-vowels-and-consonants",
+    "name": "C#: Find Vowels and Consonants"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Sexy Pairs are nothing but those pairs which contains prime numbers with difference of 6....",
+    "url": "http://www.programr.com/challenges/sexy-pairs",
+    "name": "C#: Sexy Pairs"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and then implement the logic to remove all the...",
+    "url": "http://www.programr.com/challenges/trimspace",
+    "name": "C#: TrimSpace"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "complete the following program of statement reverse. program will take\nstring as a input...",
+    "url": "http://www.programr.com/challenges/statement-reverse-3",
+    "name": "C#: statement reverse"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Implement a code for making triangle using loops.\nTriangle:\nIt is a pattern of...",
+    "url": "http://www.programr.com/challenges/triangle-1",
+    "name": "C#: Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to implement a code for making reverse Flyod's triangle using loops.\nFloyd...",
+    "url": "http://www.programr.com/challenges/reverse-floyds-triangle-0",
+    "name": "C#: Reverse Floyds Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program to find whether given number is perfect or not\nHelp(Perfect...",
+    "url": "http://www.programr.com/challenges/perfect-number-1",
+    "name": "C#: perfect number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which calculates the sum of all odd numbers upto a particular limit.\nThe...",
+    "url": "http://www.programr.com/challenges/sum-odd-numbers",
+    "name": "C#: Sum of Odd Numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes the input number then taken the",
+    "url": "http://www.programr.com/challenges/number-occurence-1",
+    "name": "C#: number of occurence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as odd integer and print a Diamond shape using * (...",
+    "url": "http://www.programr.com/challenges/diamond-shape-0",
+    "name": "C#: Diamond Shape"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes input as a number and converts it into string format....",
+    "url": "http://www.programr.com/challenges/number-string-format-1",
+    "name": "C#: number to string format"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Implemnt the count function to find occurrence of given character in to given string.",
+    "url": "http://www.programr.com/challenges/count-character-string-0",
+    "name": "C#: Count Character in string"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "complete the following program:",
+    "url": "http://www.programr.com/challenges/name-search-2",
+    "name": "C#: name search"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to take input integer from the user and check out the entered number is...",
+    "url": "http://www.programr.com/challenges/armstrong-number-1",
+    "name": "C#: Armstrong Number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which will take the number as input and prints\nThe sequence...",
+    "url": "http://www.programr.com/challenges/number-sequence",
+    "name": "C#: Number Sequence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which calculates the sum of natural numbers which are divisible by 3 and 5 less...",
+    "url": "http://www.programr.com/challenges/sum-naturals-divisible-3-and-5-1",
+    "name": "C#: Sum of Naturals divisible by 3 and 5"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes input as a number and converts that number in to...",
+    "url": "http://www.programr.com/challenges/indian-rupees-format-4",
+    "name": "C#: indian rupees format"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which calculates the sum of all odd numbers upto a particular limit.\nThe...",
+    "url": "http://www.programr.com/challenges/sum-odd-naturals",
+    "name": "C#: Sum of Odd Naturals"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "complete the program which takes date in number format and then makes its addition of the digits...",
+    "url": "http://www.programr.com/challenges/sum-digits-2",
+    "name": "C#: sum of the digits"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts two integers as a minimum and maximum limit and calculates total...",
+    "url": "http://www.programr.com/challenges/count-ones",
+    "name": "C#: Count Ones"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program to convert decimal number into binary form. program will take...",
+    "url": "http://www.programr.com/challenges/decimal-binary-covertor-2",
+    "name": "C#: decimal to binary covertor"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Amicable numbers are two different numbers, such that the sum of the proper divisors of each is...",
+    "url": "http://www.programr.com/challenges/amicable-total",
+    "name": "C#: Amicable Total"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program or write you own code for checking the given number is...",
+    "url": "http://www.programr.com/challenges/find-number-consecutive-or-not-1",
+    "name": "C#: find number is consecutive or not"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "An abundant number is a number for which the sum of its proper divisors is greater than that...",
+    "url": "http://www.programr.com/challenges/abundant-numbers",
+    "name": "C#: Abundant Numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following incomplete program or write down your own code for\nmatrix column...",
+    "url": "http://www.programr.com/challenges/sum-column-matrix-3",
+    "name": "C#: sum of column of a matrix"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "write a program to display all possible permutations of a given input string\nif the string...",
+    "url": "http://www.programr.com/challenges/permutation-strings-1",
+    "name": "C#: Permutation of Strings"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as integer and display the binary triangle on the basis of...",
+    "url": "http://www.programr.com/challenges/print-binary-triangle-0",
+    "name": "CPP: Print Binary Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string  and sort all these letters in string.\n...",
+    "url": "http://www.programr.com/challenges/string-sort-0",
+    "name": "CPP: String Sort"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes integer number and prints the table of this number.\nExample...",
+    "url": "http://www.programr.com/challenges/multiplication-table-0",
+    "name": "CPP: Multiplication Table"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very simple challenge for beginners\nWrite a program which accepts a number and prints...",
+    "url": "http://www.programr.com/challenges/factorial-given-number-0",
+    "name": "CPP: Factorial of a given number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts an integer as decimal number and prints its octal form.\nAn...",
+    "url": "http://www.programr.com/challenges/decimal-octal-conversion-0",
+    "name": "CPP: Decimal to Octal Conversion"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes the number as input and print the\nSequences of...",
+    "url": "http://www.programr.com/challenges/triangular-numbers-0",
+    "name": "CPP: Triangular Numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A mathematician named Ulam proposed generating a sequence of numbers from any positive integer n...",
+    "url": "http://www.programr.com/challenges/ulam-sequence-0",
+    "name": "CPP: Ulam Sequence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes number as a input and prints the\nFibonacci...",
+    "url": "http://www.programr.com/challenges/fibonacci-series-1",
+    "name": "CPP: Fibonacci Series"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes number as a input and prints the\nFibonacci...",
+    "url": "http://www.programr.com/challenges/fibonacci-series-0",
+    "name": "CPP: Fibonacci Series"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input length and width of rectangle as integer and print the...",
+    "url": "http://www.programr.com/challenges/print-rectangle-0",
+    "name": "CPP: Print Rectangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to take input integer array and a single integer number and findout the...",
+    "url": "http://www.programr.com/challenges/number-occurrence-array-0",
+    "name": "CPP: Number Occurrence in Array"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program that takes input array daily temperatures, as floats. and findout the maximum...",
+    "url": "http://www.programr.com/challenges/find-maximum-and-minimum-temperature-0",
+    "name": "CPP: Find Maximum and Minimum Temperature"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to takes input two matrix(3*3) array and calculate the multiplication of both...",
+    "url": "http://www.programr.com/challenges/matrix-multiplication-0",
+    "name": "CPP: Matrix Multiplication"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to take input as integer value and print Pascal Triangle till entered number....",
+    "url": "http://www.programr.com/challenges/pascal-triangle-0",
+    "name": "CPP: Pascal Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input a string and a character then remove this character in this...",
+    "url": "http://www.programr.com/challenges/remove-character-1",
+    "name": "CPP: Remove Character"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which calculates the sum of natural numbers which are divisible by 3 and 5 less...",
+    "url": "http://www.programr.com/challenges/sum-naturals-divisible-3-and-5-0",
+    "name": "CPP: Sum of Naturals divisible by 3 and 5"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which calculates the sum of all odd numbers upto a particular limit.\nThe...",
+    "url": "http://www.programr.com/challenges/sum-odd-numbers-1",
+    "name": "CPP: Sum of Odd Numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and also takes input one character and find out the...",
+    "url": "http://www.programr.com/challenges/count-occurrence-character-string-0",
+    "name": "CPP: Count Occurrence of Character in string"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input Hours, Minutes, Seconds as integer and Calculates the total...",
+    "url": "http://www.programr.com/challenges/convert-seconds-0",
+    "name": "CPP: Convert in Seconds"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input string and capitalizes the first character of each word in a...",
+    "url": "http://www.programr.com/challenges/capitalization-0",
+    "name": "CPP: Capitalization"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input binary number and convert this number in to decimal format....",
+    "url": "http://www.programr.com/challenges/convert-binary-decimal-0",
+    "name": "CPP: Convert binary to decimal"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input integer array which contains positive and negative numbers and...",
+    "url": "http://www.programr.com/challenges/average-positive-and-negative-numbers-0",
+    "name": "CPP: Average of positive and negative numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write the program which takes input 10 elements in the array and reverse the elements in the...",
+    "url": "http://www.programr.com/challenges/reverse-array",
+    "name": "CPP: Reverse Array"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A binary number is written as combination of 1 and 0.\nBinary number 100 indicates 4....",
+    "url": "http://www.programr.com/challenges/binary-or-not-0",
+    "name": "CPP: Is Binary or not"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts elements for a matrix of size 3x3 i.e. 9 elements and show...",
+    "url": "http://www.programr.com/challenges/transpose-matrix-0",
+    "name": "CPP: Transpose of Matrix"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "The duration between March 20 (inclusive) and June 20 (inclusive) is Spring time.\nWrite a...",
+    "url": "http://www.programr.com/challenges/spring-month-check-0",
+    "name": "CPP: Spring month check"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very easy challenge.\nWrite a program which accepts 3 integers and sort them in ascending...",
+    "url": "http://www.programr.com/challenges/sort-three-numbers-0",
+    "name": "CPP: Sort Three numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "An algorithm given by Lothar Collatz produces sequences of integers, and is described as follows...",
+    "url": "http://www.programr.com/challenges/collatz-sequence-0",
+    "name": "CPP: Collatz Sequence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Gray Code is a modified binary code in which sequential numbers are represented by expressions...",
+    "url": "http://www.programr.com/challenges/gray-code-1",
+    "name": "CPP: Gray Code"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which converts all lowercase letter in a sentence to uppercase.\nFor. Ex...",
+    "url": "http://www.programr.com/challenges/convert-uppercase-0",
+    "name": "CPP: Convert to uppercase"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program for displaying the triangular output of the stars depending upon...",
+    "url": "http://www.programr.com/challenges/triangular-star-0",
+    "name": "CPP: triangular star"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "complete the following simple code of date sorting in which program will take two dates from the...",
+    "url": "http://www.programr.com/challenges/date-sort-0",
+    "name": "CPP: date sort"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to calculate Wind chill.\nAccept temperature (in Fahrenheit) and the wind...",
+    "url": "http://www.programr.com/challenges/wind-chill-1",
+    "name": "CPP: Wind Chill"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes two integers N and M and produces last samples of N of the integers...",
+    "url": "http://www.programr.com/challenges/random-samples-without-replacement-0",
+    "name": "CPP: Last Samples of a number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "GCD of two numbers is Greatest Common Divisor of that numbers.\nconsider GCD for 12 and 24...",
+    "url": "http://www.programr.com/challenges/euclids-gcd-algorithm-0",
+    "name": "CPP: Euclids GCD Algorithm"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts an integer and print its factors but the factors must be prime....",
+    "url": "http://www.programr.com/challenges/prime-factors-1",
+    "name": "CPP: Prime Factors"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very simple challenge for a beginner.\nWrite a program which validates whether the given...",
+    "url": "http://www.programr.com/challenges/leap-year-check-0",
+    "name": "CPP: Leap Year check"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts cartesian coordinates x and y, and prints its polar coordinates...",
+    "url": "http://www.programr.com/challenges/cartesian-polar-co-ordinates-0",
+    "name": "CPP: Cartesian to Polar co-ordinates"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "An ISBN number is legal if it consists of 10 digits and\n  d_1 + 2*d_2 + 3*d_3 + ... + 10*...",
+    "url": "http://www.programr.com/challenges/isbn-validation-0",
+    "name": "CPP: ISBN Validation"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts an integer n and calculates sum, product and average from 1 to 1/n...",
+    "url": "http://www.programr.com/challenges/reciprocals-sum-average-and-product-0",
+    "name": "CPP: Reciprocals Sum average and Product"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very simple challenge.\nWrite a program which accepts an Integer which is an Angle and...",
+    "url": "http://www.programr.com/challenges/quadrant-angle-0",
+    "name": "CPP: Quadrant of an Angle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to takes input date as [dd/mm/yyyy] formate and find out the day of entered date...",
+    "url": "http://www.programr.com/challenges/find-day-given-date-0",
+    "name": "CPP: Find Day of Given Date"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and  check it is palindrom or not.If the string and...",
+    "url": "http://www.programr.com/challenges/palindrom-string-0",
+    "name": "CPP: Palindrom String"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and then implement the logic to reverse this string...",
+    "url": "http://www.programr.com/challenges/word-reverse-0",
+    "name": "CPP: Word Reverse"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and then implement the logic to findout Uppercase...",
+    "url": "http://www.programr.com/challenges/find-vowels-and-consonants-0",
+    "name": "CPP: Find Vowels and Consonants"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Sexy Pairs are nothing but those pairs which contains prime numbers with difference of 6....",
+    "url": "http://www.programr.com/challenges/sexy-pairs-0",
+    "name": "CPP: Sexy Pairs"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and then implement the logic to remove all the...",
+    "url": "http://www.programr.com/challenges/trimspace-0",
+    "name": "CPP: TrimSpace"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "complete the following program of statement reverse. program will take\nstring as a input...",
+    "url": "http://www.programr.com/challenges/statement-reverse-2",
+    "name": "CPP: statement reverse"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as integer and display the reverse triangle on the basis of...",
+    "url": "http://www.programr.com/challenges/triangle-0",
+    "name": "CPP: Reverse Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to implement a code for making reverse Flyod's triangle using loops.\nFloyd...",
+    "url": "http://www.programr.com/challenges/reverse-floyds-triangle",
+    "name": "CPP: Reverse Floyds Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program to find whether given number is perfect or not\nHelp(Perfect...",
+    "url": "http://www.programr.com/challenges/perfect-number-0",
+    "name": "CPP: Perfect Number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes the input number then taken the",
+    "url": "http://www.programr.com/challenges/number-occurence-0",
+    "name": "CPP: Number of occurence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as odd integer and print a Diamond shape using * (...",
+    "url": "http://www.programr.com/challenges/diamond-shape",
+    "name": "CPP: Diamond Shape"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes input as a number and converts it into string format....",
+    "url": "http://www.programr.com/challenges/number-string-format-0",
+    "name": "CPP: number to string format"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program:\ntwo string arrays are given one is for names and other is...",
+    "url": "http://www.programr.com/challenges/name-search-1",
+    "name": "CPP: Name search"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which will take the number as input and prints\nThe sequence...",
+    "url": "http://www.programr.com/challenges/number-sequence-0",
+    "name": "CPP: Number Sequence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes input as a number and converts that number in to...",
+    "url": "http://www.programr.com/challenges/indian-rupees-format-3",
+    "name": "CPP: Indian rupees format"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to take input integer from the user and check out the entered number is...",
+    "url": "http://www.programr.com/challenges/armstrong-number",
+    "name": "CPP: Armstrong Number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Count Total no of Ones\nWrite a program which accepts two integers as a minimum and...",
+    "url": "http://www.programr.com/challenges/count-ones-1",
+    "name": "CPP: Count Ones"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the program which takes date in number format and then makes its addition of the digits...",
+    "url": "http://www.programr.com/challenges/sum-digits-1",
+    "name": "CPP: Sum of the digits"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Amicable numbers are two different numbers, such that the sum of the proper divisors of each is...",
+    "url": "http://www.programr.com/challenges/amicable-total-0",
+    "name": "CPP: Amicable Total"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program to convert decimal number into binary form. program will take...",
+    "url": "http://www.programr.com/challenges/decimal-binary-covertor-1",
+    "name": "CPP: Decimal to binary covertor"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "An abundant number is a number for which the sum of its proper divisors is greater than that...",
+    "url": "http://www.programr.com/challenges/abundant-numbers-0",
+    "name": "CPP: Abundant Numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program or write you own code for checking the given number is...",
+    "url": "http://www.programr.com/challenges/consecutive-number",
+    "name": "CPP: consecutive number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "write a program to display all possible permutations of a given input string\nif the string...",
+    "url": "http://www.programr.com/challenges/permutation-strings-0",
+    "name": "CPP: Permutation of Strings"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following incomplete program or write down your own code for\nmatrix column...",
+    "url": "http://www.programr.com/challenges/sum-column-matrix-1",
+    "name": "CPP: sum of column of a matrix"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as integer and display the triangle of 0's and 1's on the...",
+    "url": "http://www.programr.com/challenges/print-binary-triangle-2",
+    "name": "Java: Print Binary Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string  and sort all these letters in string.\n...",
+    "url": "http://www.programr.com/challenges/string-sort-1",
+    "name": "Java: String Sort"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes integer number and prints the table of this number.\nExample...",
+    "url": "http://www.programr.com/challenges/multiplication-table-1",
+    "name": "Java: Multiplication Table"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very simple challenge for beginners\nWrite a program which accepts a number and prints...",
+    "url": "http://www.programr.com/challenges/factorial-given-number-1",
+    "name": "Java: Factorial of a given number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes the number as input and print the\nSequences of...",
+    "url": "http://www.programr.com/challenges/triangular-numbers-1",
+    "name": "Java: Triangular Numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts an integer as decimal number and prints its octal form.\nAn...",
+    "url": "http://www.programr.com/challenges/decimal-octal-conversion-1",
+    "name": "Java: Decimal to Octal Conversion"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A mathematician named Ulam proposed generating a sequence of numbers from any positive integer n...",
+    "url": "http://www.programr.com/challenges/ulam-sequence-1",
+    "name": "Java: Ulam Sequence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes number as a input and prints the\nFibonacci...",
+    "url": "http://www.programr.com/challenges/fibonacci-series-2",
+    "name": "Java: Fibonacci Series"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input length and width of rectangle as integer and print the...",
+    "url": "http://www.programr.com/challenges/print-rectangle-1",
+    "name": "Java: Print Rectangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to take input integer array and a single integer number and findout the...",
+    "url": "http://www.programr.com/challenges/number-occurrence-array-1",
+    "name": "Java: Number Occurrence in Array"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program that takes input array daily temperatures, as floats. and findout the maximum...",
+    "url": "http://www.programr.com/challenges/find-maximum-and-minimum-temperature-1",
+    "name": "Java: Find Maximum and Minimum Temperature"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to takes input two matrix(3*3) array and calculate the multiplication of both...",
+    "url": "http://www.programr.com/challenges/matrix-multiplication-1",
+    "name": "Java: Matrix Multiplication"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to take input as integer value and print Pascal Triangle till entered number....",
+    "url": "http://www.programr.com/challenges/pascal-triangle-2",
+    "name": "Java: Pascal Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input a string and a character then remove this character in this...",
+    "url": "http://www.programr.com/challenges/remove-character-0",
+    "name": "Java: Remove Character"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write the program which takes input 10 elements in the array and reverse the elements in the...",
+    "url": "http://www.programr.com/challenges/reverse-array-1",
+    "name": "Java: Reverse Array"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and also takes input one character and find out the...",
+    "url": "http://www.programr.com/challenges/count-occurrence-character-string-1",
+    "name": "Java: Count Occurrence of Character in string"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input Hours, Minutes, Seconds as integer and Calculates the total...",
+    "url": "http://www.programr.com/challenges/convert-seconds-1",
+    "name": "Java: Convert in Seconds"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input string and capitalizes the first character of each word in a...",
+    "url": "http://www.programr.com/challenges/capitalization-1",
+    "name": "Java: Capitalization"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input binary number and convert this number in to decimal format....",
+    "url": "http://www.programr.com/challenges/convert-binary-decimal",
+    "name": "Java: Convert binary to decimal"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input integer array which contains positive and negative numbers and...",
+    "url": "http://www.programr.com/challenges/average-positive-and-negative-numbers-1",
+    "name": "Java: Average of positive and negative numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A binary number is written as combination of 1 and 0.\nBinary number 100 indicates 4....",
+    "url": "http://www.programr.com/challenges/binary-or-not-1",
+    "name": "Java: Is Binary or not"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts elements for a matrix of size 3x3 i.e. 9 elements and show...",
+    "url": "http://www.programr.com/challenges/transpose-matrix-1",
+    "name": "Java: Transpose of Matrix"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "The duration between March 20 (inclusive) and June 20 (inclusive) is Spring time.\nWrite a...",
+    "url": "http://www.programr.com/challenges/spring-month-check-1",
+    "name": "Java: Spring month check"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very easy challenge.\nWrite a program which accepts 3 integers and sort them in ascending...",
+    "url": "http://www.programr.com/challenges/sort-three-numbers-1",
+    "name": "Java: Sort Three numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "An algorithm given by Lothar Collatz produces sequences of integers, and is described as follows...",
+    "url": "http://www.programr.com/challenges/collatz-sequence-1",
+    "name": "Java: Collatz Sequence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Gray Code is a modified binary code in which sequential numbers are represented by expressions...",
+    "url": "http://www.programr.com/challenges/gray-code-2",
+    "name": "Java: Gray Code"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which converts all lowercase letter in a sentence to uppercase.\nFor. Ex...",
+    "url": "http://www.programr.com/challenges/convert-uppercase-1",
+    "name": "Java: Convert to uppercase"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program for displaying the triangular output of the stars depending upon...",
+    "url": "http://www.programr.com/challenges/triangular-star",
+    "name": "Java: triangular star"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to calculate Wind chill.\nAccept temperature (in Fahrenheit) and the wind...",
+    "url": "http://www.programr.com/challenges/wind-chill-2",
+    "name": "Java: Wind Chill"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes two integers N and M and produces last samples of N of the integers...",
+    "url": "http://www.programr.com/challenges/last-samples-number",
+    "name": "Java: Last Samples of a number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "GCD of two numbers is Greatest Common Divisor of that numbers.\nconsider GCD for 12 and 24...",
+    "url": "http://www.programr.com/challenges/euclids-gcd-algorithm-1",
+    "name": "Java: Euclids GCD Algorithm"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "complete the following simple code of date sorting in which program will take two dates from the...",
+    "url": "http://www.programr.com/challenges/date-sort",
+    "name": "Java: date sort"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts an integer and print its factors but the factors must be prime....",
+    "url": "http://www.programr.com/challenges/prime-factors-2",
+    "name": "Java: Prime Factors"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very simple challenge for a beginner.\nWrite a program which validates whether the given...",
+    "url": "http://www.programr.com/challenges/leap-year-check-2",
+    "name": "Java: Leap Year check"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts cartesian coordinates x and y, and prints its polar coordinates...",
+    "url": "http://www.programr.com/challenges/cartesian-polar-co-ordinates-1",
+    "name": "Java: Cartesian to Polar co-ordinates"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "An ISBN number is legal if it consists of 10 digits and\n  d_1 + 2*d_2 + 3*d_3 + ... + 10*...",
+    "url": "http://www.programr.com/challenges/isbn-validation-1",
+    "name": "Java: ISBN Validation"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts an integer n and calculates sum, product and average from 1 to 1/n...",
+    "url": "http://www.programr.com/challenges/reciprocals-sum-average-and-product-1",
+    "name": "Java: Reciprocals Sum average and Product"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "A very simple challenge.\nWrite a program which accepts an Integer which is an Angle and...",
+    "url": "http://www.programr.com/challenges/quadrant-angle-1",
+    "name": "Java: Quadrant of an Angle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to takes input date as [dd/mm/yyyy] formate and find out the day of entered date...",
+    "url": "http://www.programr.com/challenges/find-day-given-date-1",
+    "name": "Java: Find Day of Given Date"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and  check it is palindrom or not.If the string and...",
+    "url": "http://www.programr.com/challenges/palindrom-string-2",
+    "name": "Java: Palindrom String"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and then implement the logic to reverse this string...",
+    "url": "http://www.programr.com/challenges/word-reverse-1",
+    "name": "Java: Word Reverse"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and then implement the logic to findout Uppercase...",
+    "url": "http://www.programr.com/challenges/find-vowels-and-consonants-1",
+    "name": "Java: Find Vowels and Consonants"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Sexy Pairs are nothing but those pairs which contains prime numbers with difference of 6....",
+    "url": "http://www.programr.com/challenges/sexy-pairs-1",
+    "name": "Java: Sexy Pairs"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as string and then implement the logic to remove all the...",
+    "url": "http://www.programr.com/challenges/trimspace-1",
+    "name": "Java: TrimSpace"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "complete the following program of statement reverse. program will take\nstring as a input...",
+    "url": "http://www.programr.com/challenges/statement-reverse-1",
+    "name": "Java: Statement reverse"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which calculates the sum of all odd numbers upto a particular limit.\nThe...",
+    "url": "http://www.programr.com/challenges/sum-odd-numbers-0",
+    "name": "Java: Sum of Odd Numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to implement a code for making reverse Flyod's triangle using loops.\nFloyd...",
+    "url": "http://www.programr.com/challenges/reverse-floyds-triangle-1",
+    "name": "Java: Reverse Floyds Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program to find whether given number is perfect or not\nHelp(Perfect...",
+    "url": "http://www.programr.com/challenges/perfect-number",
+    "name": "Java: Perfect number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as odd integer and print a Diamond shape using * (...",
+    "url": "http://www.programr.com/challenges/diamond-shape-1",
+    "name": "Java: Diamond Shape"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes the input number then taken the",
+    "url": "http://www.programr.com/challenges/number-occurence",
+    "name": "Java: Number of occurence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes input as a number and converts it into string format....",
+    "url": "http://www.programr.com/challenges/number-string-format",
+    "name": "Java: number to string format"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program:\ntwo string arrays are given one is for names and other is...",
+    "url": "http://www.programr.com/challenges/name-search-0",
+    "name": "Java: Name search"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program to take input integer from the user and check out the entered number is...",
+    "url": "http://www.programr.com/challenges/armstrong-number-0",
+    "name": "Java: Armstrong Number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program:\ntwo string arrays are given one is for names and other is...",
+    "url": "http://www.programr.com/challenges/name-search",
+    "name": "Java: Name search"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which will take the number as input and prints\nThe sequence...",
+    "url": "http://www.programr.com/challenges/number-sequence-1",
+    "name": "Java: Number Sequence"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which calculates the sum of natural numbers which are divisible by 3 and 5 less...",
+    "url": "http://www.programr.com/challenges/sum-naturals-divisible-3-and-5",
+    "name": "Java: Sum of Naturals divisible by 3 and 5"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program which takes input as a number and converts that number in to...",
+    "url": "http://www.programr.com/challenges/indian-rupees-formatter-1",
+    "name": "Java: Indian rupees formatter"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which accepts two integers as a minimum and maximum limit and calculates total...",
+    "url": "http://www.programr.com/challenges/count-ones-3",
+    "name": "Java: Count Ones"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the program which takes date in number format and then makes its addition of the digits...",
+    "url": "http://www.programr.com/challenges/sum-digits-0",
+    "name": "Java: Sum of the digits"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Amicable numbers are two different numbers, such that the sum of the proper divisors of each is...",
+    "url": "http://www.programr.com/challenges/amicable-total-3",
+    "name": "Java: Amicable Total"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program to convert decimal number into binary form. program will take...",
+    "url": "http://www.programr.com/challenges/decimal-binary-covertor",
+    "name": "Java: Decimal to binary covertor"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "An abundant number is a number for which the sum of its proper divisors is greater than that...",
+    "url": "http://www.programr.com/challenges/abundant-numbers-1",
+    "name": "Java: Abundant Numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program or write you own code for checking the given number is...",
+    "url": "http://www.programr.com/challenges/consecutive-number-0",
+    "name": "Java: Consecutive number"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "write a program to display all possible permutations of a given input string\nif the string...",
+    "url": "http://www.programr.com/challenges/permutation-strings",
+    "name": "Java: Permutation of Strings"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following incomplete program or write down your own code for\nmatrix column...",
+    "url": "http://www.programr.com/challenges/sum-column-matrix",
+    "name": "Java: sum of column of a matrix"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a program which takes input as integer and display the reverse triangle on the basis of...",
+    "url": "http://www.programr.com/challenges/reverse-triangle",
+    "name": "Java: Reverse Triangle"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Very Simple example on String concatination:Explaination:you have to just take the...",
+    "url": "http://www.programr.com/challenges/string-concatenation",
+    "name": "Java: String concatenation"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a Java program with the following things done.\n1.) Complete the logic of the program...",
+    "url": "http://www.programr.com/challenges/arrays-and-collections",
+    "name": "Java: Arrays and Collections"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Correct the Java program with the following things done.\n1.) Create an own exception such...",
+    "url": "http://www.programr.com/challenges/exception-handling",
+    "name": "Java: Exception Handling"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Please write down the function for finding maximum number amongst the given three number....",
+    "url": "http://www.programr.com/challenges/method-finding-maximum-number-amongst-three",
+    "name": "Java: Method for finding maximum number amongst three"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write a java program with the following things done.\n1.) Complete the logic of the program...",
+    "url": "http://www.programr.com/challenges/flow-control",
+    "name": "Java: Flow Control"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "While loop test:\nComplete the program to display the numbers in reverse order from n till...",
+    "url": "http://www.programr.com/challenges/while-loop-test",
+    "name": "Java: While loop test"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the following program such that it prints numbers in triangular format as shown:...",
+    "url": "http://www.programr.com/challenges/nested-loops",
+    "name": "Java: Nested for loops"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the below program such that it prints all even numbers upto the given size.Ex...",
+    "url": "http://www.programr.com/challenges/print-even-numbers-using-forloop",
+    "name": "Java: print even numbers using forloop"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Write down the simple program to print traingle of ' * '\nDepending on the user size using...",
+    "url": "http://www.programr.com/challenges/print-traingle-using-loops",
+    "name": "Java: Print traingle of * using loops"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "Complete the switch-case block in the below program.\nRules:\nif...",
+    "url": "http://www.programr.com/challenges/switch-case",
+    "name": "Java: Switch-Case"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "The below program takes 2 numbers as input.\nModify it to display the greater of the two...",
+    "url": "http://www.programr.com/challenges/compare-numbers",
+    "name": "Java: Compare Numbers"
+  },
+  {
+    "image_url": "/prompt.png",
+    "description": "The program below has 2 variables, number and number2.\nIts output is:\n\"...",
+    "url": "http://www.programr.com/challenges/operators",
+    "name": "Java: Operators"
+  }
+]
