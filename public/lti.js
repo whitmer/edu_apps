@@ -1,5 +1,6 @@
 var lti = lti || {};
 var skipValidation; 
+var trackEvent;
 (function() {
   var url = location.href;
   var args = (url.split(/\?/)[1] || "").split(/\&/);
@@ -32,11 +33,14 @@ if(!skipValidation) {
         style: "width: " + data.width + "px; height: " + data.height + "px;"
       });
     } else if(data.embed_type == 'link') {
-      $widget = $("<a/>", {
+      var args = {
         href: data.url,
-        title: data.title,
-        target: (data.target == '_blank' ? '_blank' : '')
-      }).text(data.text);
+        title: data.title
+      };
+      if(data.target == '_blank') {
+        args.target = '_blank';
+      }
+      $widget = $("<a/>", args).text(data.text);
     }
     if($widget) {
       var $textarea = $("<textarea/>", {'style': 'width: 400px; height: 200px;'});
@@ -59,12 +63,18 @@ if(!skipValidation) {
     var returnUrl = params['launch_presentation_return_url'];
     lti.resourceSelected = function(data) {
       if(returnUrl && returnUrl != "undefined" && returnUrl != "undefined?") {
+        if(trackEvent) {
+          trackEvent('resource_selected', data.embed_type, location.href);
+        }
         var url = returnUrl;
         for(var idx in data) {
           url = url + (url.match(/\?/) ? "&" : "?") + idx + "=" + encodeURIComponent(data[idx]);
         }
         location.href = url;
       } else {
+      if(trackEvent) {
+        trackEvent('resource_selected_without_embed', data.embed_type, location.href);
+      }
         showPickedResource(data);
       }
     };

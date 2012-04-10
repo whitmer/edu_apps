@@ -28,6 +28,9 @@
     searchMode == "tools" ? searchTools() : searchResources();
   }
   function launchTool(id) {
+    if(trackEvent) {
+      trackEvent('launch_from_tools', id, location.href);
+    }
     var recent = $.store.get('recent_tools') || [];
     recent.unshift(id);
     var recentHash = {};

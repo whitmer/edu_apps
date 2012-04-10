@@ -11,3 +11,6 @@ $.getJSON('/analytics_key.json', function(data) {
     })();
   }
 });
+function trackEvent() {
+  _gaq.push(arguments);
+}
