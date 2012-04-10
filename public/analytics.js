@@ -11,6 +11,6 @@ $.getJSON('/analytics_key.json', function(data) {
     })();
   }
 });
-function trackEvent() {
-  _gaq.push(arguments);
+function trackEvent(a, b, c, d, e) {
+  _gaq.push(['_trackEvent', a, b, c, d, e]);
 }
