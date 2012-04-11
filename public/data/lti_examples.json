@@ -505,6 +505,20 @@
       "data_url": "/data/google_art.json"
     },
     {
+      "id": "funbrain",
+      "name": "Funbrain",
+      "image_url": "/tools/funbrain.png",
+      "short_description": "K-8 online learning activities",
+      "data_url": "/data/funbrain.json"
+    },
+    {
+      "id": "filament_games",
+      "name": "Filament Games",
+      "image_url": "/tools/filament_games.png",
+      "short_description": "Online learning activities",
+      "data_url": "/data/filament_games.json"
+    },
+    {
       "id": "programr",
       "name": "Programr",
       "image_url": "/tools/programr.png",
