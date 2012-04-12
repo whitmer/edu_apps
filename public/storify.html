@@ -45,10 +45,16 @@ h1 {
   background: #ddd;
   border-radius: 5px;
 }
+#results .result .img_holder {
+  width: 100px;
+  height: 80px;
+  overflow: hidden;
+  float: left;
+  margin: 0 5px;
+}
 #results .result img {
-  padding: 0 5px;
-  max-width: 170px;
-  height: 130px;
+  max-height: 100px;
+  max-width: 100px;
 }
 #results .result .title {
   height: 28px;
@@ -61,76 +67,44 @@ h1 {
 }
 #results .result .description {
   color: #444;
-  font-size: 10px;
+  font-size: 11px;
   height: 25px;
   margin-bottom: 3px;
   margin-top: 5px;
   overflow: hidden;
   line-height: 12px;
 }
-#results .result .add_form {
-  clear: both;
-}
-#results .result .term_count {
-  float: left;
-  font-size: 24px;
-  width: 40px;
-}
-#results .result .terms {
-  float: left;
-  clear: left;
-  font-size: 10px;
-  width: 40px;
-}
 #results .result .name {
   color: #888;
   font-size: 11px;
-  width: 100px;
+  line-height: 13px;
+  width: 170px;
   white-space: nowrap;
   overflow: hidden;
   padding-left: 15px;
 }
-#results .result .has_images {
-  visibility: hidden;
-  padding-top: 10px;
-}
-#results .result.has_images .has_images {
-  visibility: visible;
+#results .result .links {
   font-size: 11px;
-  
-}
-
-#results .result select {
+  line-height: 13px;
+  text-align: right;
   opacity: 0.3;
 }
-#results .result:hover select {
+#results .result:hover .links {
   opacity: 1.0;
 }
-#message {
-  font-weight: bold;
-  margin: 10px;
-}
-#slideshare {
-  display: none;
-}
-#slideshare_wrapper {
-  margin: 0 25px;
-}
-#slideshare_preview {
-  border: 2px solid #888;
-  padding: 5px 0 5px 5px;
-  width: 600px;
-  height: 350px;
-  margin-bottom: 5px;
-}
+
 </style>
 </head>
 <body>
-<a id="header_img" href="http://slideshare.com/"><img src="slideshare.png" style="padding-right: 10px; vertical-align: middle; float: left;"/></a>
+<a id="header_img" href="http://storify.com/"><img src="/tools/storify.png" style="padding-right: 10px; vertical-align: middle; float: left;"/></a>
 <h1>
-Search Slideshare CC slideshows:
+Search Storify stories:
 </h1>
 <form id="search" class="form-inline">
+<select id="type" style="width: 100px;">
+  <option value="popular">Popular</option>
+  <option value="latest">Latest</option>
+</select>
 <input type="text" id="query"/>
 <button type="submit" class="btn"><span class="icon-search"></span> Search</button>
 </form>
@@ -141,24 +115,26 @@ Search Slideshare CC slideshows:
 <div id="results"></div>
 <div id="result" style="display: none;" class="result">
   <div class="title"></div>
-  <img src="about:blank" class="thumb"/>
+  <div class="img_holder">
+    <img src="about:blank" class="thumb"/>
+  </div>
   <div class="description">
   </div>
   <div class="name">
     author: 
     <span class="author"></span>
   </div>
-</div>
-<div id="slideshare">
-  <div class="title"></div>
-  <div id="slideshare_wrapper">
+  <div class="name">
+    views: 
+    <span class="views"></span>
   </div>
-  <button type="button" class="btn btn-primary" id="link">Link</button>
-  <button type="button" class="btn btn-primary" id="embed">Embed</button>
+  <div class="links">
+    <a href="#" class="preview" target="_blank">preview</a>
+  </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="lti.js"></script>
 <script src="analytics.js"></script>
-<script src="slideshare.js"></script>
+<script src="storify.js"></script>
 </body>
 </html>

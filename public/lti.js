@@ -40,7 +40,7 @@ if(!skipValidation) {
       if(data.target == '_blank') {
         args.target = '_blank';
       }
-      $widget = $("<a/>", args).text(data.text);
+      $widget = $("<a/>", args).text(data.text || args.title || "link");
     }
     if($widget) {
       var $textarea = $("<textarea/>", {'style': 'width: 400px; height: 200px;'});

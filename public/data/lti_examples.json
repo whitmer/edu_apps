@@ -484,6 +484,21 @@
     },
     {
       "new": true,
+      "id": "storify",
+      "name": "Storify",
+      "image_url": "/tools/storify.png",
+      "description": "Storify lets users organize events from across the web into a single cohesive \"story\". Search through and link to these social stories within your course material.<br/><br/>Any key and secret will work.",
+      "short_description": "Search and link to social stories",
+      "config_url": "/config/storify.xml",
+      "launch_url": "/storify.html",
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/storify.html",
+        "height": 475
+      }
+    },
+    {
+      "new": true,
       "id": "spelling_city",
       "name": "Spelling City",
       "image_url": "/tools/spelling_city.png",

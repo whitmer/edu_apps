@@ -53,7 +53,7 @@
           var slideshare = data[idx];
           var $entry = $result.clone(true);
           $entry.find(".title").text(slideshare.title);
-          $entry.find(".thumbnail").attr('src', slideshare.image_url);
+          $entry.find(".thumb").attr('src', slideshare.image_url);
           $entry.find(".description").html(slideshare.description);
           $entry.find(".author").text(slideshare.author);
           $entry.attr('data-id', slideshare.id);

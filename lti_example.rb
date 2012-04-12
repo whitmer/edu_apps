@@ -64,6 +64,27 @@ get "/quizlet_search" do
   return response.body
 end
 
+get "/storify_search" do
+  url = "http://api.storify.com/v1/stories/browse/popular?per_page=21"
+  if params['sort'] == 'latest'
+    if !params['q'] || params['q'].empty?
+      url = "http://api.storify.com/v1/stories/browse/latest?per_page=21"
+    else
+      url = "http://api.storify.com/v1/stories/search?q=#{CGI.escape(params['q'])}&per_page=21"
+    end
+  else
+    if !params['q'] || params['q'].empty?
+      url = "http://api.storify.com/v1/stories/browse/featured?per_page=21"
+    else
+      url = "http://api.storify.com/v1/stories/search?q=#{CGI.escape(params['q'])}&sort=stats.views&per_page=21"
+    end
+  end
+  uri = URI.parse(url)
+  response = Net::HTTP.get(uri)
+  json = JSON.parse(response)
+  return json['content']['stories'].to_json
+end
+
 get '/slideshare_search' do
   return "Slideshare not properly configured" unless @@slideshare_config
   uri = URI.parse("http://www.slideshare.net/api/2/search_slideshows")
@@ -791,6 +812,27 @@ get "/config/archive.xml" do
       </lticm:options>
     </blti:extensions>
     <blti:icon>#{host}/archive.png</blti:icon>
+  XML
+end
+
+get "/config/storify.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Storify</blti:title>
+    <blti:description>Search publicly available "social stories" from storify.com</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/storify.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/storify.png</lticm:property>
+        <lticm:property name="text">Internet Archive</lticm:property>
+        <lticm:property name="selection_width">690</lticm:property>
+        <lticm:property name="selection_height">530</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/icons/storify.png</blti:icon>
   XML
 end
 
