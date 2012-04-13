@@ -886,6 +886,21 @@ get "/config/panopto.xml" do
   config_wrap(xml)
 end
 
+get "/config/cengage.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Cengage MindLinks</blti:title>
+    <blti:description>Build and link to rich interactive learning resources</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+      <lticm:property name="domain">gateway.cengage.com</lticm:property>
+    </blti:extensions>
+    <blti:icon>#{host}/icons/cengage.png</blti:icon>
+  XML
+end
+
 get "/config/campus_pack.xml" do
   host = request.scheme + "://" + request.host_with_port
   headers 'Content-Type' => 'text/xml'

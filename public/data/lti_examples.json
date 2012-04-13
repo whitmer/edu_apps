@@ -215,6 +215,14 @@
       }
     },
     {
+      "new": true,
+      "id": "cengage",
+      "name": "Cengage Learning",
+      "image_url": "/tools/cengage.png",
+      "description": "Build and link to interactive educational content called MindLinks, provided by Cengage. <a href='http://cengage.com'>Contact Cengage</a> to receive a consumer key and secret.",
+      "config_url": "/config/cengage.xml"
+    },
+    {
       "id": "coursesmart",
       "name": "CourseSmart",
       "image_url": "/tools/course_smart.png",
