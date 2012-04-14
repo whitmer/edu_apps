@@ -109,8 +109,10 @@
       $div.append("<h3>Recent:</h3>");
       for(var idx = 0; idx < recent.length; idx++) {
         var tool = toolsHash[recent[idx]];
-        var $img = $("<img/>", {'src': tool.image_url, 'title': tool.name, 'class': 'recent_tool', 'data-id': tool.id})
-        $div.append($img);
+        if(tool) {
+          var $img = $("<img/>", {'src': tool.image_url, 'title': tool.name, 'class': 'recent_tool', 'data-id': tool.id})
+          $div.append($img);
+        }
       }
       $tools.append($div);
     }

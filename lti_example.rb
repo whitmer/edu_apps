@@ -109,6 +109,42 @@ get '/slideshare_search' do
   return res.to_json
 end
 
+get '/pinterest_search' do
+  uri = URI.parse("https://api.pinterest.com/v2/popular/?limit=30")
+  path = uri.path
+  if params['q'] && !params['q'].empty?
+    uri = URI.parse("https://api.pinterest.com/v2/search/pins/")
+    path = uri.path+"?query=#{CGI.escape(params['q'])}&limit=30"
+  end
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  request = Net::HTTP::Get.new(path)
+  response = http.request(request)
+  return response.body
+end
+
+get '/pinterest_oembed' do
+  uri = URI.parse(params['url'])
+  path = uri.path
+  if params['q'] && !params['q'].empty?
+    uri = URI.parse("https://api.pinterest.com/v2/search/pins/")
+    path = uri.path+"?query=#{CGI.escape(params['q'])}&limit=24"
+  end
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  request = Net::HTTP::Get.new(path)
+  json = JSON.parse(http.request(request).body)
+  return json.to_json
+  return {
+    :type => "rich",
+    :version => "1.0",
+    :html => "<a href='#{json['source']}' title='#{json['description']}'><img src='#{json['images']['mobile']}'/></a>",
+    :width => json['sizes']['mobile']['width'],
+    :height => json['sizes']['mobile']['height']
+  }.to_json
+  return response.body
+end
+
 get '/wikipedia_search' do
   uri = URI.parse("https://en.wikipedia.org/w/api.php")
   http = Net::HTTP.new(uri.host, uri.port)
@@ -660,6 +696,27 @@ get "/config/quizlet.xml" do
       </lticm:options>
     </blti:extensions>
     <blti:icon>#{host}/icons/quizlet.png</blti:icon>
+  XML
+end
+
+get "/config/pinterest.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Pinterest</blti:title>
+    <blti:description>Search for images and resources linked to on Pinterest</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/pinterest.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/pinterest.png</lticm:property>
+        <lticm:property name="text">Pinterest</lticm:property>
+        <lticm:property name="selection_width">700</lticm:property>
+        <lticm:property name="selection_height">510</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/icons/pinterest.png</blti:icon>
   XML
 end
 

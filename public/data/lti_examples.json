@@ -216,6 +216,19 @@
     },
     {
       "new": true,
+      "id": "pinterest",
+      "name": "Pinterest",
+      "image_url": "/tools/pinterest.png",
+      "description": "Search for images shared on Pinterest. Clicking an image will embed it in your course material with a link back to the original page the image is pulled from.<br/><br/>Any key and secret will work.",
+      "config_url": "/config/pinterest.xml",
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/pinterest.html",
+        "height": 475
+      }
+    },
+    {
+      "new": true,
       "id": "cengage",
       "name": "Cengage Learning",
       "image_url": "/tools/cengage.png",
