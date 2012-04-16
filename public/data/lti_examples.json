@@ -151,7 +151,7 @@
       "id": "panopto",
       "name": "Panopto",
       "image_url": "/tools/panopto.png",
-      "description": "Supports course-level support for the Tegrity lecture capture solution. Visit the Tegrity web site for instructions on how to sign up and get a consumer key and shared secret.",
+      "description": "Supports lecture capture solution from Panopto. Visit the Panopto web site for instructions on how to sign up and get a consumer key and shared secret.",
       "config_url": "/config/panopto.xml",
       "config_options": [
         {

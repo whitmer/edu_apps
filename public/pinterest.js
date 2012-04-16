@@ -11,7 +11,7 @@
   $result.click(function(event) {
     if($(event.target).hasClass('preview') || $(event.target).hasClass('source')) { return; }
     var pin = $(this).data('pin');
-    var oembedUrl = location.protocol + "//" + location.host + "/oembed";
+    var oembedUrl = "http://" + location.host + "/oembed";
     var html = "<a href='" + pin.source + "' title='" + pin.description + "'><img src='" + pin.images.mobile + "'/></a>";
     var url = oembedUrl + "?code=" + encodeURIComponent(html);
     lti.resourceSelected({
