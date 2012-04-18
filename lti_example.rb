@@ -943,6 +943,31 @@ get "/config/panopto.xml" do
   config_wrap(xml)
 end
 
+get "/config/inigral.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  return "app name required" if !params['app_name'] || params['app_name'] == ''
+  xml =  <<-XML
+    <blti:title>Inigral Schools App</blti:title>
+    <blti:description>Schools App is a private social network for your college or university</blti:description>
+    <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('https://apps.facebook.com/' + params['app_name'])}</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+  XML
+  if params['user_nav']
+    xml +=  <<-XML
+      <lticm:options name="user_navigation">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('https://apps.facebook.com/' + params['app_name'])}</lticm:property>
+        <lticm:property name="text">Schools App</lticm:property>
+      </lticm:options>
+    XML
+  end
+  xml +=  <<-XML
+    </blti:extensions>
+  XML
+  config_wrap(xml)
+end
+
 get "/config/cengage.xml" do
   host = request.scheme + "://" + request.host_with_port
   headers 'Content-Type' => 'text/xml'

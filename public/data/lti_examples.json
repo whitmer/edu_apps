@@ -148,22 +148,22 @@
     },
     {
       "new": true,
-      "id": "panopto",
-      "name": "Panopto",
-      "image_url": "/tools/panopto.png",
-      "description": "Supports lecture capture solution from Panopto. Visit the Panopto web site for instructions on how to sign up and get a consumer key and shared secret.",
-      "config_url": "/config/panopto.xml",
+      "id": "inigral",
+      "name": "Inigral Schools App",
+      "image_url": "/tools/inigral.png",
+      "description": "Schools App is a private social network within Facebook for colleges and universities. Links to a school's app can be launched from within a course, and can also be added as a link that students will see in their user profile.<br/><br/>Any key and secret will work.",
+      "config_url": "/config/inigral.xml",
       "config_options": [
         {
-            "name": "domain",
-            "description": "Domain",
+            "name": "app_name",
+            "description": "Facebook App Name",
             "required": true,
             "type": "text",
             "value": "myschool"
         },
         {
-            "name": "course_nav",
-            "description": "Show in Course Navigation",
+            "name": "user_nav",
+            "description": "Show in User Profile",
             "type": "checkbox",
             "value": "1"
         }
@@ -213,6 +213,30 @@
         "url": "/quizlet.html",
         "height": 475
       }
+    },
+    {
+      "new": true,
+      "id": "panopto",
+      "name": "Panopto",
+      "image_url": "/tools/panopto.png",
+      "description": "Supports lecture capture solution from Panopto. Visit the Panopto web site for instructions on how to sign up and get a consumer key and shared secret.",
+      "config_url": "/config/panopto.xml",
+      "config_options": [
+        {
+            "name": "domain",
+            "description": "Domain",
+            "required": true,
+            "type": "text",
+            "value": "myschool"
+        },
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        }
+      ],
+      "extensions": ["course_nav"]
     },
     {
       "new": true,
