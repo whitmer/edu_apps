@@ -55,6 +55,7 @@
         var $category_select = $("<select/>", {'class': 'filter', 'id': 'category_filter'});
         var $level_select = $("<select/>", {'class': 'filter'});
         $category_select.append($("<option/>", {'value': 'all'}).text("All Categories"));
+        $category_select.append($("<option/>", {'value': 'new'}).text("Recently Added"));
         $level_select.append($("<option/>", {'value': 'all'}).text("All Grade Levels"));
         for(var idx = 0; idx < categories.length; idx++) {
           $category_select.append($("<option/>", {'value': categories[idx]}).text(categories[idx]));
@@ -80,7 +81,9 @@
           $content.find(".tool").hide().each(function() {
             var tool = $(this).data('tool');
             var match = true;
-            if(category != 'all' && $.inArray(category, tool.categories) == -1) {
+            if(category == 'new' && !tool['new']) {
+              match = false;
+            } else if(category != 'new' && category != 'all' && $.inArray(category, tool.categories) == -1) {
               match = false;
             }
             if(level != 'all' && $.inArray(level, tool.levels) == -1) {
@@ -178,7 +181,6 @@
         $overlay.find("button").attr('disabled', false);
         $button.html("<img src='/images/add.png'/> Adding Failed");
       });
-      console.log(url);
     });
     $content.delegate('.tool', 'click', function(event) {
       var tool = $(this).data('tool');
