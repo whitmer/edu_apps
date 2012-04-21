@@ -7,7 +7,7 @@
   if($tools.length) {
     $tools.hide();
     var $content = $("<div/>", {'id': 'app_list'});
-    $("head").append("<link href='" + host + "/app_store.css' media='all' rel='stylesheet' type='text/css' />");
+    $("head").append("<link href='" + host + "/canvas_app_store.css' media='all' rel='stylesheet' type='text/css' />");
     $content.html("Loading...");
     $.ajax({
       url: host + "/data/lti_examples.jsonp",
