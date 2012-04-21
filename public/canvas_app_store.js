@@ -99,7 +99,7 @@
           var tool = tools[idx];
           var $tool = $("<div/>", {'class': 'tool'});
           $tool.html("<div style='text-align: center;'><img src='" + host + tool.big_image_url + "'/></div>");
-          $tool.append("<div class='details'><span class='name'>" + tool.name + "</span><div style='float: right;'>" + (tool.uses || "0") + " uses/month</div><div class='desc'>" + tool.description.split(/<br\/>/)[0] + "</div></div>");
+          $tool.append("<div class='details'><span class='name'>" + tool.name + "</span><div style='float: right;'>" + (tool.uses || "0") + " hits/month</div><div class='desc'>" + tool.description.split(/<br\/>/)[0] + "</div></div>");
           $tool.data('tool', tool);
           $tools.append($tool);
         }
