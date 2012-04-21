@@ -176,7 +176,7 @@ end
 get "/data/lti_examples.jsonp" do
   host = request.scheme + "://" + request.host_with_port
   uri = URI.parse(host + "/data/lti_examples.json")
-  return uri
+  return "uri = " + uri.to_s
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = (request.scheme == 'https')
   request = Net::HTTP::Get.new(uri.path)
