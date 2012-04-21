@@ -14,6 +14,14 @@ var trackEvent;
     }
   }
   lti.params = params;
+  var trackUrl = location.href.split(/\?/)[0];
+  if(lti.params.tool) {
+    trackUrl = trackUrl + "tool=" + lti.params.tool;
+  }
+  if(trackEvent && (lti.tool_id || params.tool)) {
+    trackEvent('tool_launch', (params.tool || lti.tool_id), trackUrl);
+  }
+
 })();
 if(!skipValidation) {
   function showPickedResource(data) {
@@ -62,10 +70,6 @@ if(!skipValidation) {
     }
     var returnUrl = params['launch_presentation_return_url'];
     lti.resourceSelected = function(data) {
-      var trackUrl = location.href.split(/\?/, '');
-      if(lti.params.tool) {
-        trackUrl = trackUrl + "tool=" + lti.params.tool;
-      }
       if(returnUrl && returnUrl != "undefined" && returnUrl != "undefined?") {
         if(trackEvent) {
           trackEvent('resource_selected', data.embed_type, trackUrl);
