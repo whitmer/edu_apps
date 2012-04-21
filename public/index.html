@@ -228,7 +228,7 @@
       if(tool['new']) {
         html = html + "<span class='label label-important'>NEW</span>&nbsp;";
       }
-      html = html + tool.description + "</div></div>";
+      html = html + tool.description + (tool.any_key ? "<br/><br/>Any key and secret will work for this tool." : "") + "</div></div>";
       if(tools.length == 1 || tool.extensions || tool.preview) {
         html = html + "<div class='config alert alert-info'>";
         if(tools.length == 1) {

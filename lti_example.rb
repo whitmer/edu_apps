@@ -173,6 +173,16 @@ get "/" do
   end  
 end
 
+get "/data/lti_examples.jsonp" do
+  host = request.scheme + "://" + request.host_with_port
+  uri = URI.parse(host + "/data/lti_examples.json")
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = (request.scheme == 'https')
+  request = Net::HTTP::Get.new(uri.path)
+  response = http.request(request)
+  return "#{params['callback'] || 'callback'}(#{response.body})"
+end
+
 # this is the entry action that Canvas (the LTI Tool Consumer) sends the
 # browser to when launching the tool.
 post "/assessment/start" do
@@ -570,6 +580,27 @@ get "/config/inline_graph.xml" do
       </lticm:options>
     </blti:extensions>
     <blti:icon>#{host}/graph.tk/favicon.png</blti:icon>
+  XML
+end
+
+get "/config/data_tool.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>#{params['name']}</blti:title>
+    <blti:description>#{params['description']}</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=' + params['id'])}</lticm:property>
+        <lticm:property name="icon_url">#{params['icon_url']}</lticm:property>
+        <lticm:property name="text">#{params['name']}</lticm:property>
+        <lticm:property name="selection_width">740</lticm:property>
+        <lticm:property name="selection_height">450</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{params['icon_url']}</blti:icon>
   XML
 end
 
