@@ -174,14 +174,8 @@ get "/" do
 end
 
 get "/data/lti_examples.jsonp" do
-  host = request.scheme + "://" + request.host_with_port
-  uri = URI.parse(host + "/data/lti_examples.json")
-  return "uri = " + uri.to_s
-  http = Net::HTTP.new(uri.host, uri.port)
-  http.use_ssl = (request.scheme == 'https')
-  request = Net::HTTP::Get.new(uri.path)
-  response = http.request(request)
-  return "#{params['callback'] || 'callback'}(#{response.body})"
+  json = JSON.parse(File.read('./public/data/lti_examples.json')).to_json
+  return "#{params['callback'] || 'callback'}(#{json})"
 end
 
 # this is the entry action that Canvas (the LTI Tool Consumer) sends the
