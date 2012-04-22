@@ -6,7 +6,7 @@
       "name": "Twitter",
       "image_url": "/tools/twitter.png",
       "big_image_url": "/big_tools/twitter.png",
-      "description": "Embed lists of tweets from Twitter. Lists can be derived from search results, or from a user's twitter feed.",
+      "description": "Embed lists of recent tweets from Twitter. Lists can be derived from search results, or from a user's twitter feed.",
       "short_description": "Embed tweet streams",
       "any_key": true,
       "config_url": "/config/twitter.xml",
@@ -27,6 +27,7 @@
       "icon_url": "/icons/mit_ocw.png",
       "levels": ["Postsecondary"],
       "categories": ["Content", "Open Content"],
+      "description": "MIT OpenCourseWare is a collection of materials from MIT-taught courses that have been released with a Creative Commons license. Browse and link to materials from these collections within your course.",
       "short_description": "OCW lectures, videos, etc. from MIT",
       "data_url": "/data/mit_ocw.json"
     },
@@ -72,7 +73,7 @@
       "name": "Graph Builder",
       "image_url": "/tools/graph_tk.png",
       "big_image_url": "/big_tools/graph_tk.png",
-      "description": "Build and embed rich interactive graphs into course content.",
+      "description": "Graph builder lets you define graphs based on simple or complex equations and chart them dynamically. Zoom and move the graph around and then embed it into course content.",
       "short_description": "Build and embed rich interactive graphs into course content",
       "any_key": true,
       "config_url": "/config/inline_graph.xml",
@@ -94,6 +95,7 @@
       "icon_url": "/icons/codecademy.png",
       "levels": ["7th-12th Grade", "Postsecondary"],
       "categories": ["Science", "Math"],
+      "description": "Online interactive tutorials to help learn computer programming. Lessons are taught using JavaScript and provide immediate feedback. Link to any Codecademy lessons from within your course.",
       "short_description": "Interactive programming lessons",
       "data_url": "/data/codecademy.json"
     },
@@ -105,6 +107,7 @@
       "icon_url": "/icons/educreations.png",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Media", "Content"],
+      "description": "Educreations users \"record\" whiteboard sessions as short online lessons. Browse and link to any of the publibly available lessons.",
       "short_description": "Teacher-recorded whiteboard sessions",
       "data_url": "/data/educreations.json"
     },
@@ -136,6 +139,7 @@
       "icon_url": "/icons/brainpop.png",
       "levels": ["K-6th Grade", "7th-12th Grade"],
       "categories": ["Media", "Content", "Math", "Science"],
+      "description": "Lessons and activities centered around an educational topic. Link to any BrainPop lessons, or to specific resources within a lesson.",
       "short_description": "Online interactive lessons, quizzes, activities",
       "data_url": "/data/brainpop.json"
     },
@@ -190,6 +194,7 @@
     },
     {
       "id": "tegrity",
+      "uses": 30,
       "name": "McGraw Hill Tegrity",
       "image_url": "/tools/tegrity.png",
       "big_image_url": "/big_tools/tegrity.png",
@@ -232,7 +237,7 @@
       "name": "Piazza",
       "image_url": "/tools/piazza.png",
       "big_image_url": "/big_tools/piazza.png",
-      "description": "Piazza is a new style of discussion/Q&A site with a focus on educational institutions. This integration adds a link to the course navigation (if supported) for Piazza discussions. Contact Piazza for instructions on getting a consumer key and secret.",
+      "description": "Piazza is a new style of discussion/Q&A site with a focus on educational institutions. This integration adds a link to the course navigation for Piazza discussions.<br/><br/>Contact Piazza for instructions on getting a consumer key and secret.",
       "config_url": "/config/piazza.xml",
       "config_options": [
         {
@@ -291,7 +296,7 @@
       "name": "Panopto",
       "image_url": "/tools/panopto.png",
       "big_image_url": "/big_tools/panopto.png",
-      "description": "Supports lecture capture solution from Panopto. Visit the Panopto web site for instructions on how to sign up and get a consumer key and shared secret.",
+      "description": "Supports lecture capture solution from Panopto.<br/><br/>Visit the Panopto web site for instructions on how to sign up and get a consumer key and shared secret.",
       "config_url": "/config/panopto.xml",
       "config_options": [
         {
@@ -333,16 +338,18 @@
     {
       "new": true,
       "id": "cengage",
+      "uses": 20,
       "name": "Cengage Learning",
       "image_url": "/tools/cengage.png",
       "big_image_url": "/big_tools/cengage.png",
-      "description": "Build and link to interactive educational content called MindLinks, provided by Cengage. <a href='http://cengage.com'>Contact Cengage</a> to receive a consumer key and secret.",
+      "description": "Build and link to interactive educational content called MindLinks, provided by Cengage. MindLinks can deliver reading material, quizzes, activities, etc.<br/><br/><a href='http://cengage.com'>Contact Cengage</a> to receive a consumer key and secret.",
       "config_url": "/config/cengage.xml",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Textbooks/eBooks"]
     },
     {
       "id": "coursesmart",
+      "uses": 70,
       "name": "CourseSmart",
       "image_url": "/tools/course_smart.png",
       "big_image_url": "/big_tools/course_smart.png",
@@ -356,7 +363,7 @@
       "name": "ChemVantage",
       "image_url": "/tools/chemvantage.png",
       "big_image_url": "/big_tools/chem_vantage.png",
-      "description": "Lets teachers build and distribute science education focused homework, video lectures, graded quizzes, etc. Contact admin@chemvantage.org about getting a consumer key and shared secret.",
+      "description": "Lets teachers build and distribute science education focused homework, video lectures, graded quizzes, etc.<br/><br/>Contact admin@chemvantage.org about getting a consumer key and shared secret.",
       "config_url": "/config/chem_vantage.xml",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Science"]
@@ -391,6 +398,7 @@
     },
     {
       "id": "noteflight",
+      "uses": 5,
       "name": "Noteflight",
       "image_url": "/tools/noteflight.png",
       "big_image_url": "/big_tools/noteflight.png",
@@ -409,6 +417,7 @@
     },
     {
       "id": "courseload",
+      "uses": 30,
       "name": "Courseload",
       "image_url": "/tools/courseload.png",
       "big_image_url": "/big_tools/courseload.png",
@@ -436,11 +445,11 @@
     },
     {
       "id": "my_open_math",
-      "uses": 20,
+      "uses": 30,
       "name": "MyOpenMath",
       "image_url": "/tools/imathas.png",
       "big_image_url": "/big_tools/imathas.png",
-      "description": "Internet Math Assessment System lets you create and administer auto-graded math assessments to students. It has experimental support for passing grades back to the LMS. Visit the web site for instructions on how to sign up and get a consumer key and shared secret.",
+      "description": "Internet Math Assessment System lets you create and administer auto-graded math assessments to students. It has experimental support for passing grades back to the LMS.<br/><br/>Visit the web site for instructions on how to sign up and get a consumer key and shared secret.",
       "config_url": "/config/my_open_math.xml",
       "preview": {
         "url": "http://www.youtube.com/embed/QDXRys2o1eY?rel=0",
@@ -627,6 +636,7 @@
       "icon_url": "/icons/flat_world_knowledge.png",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Textbooks/eBooks", "Content", "Open Content"],
+      "description": "Flat World Knowledge offers free, open-licensed textbooks that can be used in class material. Link to any of these textbooks from within your class.",
       "short_description": "Free, open online textbooks",
       "data_url": "/data/flat_world_knowledge.json"
     },
@@ -638,6 +648,7 @@
       "icon_url": "/icons/elementary_paper.png",
       "levels": ["K-6th Grade"],
       "categories": ["Content"],
+      "description": "Elementary Paper offers printable handwriting practice sheets. Link to any of the freely available sheets.",
       "short_description": "Browse printable writing practice sheets",
       "data_url": "/data/elem_paper.json"
     },
@@ -660,6 +671,7 @@
       "icon_url": "/icons/softchalk.png",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Content", "Open Content"],
+      "description": "SoftChalk Connect hosts a collection of open-licensed learning resources created by users. Preview or link to any of these resources.",
       "short_description": "Reusable content built using SoftChalk Connect",
       "data_url": "/data/softchalk.json"
     },
@@ -711,6 +723,7 @@
       "icon_url": "/icons/spelling_city.png",
       "levels": ["K-6th Grade", "7th-12th Grade"],
       "categories": ["Content", "Study Helps"],
+      "description": "Spelling City offers a collection of spelling practice resources, including games, drills, and handwriting practice around different sets of words. Link to any of these resources from within your course.",
       "short_description": "Online spelling practice",
       "data_url": "/data/spelling_city.json"
     },
@@ -722,6 +735,7 @@
       "icon_url": "/icons/hooda_math.png",
       "levels": ["K-6th Grade", "7th-12th Grade"],
       "categories": ["Math"],
+      "description": "Link to any of the math-related games hosted on Hooda Math's web site.",
       "short_description": "Online math learning games",
       "data_url": "/data/hooda_math.json"
     },
@@ -733,6 +747,7 @@
       "icon_url": "/icons/google_art.png",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Media", "Content"],
+      "description": "Google Art Project delivers high-res images of historical artwork, categorized by museum. For some museums there is also a \"street-view\"-like walkthrough of the museum available.",
       "short_description": "Digital tours of famous museum artwork",
       "data_url": "/data/google_art.json"
     },
@@ -744,6 +759,7 @@
       "icon_url": "/icons/funbrain.png",
       "levels": ["K-6th Grade", "7th-12th Grade"],
       "categories": ["Content"],
+      "description": "Link to interactive online learning activities targeted at K-8 learners.",
       "short_description": "K-8 online learning activities",
       "data_url": "/data/funbrain.json"
     },
@@ -755,6 +771,7 @@
       "icon_url": "/icons/google_art.png",
       "levels": ["K-6th Grade", "7th-12th Grade"],
       "categories": ["Content"],
+      "description": "Link to a collection of online games focusing on different learning activities.",
       "short_description": "Online learning activities",
       "data_url": "/data/filament_games.json"
     },
@@ -766,6 +783,7 @@
       "icon_url": "/icons/google_art.png",
       "levels": ["7th-12th Grade", "Postsecondary"],
       "categories": ["Science", "Math"],
+      "description": "Programr offers coding challenge projects for programming languages including Java, C# and C++. Link to any of the available challenges from your course material.",
       "short_description": "Coding challenges in Java, C# and C++",
       "data_url": "/data/programr.json"
     }
