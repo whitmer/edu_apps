@@ -36,7 +36,7 @@
             tool.config_url = "/config/data_tool.xml?id=" + tool.id + "&name=" + encodeURIComponent(tool.name) + "&icon_url=" + encodeURIComponent(host + tool.icon_url) + "&description=" + encodeURIComponent(tool.description);
             tool.any_key = true;
           }
-          if(tool.config_url && !tool.pending && tool.id != 'bumpin') {
+          if(tool.config_url && !tool.pending && tool.id != 'bumpin' && tool.id != 'titanpad') {
             tools.push(tool);
             if(tool.categories) {
               for(var jdx = 0; jdx < tool.categories.length; jdx++) {
