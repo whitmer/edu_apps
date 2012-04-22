@@ -219,7 +219,7 @@
         $overlay.append($div);
       }
       var context_name = $("#current_context_code").text().match(/account/) ? "Account" : "Course";
-      $overlay.append("<div style='margin: 10px 0;'><button class='button add'><img src='/images/add.png'/> Add This Tool to your " + context_name + "</button><button class='button button-secondary cancel'>Cancel</button></div>");
+      $overlay.append("<div style='margin: 10px 0;'><button class='button add'><img src='/images/add.png'/> Add Tool to this " + context_name + "</button><button class='button button-secondary cancel'>Cancel</button></div>");
       $overlay.addClass('show');
     });
   }
