@@ -123,28 +123,6 @@ get '/pinterest_search' do
   return response.body
 end
 
-get '/pinterest_oembed' do
-  uri = URI.parse(params['url'])
-  path = uri.path
-  if params['q'] && !params['q'].empty?
-    uri = URI.parse("https://api.pinterest.com/v2/search/pins/")
-    path = uri.path+"?query=#{CGI.escape(params['q'])}&limit=24"
-  end
-  http = Net::HTTP.new(uri.host, uri.port)
-  http.use_ssl = true
-  request = Net::HTTP::Get.new(path)
-  json = JSON.parse(http.request(request).body)
-  return json.to_json
-  return {
-    :type => "rich",
-    :version => "1.0",
-    :html => "<a href='#{json['source']}' title='#{json['description']}'><img src='#{json['images']['mobile']}'/></a>",
-    :width => json['sizes']['mobile']['width'],
-    :height => json['sizes']['mobile']['height']
-  }.to_json
-  return response.body
-end
-
 get '/wikipedia_search' do
   uri = URI.parse("https://en.wikipedia.org/w/api.php")
   http = Net::HTTP.new(uri.host, uri.port)
@@ -165,6 +143,37 @@ get '/wikipedia_search' do
   return res.to_json
 end
 
+get "/wiktionary_search" do
+  url = "http://en.wiktionary.org/wiki/#{params['q']}"
+  uri = URI.parse(url)
+  html = Nokogiri::HTML(Net::HTTP.get(uri))
+  categories = html.css('ol')
+  res = []
+  categories.each do |cat|
+    type = nil
+    lang = nil
+    head = cat.previous
+    while head && !head.name.match(/^h\d/)
+      head = head.previous
+    end
+    type = head
+    while head && head.name != 'h2'
+      head = head.previous
+    end
+    lang = head
+    if type && type.css('.mw-headline').length > 0 && lang && lang.css('#English').length > 0
+      type_text = type.css('.mw-headline')[0].text
+      if type_text != 'References'
+        res << {:type => type_text, :definitions => []}
+        cat.children.each do |li|
+          li.css('ul,dl').each(&:remove)
+          res[-1][:definitions] << li.text.strip unless li.text.strip.empty?
+        end
+      end
+    end
+  end
+  return res.to_json
+end
 get "/" do
   if request.host == 'lti-examples.heroku.com' && !request.ssl?
     redirect to('https://lti-examples.heroku.com/index.html') 
@@ -654,6 +663,27 @@ get "/config/wikipedia.xml" do
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wikipedia.html')}</lticm:property>
         <lticm:property name="icon_url">#{host}/icons/wikipedia.png</lticm:property>
         <lticm:property name="text">Wikipedia Articles</lticm:property>
+        <lticm:property name="selection_width">590</lticm:property>
+        <lticm:property name="selection_height">450</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/icons/wikipedia.png</blti:icon>
+  XML
+end
+
+get "/config/wiktionary.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Wiktionary Definitions</blti:title>
+    <blti:description>Search for and insert definitions from Wiktionary.</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wiktionary.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/wikipedia.png</lticm:property>
+        <lticm:property name="text">Wiktionary Definitions</lticm:property>
         <lticm:property name="selection_width">590</lticm:property>
         <lticm:property name="selection_height">450</lticm:property>
       </lticm:options>

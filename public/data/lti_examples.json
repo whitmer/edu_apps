@@ -478,6 +478,26 @@
       }
     },
     {
+      "id": "wiktionary",
+      "new": true,
+      "uses": 0,
+      "name": "Wiktionary",
+      "image_url": "/tools/wiktionary.png",
+      "big_image_url": "/big_tools/wiktionary.png",
+      "description": "Search through English Wiktionary definitions and insert definitions into course material.",
+      "short_description": "Definitions from the free dictionary",
+      "any_key": true,
+      "config_url": "/config/wiktionary.xml",
+      "launch_url": "/wiktionary.html",
+      "extensions": ["editor_button"],
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Web 2.0", "Open Content"],
+      "preview": {
+        "url": "/wiktionary.html",
+        "height": 475
+      }
+    },
+    {
       "new": true,
       "id": "campus_pack",
       "name": "Campus Pack",

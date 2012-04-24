@@ -1,6 +1,7 @@
 var lti = lti || {};
 var skipValidation; 
 var trackEvent;
+var trackUrl = location.href.split(/\?/)[0];
 (function() {
   var url = location.href;
   var args = (url.split(/\?/)[1] || "").split(/\&/);
@@ -14,7 +15,6 @@ var trackEvent;
     }
   }
   lti.params = params;
-  var trackUrl = location.href.split(/\?/)[0];
   if(lti.params.tool) {
     trackUrl = trackUrl + "tool=" + lti.params.tool;
   }
