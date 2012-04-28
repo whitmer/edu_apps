@@ -839,6 +839,48 @@ get "/config/merlot.xml" do
   XML
 end
 
+get "/config/smarterer.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Smarterer</blti:title>
+    <blti:description>Crowdsources quizzes.</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=smarterer')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/smarterer.png</lticm:property>
+        <lticm:property name="text">Smarterer</lticm:property>
+        <lticm:property name="selection_width">700</lticm:property>
+        <lticm:property name="selection_height">550</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/icons/smarterer.png</blti:icon>
+  XML
+end
+
+get "/config/studyegg.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>StudyEgg</blti:title>
+    <blti:description>Dynamic learning paths through open content</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=studyegg')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/studyegg.png</lticm:property>
+        <lticm:property name="text">Smarterer</lticm:property>
+        <lticm:property name="selection_width">700</lticm:property>
+        <lticm:property name="selection_height">550</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/icons/studyegg.png</blti:icon>
+  XML
+end
+
 get "/config/titanpad.xml" do
   host = request.scheme + "://" + request.host_with_port
   headers 'Content-Type' => 'text/xml'

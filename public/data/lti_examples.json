@@ -801,12 +801,25 @@
       "name": "Filament Games",
       "image_url": "/tools/filament_games.png",
       "big_image_url": "/big_tools/filament_games.png",
-      "icon_url": "/icons/google_art.png",
+      "icon_url": "/icons/filament_games.png",
       "levels": ["K-6th Grade", "7th-12th Grade"],
       "categories": ["Content"],
       "description": "Link to a collection of online games focusing on different learning activities.",
       "short_description": "Online learning activities",
       "data_url": "/data/filament_games.json"
+    },
+    {
+      "id": "studyegg",
+      "name": "StudyEgg",
+      "image_url": "/tools/studyegg.png",
+      "big_image_url": "/big_tools/studyegg.png",
+      "icon_url": "/icons/studyegg.png",
+      "levels": ["7th-12th Grade", "Postsecondary"],
+      "categories": ["Content", "Open Content"],
+      "description": "StudyEgg offers customized lessons using online video and questions.",
+      "short_description": "Adaptive learning activities",
+      "any_key": true,
+      "data_url": "/data/studyegg.json"
     },
     {
       "id": "programr",
