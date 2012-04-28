@@ -1,6 +1,5 @@
 [
     {
-      "new": true,
       "uses": 40,
       "id": "twitter",
       "name": "Twitter",
@@ -310,7 +309,6 @@
       }
     },
     {
-      "new": true,
       "id": "panopto",
       "uses": 20,
       "name": "Panopto",
@@ -356,7 +354,6 @@
       }
     },
     {
-      "new": true,
       "id": "cengage",
       "uses": 20,
       "name": "Cengage Learning",
@@ -389,7 +386,6 @@
       "categories": ["Science"]
     },
     {
-      "new": true,
       "uses": 10,
       "id": "elgg",
       "name": "Elgg",
@@ -518,7 +514,6 @@
       }
     },
     {
-      "new": true,
       "id": "campus_pack",
       "name": "Campus Pack",
       "image_url": "/tools/learning_objects.png",
@@ -644,7 +639,6 @@
       }
     },
     {
-      "new": true,
       "id": "titanpad",
       "uses": 10,
       "name": "TitanPad",
@@ -716,7 +710,6 @@
       "data_url": "/data/softchalk.json"
     },
     {
-      "new": true,
       "id": "merlot",
       "name": "Merlot",
       "image_url": "/tools/merlot.png",
