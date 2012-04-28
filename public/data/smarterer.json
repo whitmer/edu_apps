@@ -1,0 +1,2504 @@
+[
+  {
+    "url": "http://smarterer.com/test/advanced_mathematics",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mathazoid256.png",
+    "description": "Business Skills - High level test of famous mathematical theorems.",
+    "name": "Advanced Mathematics"
+  },
+  {
+    "url": "http://smarterer.com/test/ap_style",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ap_logo.png",
+    "description": "Business Skills - Grammar queens and punctuation fiends, now's your time to shine. AP Style is the standard for all things journalism and communication. Show us your stuff!",
+    "name": "AP Style"
+  },
+  {
+    "url": "http://smarterer.com/test/b2b_marketing",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/b2b_expert.png",
+    "description": "Business Skills - Test your knowledge of B2B Marketing.",
+    "name": "B2B Marketing"
+  },
+  {
+    "url": "http://smarterer.com/test/basic_math",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/n2yxnjqwywfkmgu.png",
+    "description": "Business Skills - Test your basic math skills. All questions are limited to the four basic operations (+, -, x, ÷) and math vocabulary related to those operations.",
+    "name": "Basic Math"
+  },
+  {
+    "url": "http://smarterer.com/test/beginner_spanish",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yzgzn2nhogrjzwu.png",
+    "description": "Business Skills - Beginning Spanish: Grammar and Vocabulary",
+    "name": "Beginner Spanish"
+  },
+  {
+    "url": "http://smarterer.com/test/chief_architect",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/chiefarch.png",
+    "description": "Business Skills - Chief Architect is 3D home architecture design software designed to allow private users to design their dream homes.",
+    "name": "Chief Architect"
+  },
+  {
+    "url": "http://smarterer.com/test/college_financial_aid",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zwm4otqxmjbkzmz.png",
+    "description": "Business Skills - This test is designed to test knowledge of college financial aid available in the United States, with an emphasis on student aid offered by the U.S. Department of Education.  It is intended to be used by college administrators, but may also be interesting to prospective college students or parents who want to learn more about the subject.",
+    "name": "College Financial Aid"
+  },
+  {
+    "url": "http://smarterer.com/test/commodity_futures",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Business Skills - Commodity Futures ",
+    "name": "Commodity Futures"
+  },
+  {
+    "url": "http://smarterer.com/test/corporate_finance",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/thumb.png",
+    "description": "Business Skills - Corporate Finance is defined as any financial or monetary activity the deals with a business enterprise and its finances.",
+    "name": "Corporate Finance"
+  },
+  {
+    "url": "http://smarterer.com/test/english_for_business",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/nzgzntkyzja4yzq.png",
+    "description": "Business Skills - This test helps non-native English speakers validate their comprehension and composition in an English-speaking work environment. Questions address common phrases and terminology used to communicate about schedules, deadlines, project outcomes, team responsibilities, and priorities. ",
+    "name": "English for Business"
+  },
+  {
+    "url": "http://smarterer.com/test/english_language",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Business Skills - Test for primary English",
+    "name": "English language"
+  },
+  {
+    "url": "http://smarterer.com/test/entrepreneur_challenge",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/logo_brew_sunburst.png",
+    "description": "Business Skills - Do you have what it takes to be an entrepreneur? From term sheet to team building, engineering to product management, run rate to revenue, it's time to put your smarts to the test. ",
+    "name": "Entrepreneur Challenge"
+  },
+  {
+    "url": "http://smarterer.com/test/federal_income_tax",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ogvlnwq5ywmzzgz.png",
+    "description": "Business Skills - Basic knowledge of Federal Income Tax ",
+    "name": "Federal Income Tax"
+  },
+  {
+    "url": "http://smarterer.com/test/financial_accounting",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/accounting.png",
+    "description": "Business Skills - A test of concepts related to financial accounting",
+    "name": "Financial Accounting"
+  },
+  {
+    "url": "http://smarterer.com/test/financial_instruments",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ndixzgrkmwfiymy.png",
+    "description": "Business Skills - An overview of the basics in investments and financial securities.",
+    "name": "Financial Markets & Securities"
+  },
+  {
+    "url": "http://smarterer.com/test/gamification",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/badges21.png",
+    "description": "Business Skills - Are you an expert in the emerging industry of gamification - applying game mechanics to non-games? Find out in our test.",
+    "name": "Gamification"
+  },
+  {
+    "url": "http://smarterer.com/test/graphic_designer",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/design_128.png",
+    "description": "Business Skills - A test to test your skills and knowledge in graphic designing. ",
+    "name": "Graphic Designer"
+  },
+  {
+    "url": "http://smarterer.com/test/investment_banking_fundamentals",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ntzmywm0ndfinwj.png",
+    "description": "Business Skills - Tests the understanding of core investment banking concepts.",
+    "name": "Investment Banking Fundamentals"
+  },
+  {
+    "url": "http://smarterer.com/test/management_accounting",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/njq2nda1yjbimzn.png",
+    "description": "Business Skills - Testing your knowledge of the management accounting function.",
+    "name": "Management Accounting"
+  },
+  {
+    "url": "http://smarterer.com/test/market_research",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Business Skills - Experts in Market Research should score well on this Smarterer test.",
+    "name": "Market Research"
+  },
+  {
+    "url": "http://smarterer.com/test/project",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Business Skills - Microsoft Project is a commercial project management application.",
+    "name": "Microsoft Project"
+  },
+  {
+    "url": "http://smarterer.com/test/occupation_vocabulary",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mdawnjcwmgm3otd.png",
+    "description": "Business Skills - An example of how smarterer can be used for a study tool.  This example used occupation related vocabulary.",
+    "name": "Occupation Vocabulary"
+  },
+  {
+    "url": "http://smarterer.com/test/pc_hardware",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yjyxzjc3y2iwnju.png",
+    "description": "Business Skills - Test for basic to expert PC hardware knowledge and troubleshooting.",
+    "name": "PC Hardware"
+  },
+  {
+    "url": "http://smarterer.com/test/people_management",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/people.png",
+    "description": "Business Skills - Test your people management skills.",
+    "name": "People Management"
+  },
+  {
+    "url": "http://smarterer.com/test/product_management",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_prodmang.png",
+    "description": "Business Skills - This will test the skill set of existing product managers or product management aspirants",
+    "name": "Product Management"
+  },
+  {
+    "url": "http://smarterer.com/test/real_estate",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zgu3mzmzyjhimzc.png",
+    "description": "Business Skills - An overview of the basics of real estate, purchase/selling process and investment strategies. ",
+    "name": "Real Estate"
+  },
+  {
+    "url": "http://smarterer.com/test/sales_benchmark_index",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zti5otgwmtgzntl.png",
+    "description": "Business Skills - This is a test to stimulate thought around the sales management role within a sales organization.  ",
+    "name": "Sales Management"
+  },
+  {
+    "url": "http://smarterer.com/test/salesforce_crm",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/salesforce.png",
+    "description": "Business Skills - Salesforce.com is an enterprise cloud computing company founded by former Oracle executive Marc Benioff, Parker Harris, Dave Moellenhoff, and Frank Dominguez. Salesforce.com is best known for its Customer Relationship Management (CRM) and it distributes business software on a subscription basis. ",
+    "name": "Salesforce CRM"
+  },
+  {
+    "url": "http://smarterer.com/test/strategic_management",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/nwy0ztqxzjqyytc.png",
+    "description": "Business Skills - An overview of Strategic Management, including specific analytical methods and strategies.",
+    "name": "Strategic Management"
+  },
+  {
+    "url": "http://smarterer.com/test/thredup_warehouse_associate_",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Business Skills - None",
+    "name": "thredUP Warehouse Associate "
+  },
+  {
+    "url": "http://smarterer.com/test/visio",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/visio.png",
+    "description": "Business Skills - Microsoft Visio is a commercial diagramming program for Microsoft Windows that uses vector graphics to create diagrams.",
+    "name": "Visio"
+  },
+  {
+    "url": "http://smarterer.com/test/after_effects",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/80px_after_effects_c.png",
+    "description": "Design Tools - Adobe After Effects is a digital motion graphics and compositing software used in film and video post-production.",
+    "name": "After Effects"
+  },
+  {
+    "url": "http://smarterer.com/test/axure_rp_%28rapid_prototype_tool%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/axure_logo.png",
+    "description": "Design Tools - None",
+    "name": "Axure RP (Rapid Prototype Tool)"
+  },
+  {
+    "url": "http://smarterer.com/test/balsamiq",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/balsamiq_blog_small.jpg",
+    "description": "Design Tools - Balsamiq is an application mockup creation tool built on Adobe AIR. ",
+    "name": "Balsamiq"
+  },
+  {
+    "url": "http://smarterer.com/test/blender",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/blender.png",
+    "description": "Design Tools - Blender is a free open source 3D graphics application",
+    "name": "Blender"
+  },
+  {
+    "url": "http://smarterer.com/test/bridge",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/bridge.png",
+    "description": "Design Tools - Adobe Bridge is an organizational software application created to link the parts of the Creative Suite together using an interface similar to the file browser found in previous versions of Adobe Photoshop.",
+    "name": "Bridge"
+  },
+  {
+    "url": "http://smarterer.com/test/coreldraw",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/coreldraw.png",
+    "description": "Design Tools - CorelDRAW is a vector graphics editor",
+    "name": "CorelDRAW"
+  },
+  {
+    "url": "http://smarterer.com/test/css",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_css.png",
+    "description": "Design Tools - Cascading Style Sheets (CSS) is a style sheet language used to describe the presentation semantics (the look and formatting) of a document written in a markup language. ",
+    "name": "CSS"
+  },
+  {
+    "url": "http://smarterer.com/test/css3",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/css3_icon1.png",
+    "description": "Design Tools - Cascading Style Sheets (CSS)3 is the latest, modular style sheet language used to describe the presentation semantics (the look and formatting) of a document written in a markup language.",
+    "name": "CSS3"
+  },
+  {
+    "url": "http://smarterer.com/test/dreamweaver",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/dreamweaver.png",
+    "description": "Design Tools - Adobe Dreamweaver (formerly Macromedia Dreamweaver) is a web development application originally created by Macromedia, and is now developed by Adobe Systems, which acquired Macromedia in 2005. Dreamweaver is available for both Mac and Windows operating systems. Recent versions have incorporated support for web technologies such as CSS, JavaScript, and various server-side scripting languages and frameworks including ASP, ColdFusion, and PHP.",
+    "name": "Dreamweaver"
+  },
+  {
+    "url": "http://smarterer.com/test/final_cut_express",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/finalcutexpress.png",
+    "description": "Design Tools - Final Cut Express is a non-linear video editing software created by Apple Inc. It is the consumer version of Final Cut Pro and is designed for advanced editing of digital video as well as high-definition video.",
+    "name": "Final Cut Express"
+  },
+  {
+    "url": "http://smarterer.com/test/final_cut_pro",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_finalcutpro.png",
+    "description": "Design Tools - Final Cut Pro is a non-linear editing software that allows users to log and capture video onto a hard drive (internal or external), where it can be edited, processed, and output to a wide variety of formats.",
+    "name": "Final Cut Pro"
+  },
+  {
+    "url": "http://smarterer.com/test/fireworks",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/fw9.png",
+    "description": "Design Tools - Adobe Fireworks is a bitmap and vector graphics editor.",
+    "name": "Fireworks"
+  },
+  {
+    "url": "http://smarterer.com/test/flash",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/flash.png",
+    "description": "Design Tools - Adobe Flash (formerly Macromedia Flash) is a multimedia platform used to add animation, video, and interactivity to web pages.",
+    "name": "Flash"
+  },
+  {
+    "url": "http://smarterer.com/test/gimp",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/200px_the_gimp_icon_.png",
+    "description": "Design Tools - GIMP (GNU Image Manipulation Program) is a free software raster graphics editor.",
+    "name": "GIMP"
+  },
+  {
+    "url": "http://smarterer.com/test/graphic_designer",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/design_128.png",
+    "description": "Design Tools - A test to test your skills and knowledge in graphic designing. ",
+    "name": "Graphic Designer"
+  },
+  {
+    "url": "http://smarterer.com/test/html",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_html3.png",
+    "description": "Design Tools - HTML, which stands for HyperText Markup Language, is the predominant markup language for web pages. HTML is the basic building-blocks of webpages.",
+    "name": "HTML"
+  },
+  {
+    "url": "http://smarterer.com/test/html5",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_html.png",
+    "description": "Design Tools - HTML5 is a language for structuring and presenting content for the World Wide Web.",
+    "name": "HTML5"
+  },
+  {
+    "url": "http://smarterer.com/test/illustrator",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/illustrator.png",
+    "description": "Design Tools - Adobe Illustrator is a vector graphics editor.",
+    "name": "Illustrator"
+  },
+  {
+    "url": "http://smarterer.com/test/imovie",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/hero_imovie.png",
+    "description": "Design Tools - iMovie is a video editing software for Mac, iPod Touch 4th generation, iPhone 4 and iPad 2.",
+    "name": "iMovie"
+  },
+  {
+    "url": "http://smarterer.com/test/indesign",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/indesign.png",
+    "description": "Design Tools - Adobe InDesign is a software application produced by Adobe Systems. It can be used to create works such as posters, flyers, brochures, magazines, newspapers and books. In conjunction with Adobe Digital Publishing Suite InDesign can publish content suitable for tablet devices. Designers and graphics production artists are the principal users, creating and laying out periodical publications, posters, and print media. It also supports export to EPUB and SWF formats to create digital publications, and content suitable for consumption on tablet computer devices. The Adobe InCopy word processor uses the same formatting engine as InDesign.",
+    "name": "InDesign"
+  },
+  {
+    "url": "http://smarterer.com/test/photography",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/camera_icon.png",
+    "description": "Design Tools - Testing the technique surrounding the art of both digital and manual photography",
+    "name": "Photography"
+  },
+  {
+    "url": "http://smarterer.com/test/photoshop",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/photoshop.png",
+    "description": "Design Tools - Adobe Photoshop is a graphics editing program developed and published by Adobe Systems Incorporated.",
+    "name": "Photoshop"
+  },
+  {
+    "url": "http://smarterer.com/test/quarkxpress",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/quarkxpress_icon.png",
+    "description": "Design Tools - QuarkXPress is a computer application for creating and editing complex page layouts in a What You See Is What You Get environment.",
+    "name": "QuarkXPress"
+  },
+  {
+    "url": "http://smarterer.com/test/rhinoceros",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zmnmn2e0odg0ndi.png",
+    "description": "Design Tools - A stand-alone, commercial NURBS-based 3-D modeling tool.",
+    "name": "Rhinoceros"
+  },
+  {
+    "url": "http://smarterer.com/test/sketchup",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/sketchup_icons.png",
+    "description": "Design Tools - SketchUp is a 3D modeling program is designed for architects, engineers, filmmakers, and game developers alike. Provided by Google, SketchUp allows for models to be placed within Google Earth. ",
+    "name": "SketchUp"
+  },
+  {
+    "url": "http://smarterer.com/test/typography",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zge3n2rmzmy4zjk.png",
+    "description": "Design Tools - Typography focuses on the beauty of type as an artistic element. This test focuses on the specifics that encompass typography and type design.",
+    "name": "Typography"
+  },
+  {
+    "url": "http://smarterer.com/test/video_production",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/iphonecamera.png",
+    "description": "Design Tools - Test your knowledge of video production terms and best practices!",
+    "name": "Video Production"
+  },
+  {
+    "url": "http://smarterer.com/test/access",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_access2.png",
+    "description": "Desktop Software - Microsoft Office Access, previously known as Microsoft Access, is a relational database management system from Microsoft",
+    "name": "Access"
+  },
+  {
+    "url": "http://smarterer.com/test/acrobat",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/acrobat.png",
+    "description": "Desktop Software - Adobe Acrobat is a family of application software developed by Adobe Systems to view, create, manipulate, print and manage files in Portable Document Format.",
+    "name": "Acrobat"
+  },
+  {
+    "url": "http://smarterer.com/test/arcgis",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/arcgis.png",
+    "description": "Desktop Software - Mapping and Spatial Analysis software",
+    "name": "ArcGIS"
+  },
+  {
+    "url": "http://smarterer.com/test/computer_competency_test",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Desktop Software - Basic knowledge of computer and computer skills",
+    "name": "Computer Competency Test"
+  },
+  {
+    "url": "http://smarterer.com/test/dropbox",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_dropbox.png",
+    "description": "Desktop Software - Dropbox is a web-based file hosting service that uses cloud computing to enable users to store and share files and folders with others across the Internet using file synchronization",
+    "name": "Dropbox"
+  },
+  {
+    "url": "http://smarterer.com/test/excel",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_excel2.png",
+    "description": "Desktop Software - Microsoft Excel is a commercial spreadsheet application.",
+    "name": "Excel"
+  },
+  {
+    "url": "http://smarterer.com/test/firefox",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_ff.png",
+    "description": "Desktop Software - Mozilla Firefox is a free and open source web browser descended from the Mozilla Application Suite and managed by Mozilla Corporation",
+    "name": "Firefox"
+  },
+  {
+    "url": "http://smarterer.com/test/garageband",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/garageband_app.png",
+    "description": "Desktop Software - GarageBand is a software application for Mac OS X and iOS that allows users to create music or podcasts.",
+    "name": "GarageBand"
+  },
+  {
+    "url": "http://smarterer.com/test/google_chrome",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_googlechrome3.png",
+    "description": "Desktop Software - Google Chrome is a web browser developed by Google that uses the WebKit layout engine.",
+    "name": "Google Chrome"
+  },
+  {
+    "url": "http://smarterer.com/test/idvd",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/idvd_icon1.png",
+    "description": "Desktop Software - iDVD is a DVD creation software application made by Apple Inc.",
+    "name": "iDVD"
+  },
+  {
+    "url": "http://smarterer.com/test/itunes",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_itunes3.png",
+    "description": "Desktop Software - iTunes is a proprietary digital media player application, used for playing and organizing digital music and video files.",
+    "name": "iTunes"
+  },
+  {
+    "url": "http://smarterer.com/test/keynote",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/njc3zwjhmdjizmi.png",
+    "description": "Desktop Software - Keynote is a presentation software application developed as a part of the iWork productivity suite by Apple. The application makes creating a presentation surprisingly simple. With a Theme Chooser, users can easily substitute their own content and add elements such as tables, charts, shapes and multimedia to create dynamic slideshows.",
+    "name": "Keynote"
+  },
+  {
+    "url": "http://smarterer.com/test/linux",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/150px_tux.png",
+    "description": "Desktop Software - Linux, a family of Unix-like computer operating systems using the Linux kernel, is a leading server operating system",
+    "name": "Linux"
+  },
+  {
+    "url": "http://smarterer.com/test/lotus_notes_and_domino",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_lotuswrongsize.png",
+    "description": "Desktop Software - Lotus Domino is an IBM server product that provides enterprise-grade e-mail, collaboration capabilities, and a custom application platform. Domino began life as Lotus Notes Server, the server component of Lotus Development Corporation's client-server messaging technology. It can be used as an application server for Lotus Notes applications and/or as a web server. It also has a built-in database system in the format of NSF. Its directory services can be used for authentication purposes as well",
+    "name": "Lotus Notes and Domino"
+  },
+  {
+    "url": "http://smarterer.com/test/osx",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/186px_osxleopard.png",
+    "description": "Desktop Software - Mac OS X is a series of Unix-based operating systems and graphical user interfaces developed by Apple Inc.",
+    "name": "OSX"
+  },
+  {
+    "url": "http://smarterer.com/test/outlook",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_outlook.png",
+    "description": "Desktop Software - Microsoft Outlook is a personal information manager from Microsoft, available both as a separate application as well as a part of the Microsoft Office suite.",
+    "name": "Outlook"
+  },
+  {
+    "url": "http://smarterer.com/test/quickbooks",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/learn_quickbooks.png",
+    "description": "Desktop Software - QuickBooks—the #1 rated small business financial software—can help you get organized, save time, and simplify what you do every day.",
+    "name": "Quickbooks"
+  },
+  {
+    "url": "http://smarterer.com/test/red_hat_linux",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/red_hat_logo_big.png",
+    "description": "Desktop Software -  Red Hat is a popular line of Linux distributions named after their parent company, including Red Hat Enterprise Linux, and the community-supported Fedora project.",
+    "name": "Red Hat Linux"
+  },
+  {
+    "url": "http://smarterer.com/test/sap",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/sap_logo_icon.png",
+    "description": "Desktop Software - SAP is a suite of enterprise-focused business management applications.",
+    "name": "SAP"
+  },
+  {
+    "url": "http://smarterer.com/test/skype_%28user%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/skypeicon.png",
+    "description": "Desktop Software - Skype allows users to make voice and video calls and chats over the Internet. ",
+    "name": "Skype (User)"
+  },
+  {
+    "url": "http://smarterer.com/test/solaris",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/solaris.png",
+    "description": "Desktop Software - Solaris is a Unix operating system created in C which is famous for its scalability. It is now open source software and is supported on Dell, IBM, Intel, HP, and Fujitsu Siemens machines.",
+    "name": "Solaris"
+  },
+  {
+    "url": "http://smarterer.com/test/tweetdeck",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_tweetdeck.png",
+    "description": "Desktop Software - TweetDeck is an Adobe AIR desktop application, that interfaces with the Twitter API to allow users to send and receive tweets and view profiles. ",
+    "name": "TweetDeck"
+  },
+  {
+    "url": "http://smarterer.com/test/unix",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/unix_logo.png",
+    "description": "Desktop Software - Unix is an operating system family.  It has remained popular due to its speed, low cost, and security.",
+    "name": "Unix"
+  },
+  {
+    "url": "http://smarterer.com/test/vmware",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ytg5otkzyty3ywj.png",
+    "description": "Desktop Software - None",
+    "name": "VMWare"
+  },
+  {
+    "url": "http://smarterer.com/test/windows_7",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/windows_7.png",
+    "description": "Desktop Software - Windows 7 is the latest operating system by Microsoft, produced by for use on personal computers, including desktops, laptops, netbooks, tablet PCs, and media center PCs.",
+    "name": "Windows 7"
+  },
+  {
+    "url": "http://smarterer.com/test/windows_xp",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/windows_xp_logosmall.png",
+    "description": "Desktop Software - Windows XP is an operating system that was produced by Microsoft for use on personal computers.",
+    "name": "Windows XP"
+  },
+  {
+    "url": "http://smarterer.com/test/arcgis",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/arcgis.png",
+    "description": "Engineering & Architecture - Mapping and Spatial Analysis software",
+    "name": "ArcGIS"
+  },
+  {
+    "url": "http://smarterer.com/test/autocad",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/autodesk_autocad.png",
+    "description": "Engineering & Architecture -  A CAD software application for 2D and 3D design and drafting",
+    "name": "AutoCAD"
+  },
+  {
+    "url": "http://smarterer.com/test/bioinformatics",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/desktop_dna_5.png",
+    "description": "Engineering & Architecture - A test covering general programing, sequence analysis, molecular biology, mathematics as well as basic critical thinking and logic skills.",
+    "name": "Bioinformatics"
+  },
+  {
+    "url": "http://smarterer.com/test/blender",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/blender.png",
+    "description": "Engineering & Architecture - Blender is a free open source 3D graphics application",
+    "name": "Blender"
+  },
+  {
+    "url": "http://smarterer.com/test/matlab",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_matlab.png",
+    "description": "Engineering & Architecture - MATLAB (matrix laboratory) is a numerical computing environment and fourth-generation programming language developed by MathWorks",
+    "name": "Matlab"
+  },
+  {
+    "url": "http://smarterer.com/test/revit",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/revit_2011.png",
+    "description": "Engineering & Architecture - Autodesk® Revit® Architecture is a building design software which mimics the process of professional architects by supporting construction and design in both 2D and 3D stages.",
+    "name": "Revit"
+  },
+  {
+    "url": "http://smarterer.com/test/sketchup",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/sketchup_icons.png",
+    "description": "Engineering & Architecture - SketchUp is a 3D modeling program is designed for architects, engineers, filmmakers, and game developers alike. Provided by Google, SketchUp allows for models to be placed within Google Earth. ",
+    "name": "SketchUp"
+  },
+  {
+    "url": "http://smarterer.com/test/solidworks",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_solidworks.png",
+    "description": "Engineering & Architecture - SolidWorks is a tool frequently used in industry for computer aided design, drafting, and manufacturing.",
+    "name": "SolidWorks"
+  },
+  {
+    "url": "http://smarterer.com/test/spss",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_spss.png",
+    "description": "Engineering & Architecture - SPSS is a computer program used for statistical analysis.",
+    "name": "SPSS"
+  },
+  {
+    "url": "http://smarterer.com/test/angry_birds",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/angry_birds_icon_by_.png",
+    "description": "Games - Test your knowledge of one of the most popular mobile games. Angry Birds.",
+    "name": "Angry Birds"
+  },
+  {
+    "url": "http://smarterer.com/test/interactive_fiction",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/compass.png",
+    "description": "Games - By software technology standards, Interactive Fiction is an ancient and storied tradition. Beginning with some of the earliest examples of computer entertainment, it is perhaps best known through the classic Infocom games, and the Text Adventure craze of the 80s. While its commercial success has waned, Interactive Fiction continues to grow and evolve in a variety of new forms, both online and off.\r\n\r\nTest your knowledge in this fascinating subject, and (as is the tradition) be sure to add some content of your own...",
+    "name": "Interactive Fiction"
+  },
+  {
+    "url": "http://smarterer.com/test/kingdom_hearts",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Games - Kingdom Hearts is a video game franchise co-created by Square Enix and Disney.",
+    "name": "Kingdom Hearts"
+  },
+  {
+    "url": "http://smarterer.com/test/minecraft",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/minecraft_block_logo.png",
+    "description": "Games - Minecraft is a sandbox construction game, created by Markus Persson, the founder of Mojang AB. It involves creating and destroying various types of blocks, forming fantastic structures, and defending them from monsters, in both singleplayer and online multiplayer modes.\r\n\r\nCelebrate the upcoming Official Release by showing what you know about this award winning indie game!",
+    "name": "Minecraft"
+  },
+  {
+    "url": "http://smarterer.com/test/scvngr",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_scvngr.png",
+    "description": "Games - SCVNGR is a social location-based gaming platform for mobile phones. The application has both a consumer and enterprise component. Companies, educational institutions, and organizations can build challenges, the core unit of their game, at places on SCVNGR from the web.",
+    "name": "SCVNGR"
+  },
+  {
+    "url": "http://smarterer.com/test/video_games",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yjy4zji3ymm3mzm.png",
+    "description": "Games - Think you know a lot about Video Games?  Give this a try...",
+    "name": "Video Games"
+  },
+  {
+    "url": "http://smarterer.com/test/warhammer_40%2C000_universe%2C_general_knowledge.",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yzhmmddhntbjzwi.png",
+    "description": "Games - How well do you know the background of the Warhammer 40,000 tabletop strategy game by Games Workshop?",
+    "name": "Warhammer 40,000 Universe, General Knowledge."
+  },
+  {
+    "url": "http://smarterer.com/test/wizard_101",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Games - Wizard 101 game trivia",
+    "name": "Wizard 101"
+  },
+  {
+    "url": "http://smarterer.com/test/world_of_warcraft",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_wow.png",
+    "description": "Games - World of Warcraft - popular MMO.  How well do you know Azeroth?",
+    "name": "World of Warcraft"
+  },
+  {
+    "url": "http://smarterer.com/test/ap_style",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ap_logo.png",
+    "description": "Language & Writing - Grammar queens and punctuation fiends, now's your time to shine. AP Style is the standard for all things journalism and communication. Show us your stuff!",
+    "name": "AP Style"
+  },
+  {
+    "url": "http://smarterer.com/test/beginner_spanish",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yzgzn2nhogrjzwu.png",
+    "description": "Language & Writing - Beginning Spanish: Grammar and Vocabulary",
+    "name": "Beginner Spanish"
+  },
+  {
+    "url": "http://smarterer.com/test/english_for_business",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/nzgzntkyzja4yzq.png",
+    "description": "Language & Writing - This test helps non-native English speakers validate their comprehension and composition in an English-speaking work environment. Questions address common phrases and terminology used to communicate about schedules, deadlines, project outcomes, team responsibilities, and priorities. ",
+    "name": "English for Business"
+  },
+  {
+    "url": "http://smarterer.com/test/english_language",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Language & Writing - Test for primary English",
+    "name": "English language"
+  },
+  {
+    "url": "http://smarterer.com/test/french_numbers",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Language & Writing - Test your knowledge about French numbers.",
+    "name": "French Numbers"
+  },
+  {
+    "url": "http://smarterer.com/test/german_vocabulary_-_fruits",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mdvlmjm0otcwytg.png",
+    "description": "Language & Writing - Test your German vocabulary.  The specific subject of this test are fruits.",
+    "name": "German Vocabulary - Fruits"
+  },
+  {
+    "url": "http://smarterer.com/test/how_much_do_you_read%3F",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/y2mwotgyytrjmwr.png",
+    "description": "Language & Writing - 15 minutes a day of independent reading can expose students to more than a million words of text in a year. 15 minutes of exercise can increase a person’s life by 3 years. Take the extra 30 minutes for a better lifestyle.",
+    "name": "How much do you read?"
+  },
+  {
+    "url": "http://smarterer.com/test/intermediate_spanish",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ndg3mjy0nwm3ztu.png",
+    "description": "Language & Writing - Intermediate Spanish: Vocab and Grammar",
+    "name": "Intermediate Spanish"
+  },
+  {
+    "url": "http://smarterer.com/test/let%27s_read_%28ages_5-7%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/njc4n2u5mjkwy2i.png",
+    "description": "Language & Writing - 15 minutes a day of independent reading can expose students to more than a million words of text in a year.  ",
+    "name": "Let's Read (ages 5-7)"
+  },
+  {
+    "url": "http://smarterer.com/test/mla_style",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Language & Writing - MLA (Modern Language Association) style is most commonly used to write papers and cite sources within the liberal arts and humanities.",
+    "name": "MLA Style"
+  },
+  {
+    "url": "http://smarterer.com/test/writer",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ooowriter.png",
+    "description": "Language & Writing - OpenOffice Writer is the word processor component of the OpenOffice.org software package.",
+    "name": "Writer"
+  },
+  {
+    "url": "http://smarterer.com/test/blogger",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/unknown.png",
+    "description": "Marketing - Blogger is a blog-publishing service that allows users to create private or multi-user blogs with time-stamped entries. Blogger was developed by Pyra Labs and bought out by Google in 2003. ",
+    "name": "Blogger"
+  },
+  {
+    "url": "http://smarterer.com/test/branding",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/otgwy2yxytmxnwj.png",
+    "description": "Marketing - Major Brands Across the Globe",
+    "name": "Branding"
+  },
+  {
+    "url": "http://smarterer.com/test/bzzagent",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/screen_shot_2011_09_.png",
+    "description": "Marketing - This is an exclusive test for BzzAgents that covers just about every component of what it means to be an Agent. Take it and show the world what kinda' Agent you are. ",
+    "name": "BzzAgent"
+  },
+  {
+    "url": "http://smarterer.com/test/constant_contact",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/constant_contact_150.png",
+    "description": "Marketing - Constant Contact is an online marketing service including email marketing, social media marketing, online survey, and event marketing tools.",
+    "name": "Constant Contact"
+  },
+  {
+    "url": "http://smarterer.com/test/eloqua",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_eloqua2.png",
+    "description": "Marketing - Eloqua Corp. is a marketing automation SaaS company which develops automated marketing and demand generation software and services for business-to-business marketers. The company has been described as a pioneer and industry leader in lead generation services.",
+    "name": "Eloqua"
+  },
+  {
+    "url": "http://smarterer.com/test/facebook",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_facebook2.png",
+    "description": "Marketing - Facebook helps you connect and share with the people in your life. ",
+    "name": "Facebook"
+  },
+  {
+    "url": "http://smarterer.com/test/foursquare",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_foursquare.png",
+    "description": "Marketing - Foursquare is a location-based social networking website, software for mobile devices. This service is available to users with GPS-enabled mobile devices, such as Smartphones.",
+    "name": "Foursquare"
+  },
+  {
+    "url": "http://smarterer.com/test/google_adwords",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_googleadwords.png",
+    "description": "Marketing - AdWords is Google's main advertising product and main source of revenue. AdWords offers pay-per-click (PPC) advertising, cost-per-thousand (CPM) advertising, and site-targeted advertising for text, banner, and rich-media ads.",
+    "name": "Google AdWords"
+  },
+  {
+    "url": "http://smarterer.com/test/google_analytics",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_googleanalytica.png",
+    "description": "Marketing - Google Analytics (GA) is a free service offered by Google that generates detailed statistics about the visitors to a website",
+    "name": "Google Analytics"
+  },
+  {
+    "url": "http://smarterer.com/test/google%2B",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_google_.png",
+    "description": "Marketing - A test about the up and coming social network, Google+ by Google.",
+    "name": "Google+"
+  },
+  {
+    "url": "http://smarterer.com/test/hootsuite",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/hootsuite.png",
+    "description": "Marketing - HootSuite is a social media communications dashboard used for online brand management. It publishes to websites such as Facebook, Twitter, LinkedIn, Foursquare, MySpace, and WordPress.",
+    "name": "HootSuite"
+  },
+  {
+    "url": "http://smarterer.com/test/hubspot",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_hubspot.png",
+    "description": "Marketing - HubSpot is a venture-funded marketing software company based in Cambridge, Massachusetts. Its customer base grew from over 1,400 in July 2009 to over 3,600 in November 2010, in the USA.",
+    "name": "HubSpot"
+  },
+  {
+    "url": "http://smarterer.com/test/icontact",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icontact.png",
+    "description": "Marketing - iContact is a collection of e-mail marketing services.",
+    "name": "iContact"
+  },
+  {
+    "url": "http://smarterer.com/test/linkedin",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_linkedin.png",
+    "description": "Marketing - LinkedIn is a business-oriented social networking site. Founded in December 2002 and launched in May 2003, it is mainly used for professional networking.",
+    "name": "LinkedIn"
+  },
+  {
+    "url": "http://smarterer.com/test/magento",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/nmy4ntbhzwjlzwn.png",
+    "description": "Marketing - Magento is a feature-rich, open-source, enterprise-class platform that offers merchants a high degree of flexibility and control over the user experience, catalog, content and functionality of their online store.",
+    "name": "Magento"
+  },
+  {
+    "url": "http://smarterer.com/test/mobile_marketing",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/idm.png",
+    "description": "Marketing - Know your BBM from your BMP? What’s the most popular mobile app? And which country did those Angry Birds fly in from? Pit your mobile wits in the IDM’s 60-second mobile marketing quiz, then if you think you need a knowledge boost, the IDM’s new mobile marketing training courses could help. Then come back and own that leader board!",
+    "name": "Mobile Marketing"
+  },
+  {
+    "url": "http://smarterer.com/test/opentable",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ztu2yzgxnmuyntr.png",
+    "description": "Marketing - A system for making and managing restaurant reservations.",
+    "name": "OpenTable"
+  },
+  {
+    "url": "http://smarterer.com/test/scvngr",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_scvngr.png",
+    "description": "Marketing - SCVNGR is a social location-based gaming platform for mobile phones. The application has both a consumer and enterprise component. Companies, educational institutions, and organizations can build challenges, the core unit of their game, at places on SCVNGR from the web.",
+    "name": "SCVNGR"
+  },
+  {
+    "url": "http://smarterer.com/test/social_media",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zwmyzjjmmzm5mgn.png",
+    "description": "Marketing - Know how to sort out your friends from your followers? Know your tweetups from your mashups? Find out if you’re socially savvy or socially simple with this social media marketing test.",
+    "name": "Social Media"
+  },
+  {
+    "url": "http://smarterer.com/test/social_recruiting_basics",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mdnmn2zjzmfkyzm.png",
+    "description": "Marketing - Think you’ve got what it takes to be a social recruiting expert? Prove it! Bullhorn Reach University has brought you through the vital steps of managing your social networks, mastering the proper social recruiting techniques and building an effective social recruiting strategy. How skilled are you? It’s time to find out!",
+    "name": "Social Recruiting"
+  },
+  {
+    "url": "http://smarterer.com/test/surveymonkey",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_surveymonnkeywr.png",
+    "description": "Marketing - SurveyMonkey is a private American company that enables users to create their own Web-based surveys. ",
+    "name": "SurveyMonkey"
+  },
+  {
+    "url": "http://smarterer.com/test/the_future_of_marketing",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/logo_test_futurem.png",
+    "description": "Marketing - Think you're the future of marketing? Prove it! Smarterer has partnered with MITX, FutureM, and Boston's brightest marketers, social media mavens, community managers, PR professionals and advertising execs to put your skills to the test. Show us your stuff!",
+    "name": "The Future of Marketing"
+  },
+  {
+    "url": "http://smarterer.com/test/tumblr",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_tumblr.png",
+    "description": "Marketing - Tumblr is a microblogging platform that allows users to post text, images, videos, links, quotes and audio to their tumblelog, a short-form blog. ",
+    "name": "Tumblr"
+  },
+  {
+    "url": "http://smarterer.com/test/tweetdeck",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_tweetdeck.png",
+    "description": "Marketing - TweetDeck is an Adobe AIR desktop application, that interfaces with the Twitter API to allow users to send and receive tweets and view profiles. ",
+    "name": "TweetDeck"
+  },
+  {
+    "url": "http://smarterer.com/test/twitter",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_twitter.png",
+    "description": "Marketing - Twitter is a real-time information network that connects you to the latest information about what you find interesting. ",
+    "name": "Twitter"
+  },
+  {
+    "url": "http://smarterer.com/test/video_marketing",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/camcorder.png",
+    "description": "Marketing - Test your knowledge of video marketing and best practices!",
+    "name": "Video Marketing"
+  },
+  {
+    "url": "http://smarterer.com/test/wiggio",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/wiggio_art_logo_bigg.png",
+    "description": "Marketing - Wiggio is the easiest (free) way to work in groups. Groups are using Wiggio to:\r\n\r\n- Host virtual meetings and conference calls\r\n\r\n- Create to-do-lists and assign tasks\r\n\r\n- Send email, text, and voice messages\r\n\r\n- Manage events with a shared calendar\r\n\r\n- Poll your group in real time\r\n\r\n- Upload and manage files in a shared folder.  \r\n\r\nTake this test to see how well you know Wiggio!",
+    "name": "Wiggio"
+  },
+  {
+    "url": "http://smarterer.com/test/youtube",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_youtube.png",
+    "description": "Marketing - YouTube is a video-sharing website on which users can upload, share, and view videos, created by three former PayPal employees in February 2005.",
+    "name": "YouTube"
+  },
+  {
+    "url": "http://smarterer.com/test/access",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_access2.png",
+    "description": "Math & Finance - Microsoft Office Access, previously known as Microsoft Access, is a relational database management system from Microsoft",
+    "name": "Access"
+  },
+  {
+    "url": "http://smarterer.com/test/advanced_mathematics",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mathazoid256.png",
+    "description": "Math & Finance - High level test of famous mathematical theorems.",
+    "name": "Advanced Mathematics"
+  },
+  {
+    "url": "http://smarterer.com/test/auditing",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mtljyjjjnjblzdu.png",
+    "description": "Math & Finance - None",
+    "name": "Auditing"
+  },
+  {
+    "url": "http://smarterer.com/test/basic_math",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/n2yxnjqwywfkmgu.png",
+    "description": "Math & Finance - Test your basic math skills. All questions are limited to the four basic operations (+, -, x, ÷) and math vocabulary related to those operations.",
+    "name": "Basic Math"
+  },
+  {
+    "url": "http://smarterer.com/test/bloomberg",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/bloomberg.png",
+    "description": "Math & Finance - Ability to use Bloomberg effectively",
+    "name": "Bloomberg"
+  },
+  {
+    "url": "http://smarterer.com/test/bookkeeping",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mjrlmtuyndvlmta.png",
+    "description": "Math & Finance - Test your knowledge on the basics of bookkeeping.",
+    "name": "Bookkeeping"
+  },
+  {
+    "url": "http://smarterer.com/test/calc",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ooocalc.png",
+    "description": "Math & Finance - OpenOffice.org Calc is the spreadsheet component of the OpenOffice.org productivity software package.",
+    "name": "Calc"
+  },
+  {
+    "url": "http://smarterer.com/test/calculus",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ogezymqwnwm5mtm.png",
+    "description": "Math & Finance - Topics ranging from limits of functions and the fundamental theorem, to vector and multivariable calculus.",
+    "name": "Calculus"
+  },
+  {
+    "url": "http://smarterer.com/test/commodity_futures",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Math & Finance - Commodity Futures ",
+    "name": "Commodity Futures"
+  },
+  {
+    "url": "http://smarterer.com/test/corporate_finance",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/thumb.png",
+    "description": "Math & Finance - Corporate Finance is defined as any financial or monetary activity the deals with a business enterprise and its finances.",
+    "name": "Corporate Finance"
+  },
+  {
+    "url": "http://smarterer.com/test/financial_accounting",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/accounting.png",
+    "description": "Math & Finance - A test of concepts related to financial accounting",
+    "name": "Financial Accounting"
+  },
+  {
+    "url": "http://smarterer.com/test/financial_instruments",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ndixzgrkmwfiymy.png",
+    "description": "Math & Finance - An overview of the basics in investments and financial securities.",
+    "name": "Financial Markets & Securities"
+  },
+  {
+    "url": "http://smarterer.com/test/mathematica",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mathematica.png",
+    "description": "Math & Finance - An automated computation system by Wolfram.",
+    "name": "Mathematica"
+  },
+  {
+    "url": "http://smarterer.com/test/matlab",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_matlab.png",
+    "description": "Math & Finance - MATLAB (matrix laboratory) is a numerical computing environment and fourth-generation programming language developed by MathWorks",
+    "name": "Matlab"
+  },
+  {
+    "url": "http://smarterer.com/test/quickbooks",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/learn_quickbooks.png",
+    "description": "Math & Finance - QuickBooks—the #1 rated small business financial software—can help you get organized, save time, and simplify what you do every day.",
+    "name": "Quickbooks"
+  },
+  {
+    "url": "http://smarterer.com/test/r",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/r_logo.png",
+    "description": "Math & Finance - R, a GNU project, is a language and environment for statistical computing and graphics. R provides a wide variety of statistical and graphical techniques, and is highly extensible",
+    "name": "R"
+  },
+  {
+    "url": "http://smarterer.com/test/spss",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_spss.png",
+    "description": "Math & Finance - SPSS is a computer program used for statistical analysis.",
+    "name": "SPSS"
+  },
+  {
+    "url": "http://smarterer.com/test/android_%28developer%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/android.png",
+    "description": "Mobile - Android Mobile OS Development",
+    "name": "Android (Developer)"
+  },
+  {
+    "url": "http://smarterer.com/test/android_%28user%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/android_platform_256.png",
+    "description": "Mobile - Android is a software stack for mobile devices that includes an operating system, middleware and key applications.",
+    "name": "Android (User)"
+  },
+  {
+    "url": "http://smarterer.com/test/dropbox",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_dropbox.png",
+    "description": "Mobile - Dropbox is a web-based file hosting service that uses cloud computing to enable users to store and share files and folders with others across the Internet using file synchronization",
+    "name": "Dropbox"
+  },
+  {
+    "url": "http://smarterer.com/test/iphone_os_4_%28user%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_iphone.png",
+    "description": "Mobile - Test your knowledge of the iPhone OS 4 Operating System.",
+    "name": "iPhone OS 4 (User)"
+  },
+  {
+    "url": "http://smarterer.com/test/windows_phone_7",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/windowsphone7icon_co.png",
+    "description": "Mobile - Windows Phone 7 is the latest smartphone OS from Microsoft",
+    "name": "Windows Phone 7"
+  },
+  {
+    "url": "http://smarterer.com/test/ableton_live",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/abletonlive.png",
+    "description": "Music - Ableton Live is a loop-based software music sequencer and DAW.",
+    "name": "Ableton Live"
+  },
+  {
+    "url": "http://smarterer.com/test/garageband",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/garageband_app.png",
+    "description": "Music - GarageBand is a software application for Mac OS X and iOS that allows users to create music or podcasts.",
+    "name": "GarageBand"
+  },
+  {
+    "url": "http://smarterer.com/test/access",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_access2.png",
+    "description": "Office Tools - Microsoft Office Access, previously known as Microsoft Access, is a relational database management system from Microsoft",
+    "name": "Access"
+  },
+  {
+    "url": "http://smarterer.com/test/calc",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ooocalc.png",
+    "description": "Office Tools - OpenOffice.org Calc is the spreadsheet component of the OpenOffice.org productivity software package.",
+    "name": "Calc"
+  },
+  {
+    "url": "http://smarterer.com/test/excel",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_excel2.png",
+    "description": "Office Tools - Microsoft Excel is a commercial spreadsheet application.",
+    "name": "Excel"
+  },
+  {
+    "url": "http://smarterer.com/test/impress",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/oooimpress321logo.png",
+    "description": "Office Tools - OpenOffice.org Impress is a presentation program.",
+    "name": "Impress"
+  },
+  {
+    "url": "http://smarterer.com/test/onenote",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/onenote_logo.png",
+    "description": "Office Tools - Microsoft OneNote is a non-free commercial notation and productivity tool designed by Microsoft.",
+    "name": "OneNote"
+  },
+  {
+    "url": "http://smarterer.com/test/outlook",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_outlook.png",
+    "description": "Office Tools - Microsoft Outlook is a personal information manager from Microsoft, available both as a separate application as well as a part of the Microsoft Office suite.",
+    "name": "Outlook"
+  },
+  {
+    "url": "http://smarterer.com/test/powerpoint",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_powerpoint3.png",
+    "description": "Office Tools - Microsoft PowerPoint is a presentation graphics program.",
+    "name": "PowerPoint"
+  },
+  {
+    "url": "http://smarterer.com/test/word",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_word.png",
+    "description": "Office Tools - Microsoft Word is a non-free commercial word processor designed by Microsoft. ",
+    "name": "Word"
+  },
+  {
+    "url": "http://smarterer.com/test/%2780s_trivia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/71806_totally_80s_lu.png",
+    "description": "Pop Culture - None",
+    "name": "'80s Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/90%27s_music",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yme2ytfimzi5zjk.png",
+    "description": "Pop Culture - Are you \"right on\" when it comes to 90s music trivia? From pop, to alternative to hip hop, when it comes to the soundtrack of the 1990s, this test will test your 90s musical knowledge. ",
+    "name": "90's music"
+  },
+  {
+    "url": "http://smarterer.com/test/baller",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/hipster_2.png",
+    "description": "Pop Culture - Are you a Baller?  Take this test to determine whether or not you meet the criteria for the ultimate highbar hipster.  Get a high Baller score and prove your get downness and serious street cred.",
+    "name": "Baller"
+  },
+  {
+    "url": "http://smarterer.com/test/bewitched",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Pop Culture - Eight Season Series Bewitched",
+    "name": "Bewitched"
+  },
+  {
+    "url": "http://smarterer.com/test/celebrity_baby_names",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/baby_rattle_keys.png",
+    "description": "Pop Culture - One of the world's greatest mysteries is the celebrity penchant for bold and bizarre baby names. Think you've got what it takes to namedrop the celebritot? Prove it!",
+    "name": "Celebrity Baby Names"
+  },
+  {
+    "url": "http://smarterer.com/test/chocoholic",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/real_chocolate1.png",
+    "description": "Pop Culture - Despite its beginning as a form of currency in ancient South America, Chocolate has turned into what may be the world's greatest indulgence. Think you're a true chocolate connoisseur? Put your sweet tooth to the test!",
+    "name": "Chocoholic"
+  },
+  {
+    "url": "http://smarterer.com/test/classic_rock_trivia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/classicrock.png",
+    "description": "Pop Culture - None",
+    "name": "Classic Rock Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/disney_movies",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/disney_logo1.png",
+    "description": "Pop Culture - Test your knowledge on Disney Movies",
+    "name": "Disney Movies"
+  },
+  {
+    "url": "http://smarterer.com/test/do_you_know_gilmore_girls%3F%3F",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mjrmnjnimddjmzc.png",
+    "description": "Pop Culture - Test you knowledge on gilmore girls!",
+    "name": "Do you know Gilmore Girls??"
+  },
+  {
+    "url": "http://smarterer.com/test/friends",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/njgynje5y2flzji.png",
+    "description": "Pop Culture - How well do you know the show FRIENDS?",
+    "name": "Friends"
+  },
+  {
+    "url": "http://smarterer.com/test/harry_potter_trivia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/hp.png",
+    "description": "Pop Culture - Harry Potter is a series of seven fantasy novels written by the British author J. K. Rowling. The books chronicle the adventures of the adolescent wizard Harry Potter and his best friends Ron Weasley and Hermione Granger, all of whom are students at Hogwarts School of Witchcraft and Wizardry. The main story arc concerns Harry's quest to overcome the evil dark wizard Lord Voldemort, whose aim is to conquer the wizarding world and subjugate non-magical people, and who seeks to destroy all those who stand in his way, especially Harry himself.",
+    "name": "Harry Potter Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/how_i_met_your_mother",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yzhjmzq0mgy3ztc.png",
+    "description": "Pop Culture - Bob Saget is the narrator of a story that takes place in 2030. He narrates the story a man named Ted as he tells the story to his children of how he met their mother. ",
+    "name": "How I Met Your Mother"
+  },
+  {
+    "url": "http://smarterer.com/test/how_well_do_you_know_godzilla%3F",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Pop Culture - How well do you know Godzilla, King of the Monsters? Here's a short quiz to find out. ",
+    "name": "How Well Do You Know Godzilla?"
+  },
+  {
+    "url": "http://smarterer.com/test/how_well_do_you_know_the_goonies%3F",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zjkwzge4mzaznwm.png",
+    "description": "Pop Culture - Are you a Goonie? Test your skills here!",
+    "name": "How well do you know The Goonies?"
+  },
+  {
+    "url": "http://smarterer.com/test/hunger_game_trivia",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Pop Culture - Quiz on what you kno about the hunger games?",
+    "name": "Hunger Game Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/jersey_shore_trivia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/jerseyshorelogo.png",
+    "description": "Pop Culture - Jersey Shore is an American reality television series that premiered on MTV in December 2009. The series follows the lives of eight housemates spending their summer at the Jersey Shore, and later in a beach house in Miami and a home in Italy.",
+    "name": "Jersey Shore Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/kristen_stewart",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ymq0nwqxymu5owr.png",
+    "description": "Pop Culture - None",
+    "name": "Kristen Stewart"
+  },
+  {
+    "url": "http://smarterer.com/test/metal",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/nwziy2ixmddiymr.png",
+    "description": "Pop Culture - Very basic Metal (music genre) questions. ",
+    "name": "Metal"
+  },
+  {
+    "url": "http://smarterer.com/test/nba",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mmmxn2y5ntmznmi.png",
+    "description": "Pop Culture - None",
+    "name": "NBA"
+  },
+  {
+    "url": "http://smarterer.com/test/new_girl",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mtlhzmm2ztjkn2u.png",
+    "description": "Pop Culture - How much do you know about New Girl?",
+    "name": "New Girl"
+  },
+  {
+    "url": "http://smarterer.com/test/parks_and_rec_trivia%21",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/nji1ztywndvizda.png",
+    "description": "Pop Culture - Test your knowledge on NBC's Parks and Recreation!",
+    "name": "Parks and Rec Trivia!"
+  },
+  {
+    "url": "http://smarterer.com/test/meme_expert_",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ngiwnjgzmmq4odj.png",
+    "description": "Pop Culture - Are you an awkward-goodguy-scumbag? Is your favorite philosopher of the dinosaur variety?   Do you regularly enjoy drinking your own piss?  If your answer is a resounding \"YES!\" to all of these questions (okay, maybe not the piss one), you may have what it takes to be a certified Reddit meme expert.  ",
+    "name": "Reddit Meme Expert "
+  },
+  {
+    "url": "http://smarterer.com/test/romantic_comedy_trivia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/red_hearts_1497.png",
+    "description": "Pop Culture - Romantic comedy films are films with light-hearted, humorous plot lines, centered on romantic ideals such as that true love is able to surmount most obstacles.",
+    "name": "Romantic Comedy Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/taylor_swift",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/owfly2uzngjlmzu.png",
+    "description": "Pop Culture - All about Taylor Swift",
+    "name": "Taylor Swift"
+  },
+  {
+    "url": "http://smarterer.com/test/tech_prom",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/disco_ball3.png",
+    "description": "Pop Culture -  Think you've got what it takes to be Tech Prom Royalty? Well you better walk the walk, pal. Prove it!",
+    "name": "Tech Prom"
+  },
+  {
+    "url": "http://smarterer.com/test/the_elder_scrolls_v%3A_skyrim",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/file_the_elder_scrol.png",
+    "description": "Pop Culture - Test your skills on the acclaimed fifth installment of The Elder Scrolls series. ",
+    "name": "The Elder Scrolls V: Skyrim"
+  },
+  {
+    "url": "http://smarterer.com/test/the_office_%28us%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zmuymte4ndkzytf.png",
+    "description": "Pop Culture - How much do you know about the US version of The Office?",
+    "name": "The Office (US)"
+  },
+  {
+    "url": "http://smarterer.com/test/turntable.fm",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ndc0nze2odqyy2e.png",
+    "description": "Pop Culture - Turntable connects you and your friends in a real time music listening experience.",
+    "name": "Turntable.fm"
+  },
+  {
+    "url": "http://smarterer.com/test/twilight_saga_trivia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/twilight_logo.png",
+    "description": "Pop Culture - Twilight is a series of four vampire-themed fantasy romance novels by American author Stephenie Meyer. The books have also been adapted for film by Summit Entertainment.",
+    "name": "Twilight Saga Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/walt_disney_world_trivia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/disneyicon_copy.png",
+    "description": "Pop Culture - Test how much you know of the history and operations of Walt Disney World. ",
+    "name": "Walt Disney World Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/wizards_of_waverly_place",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Pop Culture - Based on Disney's show Wizards of Waverly Place.",
+    "name": "Wizards of Waverly Place"
+  },
+  {
+    "url": "http://smarterer.com/test/actionscript_3",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/as3.png",
+    "description": "Programming - Test your knowledge with AS3 (actionscript 3).",
+    "name": "Actionscript 3"
+  },
+  {
+    "url": "http://smarterer.com/test/android_%28developer%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/android.png",
+    "description": "Programming - Android Mobile OS Development",
+    "name": "Android (Developer)"
+  },
+  {
+    "url": "http://smarterer.com/test/balsamiq",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/balsamiq_blog_small.jpg",
+    "description": "Programming - Balsamiq is an application mockup creation tool built on Adobe AIR. ",
+    "name": "Balsamiq"
+  },
+  {
+    "url": "http://smarterer.com/test/bash",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/bash.png",
+    "description": "Programming - Bash is a Unix shell written to replace the Bourne shell.",
+    "name": "Bash"
+  },
+  {
+    "url": "http://smarterer.com/test/bioinformatics",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/desktop_dna_5.png",
+    "description": "Programming - A test covering general programing, sequence analysis, molecular biology, mathematics as well as basic critical thinking and logic skills.",
+    "name": "Bioinformatics"
+  },
+  {
+    "url": "http://smarterer.com/test/c%23",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/csharp200_square.png",
+    "description": "Programming - C# is a multi-paradigm programming language developed by Microsoft in 2001. It encompasses strong typing, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines.",
+    "name": "C#"
+  },
+  {
+    "url": "http://smarterer.com/test/c%2B%2B",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/c_plus_plus_200px.png",
+    "description": "Programming - C++ is an intermediate-level statically typed, free-form, multi-paradigm, compiled, general-purpose programming language.",
+    "name": "C++"
+  },
+  {
+    "url": "http://smarterer.com/test/css",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_css.png",
+    "description": "Programming - Cascading Style Sheets (CSS) is a style sheet language used to describe the presentation semantics (the look and formatting) of a document written in a markup language. ",
+    "name": "CSS"
+  },
+  {
+    "url": "http://smarterer.com/test/css3",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/css3_icon1.png",
+    "description": "Programming - Cascading Style Sheets (CSS)3 is the latest, modular style sheet language used to describe the presentation semantics (the look and formatting) of a document written in a markup language.",
+    "name": "CSS3"
+  },
+  {
+    "url": "http://smarterer.com/test/flash",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/flash.png",
+    "description": "Programming - Adobe Flash (formerly Macromedia Flash) is a multimedia platform used to add animation, video, and interactivity to web pages.",
+    "name": "Flash"
+  },
+  {
+    "url": "http://smarterer.com/test/git",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_git.png",
+    "description": "Programming - A free & open source, distributed version control system designed to handle everything from small to very large projects with speed and efficiency.",
+    "name": "Git"
+  },
+  {
+    "url": "http://smarterer.com/test/google_analytics",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_googleanalytica.png",
+    "description": "Programming - Google Analytics (GA) is a free service offered by Google that generates detailed statistics about the visitors to a website",
+    "name": "Google Analytics"
+  },
+  {
+    "url": "http://smarterer.com/test/html",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_html3.png",
+    "description": "Programming - HTML, which stands for HyperText Markup Language, is the predominant markup language for web pages. HTML is the basic building-blocks of webpages.",
+    "name": "HTML"
+  },
+  {
+    "url": "http://smarterer.com/test/html5",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_html.png",
+    "description": "Programming - HTML5 is a language for structuring and presenting content for the World Wide Web.",
+    "name": "HTML5"
+  },
+  {
+    "url": "http://smarterer.com/test/internet_explorer",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ml_logoupdate_ie9det.png",
+    "description": "Programming - Windows Internet Explorer is a graphical web browser developed by Microsoft.",
+    "name": "Internet Explorer"
+  },
+  {
+    "url": "http://smarterer.com/test/introduction_to_prgramming",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Programming - None",
+    "name": "Introduction to Programming"
+  },
+  {
+    "url": "http://smarterer.com/test/ios_jailbreaking",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Programming - None",
+    "name": "iOS Jailbreaking"
+  },
+  {
+    "url": "http://smarterer.com/test/iphone_os_4_%28user%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_iphone.png",
+    "description": "Programming - Test your knowledge of the iPhone OS 4 Operating System.",
+    "name": "iPhone OS 4 (User)"
+  },
+  {
+    "url": "http://smarterer.com/test/java",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_javawrongsize.png",
+    "description": "Programming - The Java programming language.",
+    "name": "Java"
+  },
+  {
+    "url": "http://smarterer.com/test/javascript",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_javascript.png",
+    "description": "Programming - JavaScript is a prototype-based scripting language that is dynamic, weakly typed and has first-class functions. ",
+    "name": "JavaScript"
+  },
+  {
+    "url": "http://smarterer.com/test/jquery",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_jquerywrongsize.png",
+    "description": "Programming - A fast, concise, library that simplifies how to traverse HTML documents, handle events, perform animations, and add AJAX.",
+    "name": "jQuery"
+  },
+  {
+    "url": "http://smarterer.com/test/linux",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/150px_tux.png",
+    "description": "Programming - Linux, a family of Unix-like computer operating systems using the Linux kernel, is a leading server operating system",
+    "name": "Linux"
+  },
+  {
+    "url": "http://smarterer.com/test/lotus_notes_and_domino",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_lotuswrongsize.png",
+    "description": "Programming - Lotus Domino is an IBM server product that provides enterprise-grade e-mail, collaboration capabilities, and a custom application platform. Domino began life as Lotus Notes Server, the server component of Lotus Development Corporation's client-server messaging technology. It can be used as an application server for Lotus Notes applications and/or as a web server. It also has a built-in database system in the format of NSF. Its directory services can be used for authentication purposes as well",
+    "name": "Lotus Notes and Domino"
+  },
+  {
+    "url": "http://smarterer.com/test/mysql",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_mysql.png",
+    "description": "Programming - MySQL is a relational database management system (RDBMS) that runs as a server providing multi-user access to a number of databases.",
+    "name": "MySQL"
+  },
+  {
+    "url": "http://smarterer.com/test/node.js",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/150px_nodejs_logo_li.png",
+    "description": "Programming - node.js is an event driven form of server side javascript.",
+    "name": "node.js"
+  },
+  {
+    "url": "http://smarterer.com/test/oracle",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/oracle_database_logo.png",
+    "description": "Programming - Oracle Database is an object-relational database management system produced and marketed by Oracle Corporation.",
+    "name": "Oracle"
+  },
+  {
+    "url": "http://smarterer.com/test/osx",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/186px_osxleopard.png",
+    "description": "Programming - Mac OS X is a series of Unix-based operating systems and graphical user interfaces developed by Apple Inc.",
+    "name": "OSX"
+  },
+  {
+    "url": "http://smarterer.com/test/pc_hardware",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yjyxzjc3y2iwnju.png",
+    "description": "Programming - Test for basic to expert PC hardware knowledge and troubleshooting.",
+    "name": "PC Hardware"
+  },
+  {
+    "url": "http://smarterer.com/test/perl",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_perl.png",
+    "description": "Programming - Perl is a high-level, general-purpose, interpreted, dynamic programming language. Perl was originally developed by Larry Wall in 1987 as a general-purpose Unix scripting language to make report processing easier.",
+    "name": "PERL"
+  },
+  {
+    "url": "http://smarterer.com/test/php",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_php2.png",
+    "description": "Programming - PHP is a general-purpose scripting language originally designed for web development to produce dynamic web pages. ",
+    "name": "PHP"
+  },
+  {
+    "url": "http://smarterer.com/test/pivotal_tracker",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/pivotal_tracker_flui.png",
+    "description": "Programming - Pivotal Tracker is an agile project management tool.",
+    "name": "Pivotal Tracker"
+  },
+  {
+    "url": "http://smarterer.com/test/python",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_python.png",
+    "description": "Programming - Python is an interpreted, interactive, object-oriented programming language. It incorporates modules, exceptions, dynamic typing, very high level dynamic data types, and classes.",
+    "name": "Python"
+  },
+  {
+    "url": "http://smarterer.com/test/python_workshop",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Programming - A quiz to follow the Friday night tutorial at the Boston Python Workshop (http://openhatch.org/wiki/Boston_Python_Workshop)",
+    "name": "Python Workshop"
+  },
+  {
+    "url": "http://smarterer.com/test/ruby_on_rails",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_rubyonrails.png",
+    "description": "Programming - Ruby on Rails, often shortened to Rails or RoR, is an open source web application framework for the Ruby programming language.",
+    "name": "Ruby on Rails"
+  },
+  {
+    "url": "http://smarterer.com/test/selenium",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_seleniumwrong.png",
+    "description": "Programming - Selenium is a portable software testing framework for web applications. Selenium provides a record/playback tool for authoring tests without learning a test scripting language.",
+    "name": "Selenium"
+  },
+  {
+    "url": "http://smarterer.com/test/solaris",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/solaris.png",
+    "description": "Programming - Solaris is a Unix operating system created in C which is famous for its scalability. It is now open source software and is supported on Dell, IBM, Intel, HP, and Fujitsu Siemens machines.",
+    "name": "Solaris"
+  },
+  {
+    "url": "http://smarterer.com/test/sql",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/sql.png",
+    "description": "Programming - SQL is a programming language designed for managing data in relational database management systems (RDBMS).",
+    "name": "SQL"
+  },
+  {
+    "url": "http://smarterer.com/test/tapestry5",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/tapestry.png",
+    "description": "Programming - Component oriented framework for creating dynamic, robust, highly scalable web applications in Java.",
+    "name": "Tapestry5"
+  },
+  {
+    "url": "http://smarterer.com/test/twisted",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/twistedlogofull.png",
+    "description": "Programming - Twisted is a Python library for developing event-driven programs.  It supports many standard protocols (eg SMTP, DNS, HTTP, etc) as well as GUI (Gtk, Qt, wxWidgets) and platform (epoll, IOCP, inotify, etc) integration.",
+    "name": "Twisted"
+  },
+  {
+    "url": "http://smarterer.com/test/unix",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/unix_logo.png",
+    "description": "Programming - Unix is an operating system family.  It has remained popular due to its speed, low cost, and security.",
+    "name": "Unix"
+  },
+  {
+    "url": "http://smarterer.com/test/vim",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/vim_editor.png",
+    "description": "Programming - Advanced text editor",
+    "name": "Vim"
+  },
+  {
+    "url": "http://smarterer.com/test/visio",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/visio.png",
+    "description": "Programming - Microsoft Visio is a commercial diagramming program for Microsoft Windows that uses vector graphics to create diagrams.",
+    "name": "Visio"
+  },
+  {
+    "url": "http://smarterer.com/test/visual_basic",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ms_visualbasic_2005_.png",
+    "description": "Programming - Visual Basic (VB) is the third-generation event-driven programming language and integrated development environment (IDE) from Microsoft for its COM programming model.",
+    "name": "Visual Basic"
+  },
+  {
+    "url": "http://smarterer.com/test/vmware",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ytg5otkzyty3ywj.png",
+    "description": "Programming - None",
+    "name": "VMWare"
+  },
+  {
+    "url": "http://smarterer.com/test/windows_7",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/windows_7.png",
+    "description": "Programming - Windows 7 is the latest operating system by Microsoft, produced by for use on personal computers, including desktops, laptops, netbooks, tablet PCs, and media center PCs.",
+    "name": "Windows 7"
+  },
+  {
+    "url": "http://smarterer.com/test/windows_azure_%28developer%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/azure.png",
+    "description": "Programming - The Windows Azure Platform is a public cloud computing offering from Microsoft. ",
+    "name": "Windows Azure (Developer)"
+  },
+  {
+    "url": "http://smarterer.com/test/windows_phone_7",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/windowsphone7icon_co.png",
+    "description": "Programming - Windows Phone 7 is the latest smartphone OS from Microsoft",
+    "name": "Windows Phone 7"
+  },
+  {
+    "url": "http://smarterer.com/test/windows_xp",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/windows_xp_logosmall.png",
+    "description": "Programming - Windows XP is an operating system that was produced by Microsoft for use on personal computers.",
+    "name": "Windows XP"
+  },
+  {
+    "url": "http://smarterer.com/test/wordpress_%28user%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_wordpress.png",
+    "description": "Programming - WordPress is an open source Content Management System (CMS), often used as a blog publishing application",
+    "name": "WordPress"
+  },
+  {
+    "url": "http://smarterer.com/test/arc_booking",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zjjjymy4mzcxytl.png",
+    "description": "Sales - ARC is an American corporation that provides reservation systems to travel agents and carriers.",
+    "name": "ARC Booking"
+  },
+  {
+    "url": "http://smarterer.com/test/powerpoint",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_powerpoint3.png",
+    "description": "Sales - Microsoft PowerPoint is a presentation graphics program.",
+    "name": "PowerPoint"
+  },
+  {
+    "url": "http://smarterer.com/test/real_estate",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zgu3mzmzyjhimzc.png",
+    "description": "Sales - An overview of the basics of real estate, purchase/selling process and investment strategies. ",
+    "name": "Real Estate"
+  },
+  {
+    "url": "http://smarterer.com/test/sales_benchmark_index",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zti5otgwmtgzntl.png",
+    "description": "Sales - This is a test to stimulate thought around the sales management role within a sales organization.  ",
+    "name": "Sales Management"
+  },
+  {
+    "url": "http://smarterer.com/test/salesforce_crm",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/salesforce.png",
+    "description": "Sales - Salesforce.com is an enterprise cloud computing company founded by former Oracle executive Marc Benioff, Parker Harris, Dave Moellenhoff, and Frank Dominguez. Salesforce.com is best known for its Customer Relationship Management (CRM) and it distributes business software on a subscription basis. ",
+    "name": "Salesforce CRM"
+  },
+  {
+    "url": "http://smarterer.com/test/sap",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/sap_logo_icon.png",
+    "description": "Sales - SAP is a suite of enterprise-focused business management applications.",
+    "name": "SAP"
+  },
+  {
+    "url": "http://smarterer.com/test/deviantart",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/daiconclear.png",
+    "description": "Social Networks - deviantART is a social platform for artists to exhibit, promote, and share their works within a peer community.",
+    "name": "deviantART"
+  },
+  {
+    "url": "http://smarterer.com/test/facebook",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_facebook2.png",
+    "description": "Social Networks - Facebook helps you connect and share with the people in your life. ",
+    "name": "Facebook"
+  },
+  {
+    "url": "http://smarterer.com/test/foursquare",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_foursquare.png",
+    "description": "Social Networks - Foursquare is a location-based social networking website, software for mobile devices. This service is available to users with GPS-enabled mobile devices, such as Smartphones.",
+    "name": "Foursquare"
+  },
+  {
+    "url": "http://smarterer.com/test/google%2B",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_google_.png",
+    "description": "Social Networks - A test about the up and coming social network, Google+ by Google.",
+    "name": "Google+"
+  },
+  {
+    "url": "http://smarterer.com/test/gowalla",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_gowalla.png",
+    "description": "Social Networks - Gowalla is a location-based social network. Users 'check in' at Spots in their local vicinity, either through a dedicated mobile application or through the mobile website.",
+    "name": "Gowalla"
+  },
+  {
+    "url": "http://smarterer.com/test/linkedin",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_linkedin.png",
+    "description": "Social Networks - LinkedIn is a business-oriented social networking site. Founded in December 2002 and launched in May 2003, it is mainly used for professional networking.",
+    "name": "LinkedIn"
+  },
+  {
+    "url": "http://smarterer.com/test/pinterest",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/njjjzje3ndg2ody.png",
+    "description": "Social Networks - Pinterest is a pinboard-styled social photo sharing website that allows users to create and manage theme-based image collections. ",
+    "name": "Pinterest"
+  },
+  {
+    "url": "http://smarterer.com/test/social_media",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zwmyzjjmmzm5mgn.png",
+    "description": "Social Networks - Know how to sort out your friends from your followers? Know your tweetups from your mashups? Find out if you’re socially savvy or socially simple with this social media marketing test.",
+    "name": "Social Media"
+  },
+  {
+    "url": "http://smarterer.com/test/twitter",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_twitter.png",
+    "description": "Social Networks - Twitter is a real-time information network that connects you to the latest information about what you find interesting. ",
+    "name": "Twitter"
+  },
+  {
+    "url": "http://smarterer.com/test/airline_knowledge",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Trivia - A variety of questions about the Airline business",
+    "name": "Airline Knowledge"
+  },
+  {
+    "url": "http://smarterer.com/test/anatomy",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mze4mtjjytriodk.png",
+    "description": "Trivia - Basic Human Anatomy",
+    "name": "Anatomy"
+  },
+  {
+    "url": "http://smarterer.com/test/beers_and_brewers",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/beer_toast_912.png",
+    "description": "Trivia - Beer is the world's most widely consumed, and arguably oldest, alcoholic beverage. Think you know your pints, porters and pilsners? Show us what you've got. Cheers!",
+    "name": "Beers and Brewers"
+  },
+  {
+    "url": "http://smarterer.com/test/boston_trivia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/boston.png",
+    "description": "Trivia - Are you a Boston native? Lived here long enough to know the place like the back of your hand? Prove it, pal!",
+    "name": "Boston Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/cheese-making_and_appreciation",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/cheese_tasting.png",
+    "description": "Trivia - A test about enjoying and making cheese at home",
+    "name": "Cheese-Making and Appreciation"
+  },
+  {
+    "url": "http://smarterer.com/test/coffee",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/dsc01855.png",
+    "description": "Trivia - Such a seemingly simple beverage that has a million and one flavour combinations and gave us the coffee break!",
+    "name": "Coffee"
+  },
+  {
+    "url": "http://smarterer.com/test/country_capitals",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/200px_sciences_de_la.png",
+    "description": "Trivia - Show your knowledge of the world.",
+    "name": "Country Capitals"
+  },
+  {
+    "url": "http://smarterer.com/test/culinary_knowledge",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/nwy4ngjjyzk4zdl.png",
+    "description": "Trivia - A test of culinary techniques and knowledge",
+    "name": "Culinary Knowledge"
+  },
+  {
+    "url": "http://smarterer.com/test/dog_lover_trivia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ymm5mzc1zja5mzj.png",
+    "description": "Trivia - How well do you know your dog-basics? Test your pet care knowledge! ",
+    "name": "Dog Lover Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/domain_names",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Trivia - They figure in every URL and every email address, but how familiar are you with domain names?",
+    "name": "Domain Names"
+  },
+  {
+    "url": "http://smarterer.com/test/mlk",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mgrimzzjzjvjymy.png",
+    "description": "Trivia - Dr. Martin Luther King Jr. was a Civil Rights Activist.  Many Americans have \"MLK Day\" off from work, but shouldn't we all know more about him to get the holiday?",
+    "name": "Dr. Martin Luther King Jr. (MLK)"
+  },
+  {
+    "url": "http://smarterer.com/test/foreign_policy_101",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_foreignpolicy.png",
+    "description": "Trivia - Basic test on foreign policy concepts.",
+    "name": "Foreign Policy 101"
+  },
+  {
+    "url": "http://smarterer.com/test/freshman_biology",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mgmwmjawodfhymn.png",
+    "description": "Trivia - This test contains test questions relating to the study Biology, and includes basic questions relating to the High School Biology Standards as designated by the state of Missouri.",
+    "name": "Freshman Biology"
+  },
+  {
+    "url": "http://smarterer.com/test/halloween_trivia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/halloween_test_icon.png",
+    "description": "Trivia - Test your knowledge of folklore, urban legends, candy manufacturing, horror movies, judeo-christian demonology, and much, much more!",
+    "name": "Halloween Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/happiness",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mjhhodlkzmuwntu.png",
+    "description": "Trivia - Happiness is a learnable skill. You can actually improve your happiness if you know how. Do you think you have the emotional intelligence? Take the test and find out!",
+    "name": "Happiness"
+  },
+  {
+    "url": "http://smarterer.com/test/hard_drive_space",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Trivia - Test your Pc Knowledge",
+    "name": "Hard Drive Space"
+  },
+  {
+    "url": "http://smarterer.com/test/literature_for_children",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_childlit.png",
+    "description": "Trivia - Questions about popular children's books that have absolutely nothing to do with software, you geeks.",
+    "name": "Literature for Children"
+  },
+  {
+    "url": "http://smarterer.com/test/mbta_history",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/6a00d83452322d69e201.png",
+    "description": "Trivia - Test your knowledge of the MBTA in Boston!",
+    "name": "MBTA History"
+  },
+  {
+    "url": "http://smarterer.com/test/restaurant_service",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Trivia - Restaurant Service",
+    "name": "Restaurant Service"
+  },
+  {
+    "url": "http://smarterer.com/test/science",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mwizmthjzjrkywv.png",
+    "description": "Trivia - Basic scientific literacy",
+    "name": "Science"
+  },
+  {
+    "url": "http://smarterer.com/test/t-mobile",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Trivia - What do you know about your mobile-phone carrier? There might just be an answer to a question in this description!",
+    "name": "T-Mobile"
+  },
+  {
+    "url": "http://smarterer.com/test/u.s._state_capitals",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yjq3nmfimdy5zjm.png",
+    "description": "Trivia - Do you know the capital of each state in the U.S.A.?",
+    "name": "U.S. State Capitals"
+  },
+  {
+    "url": "http://smarterer.com/test/wine_connoisseur",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/wine_965871.png",
+    "description": "Trivia - In short, wine is an alcoholic beverage, made of fermented fruit juice, usually from grapes. However, wine has become a beloved pastime and profession. Think you have the smarts of a sommelier? Shows us your skills! Salut!",
+    "name": "Wine Connoisseur"
+  },
+  {
+    "url": "http://smarterer.com/test/xbox_trivia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_xbox.png",
+    "description": "Trivia - How much do you know about your gaming hardware?",
+    "name": "Xbox Trivia"
+  },
+  {
+    "url": "http://smarterer.com/test/adobe_coldfusion",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/njdin2qxmmu0otz.png",
+    "description": "Uncategorized - ColdFusion is an application development platform invented by Jeremy and JJ Allaire in 1995. CFML is the markup language interpreted by a ColdFusion server; the language is also often called ColdFusion.",
+    "name": "Adobe ColdFusion"
+  },
+  {
+    "url": "http://smarterer.com/test/air_jordans",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ogrjmjdintm0ztg.png",
+    "description": "Uncategorized - Air Jordans",
+    "name": "Air Jordans"
+  },
+  {
+    "url": "http://smarterer.com/test/anne_of_green_gables_and_anne_of_avonlea",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Anne of Green Gables and Anne of Avonlea",
+    "name": "Anne of Green Gables and Anne of Avonlea"
+  },
+  {
+    "url": "http://smarterer.com/test/archicad",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/archicad_14.png",
+    "description": "Uncategorized - ArchiCAD is an architectural BIM CAD software for Macintosh and Windows developed by Graphisoft. ",
+    "name": "ArchiCAD"
+  },
+  {
+    "url": "http://smarterer.com/test/are_you_a_true_sister_of_delta_phi_epsilon%3F",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - A test about Delta Phi Epsilon facts",
+    "name": "Are you a true sister of Delta Phi Epsilon?"
+  },
+  {
+    "url": "http://smarterer.com/test/artrage",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/artrage.png",
+    "description": "Uncategorized - ArtRage is a bitmap graphics editor for digital painting.",
+    "name": "ArtRage"
+  },
+  {
+    "url": "http://smarterer.com/test/asp",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/asp.png",
+    "description": "Uncategorized - Active Server Pages (ASP), also known as Classic ASP or ASP Classic, was Microsoft's first server-side script-engine for dynamically-generated web pages. ",
+    "name": "ASP"
+  },
+  {
+    "url": "http://smarterer.com/test/australian_test",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ogiynjrjn2flmmv.png",
+    "description": "Uncategorized - Australian general knowledge that is used in the Citizen test",
+    "name": "Australian Test"
+  },
+  {
+    "url": "http://smarterer.com/test/base",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ooobase.png",
+    "description": "Uncategorized - OpenOffice.org Base is a database module.",
+    "name": "Base"
+  },
+  {
+    "url": "http://smarterer.com/test/bbc%27s_merlin",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - BBC's Series Merlin.",
+    "name": "BBC'S Merlin"
+  },
+  {
+    "url": "http://smarterer.com/test/boardwalk_empire_seasons_1_%26amp%3B_2",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/nmi4mju4nmviy2v.png",
+    "description": "Uncategorized - Questions pertaining to the TV show Boardwalk Empire and its first and second seasons.",
+    "name": "Boardwalk Empire Seasons 1 & 2"
+  },
+  {
+    "url": "http://smarterer.com/test/boomerang",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/boomerang_copy.png",
+    "description": "Uncategorized - Boomerang is an email marketing program and suite of support tools.",
+    "name": "Boomerang"
+  },
+  {
+    "url": "http://smarterer.com/test/bu_challenge",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/rhett_crowd_surf.png",
+    "description": "Uncategorized - Smarterer has teamed up with Boston University students to put your pride to the test and challenge your BU smarts. From the Comm Ave. runner to burritos in Towers, Warren Towers escalators to study dates in Mugar, the BU Challenge will find out who's truly campus royalty.",
+    "name": "BU Challenge"
+  },
+  {
+    "url": "http://smarterer.com/test/centura_sqlwindows",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/centura_team_develop.png",
+    "description": "Uncategorized - Centura SQLWindows is a 4GL for writing database driven applications.",
+    "name": "Centura SQLWindows"
+  },
+  {
+    "url": "http://smarterer.com/test/cinema",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/y2nhndu1nte2ywe.png",
+    "description": "Uncategorized - Testando o site Smarterer, com um pequeno QUIZ sobre cinema.",
+    "name": "Cinema"
+  },
+  {
+    "url": "http://smarterer.com/test/cisionpoint",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zja3mjiznwfhnwq.png",
+    "description": "Uncategorized - CisionPoint is a web-based “software as a service” solution that allows professionals to build media lists, distribute press releases, manage PR campaigns, monitor news coverage and analyze results.",
+    "name": "CisionPoint"
+  },
+  {
+    "url": "http://smarterer.com/test/coffee_beans",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Testing your knowledge of the coffee bean history, agriculture, botany and processes.",
+    "name": "Coffee Beans"
+  },
+  {
+    "url": "http://smarterer.com/test/costco_facts",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Costco Wholesale company facts and folklore. ",
+    "name": "Costco Facts"
+  },
+  {
+    "url": "http://smarterer.com/test/crystal_xcelsius",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/xcelsius_logo.png",
+    "description": "Uncategorized - Crystal Xcelsius allows users to transform Microsoft Excel spreadsheet data into interactive Flash media files.",
+    "name": "Crystal Xcelsius"
+  },
+  {
+    "url": "http://smarterer.com/test/days_of_our_lives",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Soap Opera",
+    "name": "Days of Our Lives"
+  },
+  {
+    "url": "http://smarterer.com/test/delicious",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/delicious.png",
+    "description": "Uncategorized - Delicious is a social bookmarking web service for storing, sharing, and discovering web bookmarks.",
+    "name": "Delicious"
+  },
+  {
+    "url": "http://smarterer.com/test/do_you_wazzu%3F",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/cougar_head.png",
+    "description": "Uncategorized - A test of knowledge about Washington State University.",
+    "name": "Do you Wazzu?"
+  },
+  {
+    "url": "http://smarterer.com/test/downton_abbey_seasons_1_and_2.",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ywe3zjrkzwu0otu.png",
+    "description": "Uncategorized - Downton Abbey is a television series, coproduced by Carnival Films in the UK and WGBH Boston in the US. The series is set on the fictional estate of Downton Abbey in the North Riding of Yorkshire, and features an ensemble cast. It was created by Julian Fellowes and Gareth Neame.",
+    "name": "Downton Abbey Seasons 1 and 2."
+  },
+  {
+    "url": "http://smarterer.com/test/drupal",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zte1njk2ndu0ntu.png",
+    "description": "Uncategorized - Drupal is a free and open-source content management system (CMS) and content management framework (CMF) written in PHP and distributed under the GNU General Public License.",
+    "name": "Drupal"
+  },
+  {
+    "url": "http://smarterer.com/test/drupal_gardens",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/gardens.png",
+    "description": "Uncategorized - Launch a product, promote an event, engage a community. Create socially smart websites and microsites that accelerate your business with Drupal Gardens.",
+    "name": "Drupal Gardens"
+  },
+  {
+    "url": "http://smarterer.com/test/dvd_studio_pro",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ngy4yzrhndu2zmu.png",
+    "description": "Uncategorized - Apple's Professional DVD Authoring Application.",
+    "name": "DVD Studio Pro"
+  },
+  {
+    "url": "http://smarterer.com/test/eden_fantasys",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ef_logo_r__1_.png",
+    "description": "Uncategorized - How much do you know about EdenFantasys? From the mentor program, to rank, to earning points, this test will rank your knowledge and maybe teach you a few things!",
+    "name": "Eden Fantasys"
+  },
+  {
+    "url": "http://smarterer.com/test/emc_clariion",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/emc_clariion_cx500.png",
+    "description": "Uncategorized - CLARiiON is a series storage processor which uses a SAN disk array.",
+    "name": "EMC CLARiiON"
+  },
+  {
+    "url": "http://smarterer.com/test/emerson_challenge",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/article_page_main_eh.png",
+    "description": "Uncategorized - Smarterer has teamed up with Emerson students to put your pride to the test and challenge your Emerson smarts. From Lady Gaga to Max Mutchnick, elevator etiquette to smoking outside the LB, the Emerson Challenge will find out who's truly campus royalty.",
+    "name": "Emerson Challenge"
+  },
+  {
+    "url": "http://smarterer.com/test/erlang",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Erlang progamming language",
+    "name": "Erlang"
+  },
+  {
+    "url": "http://smarterer.com/test/exercise",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yznhnje3ztdinjv.png",
+    "description": "Uncategorized - 15 minutes a day of reading can expose students to more than a million words of text in a year. 15 minutes of exercise can increase a person’s life by 3 years. Better your live by spending 30 minutes a day.\r\n",
+    "name": "Exercise"
+  },
+  {
+    "url": "http://smarterer.com/test/express_scribe",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/nzm0owi4yzlkzjz.png",
+    "description": "Uncategorized - Express Scribe is a transcription audio player specifically designed for typists and transcriptionists complete with time saving features including foot pedal control, variable speed playback, speech to text engine integration, support for a wide variety of audio formats including wav, mp3, and wma.",
+    "name": "Express Scribe"
+  },
+  {
+    "url": "http://smarterer.com/test/general_hospital",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Soap Opera",
+    "name": "General Hospital"
+  },
+  {
+    "url": "http://smarterer.com/test/graphicmail",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mzl.png",
+    "description": "Uncategorized - GraphicMail is a web-based bulk email and mobile marketing service.",
+    "name": "GraphicMail"
+  },
+  {
+    "url": "http://smarterer.com/test/hadoop_mapreduce",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zdc1y2yymzewzwe.png",
+    "description": "Uncategorized - Hadoop MapReduce is a programming model and software framework for writing applications that rapidly process vast amounts of data in parallel on large clusters of compute nodes.",
+    "name": "Hadoop MapReduce"
+  },
+  {
+    "url": "http://smarterer.com/test/handy_manny",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/handy_manny_cover.png",
+    "description": "Uncategorized - A test to demonstrate your knowledge of Disney's television program \"Handy Manny\"",
+    "name": "Handy Manny"
+  },
+  {
+    "url": "http://smarterer.com/test/harry_potter",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - ",
+    "name": "Harry Potter"
+  },
+  {
+    "url": "http://smarterer.com/test/hubpages",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/hubpages_app_icon_co.png",
+    "description": "Uncategorized - HubPages is a website designed around sharing advertising revenue for user-generated articles and other content on specific subjects.",
+    "name": "HubPages"
+  },
+  {
+    "url": "http://smarterer.com/test/ibm_blade_center",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/800px_ibm_logo.png",
+    "description": "Uncategorized - The IBM BladeCenter is IBM's blade server architecture.",
+    "name": "IBM Blade Center"
+  },
+  {
+    "url": "http://smarterer.com/test/infopath",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/infopath.png",
+    "description": "Uncategorized - Microsoft Office InfoPath is a software application for designing, distributing, filling and submitting electronic forms containing structured data. ",
+    "name": "InfoPath"
+  },
+  {
+    "url": "http://smarterer.com/test/inkscape",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/200px_inkscape_logo_.png",
+    "description": "Uncategorized - Inkscape is a vector graphics editor application.",
+    "name": "Inkscape"
+  },
+  {
+    "url": "http://smarterer.com/test/inventor",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/inventor256.png",
+    "description": "Uncategorized - Autodesk Inventor is 3D mechanical solid modeling design software for creating 3D digital prototypes used in the design, visualization and simulation of products.",
+    "name": "Inventor"
+  },
+  {
+    "url": "http://smarterer.com/test/ipad",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Demonstrate Ipad expertise",
+    "name": "ipad"
+  },
+  {
+    "url": "http://smarterer.com/test/iphoto",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - None",
+    "name": "iPhoto"
+  },
+  {
+    "url": "http://smarterer.com/test/javascript_dom",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - The Document Object Model (DOM) is an API for HTML and XML documents. It provides a structural representation of the document, enabling you to modify its content and visual presentation by using a scripting language such as JavaScript.",
+    "name": "JavaScript DOM"
+  },
+  {
+    "url": "http://smarterer.com/test/k-pop",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/iheartkpop.png",
+    "description": "Uncategorized - Korean Music Industry ",
+    "name": "K-Pop"
+  },
+  {
+    "url": "http://smarterer.com/test/knitting",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zjvkztu5ywi0zjz.png",
+    "description": "Uncategorized - All about knitting, yarn, and knitting accoutrement.",
+    "name": "Knitting"
+  },
+  {
+    "url": "http://smarterer.com/test/korean_pop_music_%28%22kpop%22%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mdg1n2iwmwnmzte.png",
+    "description": "Uncategorized - All about the Korean Music Industry, especially in its current stage.",
+    "name": "Korean Pop Music (\"Kpop\")"
+  },
+  {
+    "url": "http://smarterer.com/test/love_comes_softly_series",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Love Comes Softly Series",
+    "name": "Love Comes Softly Series"
+  },
+  {
+    "url": "http://smarterer.com/test/lte",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ywnmytrhndziztz.png",
+    "description": "Uncategorized - 3GPP Release 8 LTE technology",
+    "name": "LTE"
+  },
+  {
+    "url": "http://smarterer.com/test/maple",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/maple.png",
+    "description": "Uncategorized - Maple is a general-purpose commercial computer algebra system.",
+    "name": "Maple"
+  },
+  {
+    "url": "http://smarterer.com/test/maplesim",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/maplesim.png",
+    "description": "Uncategorized - MapleSim is a multi-domain modeling and simulation tool developed by Maplesoft.",
+    "name": "MapleSim"
+  },
+  {
+    "url": "http://smarterer.com/test/mathematics",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Simple math exam with some calculus questions.",
+    "name": "Mathematics"
+  },
+  {
+    "url": "http://smarterer.com/test/microsoft_mvc_framework",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Asp.net MVC Framework",
+    "name": "Microsoft MVC Framework"
+  },
+  {
+    "url": "http://smarterer.com/test/microstation",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/microstation.png",
+    "description": "Uncategorized -  2- and 3-dimensional design and drafting",
+    "name": "MicroStation"
+  },
+  {
+    "url": "http://smarterer.com/test/miley_cyrus",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - None",
+    "name": "Miley Cyrus"
+  },
+  {
+    "url": "http://smarterer.com/test/movies",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - A quiz about movies!",
+    "name": "Movies"
+  },
+  {
+    "url": "http://smarterer.com/test/neu_challenge",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/neu.png",
+    "description": "Uncategorized - Smarterer has teamed up with Northeastern students to put your pride to the test and challenge your NEU smarts. From middlers to President Aoun, Wollastons to Symphony 8, the NEU Challenge will find out who's truly campus royalty.",
+    "name": "NEU Challenge"
+  },
+  {
+    "url": "http://smarterer.com/test/nfl",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Questions about the NFL",
+    "name": "NFL"
+  },
+  {
+    "url": "http://smarterer.com/test/professional_wrestling",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - None",
+    "name": "Professional Wrestling"
+  },
+  {
+    "url": "http://smarterer.com/test/punk_rock",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/otgyyjewodq0ztl.png",
+    "description": "Uncategorized - Test your knowledge of punk rock music.",
+    "name": "Punk Rock"
+  },
+  {
+    "url": "http://smarterer.com/test/quantum_gis",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/qgis_logo.png",
+    "description": "Uncategorized - Quantum GIS is a Geographic Information Systems application that provides data viewing, editing, and analysis capabilities.",
+    "name": "Quantum GIS"
+  },
+  {
+    "url": "http://smarterer.com/test/rocketseed",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/rs_logo.png",
+    "description": "Uncategorized - Rocketseed Mail: Email 2.0 technology",
+    "name": "Rocketseed"
+  },
+  {
+    "url": "http://smarterer.com/test/ruby",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zwnimjliodcyotn.png",
+    "description": "Uncategorized - Ruby is a dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.",
+    "name": "Ruby"
+  },
+  {
+    "url": "http://smarterer.com/test/runescape",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/otmzmme5zgziywj.png",
+    "description": "Uncategorized - RuneScape is a fantasy massively multiplayer online role-playing game (MMORPG)",
+    "name": "RuneScape"
+  },
+  {
+    "url": "http://smarterer.com/test/seo",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Website Marketing",
+    "name": "SEO"
+  },
+  {
+    "url": "http://smarterer.com/test/slideshare",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_slidesharewrong.png",
+    "description": "Uncategorized - SlideShare is an online slide hosting service.",
+    "name": "SlideShare"
+  },
+  {
+    "url": "http://smarterer.com/test/softball",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - couple key things about softball",
+    "name": "softball"
+  },
+  {
+    "url": "http://smarterer.com/test/sons_of_anarchy",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/ngriotk0mjeyntn.png",
+    "description": "Uncategorized - A little tidbits about the show that is featured on FX during the fall.  About a motorcycle club based in California.",
+    "name": "Sons of Anarchy"
+  },
+  {
+    "url": "http://smarterer.com/test/spanish_fruits",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zjqwmdeynji5zmn.png",
+    "description": "Uncategorized - test your skills in spanish fruits!",
+    "name": "Spanish fruits"
+  },
+  {
+    "url": "http://smarterer.com/test/sprout_social",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yzninzg2odm1nwj.png",
+    "description": "Uncategorized - Sprout Social is a social media management tool created to help businesses grow their social media presence. The web application integrates with multiple social networks where consumers are engaging with businesses and brands. \r\n\r\nIt offers team or individual engagement and publishing tools with in-depth analytics, brand monitoring, competitive insights and social CRM features. Sprout Social is known for its intuitive, easy-to-use web and mobile platforms.",
+    "name": "Sprout Social"
+  },
+  {
+    "url": "http://smarterer.com/test/statistics_%26amp%3B_probability",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - None",
+    "name": "Statistics & Probability"
+  },
+  {
+    "url": "http://smarterer.com/test/sugarsync",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/sugarysync_copy.png",
+    "description": "Uncategorized - SugarSync is an file synchronization and backup application.",
+    "name": "SugarSync"
+  },
+  {
+    "url": "http://smarterer.com/test/teaching_a_young_rembrandts_drawing_class",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/p1060484.png",
+    "description": "Uncategorized - A trial of a new aide in training Young Rembrandts Instructors.",
+    "name": "Teaching a Young Rembrandts Drawing Class"
+  },
+  {
+    "url": "http://smarterer.com/test/the_masters",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - Questions about Golf's 1st Major of the year, The Masters Tournament.",
+    "name": "The Masters"
+  },
+  {
+    "url": "http://smarterer.com/test/the_walking_dead",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/odc0zwqwnzqynza.png",
+    "description": "Uncategorized - Do you know The Walking Dead?  Questions about the show, show's storyline, who's who, and more!  Don't read if you're not caught up - SPOILERS AHEAD!",
+    "name": "The Walking Dead"
+  },
+  {
+    "url": "http://smarterer.com/test/tweetdeck_for_android",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/tweetdeckforandroid.png",
+    "description": "Uncategorized - TweetDeck for Android is an Android app for Twitter, Facebook, LinkedIn, Google Buzz, Foursquare, and MySpace",
+    "name": "Tweetdeck for Android"
+  },
+  {
+    "url": "http://smarterer.com/test/unity3d",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/unity_logo.png",
+    "description": "Uncategorized - Unity 3 is a game development tool that has been designed to let you focus on creating amazing games.",
+    "name": "Unity3D"
+  },
+  {
+    "url": "http://smarterer.com/test/utest_platform_%28customers%29",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Uncategorized - uTest provides \"in-the-wild\" software testing services for web, mobile, gaming and desktop applications via our global community of professional testers.\r\n\r\nThis particular test involves the Customers' side of the uTest Platform (as opposed to Testers).",
+    "name": "uTest Platform (Customers)"
+  },
+  {
+    "url": "http://smarterer.com/test/utest",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/utestlogo_160_48_tra.png",
+    "description": "Uncategorized - uTest provides \"in-the-wild\" software testing services for web, mobile, gaming and desktop applications via our global community of professional testers.\r\n\r\nThis particular test involves the Testers' side of the uTest Platform (as opposed to Customers).",
+    "name": "uTest Platform (Testers)"
+  },
+  {
+    "url": "http://smarterer.com/test/bing",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_bing.png",
+    "description": "Websites & Apps - Bing is a search engine created by Microsoft",
+    "name": "Bing"
+  },
+  {
+    "url": "http://smarterer.com/test/blogger",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/unknown.png",
+    "description": "Websites & Apps - Blogger is a blog-publishing service that allows users to create private or multi-user blogs with time-stamped entries. Blogger was developed by Pyra Labs and bought out by Google in 2003. ",
+    "name": "Blogger"
+  },
+  {
+    "url": "http://smarterer.com/test/brightcove_media_module",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/bclogosmarterer_120.png",
+    "description": "Websites & Apps - The Video Cloud Media module is a flexible and fast tool for managing your digital media, made by Brightcove Inc.",
+    "name": "Brightcove Media Module"
+  },
+  {
+    "url": "http://smarterer.com/test/brightcove_publishing_module",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/bclogosmarterer_120.png",
+    "description": "Websites & Apps - The Video Cloud Publishing module is a flexible, fast tool for creating, customizing, managing, and publishing rich media experiences with a simple and intuitive user interface made by Brightcove Inc.",
+    "name": "Brightcove Publishing Module"
+  },
+  {
+    "url": "http://smarterer.com/test/bullhorn_ats",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/bullhornatscrm.png",
+    "description": "Websites & Apps - Bullhorn ATS and CRM",
+    "name": "Bullhorn ATS"
+  },
+  {
+    "url": "http://smarterer.com/test/computer_competency_test",
+    "image_url": "http://cdn-smarterer.s3.amazonaws.com/test_logos/no-logo.png",
+    "description": "Websites & Apps - Basic knowledge of computer and computer skills",
+    "name": "Computer Competency Test"
+  },
+  {
+    "url": "http://smarterer.com/test/deviantart",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/daiconclear.png",
+    "description": "Websites & Apps - deviantART is a social platform for artists to exhibit, promote, and share their works within a peer community.",
+    "name": "deviantART"
+  },
+  {
+    "url": "http://smarterer.com/test/digg",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_digg.png",
+    "description": "Websites & Apps - Digg is a social news website. Prior to Digg v4, its cornerstone function consisted of letting people vote stories up or down, called digging and burying, respectively. ",
+    "name": "Digg"
+  },
+  {
+    "url": "http://smarterer.com/test/dropbox",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_dropbox.png",
+    "description": "Websites & Apps - Dropbox is a web-based file hosting service that uses cloud computing to enable users to store and share files and folders with others across the Internet using file synchronization",
+    "name": "Dropbox"
+  },
+  {
+    "url": "http://smarterer.com/test/facebook",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_facebook2.png",
+    "description": "Websites & Apps - Facebook helps you connect and share with the people in your life. ",
+    "name": "Facebook"
+  },
+  {
+    "url": "http://smarterer.com/test/flickr",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_flickr.png",
+    "description": "Websites & Apps - Flickr is an image hosting and video hosting website, web services suite, and online community. It is a popular website for users to share and embed personal photographs,  and it is widely used by bloggers to host images that they embed in blogs and social media.",
+    "name": "Flickr"
+  },
+  {
+    "url": "http://smarterer.com/test/foursquare",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_foursquare.png",
+    "description": "Websites & Apps - Foursquare is a location-based social networking website, software for mobile devices. This service is available to users with GPS-enabled mobile devices, such as Smartphones.",
+    "name": "Foursquare"
+  },
+  {
+    "url": "http://smarterer.com/test/gmail",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_gmail2.png",
+    "description": "Websites & Apps - Gmail is a free, advertising-supported webmail, POP3, and IMAP service provided by Google.",
+    "name": "Gmail"
+  },
+  {
+    "url": "http://smarterer.com/test/go_daddy",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/godaddy_icon_250x250.png",
+    "description": "Websites & Apps - Go Daddy is an Internet domain registrar and Web hosting service.",
+    "name": "Go Daddy"
+  },
+  {
+    "url": "http://smarterer.com/test/google_adwords",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_googleadwords.png",
+    "description": "Websites & Apps - AdWords is Google's main advertising product and main source of revenue. AdWords offers pay-per-click (PPC) advertising, cost-per-thousand (CPM) advertising, and site-targeted advertising for text, banner, and rich-media ads.",
+    "name": "Google AdWords"
+  },
+  {
+    "url": "http://smarterer.com/test/google_analytics",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_googleanalytica.png",
+    "description": "Websites & Apps - Google Analytics (GA) is a free service offered by Google that generates detailed statistics about the visitors to a website",
+    "name": "Google Analytics"
+  },
+  {
+    "url": "http://smarterer.com/test/google_maps",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/maps.png",
+    "description": "Websites & Apps - Google Maps is a web mapping service application and technology provided by Google Inc.",
+    "name": "Google Maps"
+  },
+  {
+    "url": "http://smarterer.com/test/google_search",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_google4.png",
+    "description": "Websites & Apps - Google Search is the most-used search engine on the Web.",
+    "name": "Google Search"
+  },
+  {
+    "url": "http://smarterer.com/test/google%2B",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_google_.png",
+    "description": "Websites & Apps - A test about the up and coming social network, Google+ by Google.",
+    "name": "Google+"
+  },
+  {
+    "url": "http://smarterer.com/test/gowalla",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_gowalla.png",
+    "description": "Websites & Apps - Gowalla is a location-based social network. Users 'check in' at Spots in their local vicinity, either through a dedicated mobile application or through the mobile website.",
+    "name": "Gowalla"
+  },
+  {
+    "url": "http://smarterer.com/test/grooveshark",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/grooveshark_icon_256.png",
+    "description": "Websites & Apps - Grooveshark is a music search engine, music streaming service and music recommendation web software application.",
+    "name": "Grooveshark"
+  },
+  {
+    "url": "http://smarterer.com/test/hootsuite",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/hootsuite.png",
+    "description": "Websites & Apps - HootSuite is a social media communications dashboard used for online brand management. It publishes to websites such as Facebook, Twitter, LinkedIn, Foursquare, MySpace, and WordPress.",
+    "name": "HootSuite"
+  },
+  {
+    "url": "http://smarterer.com/test/hubspot",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_hubspot.png",
+    "description": "Websites & Apps - HubSpot is a venture-funded marketing software company based in Cambridge, Massachusetts. Its customer base grew from over 1,400 in July 2009 to over 3,600 in November 2010, in the USA.",
+    "name": "HubSpot"
+  },
+  {
+    "url": "http://smarterer.com/test/joomla",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/joomla_logo.png",
+    "description": "Websites & Apps - Joomla is an open-source content management system (CMS) released in 2005 for free personal management of online applications and content. Joomla is written in PHP, is constructed with object-oriented programming techniques, and stores information using MySQL.",
+    "name": "Joomla"
+  },
+  {
+    "url": "http://smarterer.com/test/linkedin",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_linkedin.png",
+    "description": "Websites & Apps - LinkedIn is a business-oriented social networking site. Founded in December 2002 and launched in May 2003, it is mainly used for professional networking.",
+    "name": "LinkedIn"
+  },
+  {
+    "url": "http://smarterer.com/test/mediawiki",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mediawiki.png",
+    "description": "Websites & Apps - Questions about the wiki software application MediaWiki. The system behind Wikipedia and many other wikis.",
+    "name": "MediaWiki (User)"
+  },
+  {
+    "url": "http://smarterer.com/test/odesk",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_odesk.png",
+    "description": "Websites & Apps - This is a test focused on understanding and usage of the oDesk platform. It is designed from the buyer or employer perspective. It will help understand some of the best practices to building a distributed global team.  ",
+    "name": "oDesk"
+  },
+  {
+    "url": "http://smarterer.com/test/pinterest",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/njjjzje3ndg2ody.png",
+    "description": "Websites & Apps - Pinterest is a pinboard-styled social photo sharing website that allows users to create and manage theme-based image collections. ",
+    "name": "Pinterest"
+  },
+  {
+    "url": "http://smarterer.com/test/pixable",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/pixable.png",
+    "description": "Websites & Apps - Pixable is a photo discovery application that aggregates and ranks photos across different online photo repositories.",
+    "name": "Pixable"
+  },
+  {
+    "url": "http://smarterer.com/test/reddit",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_reddit.png",
+    "description": "Websites & Apps - Reddit is a source for what's new and popular on the web. Users provide all of the content and decide, through voting, what's good and what's junk.",
+    "name": "Reddit"
+  },
+  {
+    "url": "http://smarterer.com/test/sharepoint",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/sharepoint.png",
+    "description": "Websites & Apps - Microsoft SharePoint is a web application platform designed as a centralized replacement for multiple web applications. It  allows for managing and provisioning of intranet portals, extranets and websites, document management and file management, collaboration spaces, social networking tools, enterprise search, business intelligence tooling, process/information integration, and third-party developed solutions. ",
+    "name": "SharePoint"
+  },
+  {
+    "url": "http://smarterer.com/test/skype_%28user%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/skypeicon.png",
+    "description": "Websites & Apps - Skype allows users to make voice and video calls and chats over the Internet. ",
+    "name": "Skype (User)"
+  },
+  {
+    "url": "http://smarterer.com/test/smarterer_test_creation",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/mark_smarterer_512x5.png",
+    "description": "Websites & Apps - A lost and under-appreciated art, creating good Test Questions is harder than it seems!",
+    "name": "Smarterer Test Creation"
+  },
+  {
+    "url": "http://smarterer.com/test/social_media",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/zwmyzjjmmzm5mgn.png",
+    "description": "Websites & Apps - Know how to sort out your friends from your followers? Know your tweetups from your mashups? Find out if you’re socially savvy or socially simple with this social media marketing test.",
+    "name": "Social Media"
+  },
+  {
+    "url": "http://smarterer.com/test/squidoo",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_squidoowrong.png",
+    "description": "Websites & Apps - Squidoo is a community website that allows users to create pages (called lenses) for subjects of interest. Squidoo had 1.5 million hand-built lenses as of October, 2010.",
+    "name": "Squidoo"
+  },
+  {
+    "url": "http://smarterer.com/test/stumbleupon",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/stumbleupon_logo.png",
+    "description": "Websites & Apps - StumbleUpon is a discovery engine that finds and recommends web content to its users, personalizing results to their tastes and interests.",
+    "name": "StumbleUpon"
+  },
+  {
+    "url": "http://smarterer.com/test/surveymonkey",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_surveymonnkeywr.png",
+    "description": "Websites & Apps - SurveyMonkey is a private American company that enables users to create their own Web-based surveys. ",
+    "name": "SurveyMonkey"
+  },
+  {
+    "url": "http://smarterer.com/test/tumblr",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_tumblr.png",
+    "description": "Websites & Apps - Tumblr is a microblogging platform that allows users to post text, images, videos, links, quotes and audio to their tumblelog, a short-form blog. ",
+    "name": "Tumblr"
+  },
+  {
+    "url": "http://smarterer.com/test/tweetdeck",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_tweetdeck.png",
+    "description": "Websites & Apps - TweetDeck is an Adobe AIR desktop application, that interfaces with the Twitter API to allow users to send and receive tweets and view profiles. ",
+    "name": "TweetDeck"
+  },
+  {
+    "url": "http://smarterer.com/test/twitter",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_twitter.png",
+    "description": "Websites & Apps - Twitter is a real-time information network that connects you to the latest information about what you find interesting. ",
+    "name": "Twitter"
+  },
+  {
+    "url": "http://smarterer.com/test/wistia",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/wistia.png",
+    "description": "Websites & Apps - Wistia is a video hosting, sharing, and tracking application for business.",
+    "name": "Wistia"
+  },
+  {
+    "url": "http://smarterer.com/test/wordpress_%28user%29",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_wordpress.png",
+    "description": "Websites & Apps - WordPress is an open source Content Management System (CMS), often used as a blog publishing application",
+    "name": "WordPress"
+  },
+  {
+    "url": "http://smarterer.com/test/yahoo_groups",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yahoo_groups_text.png",
+    "description": "Websites & Apps - Yahoo! Groups is a collection of online discussion boards.",
+    "name": "Yahoo Groups"
+  },
+  {
+    "url": "http://smarterer.com/test/yahoo_search",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/yahoo_icon_copy.png",
+    "description": "Websites & Apps - Yahoo Search is a web search engine.",
+    "name": "Yahoo Search"
+  },
+  {
+    "url": "http://smarterer.com/test/youtube",
+    "image_url": "http://cdn-smarterer.s3-website-us-east-1.amazonaws.com/test_logos/icon_youtube.png",
+    "description": "Websites & Apps - YouTube is a video-sharing website on which users can upload, share, and view videos, created by three former PayPal employees in February 2005.",
+    "name": "YouTube"
+  }
+]

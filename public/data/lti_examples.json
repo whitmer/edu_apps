@@ -100,6 +100,26 @@
       "data_url": "/data/codecademy.json"
     },
     {
+      "new": true,
+      "id": "smarterer",
+      "name": "Smarterer",
+      "image_url": "/tools/smarterer.png",
+      "big_image_url": "/big_tools/smarterer.png",
+      "description": "Search through and insert links to quizzing and learning resources hosted by <a href='http://smarterer.com'>Smarterer</a>",
+      "short_description": "Crowdsourced quizzes and review tools",
+      "full_tool": true,
+      "data_url": "/data/smarterer.json",
+      "any_key": true,
+      "config_url": "/config/smarterer.xml",
+      "extensions": ["editor_button"],
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content", "Open Content"],
+      "preview": {
+        "url": "/tools.html?tool=smarterer",
+        "height": 475
+      }
+    },
+    {
       "id": "educreations",
       "name": "educreations",
       "image_url": "/tools/educreations.png",

@@ -72,7 +72,7 @@ if(!skipValidation) {
     lti.resourceSelected = function(data) {
       if(returnUrl && returnUrl != "undefined" && returnUrl != "undefined?") {
         if(trackEvent) {
-          trackEvent('resource_selected', data.embed_type, trackUrl);
+          trackEvent('resource_selected', lti.tool_id || data.embed_type, trackUrl);
         }
         var url = returnUrl;
         for(var idx in data) {
