@@ -248,7 +248,35 @@
       ],
       "levels": ["Postsecondary"],
       "categories": ["Web 2.0", "Community"],
-      "extensions": ["course_nav"]
+      "extensions": ["user_nav"]
+    },
+    {
+      "new": true,
+      "id": "hoot_me",
+      "name": "Hoot.me",
+      "image_url": "/tools/hoot_me.png",
+      "big_image_url": "/big_tools/hoot_me.png",
+      "description": "Hoot.me lets students study and work collaboratively from within Facebook.",
+      "any_key": true,
+      "config_url": "/config/hoot_me.xml",
+      "config_options": [
+        {
+            "name": "school_name",
+            "description": "Name of school (The University of Texas, Harvard, etc.)",
+            "required": true,
+            "type": "text",
+            "value": "myschool"
+        },
+        {
+            "name": "user_nav",
+            "description": "Show in User Profile",
+            "type": "checkbox",
+            "value": "1"
+        }
+      ],
+      "levels": ["Postsecondary"],
+      "categories": ["Web 2.0", "Community"],
+      "extensions": ["user_nav"]
     },
     {
       "id": "piazza",

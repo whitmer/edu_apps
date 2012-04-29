@@ -143,6 +143,35 @@ get '/wikipedia_search' do
   return res.to_json
 end
 
+get '/cnx_search' do
+  uri = URI.parse("http://cnx.org/content/opensearch?words=#{CGI.escape(params['q'])}&b_size=12")
+  xml = Nokogiri(Net::HTTP.get(uri))
+  res = []
+  xml.css('item').each do |item|
+    res << {
+      :title => item.css('title')[0].content,
+      :description => item.css('description')[0].content,
+      :url => item.css('link')[0].content
+    }
+  end
+  return res.to_json
+end
+
+get '/ocw_search' do
+  uri = URI.parse("http://www.ocwsearch.com/api/v1/search.json?q=#{CGI.escape(params['q'])}&contact=#{CGI.escape('http://www.instructure.com')}")
+  json = JSON.parse(Net::HTTP.get(uri))
+  res = []
+  json['Results'].to_a.sort_by{|k, v| k.to_i }.each do |k, result|
+    next unless result['Title']
+    res << {
+      :title => result['Title'],
+      :description => result['Description'],
+      :url => result['CourseURL']
+    }
+  end
+  return res.to_json
+end
+
 get "/wiktionary_search" do
   url = "http://en.wiktionary.org/wiki/#{params['q']}"
   uri = URI.parse(url)
@@ -1057,6 +1086,31 @@ get "/config/inigral.xml" do
       <lticm:options name="user_navigation">
         <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('https://apps.facebook.com/' + params['app_name'])}</lticm:property>
         <lticm:property name="text">Schools App</lticm:property>
+      </lticm:options>
+    XML
+  end
+  xml +=  <<-XML
+    </blti:extensions>
+  XML
+  config_wrap(xml)
+end
+
+get "/config/hoot_me.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  return "School Name" if !params['school_name'] || params['school_name'] == ''
+  xml =  <<-XML
+    <blti:title>Hoot.me</blti:title>
+    <blti:description>Launch hoot.me's Facebook study tools</blti:description>
+    <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('https://apps.facebook.com/hootapp/?status=' + params['school_name'])}</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+  XML
+  if params['user_nav']
+    xml +=  <<-XML
+      <lticm:options name="user_navigation">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('https://apps.facebook.com/hootapp/?status=' + params['school_name'])}</lticm:property>
+        <lticm:property name="text">Hoot.me</lticm:property>
       </lticm:options>
     XML
   end
