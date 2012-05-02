@@ -6,8 +6,8 @@
     var videoUrl = $(this).attr('rel');
     lti.resourceSelected({
       embed_type: 'link',
-      url: entry.link,
-      text: entry.title
+      url: videoUrl,
+      text: $(this).find(".title").text()
     });
   });
   $("#search").submit(function(event) {
