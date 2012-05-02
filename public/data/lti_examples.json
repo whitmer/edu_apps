@@ -860,5 +860,43 @@
       "description": "Programr offers coding challenge projects for programming languages including Java, C# and C++. Link to any of the available challenges from your course material.",
       "short_description": "Coding challenges in Java, C# and C++",
       "data_url": "/data/programr.json"
+    },
+    {
+      "id": "ocw_search",
+      "new": true,
+      "name": "OCW Search",
+      "image_url": "/tools/ocw_search.png",
+      "big_image_url": "/big_tools/ocw_search.png",
+      "levels": ["Postsecondary"],
+      "categories": ["Content", "Open Content"],
+      "description": "OCW search collects OCW courses from MIT, Stanford, Yale, the Open University, etc. for searching and linking.",
+      "short_description": "Find open courses",
+      "any_key": true,
+      "config_url": "/config/ocw_search.xml",
+      "launch_url": "/ocw_search.html",
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/ocw_search.html",
+        "height": 475
+      }
+    },
+    {
+      "id": "connexions",
+      "new": true,
+      "name": "Connexions",
+      "image_url": "/tools/connexions.png",
+      "big_image_url": "/big_tools/connexions.png",
+      "levels": ["Postsecondary"],
+      "categories": ["Content", "Open Content"],
+      "description": "Connexions collects open content comprised of \"small knowledge chunks\" that can be linked to from within any course material.",
+      "short_description": "Find open learning resources",
+      "any_key": true,
+      "config_url": "/config/connexions.xml",
+      "launch_url": "/connexions.html",
+      "extensions": ["editor_button"],
+      "preview": {
+        "url": "/connexions.html",
+        "height": 475
+      }
     }
 ]

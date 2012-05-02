@@ -1020,6 +1020,48 @@ get "/config/storify.xml" do
   XML
 end
 
+get "/config/ocw_search.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>OCW Search</blti:title>
+    <blti:description>Search freely available online university courses and course content</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/ocw_search.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/ocw_search.png</lticm:property>
+        <lticm:property name="text">OCW Search</lticm:property>
+        <lticm:property name="selection_width">690</lticm:property>
+        <lticm:property name="selection_height">530</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/icons/ocw_search.png</blti:icon>
+  XML
+end
+
+get "/config/connexions.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>Connexions</blti:title>
+    <blti:description>Search publicly available courses, modules, etc.</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/connexions.html')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/connexions.png</lticm:property>
+        <lticm:property name="text">Connexions</lticm:property>
+        <lticm:property name="selection_width">690</lticm:property>
+        <lticm:property name="selection_height">530</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/icons/connexions.png</blti:icon>
+  XML
+end
+
 get "/config/piazza.xml" do
   host = request.scheme + "://" + request.host_with_port
   headers 'Content-Type' => 'text/xml'
