@@ -879,24 +879,5 @@
         "url": "/ocw_search.html",
         "height": 475
       }
-    },
-    {
-      "id": "connexions",
-      "new": true,
-      "name": "Connexions",
-      "image_url": "/tools/connexions.png",
-      "big_image_url": "/big_tools/connexions.png",
-      "levels": ["Postsecondary"],
-      "categories": ["Content", "Open Content"],
-      "description": "Connexions collects open content comprised of \"small knowledge chunks\" that can be linked to from within any course material.",
-      "short_description": "Find open learning resources",
-      "any_key": true,
-      "config_url": "/config/connexions.xml",
-      "launch_url": "/connexions.html",
-      "extensions": ["editor_button"],
-      "preview": {
-        "url": "/connexions.html",
-        "height": 475
-      }
     }
 ]

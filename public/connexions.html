@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+<style>
+body {
+  font-family: Arial;
+}
+h1 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+#results {
+  width: 560px;
+}
+#results .result {
+  float: left;
+  width: 175px;
+  padding: 5px;
+}
+#results .result:hover {
+  background: #ccc;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#results .result .title {
+  height: 28px;
+  font-size: 12px;
+  overflow: hidden;
+  color: #444;
+  line-height: 14px;
+  font-weight: bold;
+}
+#results .result .desc {
+  margin-top: 5px;
+  height: 65px;
+  font-size: 11px;
+  overflow: hidden;
+  line-height: 13px;
+}
+#results .result .links {
+  text-align: right;
+  font-size: 10px;
+  opacity: 0.4;
+}
+#results .result:hover .links {
+  opacity: 1.0;
+}
+#message {
+  font-weight: bold;
+  margin: 10px;
+}
+</style>
+</head>
+<body>
+<img id="header_img" src="/tools/connexions.png" style="padding-right: 10px; width: 70px; vertical-align: middle; float: left;"/>
+<h1>
+Search Connexions:
+</h1>
+
+<form id="search" class="form-inline">
+<input type="text" id="query"/>
+<button type="submit" class='btn'><span class='icon-search'></span> Search</button>
+</form>
+
+<div id="message"></div>
+
+<div id="results"></div>
+<div id="result" style="display: none;" class="result" title="Click to insert link">
+  <div class="title"></div>
+  <div class="desc"></div>
+  <div class="links">
+    <a href="#" class="preview">preview</a>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>var lti = {tool_id: "cnx_search"}; var search_endpoint = "cnx_search"; </script>
+<script src="analytics.js"></script>
+<script src="lti.js"></script>
+<script src="ocw_Search.js"></script>
+</body>
+</html>

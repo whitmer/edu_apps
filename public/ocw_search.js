@@ -31,12 +31,16 @@ var lti;
           var $entry = $result.clone(true);
           $entry.data('entry', entry);
           $entry.find(".title").text(entry.title);
-          $entry.find(".desc").text(entry.description);
+          $entry.find(".desc").html(entry.description);
           $entry.find(".preview").attr('href', entry.url);
           $results.append($entry.show());
         }
         $results.show();
         $message.hide();
+      },
+      error: function() {
+        $results.empty().hide();
+        $message.show().text("There was a problem retrieving results");
       },
       dataType: 'json'
     });
