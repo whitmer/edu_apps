@@ -404,6 +404,17 @@
       "categories": ["Textbooks/eBooks"]
     },
     {
+      "id": "sage_cell",
+      "new": true,
+      "name": "Sage",
+      "image_url": "/tools/sage_cell.png",
+      "big_image_url": "/big_tools/sage_cell.png",
+      "description": "Sage is an online open source mathematics software system, an alternative to Mathematica or Matlab. Users can build interactive mathematical systems that are rendered in the browser.",
+      "config_url": "/config/sage_cell.xml",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Math", "Science"]
+    },
+    {
       "id": "chem_vantage",
       "name": "ChemVantage",
       "image_url": "/tools/chemvantage.png",

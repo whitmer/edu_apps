@@ -114,14 +114,14 @@
         Not familiar with LTI? Basically it's like Facebook apps or Google widgets, but interoperable between lots of edu tools. The <a href="/tutorials.html">tutorials page</a> shows how to configure LTI tools in supported systems. There's also some handy extensions to LTI that you can learn more about on the <a href="/extensions.html">extensions page</a>. Tools with a gray label under their configuration xml support LTI extensions that won't work in all systems. Currently LTI extensions are only supported by Canvas.
       </p>
       <p style="float: right;">
-        <a href="http://atutor.ca/"><img src='/lms/atutor.png' title="Works in ATutor 2.03+"/></a>
-        <a href="http://www.blackboard.com"><img src='/lms/blackboard.png' title="Works in Blackboard Learn 9.1 SP4+"/></a>
-        <a href="http://www.instructure.com"><img src='/lms/canvas.png' title="Works in Canvas by Instructure"/></a>
-        <a href="http://www.desire2learn.com"><img src='/lms/desire2learn.png' title="Works in Desire2Learn 8.4+"/></a>
-        <a href="http://www.jenzabar.com/products.aspx?id=148"><img src='/lms/eracer.png' title="Works in Jenzabar e-Racer 1.5+"/></a>
-        <a href="http://moodle.org/"><img src='/lms/moodle.png' title="Works in Moodle 2.2+"/></a>
-        <a href="http://sakaiproject.org/"><img src='/lms/sakai.png' title="Works in Sakai 2.7+"/></a>
-        <a href="http://en.wikipedia.org/wiki/WebCT"><img src='/lms/webct.png' title="Works in WebCT 6+ (require PowerLink)"/></a>
+        <a href="http://atutor.ca/"><img src='/lms/atutor.png' class="works_in" title="Works in ATutor 2.03+"/></a>
+        <a href="http://www.blackboard.com"><img src='/lms/blackboard.png' class="works_in" title="Works in Blackboard Learn 9.1 SP4+"/></a>
+        <a href="http://www.instructure.com"><img src='/lms/canvas.png' class="works_in" title="Works in Canvas by Instructure"/></a>
+        <a href="http://www.desire2learn.com"><img src='/lms/desire2learn.png' class="works_in" title="Works in Desire2Learn 8.4+"/></a>
+        <a href="http://www.jenzabar.com/products.aspx?id=148"><img src='/lms/eracer.png' class="works_in" title="Works in Jenzabar e-Racer 1.5+"/></a>
+        <a href="http://moodle.org/"><img src='/lms/moodle.png' class="works_in" title="Works in Moodle 2.2+"/></a>
+        <a href="http://sakaiproject.org/"><img src='/lms/sakai.png' class="works_in" title="Works in Sakai 2.7+"/></a>
+        <a href="http://en.wikipedia.org/wiki/WebCT"><img src='/lms/webct.png' class="works_in" title="Works in WebCT 6+ (require PowerLink)"/></a>
       </p>
     </div>
     <div id="contents"></div>
@@ -309,8 +309,12 @@
   $(".config_field").live('click focus', function() {
     $(this).select();
   });
+  $(document).ready(function() {
+    $(".works_in").tooltip();
+  });
   </script>
   <script src="/analytics.js"></script>
+  <script src="bootstrap-tooltip.js"></script>
   <script src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=197367153633354"></script>
   </body>
 </html>

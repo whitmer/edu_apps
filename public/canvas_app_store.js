@@ -145,7 +145,7 @@
         $secret.errorBox("This field is required").css('zIndex', 999);
         return;
       }
-      var key = $key.val() || "key";
+      var key = $key.val() || "key-" + Math.round(Math.random(99999));
       var secret = $secret.val() || "secret";
       var postUrl = $(".external_tools_url").attr('href');
       var originalTool = tool;
