@@ -366,6 +366,7 @@
     {
       "new": true,
       "id": "pinterest",
+      "pending": true,
       "name": "Pinterest",
       "image_url": "/tools/pinterest.png",
       "big_image_url": "/big_tools/pinterest.png",
