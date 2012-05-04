@@ -1106,6 +1106,7 @@ get "/config/wordpress.xml" do
     XML
   end
   xml +=  <<-XML
+    <blti:icon>#{host}/icons/wordpress.png</blti:icon>
     </blti:extensions>
   XML
   config_wrap(xml)
@@ -1131,6 +1132,7 @@ get "/config/mahara.xml" do
     XML
   end
   xml +=  <<-XML
+    <blti:icon>#{host}/icons/mahara.png</blti:icon>
     </blti:extensions>
   XML
   config_wrap(xml)
@@ -1156,6 +1158,7 @@ get "/config/question2answer.xml" do
     XML
   end
   xml +=  <<-XML
+    <blti:icon>#{host}/icons/question2answer.png</blti:icon>
     </blti:extensions>
   XML
   config_wrap(xml)
@@ -1206,6 +1209,7 @@ get "/config/inigral.xml" do
     XML
   end
   xml +=  <<-XML
+    <blti:icon>#{host}/icons/inigral.png</blti:icon>
     </blti:extensions>
   XML
   config_wrap(xml)
@@ -1231,6 +1235,7 @@ get "/config/hoot_me.xml" do
     XML
   end
   xml +=  <<-XML
+    <blti:icon>#{host}/icons/hoot_me.png</blti:icon>
     </blti:extensions>
   XML
   config_wrap(xml)
