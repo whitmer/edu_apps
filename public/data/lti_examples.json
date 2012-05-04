@@ -892,5 +892,113 @@
         "url": "/ocw_search.html",
         "height": 475
       }
+    },
+    {
+      "id": "wordpress",
+      "new": true,
+      "name": "WordPress",
+      "image_url": "/tools/wordpress.png",
+      "big_image_url": "/big_tools/wordpress.png",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content", "Community"],
+      "description": "WordPress is a popular blogging and publishing platform. You could use it to host student or class blogs. This tool allows for auto-login to the WordPress platform from another system. Links can be added to course content, or optionally as course navigation.<br/><br/><b>Directions for configuring WordPress:</b><ol><li>Configure your WordPress <a href='http://codex.wordpress.org/Create_A_Network'>account for multisite</a></li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Wordpress/wordpressLTIPlugin.zip/download'>the WordPress LTI plugin</a></li><li>Extract the LTI plugin into <code>wp-content/mu-plugin</code></li><li>Log as superAdmin and go to Network Dashboard -> Settings -> LTI Consumers Keys. Here you can manage the authorized consumers keys</li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Wordpress'>follow the directions here</a></ol>",
+      "config_url": "/config/wordpress.xml",
+      "extensions": ["course_nav"],
+      "config_options": [
+        {
+            "name": "site_url",
+            "description": "WordPress site URL",
+            "required": true,
+            "type": "text",
+            "value": "http://mywordpress.url"
+        },
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "status_net",
+      "new": true,
+      "name": "Status.net",
+      "image_url": "/tools/status_net.png",
+      "big_image_url": "/big_tools/status_net.png",
+      "levels": ["7th-12th Grade", "Postsecondary"],
+      "categories": ["Content", "Community"],
+      "description": "Status.net is a private microblogging platform that can be run for your institution, department or course. This tool allows for auto-login to the Status.net system from course content or course navigation.<br/><br/><b>NOTE</b>: This tool will only work when set to open in a new tab, it will not work in an embedded iframe.<br/><br/><b>Directions for configuring Status.net:</b><ol><li>Configure your Status.net instance</li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Status.net/LTIAuthentication.zip/download'>the Status.net LTI plugin</a></li><li>Extract the LTI plugin into Status.net's <code>plugins</code> folder</li><li>Edit config.php and add<br/><br/><code>addPlugin('LTIAuthentication', array('provider_name'=>'LTI'));</code><br/><br/></li><li>Edit <code>BLTI/IMSBasicLTI/configuration/authorizedConsumersKey.cfg</code>, adding the following lines:<br/><br/><code>consumer_key.&lt;consumer_key&gt;.enabled=1</code><br/><code>consumer_key.&lt;consumer_key&gt;.secret=&lt;password&gt;</code><br/><br/></li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Status.net_English'>follow the directions here</a></ol>",
+      "config_url": "/config/status_net.xml",
+      "extensions": ["course_nav"],
+      "config_options": [
+        {
+            "name": "site_url",
+            "description": "Status.net site auth URL",
+            "required": true,
+            "type": "text",
+            "value": "http://statusnet.url/index.php/main/lti"
+        },
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "question2answer",
+      "new": true,
+      "name": "Question2Answer",
+      "image_url": "/tools/question2answer.png",
+      "big_image_url": "/big_tools/question2answer.png",
+      "levels": ["7th-12th Grade", "Postsecondary"],
+      "categories": ["Content", "Community"],
+      "description": "Question2Answer is an open source Q&A site. You could use it to host course or institution-level Q&A services. This tool allows for auto-login to the Question2Answer platform from another system. Links can be added to course content, or optionally as course navigation.<br/><br/><b>Directions for configuring Question2Answer:</b><ol><li>Configure your Question2Answer instance</li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Question2Answer/qa-plugin.zip/download'>the Q2A LTI plugin</a></li><li>Extract the LTI plugin into Q2A's main folder</li><li>Log as administrator, go to Administration center - Plugins</li><li>Click over 'options'</li><li>Configure BasicLTI Settings:<ol><li>Enable Plugin</li><li>Disable Default BLTI Username: You have to define the parameter of basic lti with the custom username instead of the default BasicLTI Parameter</li><li>Parameter Username: If you enabled Disable BLTI Username you have to indicate the custom username, usuarlly is custom_username</li><li>Logout URL: Full url (include http://) to logout from the SSO and this Q2A application</li><li>New user message: Optional. Message shown to new users when they login for the first time.</li></ol></li><li>Edit <code>BLTI/IMSBasicLTI/configuration/authorizedConsumersKey.cfg</code>, adding the following lines:<br/><br/><code>consumer_key.&lt;consumer_key&gt;.enabled=1</code><br/><code>consumer_key.&lt;consumer_key&gt;.secret=&lt;password&gt;</code><br/><br/></li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Q2a_English'>follow the directions here</a></ol>",
+      "config_url": "/config/question2answer.xml",
+      "extensions": ["course_nav"],
+      "config_options": [
+        {
+            "name": "site_url",
+            "description": "Question2Answer site URL",
+            "required": true,
+            "type": "text",
+            "value": "http://myq2a.url"
+        },
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "mahara",
+      "new": true,
+      "name": "Mahara",
+      "image_url": "/tools/mahara.png",
+      "big_image_url": "/big_tools/mahara.png",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content", "Community"],
+      "description": "Mahara is an open source ePortfolio and social networking tool. This tool allows for auto-login to the Mahara platform from another system. Links can be added to course content, or optionally as course navigation.<br/><br/><b>Directions for configuring Mahara:</b><ol><li>Configure your Mahara instance</a></li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Mahara/blti_provider.zip/download'>the Mahara LTI plugin</a></li><li>Extract the LTI plugin into Mahara's <code>auth</code> folder</li><li>Go to Admin home - Extensions - Plugin Administration - Plugin type: auth</li><li>Enable 'blti'</li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Mahara_English'>follow the directions here</a></ol>",
+      "config_url": "/config/mahara.xml",
+      "extensions": ["course_nav"],
+      "config_options": [
+        {
+            "name": "site_url",
+            "description": "Mahara site auth URL",
+            "required": true,
+            "type": "text",
+            "value": "http://mymahara.url/auth/blti/login/login.php"
+        },
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        }
+      ]
     }
 ]

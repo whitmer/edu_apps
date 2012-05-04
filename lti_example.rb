@@ -1069,7 +1069,6 @@ get "/config/piazza.xml" do
     <blti:title>Piazza</blti:title>
     <blti:description>This tool allows you to add the Piazza discussion tool to your course.</blti:description>
     <blti:launch_url>https://piazza.com/basic_lti</blti:launch_url>
-    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
       <lticm:property name="privacy_level">public</lticm:property>
   XML
@@ -1078,6 +1077,81 @@ get "/config/piazza.xml" do
       <lticm:options name="course_navigation">
         <lticm:property name="url">https://piazza.com/basic_lti</lticm:property>
         <lticm:property name="text">Piazza</lticm:property>
+      </lticm:options>
+    XML
+  end
+  xml +=  <<-XML
+    </blti:extensions>
+  XML
+  config_wrap(xml)
+end
+
+get "/config/wordpress.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  return "url required" if !params['site_url'] || params['site_url'] == ''
+  headers 'Content-Type' => 'text/xml'
+  xml =  <<-XML
+    <blti:title>WordPress</blti:title>
+    <blti:description>Launch WordPress blogs</blti:description>
+    <blti:launch_url>#{params['site_url']}</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+  XML
+  if params['course_nav']
+    xml +=  <<-XML
+      <lticm:options name="course_navigation">
+        <lticm:property name="url">#{params['site_url']}</lticm:property>
+        <lticm:property name="text">WordPress</lticm:property>
+      </lticm:options>
+    XML
+  end
+  xml +=  <<-XML
+    </blti:extensions>
+  XML
+  config_wrap(xml)
+end
+
+get "/config/mahara.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  return "url required" if !params['site_url'] || params['site_url'] == ''
+  headers 'Content-Type' => 'text/xml'
+  xml =  <<-XML
+    <blti:title>Mahara</blti:title>
+    <blti:description>Launch Mahara ePortfolio and Social Networking tool</blti:description>
+    <blti:launch_url>#{params['site_url']}</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+  XML
+  if params['course_nav']
+    xml +=  <<-XML
+      <lticm:options name="course_navigation">
+        <lticm:property name="url">#{params['site_url']}</lticm:property>
+        <lticm:property name="text">Mahara</lticm:property>
+      </lticm:options>
+    XML
+  end
+  xml +=  <<-XML
+    </blti:extensions>
+  XML
+  config_wrap(xml)
+end
+
+get "/config/question2answer.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  return "url required" if !params['site_url'] || params['site_url'] == ''
+  headers 'Content-Type' => 'text/xml'
+  xml =  <<-XML
+    <blti:title>Question2Answer</blti:title>
+    <blti:description>Launch Question2Answer answers site</blti:description>
+    <blti:launch_url>#{params['site_url']}</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="privacy_level">public</lticm:property>
+  XML
+  if params['course_nav']
+    xml +=  <<-XML
+      <lticm:options name="course_navigation">
+        <lticm:property name="url">#{params['site_url']}</lticm:property>
+        <lticm:property name="text">Question2Answer</lticm:property>
       </lticm:options>
     XML
   end
