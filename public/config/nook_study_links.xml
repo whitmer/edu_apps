@@ -12,6 +12,7 @@
   <blti:description>This tool allows the instructor to insert a link as an item in a module, and then when the teacher accessed that link for the first time they could choose a book or chapter in a textbook to load for students.</blti:description>
   <blti:launch_url>http://nookstudyblti.com/BN-BLTI-Link-1.0.0/index.jsp</blti:launch_url>
   <blti:extensions platform="canvas.instructure.com">
+    <lticm:property name="tool_id">nook_study_links</lticm:property>
     <lticm:property name="privacy_level">public</lticm:property>
   </blti:extensions>
   <cartridge_bundle identifierref="BLTI001_Bundle"/>

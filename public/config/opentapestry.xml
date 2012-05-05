@@ -4,6 +4,7 @@
   <blti:description>Add OER Glue snippets to Canvas</blti:description>
   <blti:launch_url>http://www.opentapestry.com/launch/assets</blti:launch_url>
   <blti:extensions platform="canvas.instructure.com">
+    <lticm:property name="tool_id">opentapestry</lticm:property>
     <lticm:property name="privacy_level">public</lticm:property>
     <lticm:options name="editor_button">
       <lticm:property name="url">http://www.opentapestry.com/launch/assets</lticm:property>

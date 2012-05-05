@@ -16,6 +16,7 @@
   </blti:custom>
   <blti:launch_url>http://aairs-connectors.tegrity.com/sso/aairs/blti.aspx</blti:launch_url>
   <blti:extensions platform="canvas.instructure.com">
+    <lticm:property name="tool_id">tegrity</lticm:property>
     <lticm:property name="privacy_level">public</lticm:property>
   </blti:extensions>
   <cartridge_bundle identifierref="BLTI001_Bundle"/>
