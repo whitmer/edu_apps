@@ -888,6 +888,28 @@ get "/config/merlot.xml" do
   XML
 end
 
+get "/config/ck12.xml" do
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'text/xml'
+  config_wrap <<-XML
+    <blti:title>CK-12</blti:title>
+    <blti:description>Collection of free, open, user-modifiable textbooks for K-12</blti:description>
+    <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
+    <blti:extensions platform="canvas.instructure.com">
+      <lticm:property name="tool_id">ck12</lticm:property>
+      <lticm:property name="privacy_level">anonymous</lticm:property>
+      <lticm:options name="editor_button">
+        <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=ck12')}</lticm:property>
+        <lticm:property name="icon_url">#{host}/icons/ck12.png</lticm:property>
+        <lticm:property name="text">CK-12</lticm:property>
+        <lticm:property name="selection_width">700</lticm:property>
+        <lticm:property name="selection_height">550</lticm:property>
+      </lticm:options>
+    </blti:extensions>
+    <blti:icon>#{host}/icons/ck12.png</blti:icon>
+  XML
+end
+
 get "/config/smarterer.xml" do
   host = request.scheme + "://" + request.host_with_port
   headers 'Content-Type' => 'text/xml'
@@ -1357,7 +1379,7 @@ get "/config/elgg.xml" do
     <blti:description>Elgg is an open source social network</blti:description>
     <blti:launch_url>https://#{params['domain'].sub(/\/$/, '')}/pg/blti/</blti:launch_url>
     <blti:extensions platform="canvas.instructure.com">
-      <lticm:property name="tool_id">elgg</lticm:property>
+      <lticm:property name="tool_id">elgg </lticm:property>
       <lticm:property name="privacy_level">public</lticm:property>
   XML
   if params['course_nav']

@@ -131,7 +131,6 @@
       "data_url": "/data/educreations.json"
     },
     {
-      "new": true,
       "id": "archive",
       "uses": 10,
       "name": "Internet Archive",
@@ -161,6 +160,27 @@
       "description": "Lessons and activities centered around an educational topic. Link to any BrainPop lessons, or to specific resources within a lesson.",
       "short_description": "Online interactive lessons, quizzes, activities",
       "data_url": "/data/brainpop.json"
+    },
+    {
+      "id": "ck12",
+      "name": "CK-12",
+      "new": true,
+      "image_url": "/tools/ck12.png",
+      "big_image_url": "/big_tools/ck12.png",
+      "icon_url": "/icons/ck12.png",
+      "levels": ["K-6th Grade", "7th-12th Grade"],
+      "categories": ["Textbooks/eBooks", "Content", "Open Content", "Math", "Science"],
+      "description": "Free, open, user-modifiable textbooks and learning content intended for K-12. Books or chapters can be linked to from within course content.",
+      "short_description": "Customizable free textbooks",
+      "full_tool": true,
+      "any_key": true,
+      "extensions": ["editor_button"],
+      "data_url": "/data/ck12.json",
+      "config_url": "/config/ck12.xml",
+      "preview": {
+        "url": "/tools.html?tool=ck12",
+        "height": 475
+      }
     },
     {
       "pending": true,
@@ -319,7 +339,7 @@
     },
     {
       "id": "quizlet",
-      "uses": 10,
+      "uses": 30,
       "name": "Quizlet Flash Cards",
       "image_url": "/tools/quizlet.png",
       "big_image_url": "/big_tools/quizlet.png",
@@ -364,7 +384,6 @@
       "extensions": ["course_nav"]
     },
     {
-      "new": true,
       "id": "pinterest",
       "pending": true,
       "name": "Pinterest",
@@ -483,7 +502,7 @@
     },
     {
       "id": "khan_academy",
-      "uses": 20,
+      "uses": 110,
       "name": "Khan Academy",
       "image_url": "/tools/khan.png",
       "big_image_url": "/big_tools/khan.png",
@@ -517,7 +536,7 @@
     },
     {
       "id": "wikipedia",
-      "uses": 20,
+      "uses": 30,
       "name": "Wikipedia",
       "image_url": "/tools/wikipedia.png",
       "big_image_url": "/big_tools/wikipedia.png",
@@ -536,7 +555,6 @@
     },
     {
       "id": "wiktionary",
-      "new": true,
       "uses": 0,
       "name": "Wiktionary",
       "image_url": "/tools/wiktionary.png",
@@ -664,7 +682,7 @@
     },
     {
       "id": "youtube",
-      "uses": 5,
+      "uses": 120,
       "name": "YouTube",
       "image_url": "/tools/youtube.png",
       "big_image_url": "/big_tools/youtube.png",
@@ -770,7 +788,6 @@
       }
     },
     {
-      "new": true,
       "id": "storify",
       "name": "Storify",
       "image_url": "/tools/storify.png",
@@ -789,7 +806,6 @@
       }
     },
     {
-      "new": true,
       "id": "spelling_city",
       "name": "Spelling City",
       "image_url": "/tools/spelling_city.png",
