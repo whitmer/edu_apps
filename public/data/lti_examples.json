@@ -183,6 +183,28 @@
       }
     },
     {
+      "id": "mathalicious",
+      "name": "Mathalicious",
+      "exclude_from_public_collections": true,
+      "new": true,
+      "image_url": "/tools/mathalicious.png",
+      "big_image_url": "/big_tools/mathalicious.png",
+      "icon_url": "/icons/mathalicious.png",
+      "levels": ["K-6th Grade", "7th-12th Grade"],
+      "categories": ["Media", "Content", "Math", "Science"],
+      "description": "Mathalicious develops high-quality, standards-based math videos and lessons aligned to Common Core standards. Videos can be linked to from any course content. Requires a <a href='http://www.mathalicious.com/sign-up/'>Mathalicious subscription.</a>",
+      "short_description": "Real-world math tutorial videos",
+      "full_tool": true,
+      "any_key": true,
+      "extensions": ["editor_button"],
+      "data_url": "/data/mathalicious.json",
+      "config_url": "/config/mathalicious.xml",
+      "preview": {
+        "url": "/tools.html?tool=mathalicious",
+        "height": 475
+      }
+    },
+    {
       "pending": true,
       "id": "opentapestry",
       "name": "OpenTapestry",

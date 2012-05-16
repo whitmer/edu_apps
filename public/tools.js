@@ -5,7 +5,7 @@
   var maxRecentTools = 6;
   $.getJSON('/data/lti_examples.json', function(data) {
     for(var idx = 0; idx < data.length; idx++) {
-      if(data[idx].data_url || data[idx].launch_url) {
+      if((data[idx].data_url || data[idx].launch_url) && !data[idx].exclude_from_public_collections) {
         tools.push(data[idx]);
         toolsHash[data[idx].id] = data[idx];
       }
