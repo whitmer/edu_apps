@@ -3,6 +3,7 @@
       "uses": 40,
       "id": "twitter",
       "name": "Twitter",
+      "added": "2012-03-27T00:00:00Z",
       "image_url": "/tools/twitter.png",
       "big_image_url": "/big_tools/twitter.png",
       "description": "Embed lists of recent tweets from Twitter. Lists can be derived from search results, or from a user's twitter feed.",
@@ -21,6 +22,7 @@
     {
       "id": "mit_ocw",
       "name": "MIT OCW",
+      "added": "2012-03-15T00:00:00Z",
       "image_url": "/tools/mit_ocw.png",
       "big_image_url": "/big_tools/mit_ocw.png",
       "icon_url": "/icons/mit_ocw.png",
@@ -33,6 +35,7 @@
     {
       "id": "public_collections",
       "uses": 50,
+      "added": "2012-02-20T00:00:00Z",
       "name": "Public Collections",
       "image_url": "/collections.png",
       "big_image_url": "/big_tools/collections.png",
@@ -50,6 +53,7 @@
     {
       "id": "ted_ed",
       "uses": 30,
+      "added": "2012-03-13T00:00:00Z",
       "name": "TED Ed",
       "image_url": "/tools/ted_ed.png",
       "big_image_url": "/big_tools/ted_ed.png",
@@ -69,6 +73,7 @@
     {
       "id": "graph_builder",
       "uses": 40,
+      "added": "2012-01-10T00:00:00Z",
       "name": "Graph Builder",
       "image_url": "/tools/graph_tk.png",
       "big_image_url": "/big_tools/graph_tk.png",
@@ -89,6 +94,7 @@
     {
       "id": "codecademy",
       "name": "Codecademy",
+      "added": "2012-02-21T00:00:00Z",
       "image_url": "/tools/codecademy.png",
       "big_image_url": "/big_tools/codecademy.png",
       "icon_url": "/icons/codecademy.png",
@@ -102,6 +108,7 @@
       "new": true,
       "id": "smarterer",
       "name": "Smarterer",
+      "added": "2012-04-28T00:00:00Z",
       "image_url": "/tools/smarterer.png",
       "big_image_url": "/big_tools/smarterer.png",
       "description": "Search through and insert links to quizzing and learning resources hosted by <a href='http://smarterer.com'>Smarterer</a>",
@@ -121,6 +128,7 @@
     {
       "id": "educreations",
       "name": "educreations",
+      "added": "2012-02-23T00:00:00Z",
       "image_url": "/tools/educreations.png",
       "big_image_url": "/big_tools/educreations.png",
       "icon_url": "/icons/educreations.png",
@@ -134,6 +142,7 @@
       "id": "archive",
       "uses": 10,
       "name": "Internet Archive",
+      "added": "2012-03-30T00:00:00Z",
       "image_url": "/tools/archive.png",
       "big_image_url": "/big_tools/archive.png",
       "description": "The Internet Archive hosts public domain video, audio, books, images and other resources. Links to any of these resources can easily be added to any course content.",
@@ -152,6 +161,7 @@
     {
       "id": "brainpop",
       "name": "BrainPOP",
+      "added": "2012-03-06T00:00:00Z",
       "image_url": "/tools/brainpop.png",
       "big_image_url": "/big_tools/brainpop.png",
       "icon_url": "/icons/brainpop.png",
@@ -164,6 +174,7 @@
     {
       "id": "ck12",
       "name": "CK-12",
+      "added": "2012-05-16T00:00:00Z",
       "new": true,
       "image_url": "/tools/ck12.png",
       "big_image_url": "/big_tools/ck12.png",
@@ -185,6 +196,7 @@
     {
       "id": "mathalicious",
       "name": "Mathalicious",
+      "added": "2012-05-16T00:00:00Z",
       "exclude_from_public_collections": true,
       "new": true,
       "image_url": "/tools/mathalicious.png",
@@ -207,6 +219,7 @@
     {
       "pending": true,
       "id": "opentapestry",
+      "added": "2012-01-10T00:00:00Z",
       "name": "OpenTapestry",
       "image_url": "/tools/opentapestry.png",
       "big_image_url": "/tools/opentapestry.png",
@@ -216,6 +229,7 @@
     {
       "id": "nook_study",
       "name": "Nook Study",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/nook_study.png",
       "big_image_url": "/big_tools/nook_study.png",
       "description": "This would allow you to insert link as items in a module that the teacher can use to specify a set of require reading materials for the course, or to link to specific textbook material that will load for students.",
@@ -238,6 +252,7 @@
       "new": true,
       "id": "schooltube",
       "name": "SchoolTube",
+      "added": "2012-04-07T00:00:00Z",
       "image_url": "/tools/schooltube.png",
       "big_image_url": "/big_tools/school_tube.png",
       "description": "SchoolTube is a collection of videos uploaded from schools that is publicly searchable. Videos can be inserted as links or embedded in course material.",
@@ -257,6 +272,7 @@
       "id": "tegrity",
       "uses": 30,
       "name": "McGraw Hill Tegrity",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/tegrity.png",
       "big_image_url": "/big_tools/tegrity.png",
       "description": "Supports course-level support for the Tegrity lecture capture solution. Visit the Tegrity web site for instructions on how to sign up and get a consumer key and shared secret.",
@@ -267,6 +283,7 @@
     {
       "new": true,
       "id": "inigral",
+      "added": "2012-04-18T00:00:00Z",
       "name": "Inigral Schools App",
       "image_url": "/tools/inigral.png",
       "big_image_url": "/big_tools/inigral.png",
@@ -295,6 +312,7 @@
     {
       "new": true,
       "id": "hoot_me",
+      "added": "2012-04-28T00:00:00Z",
       "name": "Hoot.me",
       "image_url": "/tools/hoot_me.png",
       "big_image_url": "/big_tools/hoot_me.png",
@@ -323,6 +341,7 @@
     {
       "id": "piazza",
       "uses": 20,
+      "added": "2012-02-01T00:00:00Z",
       "name": "Piazza",
       "image_url": "/tools/piazza.png",
       "big_image_url": "/big_tools/piazza.png",
@@ -343,6 +362,7 @@
     {
       "id": "slideshare",
       "uses": 10,
+      "added": "2012-03-06T00:00:00Z",
       "name": "Slideshare",
       "image_url": "/tools/slideshare.png",
       "big_image_url": "/big_tools/slideshare.png",
@@ -362,6 +382,7 @@
     {
       "id": "quizlet",
       "uses": 30,
+      "added": "2012-02-11T00:00:00Z",
       "name": "Quizlet Flash Cards",
       "image_url": "/tools/quizlet.png",
       "big_image_url": "/big_tools/quizlet.png",
@@ -382,6 +403,7 @@
       "id": "panopto",
       "uses": 20,
       "name": "Panopto",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/panopto.png",
       "big_image_url": "/big_tools/panopto.png",
       "description": "Supports lecture capture solution from Panopto.<br/><br/>Visit the Panopto web site for instructions on how to sign up and get a consumer key and shared secret.",
@@ -408,6 +430,7 @@
     {
       "id": "pinterest",
       "pending": true,
+      "added": "2012-04-13T00:00:00Z",
       "name": "Pinterest",
       "image_url": "/tools/pinterest.png",
       "big_image_url": "/big_tools/pinterest.png",
@@ -426,6 +449,7 @@
     {
       "id": "cengage",
       "uses": 20,
+      "added": "2012-04-13T00:00:00Z",
       "name": "Cengage Learning",
       "image_url": "/tools/cengage.png",
       "big_image_url": "/big_tools/cengage.png",
@@ -438,6 +462,7 @@
       "id": "coursesmart",
       "uses": 70,
       "name": "CourseSmart",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/course_smart.png",
       "big_image_url": "/big_tools/course_smart.png",
       "description": "Add links to rich online textbooks, chapters, etc.",
@@ -448,6 +473,7 @@
     {
       "id": "sage_cell",
       "new": true,
+      "added": "2012-05-02T00:00:00Z",
       "name": "Sage",
       "image_url": "/tools/sage_cell.png",
       "big_image_url": "/big_tools/sage_cell.png",
@@ -460,6 +486,7 @@
     {
       "id": "chem_vantage",
       "name": "ChemVantage",
+      "added": "2012-02-01T00:00:00Z",
       "image_url": "/tools/chemvantage.png",
       "big_image_url": "/big_tools/chem_vantage.png",
       "description": "Lets teachers build and distribute science education focused homework, video lectures, graded quizzes, etc.<br/><br/>Contact admin@chemvantage.org about getting a consumer key and shared secret.",
@@ -471,6 +498,7 @@
       "uses": 10,
       "id": "elgg",
       "name": "Elgg",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/elgg.png",
       "big_image_url": "/big_tools/elgg.png",
       "description": "Open source social networking. You can add a link to your course navigation that will send users to an Elgg network already logged in.<br/><br/>You'll need to install the <a href='http://community.elgg.org/pg/plugins/project/851496/developer/spb1/www.celtic-project.org'>LTI plugin for Elgg</a> in order for this integration to work.",
@@ -498,6 +526,7 @@
       "id": "noteflight",
       "uses": 5,
       "name": "Noteflight",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/noteflight.png",
       "big_image_url": "/big_tools/noteflight.png",
       "description": "Build musical annotations on the web. This could be useful in music classes for both teaching and assigning to students as homework.",
@@ -517,6 +546,7 @@
       "id": "courseload",
       "uses": 30,
       "name": "Courseload",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/courseload.png",
       "big_image_url": "/big_tools/courseload.png",
       "description": "Add links to rich online textbooks, chapters, etc.",
@@ -525,6 +555,7 @@
     {
       "id": "khan_academy",
       "uses": 110,
+      "added": "2012-01-13T00:00:00Z",
       "name": "Khan Academy",
       "image_url": "/tools/khan.png",
       "big_image_url": "/big_tools/khan.png",
@@ -544,6 +575,7 @@
     {
       "id": "my_open_math",
       "uses": 30,
+      "added": "2012-02-01T00:00:00Z",
       "name": "MyOpenMath",
       "image_url": "/tools/imathas.png",
       "big_image_url": "/big_tools/imathas.png",
@@ -560,6 +592,7 @@
       "id": "wikipedia",
       "uses": 30,
       "name": "Wikipedia",
+      "added": "2012-03-22T00:00:00Z",
       "image_url": "/tools/wikipedia.png",
       "big_image_url": "/big_tools/wikipedia.png",
       "description": "Search through English Wikipedia articles and link to or embed these articles into course material.",
@@ -578,6 +611,7 @@
     {
       "id": "wiktionary",
       "uses": 0,
+      "added": "2012-04-23T00:00:00Z",
       "name": "Wiktionary",
       "image_url": "/tools/wiktionary.png",
       "big_image_url": "/big_tools/wiktionary.png",
@@ -597,6 +631,7 @@
     {
       "id": "campus_pack",
       "name": "Campus Pack",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/learning_objects.png",
       "big_image_url": "/big_tools/learning_objects.png",
       "description": "Load Campus Pack inside the LMS to add ePortfolios, blogs, wikis, etc.<br/><br/><b>Directions for configuring Campus Pack:</b><ol><li>Login to Campus Pack as an administrator.</li><li>Click Administrator Portal.</li><li>Click External System Connectors.</li><li>Click Create.</li><li>Click Basic LTI Tool Producer.</li><li>Fill out the form.  These values will be important later.</li><ol><li>Set Connector Id to blti-producer.</li><li>Set Name to your institution name.</li><li>Do not alter Shared Secret Key.</li><li>Ignore URL.</li><li>Ignore IP address.</li></ol><li>Click Submit.</li></ol>",
@@ -644,6 +679,7 @@
       "pending": true,
       "id": "pathbrite",
       "name": "Pathbrite",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/pathbrite.png",
       "big_image_url": "/tools/pathbrite.png",
       "description": "Pathbrite is an ePortfolio tool that can be integrated into the LMS.",
@@ -653,6 +689,7 @@
       "pending": true,
       "id": "pebble_pad",
       "name": "PebblePad",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/pebble_pad.png",
       "big_image_url": "/tools/pebble_pad.png",
       "description": "PebblePad is an ePortfolio tool that can be integrated into the LMS.",
@@ -661,6 +698,7 @@
     {
       "id": "wikispaces",
       "name": "Wikispaces",
+      "added": "2012-03-21T00:00:00Z",
       "image_url": "/tools/wikispaces.png",
       "big_image_url": "/tools/wikispaces.png",
       "description": "Wikispaces offers free wikis for educational purposes. Private label sites can be configured to use LTI for authentication.",
@@ -670,6 +708,7 @@
       "pending": true,
       "id": "mediasite",
       "name": "MediaSite",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/mediasite.png",
       "big_image_url": "/tools/mediasite.png",
       "description": "MediaSite is a webcasting and lecture capture solution that can be integrated into the LMS.",
@@ -679,6 +718,7 @@
       "pending": true,
       "id": "aleks",
       "name": "Aleks",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/aleks.png",
       "big_image_url": "/tools/aleks.png",
       "description": "Aleks is a site that offers customized assessment and learning resources that can be integrated into the LMS.",
@@ -687,6 +727,7 @@
     {
       "id": "place_kitten",
       "name": "PlaceKitten",
+      "added": "2012-01-20T00:00:00Z",
       "image_url": "/tools/place_kitten.png",
       "big_image_url": "/big_tools/place_kitten.png",
       "description": "PlaceKitten lets you embed perfectly-size kitten images into any online content. You pick the dimensions, whether it's color or grayscale, and then embed it into your content.",
@@ -706,6 +747,7 @@
       "id": "youtube",
       "uses": 120,
       "name": "YouTube",
+      "added": "2012-03-22T00:00:00Z",
       "image_url": "/tools/youtube.png",
       "big_image_url": "/big_tools/youtube.png",
       "description": "Search publicly available YouTube videos. A new icon will show up in your course rich editor letting you search YouTube and click to embed videos in your course material.",
@@ -723,6 +765,7 @@
       "id": "titanpad",
       "uses": 10,
       "name": "TitanPad",
+      "added": "2012-03-24T00:00:00Z",
       "image_url": "/tools/titanpad.png",
       "big_image_url": "/big_tools/titanpad.png",
       "description": "TitanPad offers free, public collaborative documents based on EtherPad. Every placement of a TitanPad in your content will result in a new pad being created. Students can also chat while working together on a pad.",
@@ -734,6 +777,7 @@
     {
       "id": "bumpin",
       "name": "Bumpin Social Chat",
+      "added": "2012-03-24T00:00:00Z",
       "image_url": "/tools/bumpin.png",
       "big_image_url": "/tools/bumpin.png",
       "description": "Bumpin social chat allows you to add chat rooms to web pages. This tool lets you add a chat room as a course navigation link for your students.",
@@ -746,6 +790,7 @@
     {
       "id": "flat_world_knowledge",
       "name": "Flat World Knowledge",
+      "added": "2012-03-06T00:00:00Z",
       "image_url": "/tools/flat_world_knowledge.png",
       "big_image_url": "/big_tools/flat_world_knowledge.png",
       "icon_url": "/icons/flat_world_knowledge.png",
@@ -758,6 +803,7 @@
     {
       "id": "elementary_paper",
       "name": "Elementary Paper",
+      "added": "2012-02-21T00:00:00Z",
       "image_url": "/tools/elementary_paper.png",
       "big_image_url": "/big_tools/elementary_paper.png",
       "icon_url": "/icons/elementary_paper.png",
@@ -770,6 +816,7 @@
     {
       "id": "usa_today",
       "pending": true,
+      "added": "2012-02-25T00:00:00Z",
       "name": "USA Today",
       "image_url": "/tools/usa_today.png",
       "big_image_url": "/big_tools/usa_today.png",
@@ -781,6 +828,7 @@
     {
       "id": "softchalk_connect",
       "name": "SoftChalk Connect",
+      "added": "2012-02-28T00:00:00Z",
       "image_url": "/tools/softchalk.png",
       "big_image_url": "/big_tools/softchalk.png",
       "icon_url": "/icons/softchalk.png",
@@ -793,6 +841,7 @@
     {
       "id": "merlot",
       "name": "Merlot",
+      "added": "2012-04-06T00:00:00Z",
       "image_url": "/tools/merlot.png",
       "big_image_url": "/big_tools/merlot.png",
       "description": "Search through and insert links to multimedia resources curated and collected by MERLOT. This collection is only a subset of some of the higher-rated resources from MERLOT. For the full list of resources, please visit <a href='http://www.merlot.org'>merlot.org</a>.",
@@ -812,6 +861,7 @@
     {
       "id": "storify",
       "name": "Storify",
+      "added": "2012-04-12T00:00:00Z",
       "image_url": "/tools/storify.png",
       "big_image_url": "/big_tools/storify.png",
       "description": "Storify lets users organize events from across the web into a single cohesive \"story\". Search through and link to these social stories within your course material.",
@@ -830,6 +880,7 @@
     {
       "id": "spelling_city",
       "name": "Spelling City",
+      "added": "2012-04-07T00:00:00Z",
       "image_url": "/tools/spelling_city.png",
       "big_image_url": "/big_tools/spelling_city.png",
       "icon_url": "/icons/spelling_city.png",
@@ -842,6 +893,7 @@
     {
       "id": "hooda_math",
       "name": "Hooda Math",
+      "added": "2012-02-21T00:00:00Z",
       "image_url": "/tools/hooda_math.png",
       "big_image_url": "/big_tools/hooda_math.png",
       "icon_url": "/icons/hooda_math.png",
@@ -854,6 +906,7 @@
     {
       "id": "google_art",
       "name": "Google Art Project",
+      "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/google_art.png",
       "big_image_url": "/big_tools/google_art.png",
       "icon_url": "/icons/google_art.png",
@@ -866,6 +919,7 @@
     {
       "id": "funbrain",
       "name": "Funbrain",
+      "added": "2012-04-11T00:00:00Z",
       "image_url": "/tools/funbrain.png",
       "big_image_url": "/big_tools/funbrain.png",
       "icon_url": "/icons/funbrain.png",
@@ -878,6 +932,7 @@
     {
       "id": "filament_games",
       "name": "Filament Games",
+      "added": "2012-04-11T00:00:00Z",
       "image_url": "/tools/filament_games.png",
       "big_image_url": "/big_tools/filament_games.png",
       "icon_url": "/icons/filament_games.png",
@@ -890,6 +945,7 @@
     {
       "id": "studyegg",
       "name": "StudyEgg",
+      "added": "2012-04-28T00:00:00Z",
       "image_url": "/tools/studyegg.png",
       "big_image_url": "/big_tools/studyegg.png",
       "icon_url": "/icons/studyegg.png",
@@ -903,6 +959,7 @@
     {
       "id": "programr",
       "name": "Programr",
+      "added": "2012-04-09T00:00:00Z",
       "image_url": "/tools/programr.png",
       "big_image_url": "/big_tools/programr.png",
       "icon_url": "/icons/google_art.png",
@@ -915,6 +972,7 @@
     {
       "id": "ocw_search",
       "new": true,
+      "added": "2012-05-01T00:00:00Z",
       "name": "OCW Search",
       "image_url": "/tools/ocw_search.png",
       "big_image_url": "/big_tools/ocw_search.png",
@@ -934,6 +992,7 @@
     {
       "id": "wordpress",
       "new": true,
+      "added": "2012-05-04T00:00:00Z",
       "name": "WordPress",
       "image_url": "/tools/wordpress.png",
       "big_image_url": "/big_tools/wordpress.png",
@@ -961,6 +1020,7 @@
     {
       "id": "status_net",
       "new": true,
+      "added": "2012-05-04T00:00:00Z",
       "name": "Status.net",
       "image_url": "/tools/status_net.png",
       "big_image_url": "/big_tools/status_net.png",
@@ -988,6 +1048,7 @@
     {
       "id": "question2answer",
       "new": true,
+      "added": "2012-05-04T00:00:00Z",
       "name": "Question2Answer",
       "image_url": "/tools/question2answer.png",
       "big_image_url": "/big_tools/question2answer.png",
@@ -1015,6 +1076,7 @@
     {
       "id": "mahara",
       "new": true,
+      "added": "2012-05-04T00:00:00Z",
       "name": "Mahara",
       "image_url": "/tools/mahara.png",
       "big_image_url": "/big_tools/mahara.png",

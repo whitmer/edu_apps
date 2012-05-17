@@ -216,6 +216,77 @@ get "/data/lti_examples.jsonp" do
   return "#{params['callback'] || 'callback'}(#{json})"
 end
 
+def apps_list(request)
+  host = request.scheme + "://" + request.host_with_port
+  data = JSON.parse(File.read('./public/data/lti_examples.json'))
+  data.each do |tool|
+    ['big_image_url', 'image_url', 'icon_url', 'config_url', 'launch_url', 'data_url'].each do |key|
+      tool[key] = prepend_host(tool[key], host) if tool[key]
+    end
+    if tool['data_url'] && tool['icon_url']
+      tool['config_url'] = "/config/data_tool.xml?id=" + tool['id'] + "&name=" + CGI.escape(tool['name']) + "&icon_url=" + CGI.escape(tool['icon_url']) + "&description=" + CGI.escape(tool['description'])
+      tool['any_key'] = true
+    end
+  end
+  data
+end
+
+def prepend_host(path, host)
+  if path.is_a?(Array)
+    return path.map do |elem|
+      elem['url'] = prepend_host(elem['url'], host)
+      elem
+    end
+  end
+  path = host + path if path && path.match(/^\//)
+  path
+end
+  
+get "/data/lti_apps.jsonp" do
+  return "#{params['callback'] || 'callback'}(#{apps_list(request).to_json})"
+end
+
+get "/data/lti_apps.json" do
+  return apps_list(request).to_json
+end
+
+get "/data/lti_apps.atom" do
+  data = apps_list(request).select{|a| !a['pending'] }
+  host = request.scheme + "://" + request.host_with_port
+  headers 'Content-Type' => 'application/atom+xml'
+  xml = <<-XML
+    <?xml version="1.0" encoding="utf-8"?>
+     
+    <feed xmlns="http://www.w3.org/2005/Atom">
+     
+            <title>LTI Apps</title>
+            <subtitle>A list of known LTI apps</subtitle>
+            <link href="#{host}/feed/" rel="self" />
+            <link href="#{host}/" />
+            <id>urn:uuid:2d6341a0-a046-11e1-a8b1-0800200c9a66</id>
+            <updated>#{Time.now.iso8601}</updated>    
+  XML
+  data.each do |app|
+    url = app['data_url'] ? "#{host}/tools.html?tool=#{app['id']}" : "#{host}/index.html?tool=#{app['id']}"
+    xml += <<-XML
+      <entry>
+        <title>#{app['name']}</title>
+        <link href="#{host}/index.html?tool=#{app['id']}" />
+        <id>#{app['id']}</id>
+        <updated>#{app['added']}</updated>
+        <summary>#{app['description'] || app['short_description']}</summary>
+        <author>
+              <name>LTI Examples</name>
+        </author>        
+      </entry>
+    XML
+  end
+  xml += <<-XML
+    </feed>
+  XML
+  xml
+end
+
 # this is the entry action that Canvas (the LTI Tool Consumer) sends the
 # browser to when launching the tool.
 post "/assessment/start" do
