@@ -172,6 +172,19 @@
       "data_url": "/data/brainpop.json"
     },
     {
+      "id": "manga_high",
+      "name": "Manga High",
+      "added": "2012-05-18T00:00:00Z",
+      "image_url": "/tools/manga_high.png",
+      "big_image_url": "/big_tools/manga_high.png",
+      "icon_url": "/icons/manga_high.png",
+      "levels": ["K-6th Grade", "7th-12th Grade"],
+      "categories": ["Media", "Math"],
+      "description": "Free game-based math learning resources for K-12 learners. Games and activities can be linked to from within any course content. Visit <a href='http://www.mangahigh.com/en_us/'>Manga High's web site</a> for instructions on how to sign up as a school.",
+      "short_description": "Online interactive math games",
+      "data_url": "/data/manga_high.json"
+    },
+    {
       "id": "ck12",
       "name": "CK-12",
       "added": "2012-05-16T00:00:00Z",
