@@ -171,7 +171,7 @@
           $content = $content + "<li class='link' data-index='" + idx + "," + jdx + "'>";
           $content = $content + "<a href='" + link.url + "'>";
           if(link.image_url) {
-            $content = $content + "<img src='" + link.image_url + "' alt=''/>";
+            $content = $content + "<img src='" + link.image_url + "' class='img_preview' alt=''/>";
           } else if(link.icon) {
             $content = $content + "<span class='" + link.icon + "'></span>&nbsp;";
           }
