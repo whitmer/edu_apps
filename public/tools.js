@@ -5,7 +5,7 @@
   var maxRecentTools = 6;
   $.getJSON('/data/lti_examples.json', function(data) {
     for(var idx = 0; idx < data.length; idx++) {
-      if((data[idx].data_url || data[idx].launch_url) && !data[idx].exclude_from_public_collections) {
+      if(data[idx].data_url || data[idx].launch_url) {
         tools.push(data[idx]);
         toolsHash[data[idx].id] = data[idx];
       }
@@ -91,7 +91,7 @@
       else if(desc_idx > -1) { rank = desc_idx + 500; }
       tool.rank = rank;
       tool.position = idx;
-      if(tool.rank > -1) { 
+      if(tool.rank > -1 && !tool.exclude_from_public_collections) { 
         matches.push(tool);
       }
     }
@@ -285,6 +285,10 @@
     searchTools();
     $back.click(function(event) {
       event.preventDefault();
+      if($("#resources .single_resource").length) {
+        searchResources();
+        return;
+      }
       $tools.show();
       $back.hide();
       $logo.attr('src', $logo.attr('rel'));
