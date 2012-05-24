@@ -224,7 +224,7 @@ def apps_list(request)
       tool[key] = prepend_host(tool[key], host) if tool[key]
     end
     if tool['data_url'] && tool['icon_url']
-      tool['config_url'] = "/config/data_tool.xml?id=" + tool['id'] + "&name=" + CGI.escape(tool['name']) + "&icon_url=" + CGI.escape(tool['icon_url']) + "&description=" + CGI.escape(tool['description'])
+      tool['config_url'] = host + "/config/data_tool.xml?id=" + tool['id'] + "&name=" + CGI.escape(tool['name']) + "&icon_url=" + CGI.escape(tool['icon_url']) + "&description=" + CGI.escape(tool['description'])
       tool['any_key'] = true
     end
   end

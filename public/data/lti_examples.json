@@ -975,12 +975,25 @@
       "added": "2012-04-09T00:00:00Z",
       "image_url": "/tools/programr.png",
       "big_image_url": "/big_tools/programr.png",
-      "icon_url": "/icons/google_art.png",
+      "icon_url": "/icons/programr.png",
       "levels": ["7th-12th Grade", "Postsecondary"],
       "categories": ["Science", "Math"],
       "description": "Programr offers coding challenge projects for programming languages including Java, C# and C++. Link to any of the available challenges from your course material.",
       "short_description": "Coding challenges in Java, C# and C++",
       "data_url": "/data/programr.json"
+    },
+    {
+      "id": "college_board",
+      "name": "College Board",
+      "added": "2012-05-23T00:00:00Z",
+      "image_url": "/tools/college_board.png",
+      "big_image_url": "/big_tools/college_board.png",
+      "icon_url": "/icons/college_board.png",
+      "levels": ["7th-12th Grade"],
+      "categories": ["Science", "Math", "Study Helps"],
+      "description": "Makes it easy for instructors to browse the list of available practice resources for SAT and AP exams provided by the College Board. Any of these resources can be linked to within course material.",
+      "short_description": "Links to SAT and AP practice tests",
+      "data_url": "/data/college_board.json"
     },
     {
       "id": "ocw_search",
