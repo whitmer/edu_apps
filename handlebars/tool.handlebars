@@ -1,0 +1,72 @@
+{{#if single_tool}}
+    <span class='span2 app'></span>
+{{/if}}
+<span class='span{{#if single_tool}}8{{else}}3{{/if}} app {{#if single_tool}}single_app{{/if}}'>
+    <div class='header'>
+        <div class='icon'>
+            <a href='/index.html?tool={{id}}'>
+                <img src='{{image_url}}' alt=''/>
+            </a>
+        </div>
+        <h3>
+            <a href='/index.html?tool={{id}}'>{{name}}</a>
+        </h3>
+        {{#if show_votes}}
+            <div style='float: left; width: 55px; margin-right: 7px;'><a href='https://twitter.com/share' class='twitter-share-button' data-lang='en' data-count='vertical' data-url='{{refUrl}}' data-text='LTI Tool: {{name}}'>Tweet</a></div>
+            <div class='fb-like' data-send='false' data-layout='box_count' data-width='55' data-show-faces='false' data-href='{{refUrl}}' style='float: left; width: 55px;'></div>
+            <div style='float: left; padding-top: 1px;'><div class='g-plusone' data-annotation='bubble' data-size='tall' data-width='55' data-href='{{refUrl}}'></div></div>
+            <div style='clear: left;'></div>
+        {{/if}}
+        <div class='description'>
+            {{#if new }}
+                <span class='label label-important'>NEW</span>&nbsp;
+            {{/if}}
+            {{description}}
+        </div>
+    </div>
+    {{#if config_details}}
+        <div class='config alert alert-info'>
+        {{#if single_tool}}
+            {{#if config_url}}
+                {{#each config_options}}
+                    {{#if_eql type val="checkbox"}}
+                        <div class='form-horizontal'><label><input style='margin: -4px 3px 0 0;' type='checkbox' class='config_option' name='{{name}}' value='{{value}}'/> {{description}}</label></div>
+                    {{else}}
+                        <div class='form-horizontal'><label>{{description}}: <input type='text' class='config_option' name='{{name}}' value='{{value}}'/></label></div>
+                    {{/if_eql}}
+                    <br/>
+                {{/each}}
+                {{#if_string config_url}}
+                    <label>configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='{{full_url config_url}}'/></label>
+                {{else}}
+                    {{#each config_url}}
+                        <label>{{description}}: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='{{full_url url}}'/></label>
+                    {{/each}}
+                {{/if_string}}
+            {{else}}
+                {{#if config_directions}}
+                    {{config_directions}}
+                {{/if}}
+            {{/if}}
+        {{/if}}
+        {{#if preview}}
+            {{#if single_tool}}
+                <button id='preview' class='btn btn-primary'>Preview</button>
+            {{/if}}
+        {{/if}}
+        {{#if extensions_or_preview}}
+            <div class='extensions'>
+                {{#if preview}}
+                    <span class='label label-info'>preview</span>&nbsp;
+                {{/if}}
+                {{extensions_list extensions}}
+            </div>
+        {{/if}}
+        </div>
+    {{/if}}
+    <div class='ratings'>
+    </div>
+</span>
+{{#if single_tool}}
+    <span class='span2 app'></span>
+{{/if}}

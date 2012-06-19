@@ -1,0 +1,6 @@
+<div class='preview_pane well'>
+    <h2>Tool Preview:</h2>
+    {{#with preview}}
+        <iframe src="{{ url }}" frameborder="0" style="background: #fff; border: 1px solid #ccc; height: {{height}}px; width: {{#if width}}{{width}}px{{else}}100%{{/if}};"/>
+    {{/with}}
+</div>

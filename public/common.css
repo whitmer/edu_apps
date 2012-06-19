@@ -1,0 +1,17 @@
+.identity {
+    float: right;
+    vertical-align: bottom;
+    height: 40px;
+}
+.identity > img {
+    float: left;
+    width: 30px;
+    height: 30px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+.identity span, .identity a {
+    display: block;
+    float: left;
+    padding-top: 10px;
+}
