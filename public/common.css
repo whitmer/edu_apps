@@ -1,6 +1,14 @@
 .rating {
     margin-bottom: 5px;
 }
+.rating .rating_summary {
+    padding-top: 25px;
+    float: left;
+    color: #888;
+}
+.rating .rating_summary img {
+    vertical-align: top;
+}
 .rating > div.voter {
     float: left;
 }

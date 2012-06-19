@@ -47,18 +47,21 @@ function program9(depth0,data) {
   return buffer;}
 function program10(depth0,data) {
   
-  var buffer = "", stack1;
+  var buffer = "", stack1, stack2;
   buffer += "\n                    ";
   foundHelper = helpers.avg_rating;
   stack1 = foundHelper || depth0.avg_rating;
-  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
-  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "avg_rating", { hash: {} }); }
+  foundHelper = helpers.stars;
+  stack2 = foundHelper || depth0.stars;
+  if(typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, { hash: {} }); }
+  else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "stars", stack1, { hash: {} }); }
+  else { stack1 = stack2; }
   buffer += escapeExpression(stack1) + " (";
   foundHelper = helpers.ratings_count;
   stack1 = foundHelper || depth0.ratings_count;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "ratings_count", { hash: {} }); }
-  buffer += escapeExpression(stack1) + ") -> ";
+  buffer += escapeExpression(stack1) + ") <img src='/comments.png'/> ";
   foundHelper = helpers.comments_count;
   stack1 = foundHelper || depth0.comments_count;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
@@ -69,7 +72,7 @@ function program10(depth0,data) {
 function program12(depth0,data) {
   
   
-  return "\n                    No ratings\n                ";}
+  return "\n                    No Ratings\n                ";}
 
 function program14(depth0,data) {
   

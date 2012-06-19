@@ -13,11 +13,13 @@
         </h3>
         <div class='rating'>
             {{#if single_tool }}
+                <div class='rating_summary'>
                 {{#if ratings_count}}
-                    {{avg_rating}} ({{ratings_count}}) -> {{comments_count}}
+                    {{stars avg_rating}} {{ratings_count}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> {{comments_count}}
                 {{else}}
-                    No ratings
+                    No Ratings
                 {{/if}}
+                </div>
             {{/if}}
             {{#if show_votes}}
                 <div style='width: 55px; margin-right: 7px;' class='voter'><a href='https://twitter.com/share' class='twitter-share-button' data-lang='en' data-count='vertical' data-url='{{refUrl}}' data-text='LTI Tool: {{name}}'>Tweet</a></div>
