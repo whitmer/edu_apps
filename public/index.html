@@ -164,19 +164,38 @@
       $(this).val(url + append);
     });
   });
-  $.getJSON('/data/lti_examples.json', function(data) {
-    tools = data;
-    var url = location.href;
-    var args = (url.split(/\?/)[1] || "").split(/\&/);
-    var params = {}
-    for(var idx in args) {
-      var arg = args[idx].split(/\=/);
-      var key = arg[0];
-      var value = arg[1];
-      if(key && value) {
-        params[key] = decodeURIComponent(value);
+  var args = (location.href.split(/\?/)[1] || "").split(/\&/);
+  var params = {}
+  for(var idx in args) {
+    var arg = args[idx].split(/\=/);
+    var key = arg[0];
+    var value = arg[1];
+    if(key && value) {
+      params[key] = decodeURIComponent(value);
+    }
+  }
+  if(params.tool) {
+    $.getJSON('/api/v1/apps/' + params.tool, function(data) {
+      toolsReady([data]);
+    });
+  } else {
+    var tools = [];
+    var url = '/api/v1/apps';
+    function moreTools() {
+      if(url) {
+        $.getJSON(url, function(data) {
+          tools = tools.concat(data['objects']);
+          url = data['meta'] && data['meta']['next'];
+          moreTools();
+        });
+      } else {
+        toolsReady(tools);
       }
     }
+    moreTools();
+  }
+  function toolsReady(tools) {
+    var url = location.href;
     var refUrl = "";
     if(params.tool) {
       var tool = null;
@@ -238,7 +257,7 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
     }
     $(".config_option").change();
-  });
+  }
   var $comments = null;
   function addComments(comments) {
     if(!$comments) {
