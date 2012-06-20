@@ -59,7 +59,7 @@ class AppReview
   property :rating, Integer
   property :comments, Text, :lazy => false
   
-  has 1, :external_access_token
+  belongs_to :external_access_token
   
   def source_name
     external_access_token.name

@@ -47,12 +47,11 @@ module Sinatra
       required_fields = [:user_name, :user_url, :user_id, :rating]
       optional_fields = [:user_avatar_url, :comments]
       required_fields.each do |field|
-        if !params[field] || params[field].blank?
+        if !params[field] || params[field].empty?
           return {:message => "The field '#{field}' is required", :type => 'error'}.to_json
         end
       end
-      review = AppReview.first_or_new(:tool_id => params[:tool_id], :access_token_id => @token.id, :user_id => params[:user_id])
-      review.external_access_token_id = @token.id
+      review = AppReview.first_or_new(:tool_id => params[:tool_id], :external_access_token_id => @token.id, :user_id => params[:user_id])
       review.tool_name = @tool['name']
       review.created_at ||= Time.now
       (required_fields + optional_fields).each do |field|
@@ -134,6 +133,7 @@ module Sinatra
       def review_as_json(review)
         fields = [:user_name, :user_url, :user_avatar_url, :tool_name, :rating, :comments, :source_name, :source_url]
         res = {}
+        res['created'] = review.created_at.strftime("%b %e, %Y")
         fields.each do |field|
           res[field] = review.send(field)
         end
@@ -159,7 +159,7 @@ module Sinatra
         id = params[:tool_id]
         data = JSON.parse(File.read('./public/data/lti_examples.json'))
         @tool = data.detect{|t| t['id'] == id }
-        @tool_summary = App.first(:tool_id => @tool['id'] ) if @tool
+        @tool_summary = App.first_or_create(:tool_id => @tool['id'] ) if @tool
         if !@tool
           @error = {:message => "Tool not found", :type => "error"}.to_json
           false

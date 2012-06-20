@@ -2,9 +2,95 @@
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
 templates['comment'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;
-  var buffer = "", foundHelper, self=this;
+  var buffer = "", stack1, stack2, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression;
 
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n            <img src=\"";
+  foundHelper = helpers.user_avatar_url;
+  stack1 = foundHelper || depth0.user_avatar_url;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "user_avatar_url", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\" style=\"width: 50px; height: 50px;\"/>\n        ";
+  return buffer;}
 
+function program3(depth0,data) {
+  
+  
+  return "\n            <img src=\"/person.png\" style=\"width: 50px; height: 50px;\"/>\n        ";}
+
+function program5(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n            <a href=\"";
+  foundHelper = helpers.user_url;
+  stack1 = foundHelper || depth0.user_url;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "user_url", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">";
+  foundHelper = helpers.user_name;
+  stack1 = foundHelper || depth0.user_name;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "user_name", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</a>\n        ";
+  return buffer;}
+
+function program7(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n            ";
+  foundHelper = helpers.user_name;
+  stack1 = foundHelper || depth0.user_name;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "user_name", { hash: {} }); }
+  buffer += escapeExpression(stack1) + " \n        ";
+  return buffer;}
+
+  buffer += "<div class='comment' id='comment_";
+  foundHelper = helpers.id;
+  stack1 = foundHelper || depth0.id;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "id", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "'>\n    <div style=\"float: left;\">\n        ";
+  foundHelper = helpers.user_avatar_url;
+  stack1 = foundHelper || depth0.user_avatar_url;
+  stack2 = helpers['if'];
+  tmp1 = self.program(1, program1, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.program(3, program3, data);
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n    </div>\n    <div style=\"margin-left: 55px;\">\n        ";
+  foundHelper = helpers.user_url;
+  stack1 = foundHelper || depth0.user_url;
+  stack2 = helpers['if'];
+  tmp1 = self.program(5, program5, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.program(7, program7, data);
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n        &nbsp;&nbsp;&nbsp;&nbsp;";
+  foundHelper = helpers.created;
+  stack1 = foundHelper || depth0.created;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "created", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "<br/>\n        ";
+  foundHelper = helpers.rating;
+  stack1 = foundHelper || depth0.rating;
+  foundHelper = helpers.small_stars;
+  stack2 = foundHelper || depth0.small_stars;
+  if(typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, { hash: {} }); }
+  else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "small_stars", stack1, { hash: {} }); }
+  else { stack1 = stack2; }
+  buffer += escapeExpression(stack1) + "<br/>\n        ";
+  foundHelper = helpers.comments;
+  stack1 = foundHelper || depth0.comments;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "comments", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\n    </div>\n</div>";
   return buffer;});
 templates['tool'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;
@@ -33,7 +119,7 @@ function program7(depth0,data) {
 function program9(depth0,data) {
   
   var buffer = "", stack1, stack2;
-  buffer += "\n                ";
+  buffer += "\n                <div class='rating_summary'>\n                ";
   foundHelper = helpers.ratings_count;
   stack1 = foundHelper || depth0.ratings_count;
   stack2 = helpers['if'];
@@ -43,7 +129,7 @@ function program9(depth0,data) {
   tmp1.inverse = self.program(12, program12, data);
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n            ";
+  buffer += "\n                </div>\n            ";
   return buffer;}
 function program10(depth0,data) {
   
@@ -56,12 +142,12 @@ function program10(depth0,data) {
   if(typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, { hash: {} }); }
   else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "stars", stack1, { hash: {} }); }
   else { stack1 = stack2; }
-  buffer += escapeExpression(stack1) + " (";
+  buffer += escapeExpression(stack1) + " ";
   foundHelper = helpers.ratings_count;
   stack1 = foundHelper || depth0.ratings_count;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "ratings_count", { hash: {} }); }
-  buffer += escapeExpression(stack1) + ") <img src='/comments.png'/> ";
+  buffer += escapeExpression(stack1) + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> ";
   foundHelper = helpers.comments_count;
   stack1 = foundHelper || depth0.comments_count;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
@@ -108,11 +194,55 @@ function program16(depth0,data) {
 function program18(depth0,data) {
   
   var buffer = "", stack1, stack2;
+  buffer += "\n            <div class='ratings_on_hover'>\n                ";
+  foundHelper = helpers.ratings_count;
+  stack1 = foundHelper || depth0.ratings_count;
+  stack2 = helpers['if'];
+  tmp1 = self.program(19, program19, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.program(21, program21, data);
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n            </div>\n        ";
+  return buffer;}
+function program19(depth0,data) {
+  
+  var buffer = "", stack1, stack2;
+  buffer += "\n                    ";
+  foundHelper = helpers.avg_rating;
+  stack1 = foundHelper || depth0.avg_rating;
+  foundHelper = helpers.stars;
+  stack2 = foundHelper || depth0.stars;
+  if(typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, { hash: {} }); }
+  else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "stars", stack1, { hash: {} }); }
+  else { stack1 = stack2; }
+  buffer += escapeExpression(stack1) + " ";
+  foundHelper = helpers.ratings_count;
+  stack1 = foundHelper || depth0.ratings_count;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "ratings_count", { hash: {} }); }
+  buffer += escapeExpression(stack1) + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> ";
+  foundHelper = helpers.comments_count;
+  stack1 = foundHelper || depth0.comments_count;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "comments_count", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\n                ";
+  return buffer;}
+
+function program21(depth0,data) {
+  
+  
+  return "\n                    &nbsp;\n                ";}
+
+function program23(depth0,data) {
+  
+  var buffer = "", stack1, stack2;
   buffer += "\n        <div class='config alert alert-info'>\n        ";
   foundHelper = helpers.single_tool;
   stack1 = foundHelper || depth0.single_tool;
   stack2 = helpers['if'];
-  tmp1 = self.program(19, program19, data);
+  tmp1 = self.program(24, program24, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -122,7 +252,7 @@ function program18(depth0,data) {
   foundHelper = helpers.preview;
   stack1 = foundHelper || depth0.preview;
   stack2 = helpers['if'];
-  tmp1 = self.program(34, program34, data);
+  tmp1 = self.program(39, program39, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -132,7 +262,7 @@ function program18(depth0,data) {
   foundHelper = helpers.extensions_or_preview;
   stack1 = foundHelper || depth0.extensions_or_preview;
   stack2 = helpers['if'];
-  tmp1 = self.program(37, program37, data);
+  tmp1 = self.program(42, program42, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -140,29 +270,29 @@ function program18(depth0,data) {
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n        </div>\n    ";
   return buffer;}
-function program19(depth0,data) {
+function program24(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n            ";
   foundHelper = helpers.config_url;
   stack1 = foundHelper || depth0.config_url;
   stack2 = helpers['if'];
-  tmp1 = self.program(20, program20, data);
+  tmp1 = self.program(25, program25, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
-  tmp1.inverse = self.program(31, program31, data);
+  tmp1.inverse = self.program(36, program36, data);
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n        ";
   return buffer;}
-function program20(depth0,data) {
+function program25(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n                ";
   foundHelper = helpers.config_options;
   stack1 = foundHelper || depth0.config_options;
   stack2 = helpers.each;
-  tmp1 = self.program(21, program21, data);
+  tmp1 = self.program(26, program26, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -173,16 +303,16 @@ function program20(depth0,data) {
   stack1 = foundHelper || depth0.config_url;
   foundHelper = helpers.if_string;
   stack2 = foundHelper || depth0.if_string;
-  tmp1 = self.program(26, program26, data);
+  tmp1 = self.program(31, program31, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
-  tmp1.inverse = self.program(28, program28, data);
+  tmp1.inverse = self.program(33, program33, data);
   if(foundHelper && typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, tmp1); }
   else { stack1 = blockHelperMissing.call(depth0, stack2, stack1, tmp1); }
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n            ";
   return buffer;}
-function program21(depth0,data) {
+function program26(depth0,data) {
   
   var buffer = "", stack1, stack2, stack3;
   buffer += "\n                    ";
@@ -193,16 +323,16 @@ function program21(depth0,data) {
   stack2['val'] = stack3;
   foundHelper = helpers.if_eql;
   stack3 = foundHelper || depth0.if_eql;
-  tmp1 = self.program(22, program22, data);
+  tmp1 = self.program(27, program27, data);
   tmp1.hash = stack2;
   tmp1.fn = tmp1;
-  tmp1.inverse = self.program(24, program24, data);
+  tmp1.inverse = self.program(29, program29, data);
   if(foundHelper && typeof stack3 === functionType) { stack1 = stack3.call(depth0, stack1, tmp1); }
   else { stack1 = blockHelperMissing.call(depth0, stack3, stack1, tmp1); }
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n                    <br/>\n                ";
   return buffer;}
-function program22(depth0,data) {
+function program27(depth0,data) {
   
   var buffer = "", stack1;
   buffer += "\n                        <div class='form-horizontal'><label><input style='margin: -4px 3px 0 0;' type='checkbox' class='config_option' name='";
@@ -223,7 +353,7 @@ function program22(depth0,data) {
   buffer += escapeExpression(stack1) + "</label></div>\n                    ";
   return buffer;}
 
-function program24(depth0,data) {
+function program29(depth0,data) {
   
   var buffer = "", stack1;
   buffer += "\n                        <div class='form-horizontal'><label>";
@@ -244,7 +374,7 @@ function program24(depth0,data) {
   buffer += escapeExpression(stack1) + "'/></label></div>\n                    ";
   return buffer;}
 
-function program26(depth0,data) {
+function program31(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n                    <label>configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='";
@@ -258,14 +388,14 @@ function program26(depth0,data) {
   buffer += escapeExpression(stack1) + "'/></label>\n                ";
   return buffer;}
 
-function program28(depth0,data) {
+function program33(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n                    ";
   foundHelper = helpers.config_url;
   stack1 = foundHelper || depth0.config_url;
   stack2 = helpers.each;
-  tmp1 = self.program(29, program29, data);
+  tmp1 = self.program(34, program34, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -273,7 +403,7 @@ function program28(depth0,data) {
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n                ";
   return buffer;}
-function program29(depth0,data) {
+function program34(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n                        <label>";
@@ -292,14 +422,14 @@ function program29(depth0,data) {
   buffer += escapeExpression(stack1) + "'/></label>\n                    ";
   return buffer;}
 
-function program31(depth0,data) {
+function program36(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n                ";
   foundHelper = helpers.config_directions;
   stack1 = foundHelper || depth0.config_directions;
   stack2 = helpers['if'];
-  tmp1 = self.program(32, program32, data);
+  tmp1 = self.program(37, program37, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -307,7 +437,7 @@ function program31(depth0,data) {
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n            ";
   return buffer;}
-function program32(depth0,data) {
+function program37(depth0,data) {
   
   var buffer = "", stack1;
   buffer += "\n                    ";
@@ -318,14 +448,14 @@ function program32(depth0,data) {
   buffer += escapeExpression(stack1) + "\n                ";
   return buffer;}
 
-function program34(depth0,data) {
+function program39(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n            ";
   foundHelper = helpers.single_tool;
   stack1 = foundHelper || depth0.single_tool;
   stack2 = helpers['if'];
-  tmp1 = self.program(35, program35, data);
+  tmp1 = self.program(40, program40, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -333,19 +463,19 @@ function program34(depth0,data) {
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n        ";
   return buffer;}
-function program35(depth0,data) {
+function program40(depth0,data) {
   
   
   return "\n                <button id='preview' class='btn btn-primary'>Preview</button>\n            ";}
 
-function program37(depth0,data) {
+function program42(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n            <div class='extensions'>\n                ";
   foundHelper = helpers.preview;
   stack1 = foundHelper || depth0.preview;
   stack2 = helpers['if'];
-  tmp1 = self.program(38, program38, data);
+  tmp1 = self.program(43, program43, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -361,12 +491,50 @@ function program37(depth0,data) {
   else { stack1 = stack2; }
   buffer += escapeExpression(stack1) + "\n            </div>\n        ";
   return buffer;}
-function program38(depth0,data) {
+function program43(depth0,data) {
   
   
   return "\n                    <span class='label label-info'>preview</span>&nbsp;\n                ";}
 
-function program40(depth0,data) {
+function program45(depth0,data) {
+  
+  var buffer = "", stack1, stack2;
+  buffer += "\n        <div class='ratings'>\n            ";
+  foundHelper = helpers.avg_rating;
+  stack1 = foundHelper || depth0.avg_rating;
+  foundHelper = helpers.stars;
+  stack2 = foundHelper || depth0.stars;
+  if(typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, { hash: {} }); }
+  else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "stars", stack1, { hash: {} }); }
+  else { stack1 = stack2; }
+  buffer += escapeExpression(stack1) + " ";
+  foundHelper = helpers.ratings_count;
+  stack1 = foundHelper || depth0.ratings_count;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "ratings_count", { hash: {} }); }
+  buffer += escapeExpression(stack1) + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> ";
+  foundHelper = helpers.comments_count;
+  stack1 = foundHelper || depth0.comments_count;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "comments_count", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\n            <form id='add_rating' style=\"display: none;\">\n                <input id=\"rating_star\" type=\"hidden\" name=\"rating\" value=\"\"/>\n                <textarea id=\"rating_comments\" placeholder=\"Type any additional comments here\" style=\"width: 300px; height: 50px;\"></textarea><br/>\n                <button type='submit' class='btn btn-primary'>Submit Comments</button>\n            </form>\n            ";
+  foundHelper = helpers.comments_count;
+  stack1 = foundHelper || depth0.comments_count;
+  stack2 = helpers['if'];
+  tmp1 = self.program(46, program46, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n        </div>\n    ";
+  return buffer;}
+function program46(depth0,data) {
+  
+  
+  return "\n                <h3>Comments</h3>\n                <div class='comments'>\n                </div>\n            ";}
+
+function program48(depth0,data) {
   
   
   return "\n    <span class='span2 app'></span>\n";}
@@ -455,21 +623,41 @@ function program40(depth0,data) {
   stack1 = foundHelper || depth0.description;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "description", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\n        </div>\n    </div>\n    ";
-  foundHelper = helpers.config_details;
-  stack1 = foundHelper || depth0.config_details;
-  stack2 = helpers['if'];
+  buffer += escapeExpression(stack1) + "\n        </div>\n        ";
+  foundHelper = helpers.single_tool;
+  stack1 = foundHelper || depth0.single_tool;
+  stack2 = helpers.unless;
   tmp1 = self.program(18, program18, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n    <div class='ratings'>\n    </div>\n</span>\n";
+  buffer += "\n    </div>\n    ";
+  foundHelper = helpers.config_details;
+  stack1 = foundHelper || depth0.config_details;
+  stack2 = helpers['if'];
+  tmp1 = self.program(23, program23, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n    ";
   foundHelper = helpers.single_tool;
   stack1 = foundHelper || depth0.single_tool;
   stack2 = helpers['if'];
-  tmp1 = self.program(40, program40, data);
+  tmp1 = self.program(45, program45, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n</span>\n";
+  foundHelper = helpers.single_tool;
+  stack1 = foundHelper || depth0.single_tool;
+  stack2 = helpers['if'];
+  tmp1 = self.program(48, program48, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;

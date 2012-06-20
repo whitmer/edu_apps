@@ -174,6 +174,52 @@
       params[key] = decodeURIComponent(value);
     }
   }
+  $("img.star").live('mouseover', function() {
+    if(window.user_key && params.tool) {
+      var $parent = $(this).parent();
+      if(!$parent.data('original_class')) {
+        $parent.data('original_class', $parent.attr('class'));
+      }
+      $parent.attr('class', 'stars ' + $(this).attr('class'));
+    }
+  }).live('mouseout', function() {
+    var $parent = $(this).parent();
+    $parent.attr('class', $parent.data('original_class'));
+  }).live('click', function() {
+    if(window.user_key) {
+      var star = $(this).attr('data-star');
+      $(".stars").attr('class', 'stars star' + star).data('original_class', 'stars star' + star);
+      $("#add_rating").slideDown();
+      $("#rating_star").val(star);
+      $.ajax({
+        type: 'POST',
+        url: '/api/v1/apps/' + params.tool + '/reviews',
+        data: {
+          rating: star
+        },
+        dataType: 'json',
+        success: function(data) {
+          addComment(data, true);
+        }
+      });
+    }
+  });
+  $("#add_rating").live('submit', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    $.ajax({
+        type: 'POST',
+        url: '/api/v1/apps/' + params.tool + '/reviews',
+        data: {
+          rating: $("#rating_star").val(),
+          comments: $("#rating_comments").val()
+        },
+        dataType: 'json',
+        success: function(data) {
+          addComment(data, true);
+        }
+    });
+  });
   if(params.tool) {
     $.getJSON('/api/v1/apps/' + params.tool, function(data) {
       toolsReady([data]);
@@ -256,20 +302,34 @@
       script.async = true;
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
     }
+    if(tools.length == 1 && tools[0].comments_count) {
+      $.getJSON('/api/v1/apps/' + params.tool + '/reviews', function(data) {
+        addComments(data['objects']);
+      });
+    }
     $(".config_option").change();
   }
   var $comments = null;
   function addComments(comments) {
-    if(!$comments) {
-    }
     for(var idx = 0; idx < comments.length; idx++) {
       addComment(comments[idx]);
     }
   }
-  function addComment(comment) {
-    var $comment = $("<div/>", {'class': 'comment'});
-    
-    $comments.append($comment);
+  function addComment(comment, addToTop) {
+    if(!$comments) {
+      $comments = $("<div/>");
+      $(".ratings").append($comments);
+    }
+    if(addToTop) {
+      // get latest app data, update stars and counts everywhere
+    }
+    var comment = Handlebars.templates['comment'](comment);
+    var $comment = $("#comment_" + comment.id);
+    if($comment.length) {
+      $comment.after(comment).remove();
+    } else {
+      $comments[addToTop ? 'prepend' : 'append'](comment);
+    }
   }
   $(".config_field").live('click focus', function() {
     $(this).select();

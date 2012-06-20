@@ -1,3 +1,30 @@
+body.user_key .single_app span.stars img {
+    cursor: pointer;
+}
+span.stars img {
+    width: 16px;
+    height: 16px;
+    background-image: url(/star_empty.png);
+    vertical-align: top;
+}
+span.stars.star1 img.star1,
+span.stars.star1_5 img.star1,
+span.stars.star2 img.star1, span.stars.star2 img.star2,
+span.stars.star2_5 img.star1, span.stars.star2_5 img.star2,
+span.stars.star3 img.star1, span.stars.star3 img.star2, span.stars.star3 img.star3,
+span.stars.star3_5 img.star1, span.stars.star3_5 img.star2, span.stars.star3_5 img.star3,
+span.stars.star4 img.star1, span.stars.star4 img.star2, span.stars.star4 img.star3, span.stars.star4 img.star4,
+span.stars.star4_5 img.star1, span.stars.star4_5 img.star2, span.stars.star4_5 img.star3, span.stars.star4_5 img.star4,
+span.stars.star5 img.star1, span.stars.star5 img.star2, span.stars.star5 img.star3, span.stars.star5 img.star4, span.stars.star5 img.star5 {
+    background-image: url(/star.png);
+}
+span.stars.star0_5 img.star1,
+span.stars.star1_5 img.star2,
+span.stars.star2_5 img.star3,
+span.stars.star3_5 img.star4,
+span.stars.star4_5 img.star5 {
+    background-image: url(/star_half.png);
+}
 .rating {
     margin-bottom: 5px;
 }

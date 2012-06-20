@@ -1,0 +1,19 @@
+<div class='comment' id='comment_{{id}}'>
+    <div style="float: left;">
+        {{#if user_avatar_url}}
+            <img src="{{user_avatar_url}}" style="width: 50px; height: 50px;"/>
+        {{else}}
+            <img src="/person.png" style="width: 50px; height: 50px;"/>
+        {{/if}}
+    </div>
+    <div style="margin-left: 55px;">
+        {{#if user_url}}
+            <a href="{{user_url}}">{{user_name}}</a>
+        {{else}}
+            {{user_name}} 
+        {{/if}}
+        &nbsp;&nbsp;&nbsp;&nbsp;{{created}}<br/>
+        {{small_stars rating}}<br/>
+        {{comments}}
+    </div>
+</div>

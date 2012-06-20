@@ -34,6 +34,15 @@
             {{/if}}
             {{description}}
         </div>
+        {{#unless single_tool}}
+            <div class='ratings_on_hover'>
+                {{#if ratings_count}}
+                    {{stars avg_rating}} {{ratings_count}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> {{comments_count}}
+                {{else}}
+                    &nbsp;
+                {{/if}}
+            </div>
+        {{/unless}}
     </div>
     {{#if config_details}}
         <div class='config alert alert-info'>
@@ -75,8 +84,21 @@
         {{/if}}
         </div>
     {{/if}}
-    <div class='ratings'>
-    </div>
+    {{#if single_tool}}
+        <div class='ratings'>
+            {{stars avg_rating}} {{ratings_count}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> {{comments_count}}
+            <form id='add_rating' style="display: none;">
+                <input id="rating_star" type="hidden" name="rating" value=""/>
+                <textarea id="rating_comments" placeholder="Type any additional comments here" style="width: 300px; height: 50px;"></textarea><br/>
+                <button type='submit' class='btn btn-primary'>Submit Comments</button>
+            </form>
+            {{#if comments_count}}
+                <h3>Comments</h3>
+                <div class='comments'>
+                </div>
+            {{/if}}
+        </div>
+    {{/if}}
 </span>
 {{#if single_tool}}
     <span class='span2 app'></span>
