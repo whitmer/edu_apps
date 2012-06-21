@@ -7,7 +7,7 @@ $(function() {
     var $div = $(".navbar-inner .nav-collapse");
     var $identity = $("<div/>", {'class': 'identity'});
     if(!user_key || user_key == 'not_logged_in') {
-      $identity.append("<a href='/login'><img src='https://twitter.com/favicon.ico'/> Login</a>");
+      $identity.append("<a href='/login'><img src='/icons/twitter.png'/> Login</a>");
     } else {
       window.user_key = user_key;
       $("body").addClass('user_key');
