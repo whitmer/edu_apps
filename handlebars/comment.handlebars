@@ -7,13 +7,18 @@
         {{/if}}
     </div>
     <div style="margin-left: 55px;">
+        <span class="user_name">
         {{#if user_url}}
             <a href="{{user_url}}">{{user_name}}</a>
         {{else}}
             {{user_name}} 
         {{/if}}
-        &nbsp;&nbsp;&nbsp;&nbsp;{{created}}<br/>
+        </span>
+        <span class="source_name">{{source_name}}</span>
+        <span class='created'>{{created}}</span>
+        <br/>
         {{small_stars rating}}<br/>
         {{comments}}
     </div>
+    <div style="clear: left;"></div>
 </div>

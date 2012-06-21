@@ -12,15 +12,13 @@
             <a href='/index.html?tool={{id}}'>{{name}}</a>
         </h3>
         <div class='rating'>
-            {{#if single_tool }}
-                <div class='rating_summary'>
+            <div class='rating_summary'>
                 {{#if ratings_count}}
                     {{stars avg_rating}} {{ratings_count}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> {{comments_count}}
                 {{else}}
                     No Ratings
                 {{/if}}
-                </div>
-            {{/if}}
+            </div>
             {{#if show_votes}}
                 <div style='width: 55px; margin-right: 7px;' class='voter'><a href='https://twitter.com/share' class='twitter-share-button' data-lang='en' data-count='vertical' data-url='{{refUrl}}' data-text='LTI Tool: {{name}}'>Tweet</a></div>
                 <div class='voter fb-like' data-send='false' data-layout='box_count' data-width='55' data-show-faces='false' data-href='{{refUrl}}' style='width: 55px;'></div>
@@ -93,7 +91,7 @@
                 <button type='submit' class='btn btn-primary'>Submit Comments</button>
             </form>
             {{#if comments_count}}
-                <h3>Comments</h3>
+                <h3>Recent Comments</h3>
                 <div class='comments'>
                 </div>
             {{/if}}

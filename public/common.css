@@ -1,3 +1,22 @@
+.comment {
+    clear: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 400px;
+}
+.comment .source_name {
+    font-size: 11px;
+    color: #888;
+    padding-left: 5px;
+}
+.comment .created {
+    float: right;
+    color: #888;
+}
+.app .ratings h3 {
+    text-align: left;
+    padding-top: 10px;
+}
 body.user_key .single_app span.stars img {
     cursor: pointer;
 }

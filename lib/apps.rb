@@ -21,8 +21,10 @@ module Sinatra
       limit = 15
       return @error unless get_tool
       return @error if params[:only_for_token] && !confirm_token
+      return @error if params[:for_current_user] && !confirm_token
       reviews = AppReview.all(:tool_id => params[:tool_id], :comments.not => nil, :order => [:id.desc])
       reviews = reviews.all(:external_access_token_id => @token.id) if params[:only_for_token]
+      reviews = reviews.all(:external_access_token_id => @token.id, :user_name => session[:user_key]) if params[:for_current_user]
       total = reviews.count
       offset = params[:offset].to_i
       found_reviews = reviews.all(:offset => offset, :limit => limit)
@@ -131,7 +133,7 @@ module Sinatra
       end
         
       def review_as_json(review)
-        fields = [:user_name, :user_url, :user_avatar_url, :tool_name, :rating, :comments, :source_name, :source_url]
+        fields = [:id, :user_name, :user_url, :user_avatar_url, :tool_name, :rating, :comments, :source_name, :source_url]
         res = {}
         res['created'] = review.created_at.strftime("%b %e, %Y")
         fields.each do |field|
