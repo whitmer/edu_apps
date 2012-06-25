@@ -182,6 +182,13 @@
       }
       $resource.append($well);
       $resources.empty().append($resource);
+    } else if(resource.iframe) {
+      lti.resourceSelected({
+        embed_type: 'iframe',
+        url: resource.iframe.url,
+        width: resource.iframe.width,
+        height: resource.iframe.height
+      });
     } else if(resource.url) {
       lti.resourceSelected({
         embed_type: 'link',
