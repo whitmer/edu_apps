@@ -276,7 +276,11 @@ Handlebars.template = Handlebars.VM.template;
   Handlebars.registerHelper('stars', function(context, options) {
     context = Math.round(context * 2.0) / 2.0;
     var context_str = context.toString().replace(/\./, '_');
-    var res = "<span title='" + context + " star" + (context == 1 ? "" : "s") + "' class='stars star" + context_str + "'>";
+    var title = "No Ratings";
+    if(context) {
+      title = context + " Star" + (context == 1 ? "" : "s");
+    }
+    var res = "<span title='" + title + "' class='stars star" + context_str + "'>";
     for(var idx = 0; idx < 5; idx++) {
       res = res + "<img data-star='" + (idx + 1) + "' class='star star" + (idx + 1) + "' src='/blank.png'/> ";
     }
@@ -814,12 +818,7 @@ function program45(depth0,data) {
   stack1 = foundHelper || depth0.ratings_count;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "ratings_count", { hash: {} }); }
-  buffer += escapeExpression(stack1) + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> ";
-  foundHelper = helpers.comments_count;
-  stack1 = foundHelper || depth0.comments_count;
-  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
-  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "comments_count", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\n            <form id='add_rating' style=\"display: none;\">\n                <input id=\"rating_star\" type=\"hidden\" name=\"rating\" value=\"\"/>\n                <textarea id=\"rating_comments\" placeholder=\"Type any additional comments here\" style=\"width: 300px; height: 50px;\"></textarea><br/>\n                <button type='submit' class='btn btn-primary'>Submit Comments</button>\n            </form>\n            ";
+  buffer += escapeExpression(stack1) + "\n            ";
   foundHelper = helpers.comments_count;
   stack1 = foundHelper || depth0.comments_count;
   stack2 = helpers['if'];
@@ -829,14 +828,35 @@ function program45(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n            <form id='add_rating' style=\"display: none;\">\n                <input id=\"rating_star\" type=\"hidden\" name=\"rating\" value=\"\"/>\n                <textarea id=\"rating_comments\" placeholder=\"Type any additional comments here\" style=\"width: 300px; height: 50px;\"></textarea><br/>\n                <button type='submit' class='btn btn-primary'>Submit Comments</button>\n            </form>\n            ";
+  foundHelper = helpers.comments_count;
+  stack1 = foundHelper || depth0.comments_count;
+  stack2 = helpers['if'];
+  tmp1 = self.program(48, program48, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n        </div>\n    ";
   return buffer;}
 function program46(depth0,data) {
   
+  var buffer = "", stack1;
+  buffer += "\n                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> ";
+  foundHelper = helpers.comments_count;
+  stack1 = foundHelper || depth0.comments_count;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "comments_count", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\n            ";
+  return buffer;}
+
+function program48(depth0,data) {
+  
   
   return "\n                <h3>Recent Comments</h3>\n                <div class='comments'>\n                </div>\n            ";}
 
-function program48(depth0,data) {
+function program50(depth0,data) {
   
   
   return "\n    <span class='span2 app'></span>\n";}
@@ -959,7 +979,7 @@ function program48(depth0,data) {
   foundHelper = helpers.single_tool;
   stack1 = foundHelper || depth0.single_tool;
   stack2 = helpers['if'];
-  tmp1 = self.program(48, program48, data);
+  tmp1 = self.program(50, program50, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;

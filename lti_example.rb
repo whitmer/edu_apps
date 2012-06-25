@@ -49,6 +49,10 @@ post "/tool_redirect" do
   redirect to(url)
 end
 
+get "/tool_redirect" do
+  redirect to("/")
+end
+
 get "/analytics_key.json" do
   config = ExternalConfig.first(:config_type => 'google_analytics')
   return {:key => (config && config.value)}.to_json

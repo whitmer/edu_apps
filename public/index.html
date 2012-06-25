@@ -114,6 +114,7 @@
         Awesome stuff happens with <a href="http://www.imsglobal.org/lti/">LTI</a>. You know this is true. Here are some examples of LTI integrations you can use today.
       </p>
         Not familiar with LTI? Basically it's like Facebook apps or Google widgets, but interoperable between lots of edu tools. The <a href="/tutorials.html">tutorials page</a> shows how to configure LTI tools in supported systems. There's also some handy extensions to LTI that you can learn more about on the <a href="/extensions.html">extensions page</a>. Tools with a gray label under their configuration xml support LTI extensions that won't work in all systems. Currently LTI extensions are only supported by Canvas.
+      <div style='clear: both;'></div>
       <div style="float: right;">
         <a href="http://atutor.ca/"><img src='/lms/atutor.png' class="works_in" title="Works in ATutor 2.03+"/></a>
         <a href="http://www.blackboard.com"><img src='/lms/blackboard.png' class="works_in" title="Works in Blackboard Learn 9.1 SP4+"/></a>
@@ -123,7 +124,7 @@
         <a href="http://moodle.org/"><img src='/lms/moodle.png' class="works_in" title="Works in Moodle 2.2+"/></a>
         <a href="http://sakaiproject.org/"><img src='/lms/sakai.png' class="works_in" title="Works in Sakai 2.7+"/></a>
         <a href="http://en.wikipedia.org/wiki/WebCT"><img src='/lms/webct.png' class="works_in" title="Works in WebCT 6+ (require PowerLink)"/></a>
-        <div><a href="http://www.imscert.org/">see all IMS LTI-certified products</a></div>
+        <div style='font-size: 12px; text-align: right;'><a href="http://www.imscert.org/">see all IMS LTI-certified products</a></div>
       </div>
     </div>
     <div id="contents"></div>
@@ -137,13 +138,13 @@
   if(location.href.match(/http:\/\/lti-examples\.heroku\.com/)) {
     location.href = location.href.replace(/^http/, 'https')
   }
-  var tools = [];
+  var visible_tools = [];
   var extensions = {
     'editor_button': "rich editor",
     'course_nav': "course navigation"
   };
   $("#preview").live('click', function() {
-    var tool = tools[0];
+    var tool = visible_tools[0];
     $(".preview_pane").remove();
     var preview = Handlebars.templates['tool_preview'](tool);
     $(".config").after(preview);
@@ -257,6 +258,7 @@
         tools = [tool];
       }
     }
+    visible_tools = tools;
     
     var mod = 0;
     var $div = null;
