@@ -245,11 +245,20 @@ Handlebars.VM = {
 Handlebars.template = Handlebars.VM.template;
 
 (function() {
+  var extensions_hash = {
+    'editor_button': 'editor button',
+    'resource_selecetion': 'resource selection',
+    'course_nav': 'course navigation',
+    'user_nav': 'profile navigation',
+    'account_nav': 'account navigation'
+  }
   Handlebars.registerHelper('extensions_list', function(context, options) {
     var res = "";
     context = context || [];
     for(var idx = 0; idx < context.length; idx++) {
-      res = res + "<span class='label'>" + context[idx] + "</span>&nbsp;";
+      if(extensions_hash[context[idx]]) {
+        res = res + "<span class='label'>" + extensions_hash[context[idx]] + "</span>&nbsp;";
+      }
     }
     return new Handlebars.SafeString(res);
   });
@@ -772,19 +781,19 @@ function program39(depth0,data) {
 function program40(depth0,data) {
   
   
-  return "\n                <button id='preview' class='btn btn-primary'>Preview</button>\n            ";}
+  return "\n                <a id='preview' class='btn btn-primary' href='#preview'>Preview</a>\n            ";}
 
 function program42(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n            <div class='extensions'>\n                ";
-  foundHelper = helpers.preview;
-  stack1 = foundHelper || depth0.preview;
+  foundHelper = helpers.single_tool;
+  stack1 = foundHelper || depth0.single_tool;
   stack2 = helpers['if'];
   tmp1 = self.program(43, program43, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
-  tmp1.inverse = self.noop;
+  tmp1.inverse = self.program(45, program45, data);
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n                ";
@@ -800,12 +809,23 @@ function program42(depth0,data) {
 function program43(depth0,data) {
   
   
-  return "\n                    <span class='label label-info'>preview</span>&nbsp;\n                ";}
+  return "\n                    <span class='label label-info'>preview</span>\n                ";}
 
 function program45(depth0,data) {
   
+  var buffer = "", stack1;
+  buffer += "\n                    <a href=\"/index.html?tool=";
+  foundHelper = helpers.id;
+  stack1 = foundHelper || depth0.id;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "id", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "#preview\">\n                        <span class='label label-info'>preview</span></a>\n                ";
+  return buffer;}
+
+function program47(depth0,data) {
+  
   var buffer = "", stack1, stack2;
-  buffer += "\n        <div class='ratings'>\n            ";
+  buffer += "\n        <a name=\"preview\"></a>\n        <div class='ratings'>\n            ";
   foundHelper = helpers.avg_rating;
   stack1 = foundHelper || depth0.avg_rating;
   foundHelper = helpers.stars;
@@ -822,7 +842,7 @@ function program45(depth0,data) {
   foundHelper = helpers.comments_count;
   stack1 = foundHelper || depth0.comments_count;
   stack2 = helpers['if'];
-  tmp1 = self.program(46, program46, data);
+  tmp1 = self.program(48, program48, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -832,7 +852,7 @@ function program45(depth0,data) {
   foundHelper = helpers.comments_count;
   stack1 = foundHelper || depth0.comments_count;
   stack2 = helpers['if'];
-  tmp1 = self.program(48, program48, data);
+  tmp1 = self.program(50, program50, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -840,7 +860,7 @@ function program45(depth0,data) {
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n        </div>\n    ";
   return buffer;}
-function program46(depth0,data) {
+function program48(depth0,data) {
   
   var buffer = "", stack1;
   buffer += "\n                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> ";
@@ -851,12 +871,12 @@ function program46(depth0,data) {
   buffer += escapeExpression(stack1) + "\n            ";
   return buffer;}
 
-function program48(depth0,data) {
+function program50(depth0,data) {
   
   
   return "\n                <h3>Recent Comments</h3>\n                <div class='comments'>\n                </div>\n            ";}
 
-function program50(depth0,data) {
+function program52(depth0,data) {
   
   
   return "\n    <span class='span2 app'></span>\n";}
@@ -969,7 +989,7 @@ function program50(depth0,data) {
   foundHelper = helpers.single_tool;
   stack1 = foundHelper || depth0.single_tool;
   stack2 = helpers['if'];
-  tmp1 = self.program(45, program45, data);
+  tmp1 = self.program(47, program47, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -979,7 +999,7 @@ function program50(depth0,data) {
   foundHelper = helpers.single_tool;
   stack1 = foundHelper || depth0.single_tool;
   stack2 = helpers['if'];
-  tmp1 = self.program(50, program50, data);
+  tmp1 = self.program(52, program52, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;

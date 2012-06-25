@@ -133,6 +133,10 @@
     </footer>
   </div>
   <script src="jquery.min.js"></script>
+  <script src="/analytics.js"></script>
+  <script src="bootstrap-tooltip.js"></script>
+  <script src="/jquery.store.js"></script>
+  <script src="/common.js"></script>
   <script>
 (function() {
   if(location.href.match(/http:\/\/lti-examples\.heroku\.com/)) {
@@ -165,7 +169,7 @@
       $(this).val(url + append);
     });
   });
-  var args = (location.href.split(/\?/)[1] || "").split(/\&/);
+  var args = (location.href.split(/#/)[0].split(/\?/)[1] || "").split(/\&/);
   var params = {}
   for(var idx in args) {
     var arg = args[idx].split(/\=/);
@@ -316,6 +320,9 @@
       });
     }
     $(".config_option").change();
+    if(location.hash == '#preview') {
+      $("#preview").click();
+    }
   }
   var $comments = null;
   function addComments(comments) {
@@ -350,10 +357,6 @@
   });
 })();
   </script>
-  <script src="/analytics.js"></script>
-  <script src="bootstrap-tooltip.js"></script>
   <script src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=197367153633354"></script>
-  <script src="/jquery.store.js"></script>
-  <script src="/common.js"></script>
   </body>
 </html>

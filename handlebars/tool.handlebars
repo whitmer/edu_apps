@@ -71,13 +71,16 @@
         {{/if}}
         {{#if preview}}
             {{#if single_tool}}
-                <button id='preview' class='btn btn-primary'>Preview</button>
+                <a id='preview' class='btn btn-primary' href='#preview'>Preview</a>
             {{/if}}
         {{/if}}
         {{#if extensions_or_preview}}
             <div class='extensions'>
-                {{#if preview}}
-                    <span class='label label-info'>preview</span>&nbsp;
+                {{#if single_tool}}
+                    <span class='label label-info'>preview</span>
+                {{else}}
+                    <a href="/index.html?tool={{id}}#preview">
+                        <span class='label label-info'>preview</span></a>
                 {{/if}}
                 {{extensions_list extensions}}
             </div>
@@ -85,6 +88,7 @@
         </div>
     {{/if}}
     {{#if single_tool}}
+        <a name="preview"></a>
         <div class='ratings'>
             {{stars avg_rating}} {{ratings_count}}
             {{#if comments_count}}
