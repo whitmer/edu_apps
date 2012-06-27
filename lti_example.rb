@@ -15,7 +15,7 @@ rescue LoadError
 end
 
 require 'sinatra'
-require 'lib/models.rb'
+require './lib/models'
 require 'lib/external_search'
 require 'lib/apps'
 require 'lib/twitter_login'
