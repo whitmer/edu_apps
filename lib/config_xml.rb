@@ -116,6 +116,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Placekitten.com</blti:title>
         <blti:description>Placekitten.com is a quick and simple service for adding pictures of kittens to your site</blti:description>
+        <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">editor_button2</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
