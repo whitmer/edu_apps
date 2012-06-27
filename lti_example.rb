@@ -16,13 +16,13 @@ end
 
 require 'sinatra'
 require './lib/models'
-require 'lib/external_search'
-require 'lib/apps'
-require 'lib/twitter_login'
-require 'lib/assessment'
-require 'lib/custom_launches'
-require 'lib/config_xml'
-require 'lib/oembed'
+require './lib/external_search'
+require './lib/apps'
+require './lib/twitter_login'
+require './lib/assessment'
+require './lib/custom_launches'
+require './lib/config_xml'
+require './lib/oembed'
 
 # sinatra wants to set x-frame-options by default, disable it
 disable :protection
