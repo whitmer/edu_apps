@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sanitize'
 
 module Sinatra
   module Apps
@@ -57,7 +58,7 @@ module Sinatra
       review.tool_name = @tool['name']
       review.created_at ||= Time.now
       (required_fields + optional_fields).each do |field|
-        review.send("#{field}=", params[field]) if params[field]
+        review.send("#{field}=", sanitize(params[field])) if params[field]
       end
       review.save!
       @tool_summary.update_counts
@@ -65,6 +66,9 @@ module Sinatra
     end
     
     helpers do
+      def sanitize(raw)
+        Sanitize.clean(raw)
+      end
     
       def apps_list(request, paginated=true)
         host = request.scheme + "://" + request.host_with_port
