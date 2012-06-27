@@ -13,7 +13,7 @@
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0"],
       "launch_url": "/twitter.html",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "preview": {
         "url": "/twitter.html",
         "height": 475
@@ -44,7 +44,7 @@
       "config_url": "/config/tools.xml",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Open Content", "Media"],
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "preview": {
         "url": "/tools.html",
         "height": 475
@@ -64,7 +64,7 @@
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Media"],
       "launch_url": "/ted_ed.html",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "preview": {
         "url": "/ted_ed.html",
         "height": 475
@@ -117,7 +117,7 @@
       "data_url": "/data/smarterer.json",
       "any_key": true,
       "config_url": "/config/smarterer.xml",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Content", "Open Content"],
       "preview": {
@@ -152,7 +152,7 @@
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Media", "Open Content"],
       "launch_url": "/archive.html",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "preview": {
         "url": "/archive.html",
         "height": 475
@@ -198,7 +198,7 @@
       "short_description": "Customizable free textbooks",
       "full_tool": true,
       "any_key": true,
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "data_url": "/data/ck12.json",
       "config_url": "/config/ck12.xml",
       "preview": {
@@ -221,7 +221,7 @@
       "short_description": "Real-world math tutorial videos",
       "full_tool": true,
       "any_key": true,
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "data_url": "/data/mathalicious.json",
       "config_url": "/config/mathalicious.xml",
       "preview": {
@@ -279,7 +279,7 @@
         "url": "/schooltube.html",
         "height": 500
       },
-      "extensions": ["editor_button"]
+      "extensions": ["editor_button", "resource_selection"]
     },
     {
       "id": "tegrity",
@@ -384,7 +384,7 @@
       "any_key": true,
       "config_url": "/config/slideshare.xml",
       "launch_url": "/slideshare.html",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Media"],
       "preview": {
@@ -404,7 +404,7 @@
       "any_key": true,
       "config_url": "/config/quizlet.xml",
       "launch_url": "/quizlet.html",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Study Helps"],
       "preview": {
@@ -450,7 +450,7 @@
       "description": "Search for images shared on Pinterest. Clicking an image will embed it in your course material with a link back to the original page the image is pulled from.",
       "any_key": true,
       "config_url": "/config/pinterest.xml",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0"],
       "preview": {
@@ -577,7 +577,7 @@
       "any_key": true,
       "config_url": "/config/khan_academy.xml",
       "launch_url": "/khan.html",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Media", "Math", "Science", "Open Content"],
       "preview": {
@@ -613,7 +613,7 @@
       "any_key": true,
       "config_url": "/config/wikipedia.xml",
       "launch_url": "/wikipedia.html",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Open Content"],
       "preview": {
@@ -633,7 +633,7 @@
       "any_key": true,
       "config_url": "/config/wiktionary.xml",
       "launch_url": "/wiktionary.html",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Open Content"],
       "preview": {
@@ -766,7 +766,7 @@
       "description": "Search publicly available YouTube videos. A new icon will show up in your course rich editor letting you search YouTube and click to embed videos in your course material.",
       "any_key": true,
       "config_url": "/config/youtube.xml",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Media"],
       "preview": {
@@ -863,7 +863,7 @@
       "data_url": "/data/merlot.json",
       "any_key": true,
       "config_url": "/config/merlot.xml",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Content", "Open Content"],
       "preview": {
@@ -882,7 +882,7 @@
       "any_key": true,
       "config_url": "/config/storify.xml",
       "launch_url": "/storify.html",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Content"],
       "preview": {
@@ -1009,7 +1009,7 @@
       "any_key": true,
       "config_url": "/config/ocw_search.xml",
       "launch_url": "/ocw_search.html",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "preview": {
         "url": "/ocw_search.html",
         "height": 475

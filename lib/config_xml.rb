@@ -194,6 +194,7 @@ module Sinatra
           </lticm:options>
           <lticm:options name="resource_selection">
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/graph.html')}</lticm:property>
+            <lticm:property name="text">Embed Graph</lticm:property>
             <lticm:property name="selection_width">780</lticm:property>
             <lticm:property name="selection_height">450</lticm:property>
           </lticm:options>
@@ -245,6 +246,12 @@ module Sinatra
             <lticm:property name="selection_width">590</lticm:property>
             <lticm:property name="selection_height">450</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/khan.html')}</lticm:property>
+            <lticm:property name="text">Find Khan Academy Video</lticm:property>
+            <lticm:property name="selection_width">590</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/khan.png</blti:icon>
       XML
@@ -262,6 +269,12 @@ module Sinatra
           <lticm:options name="editor_button">
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/schooltube.html')}</lticm:property>
             <lticm:property name="icon_url">#{host}/icons/schooltube.png</lticm:property>
+            <lticm:property name="text">SchoolTube Video</lticm:property>
+            <lticm:property name="selection_width">660</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/schooltube.html')}</lticm:property>
             <lticm:property name="text">SchoolTube Video</lticm:property>
             <lticm:property name="selection_width">660</lticm:property>
             <lticm:property name="selection_height">450</lticm:property>
@@ -287,6 +300,12 @@ module Sinatra
             <lticm:property name="selection_width">590</lticm:property>
             <lticm:property name="selection_height">450</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wikipedia.html')}</lticm:property>
+            <lticm:property name="text">Wikipedia Articles</lticm:property>
+            <lticm:property name="selection_width">590</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/wikipedia.png</blti:icon>
       XML
@@ -304,6 +323,12 @@ module Sinatra
           <lticm:options name="editor_button">
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wiktionary.html')}</lticm:property>
             <lticm:property name="icon_url">#{host}/icons/wikipedia.png</lticm:property>
+            <lticm:property name="text">Wiktionary Definitions</lticm:property>
+            <lticm:property name="selection_width">590</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wiktionary.html')}</lticm:property>
             <lticm:property name="text">Wiktionary Definitions</lticm:property>
             <lticm:property name="selection_width">590</lticm:property>
             <lticm:property name="selection_height">450</lticm:property>
@@ -329,6 +354,12 @@ module Sinatra
             <lticm:property name="selection_width">590</lticm:property>
             <lticm:property name="selection_height">450</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/ted_ed.html')}</lticm:property>
+            <lticm:property name="text">TED Ed Video</lticm:property>
+            <lticm:property name="selection_width">590</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/ted_ed.png</blti:icon>
       XML
@@ -345,6 +376,12 @@ module Sinatra
           <lticm:options name="editor_button">
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/youtube.html')}</lticm:property>
             <lticm:property name="icon_url">#{host}/icons/youtube.png</lticm:property>
+            <lticm:property name="text">YouTube Video</lticm:property>
+            <lticm:property name="selection_width">590</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/youtube.html')}</lticm:property>
             <lticm:property name="text">YouTube Video</lticm:property>
             <lticm:property name="selection_width">590</lticm:property>
             <lticm:property name="selection_height">450</lticm:property>
@@ -371,6 +408,12 @@ module Sinatra
             <lticm:property name="selection_width">690</lticm:property>
             <lticm:property name="selection_height">510</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/quizlet.html')}</lticm:property>
+            <lticm:property name="text">Embed Quizlet Flash Cards</lticm:property>
+            <lticm:property name="selection_width">690</lticm:property>
+            <lticm:property name="selection_height">510</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/quizlet.png</blti:icon>
       XML
@@ -388,6 +431,12 @@ module Sinatra
           <lticm:options name="editor_button">
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/pinterest.html')}</lticm:property>
             <lticm:property name="icon_url">#{host}/icons/pinterest.png</lticm:property>
+            <lticm:property name="text">Pinterest</lticm:property>
+            <lticm:property name="selection_width">700</lticm:property>
+            <lticm:property name="selection_height">510</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/pinterest.html')}</lticm:property>
             <lticm:property name="text">Pinterest</lticm:property>
             <lticm:property name="selection_width">700</lticm:property>
             <lticm:property name="selection_height">510</lticm:property>
@@ -413,6 +462,12 @@ module Sinatra
             <lticm:property name="selection_width">690</lticm:property>
             <lticm:property name="selection_height">530</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/slideshare.html')}</lticm:property>
+            <lticm:property name="text">Slideshare CC</lticm:property>
+            <lticm:property name="selection_width">690</lticm:property>
+            <lticm:property name="selection_height">530</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/slideshare.png</blti:icon>
       XML
@@ -430,6 +485,12 @@ module Sinatra
           <lticm:options name="editor_button">
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html')}</lticm:property>
             <lticm:property name="icon_url">#{host}/tools.png</lticm:property>
+            <lticm:property name="text">Search Resource Libraries</lticm:property>
+            <lticm:property name="selection_width">800</lticm:property>
+            <lticm:property name="selection_height">550</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html')}</lticm:property>
             <lticm:property name="text">Search Resource Libraries</lticm:property>
             <lticm:property name="selection_width">800</lticm:property>
             <lticm:property name="selection_height">550</lticm:property>
@@ -455,6 +516,12 @@ module Sinatra
             <lticm:property name="selection_width">700</lticm:property>
             <lticm:property name="selection_height">550</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=merlot')}</lticm:property>
+            <lticm:property name="text">Merlot</lticm:property>
+            <lticm:property name="selection_width">700</lticm:property>
+            <lticm:property name="selection_height">550</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/merlot.png</blti:icon>
       XML
@@ -472,6 +539,12 @@ module Sinatra
           <lticm:options name="editor_button">
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=mathalicious')}</lticm:property>
             <lticm:property name="icon_url">#{host}/icons/mathalicious.png</lticm:property>
+            <lticm:property name="text">Mathalicious</lticm:property>
+            <lticm:property name="selection_width">700</lticm:property>
+            <lticm:property name="selection_height">550</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=mathalicious')}</lticm:property>
             <lticm:property name="text">Mathalicious</lticm:property>
             <lticm:property name="selection_width">700</lticm:property>
             <lticm:property name="selection_height">550</lticm:property>
@@ -497,6 +570,12 @@ module Sinatra
             <lticm:property name="selection_width">700</lticm:property>
             <lticm:property name="selection_height">550</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=ck12')}</lticm:property>
+            <lticm:property name="text">CK-12</lticm:property>
+            <lticm:property name="selection_width">700</lticm:property>
+            <lticm:property name="selection_height">550</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/ck12.png</blti:icon>
       XML
@@ -518,6 +597,12 @@ module Sinatra
             <lticm:property name="selection_width">700</lticm:property>
             <lticm:property name="selection_height">550</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=smarterer')}</lticm:property>
+            <lticm:property name="text">Smarterer</lticm:property>
+            <lticm:property name="selection_width">700</lticm:property>
+            <lticm:property name="selection_height">550</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/smarterer.png</blti:icon>
       XML
@@ -535,6 +620,12 @@ module Sinatra
           <lticm:options name="editor_button">
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=studyegg')}</lticm:property>
             <lticm:property name="icon_url">#{host}/icons/studyegg.png</lticm:property>
+            <lticm:property name="text">Smarterer</lticm:property>
+            <lticm:property name="selection_width">700</lticm:property>
+            <lticm:property name="selection_height">550</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=studyegg')}</lticm:property>
             <lticm:property name="text">Smarterer</lticm:property>
             <lticm:property name="selection_width">700</lticm:property>
             <lticm:property name="selection_height">550</lticm:property>
@@ -608,6 +699,12 @@ module Sinatra
             <lticm:property name="selection_width">690</lticm:property>
             <lticm:property name="selection_height">530</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/twitter.html')}</lticm:property>
+            <lticm:property name="text">Twitter List</lticm:property>
+            <lticm:property name="selection_width">690</lticm:property>
+            <lticm:property name="selection_height">530</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/twitter.png</blti:icon>
       XML
@@ -625,6 +722,12 @@ module Sinatra
           <lticm:options name="editor_button">
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/archive.html')}</lticm:property>
             <lticm:property name="icon_url">#{host}/archive.png</lticm:property>
+            <lticm:property name="text">Internet Archive</lticm:property>
+            <lticm:property name="selection_width">690</lticm:property>
+            <lticm:property name="selection_height">530</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/archive.html')}</lticm:property>
             <lticm:property name="text">Internet Archive</lticm:property>
             <lticm:property name="selection_width">690</lticm:property>
             <lticm:property name="selection_height">530</lticm:property>
@@ -650,6 +753,12 @@ module Sinatra
             <lticm:property name="selection_width">690</lticm:property>
             <lticm:property name="selection_height">530</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/storify.html')}</lticm:property>
+            <lticm:property name="text">Internet Archive</lticm:property>
+            <lticm:property name="selection_width">690</lticm:property>
+            <lticm:property name="selection_height">530</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/storify.png</blti:icon>
       XML
@@ -671,6 +780,12 @@ module Sinatra
             <lticm:property name="selection_width">690</lticm:property>
             <lticm:property name="selection_height">530</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/ocw_search.html')}</lticm:property>
+            <lticm:property name="text">OCW Search</lticm:property>
+            <lticm:property name="selection_width">690</lticm:property>
+            <lticm:property name="selection_height">530</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/ocw_search.png</blti:icon>
       XML
@@ -686,6 +801,13 @@ module Sinatra
           <lticm:property name="tool_id">connexions</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
           <lticm:options name="editor_button">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/connexions.html')}</lticm:property>
+            <lticm:property name="icon_url">#{host}/icons/connexions.png</lticm:property>
+            <lticm:property name="text">Connexions</lticm:property>
+            <lticm:property name="selection_width">690</lticm:property>
+            <lticm:property name="selection_height">530</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/connexions.html')}</lticm:property>
             <lticm:property name="icon_url">#{host}/icons/connexions.png</lticm:property>
             <lticm:property name="text">Connexions</lticm:property>

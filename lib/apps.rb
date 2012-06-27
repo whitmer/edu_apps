@@ -112,6 +112,7 @@ module Sinatra
         end
         if tool['data_url'] && tool['icon_url'] && !tool['config_url']
           tool['config_url'] = host + "/config/data_tool.xml?id=" + tool['id'] + "&name=" + CGI.escape(tool['name']) + "&icon_url=" + CGI.escape(tool['icon_url']) + "&description=" + CGI.escape(tool['description'])
+          tool['extensions'] = ["editor_button", "resource_selection"]
           tool['any_key'] = true
         end
         tool

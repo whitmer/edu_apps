@@ -6,11 +6,23 @@ var lti;
   $result.click(function() {
     var videoUrl = $(this).attr('rel');
     var entry = $(this).data('entry');
-    lti.resourceSelected({
-      embed_type: 'link',
-      url: entry.link[0].href,
-      text: entry.title['$t']
-    });
+    console.log(entry);
+    // http://www.youtube.com/watch?v=embgWgjwybc&feature=youtube_gdata
+    // http://www.youtube.com/embed/embgWgjwybc
+    if(lti.params && lti.params.selection_directive == 'select_link') {
+      var id = entry.link[0].href.match(/v=(\w+)/)[1];
+      lti.resourceSelected({
+        embed_type: 'link',
+        url: "http://www.youtube.com/embed/" + id,
+        text: entry.title['$t']
+      });
+    } else {
+      lti.resourceSelected({
+        embed_type: 'link',
+        url: entry.link[0].href,
+        text: entry.title['$t']
+      });
+    }
   });
   $("#search").submit(function(event) {
     event.preventDefault();
