@@ -74,13 +74,20 @@ if(!skipValidation) {
         if(trackEvent) {
           trackEvent('resource_selected', lti.tool_id || data.embed_type, trackUrl);
         }
-        // TODO: add support for oembed with select_link
         if(lti.params.selection_directive == 'select_link' && data.embed_type != 'oembed' && data.embed_type != 'basic_lti') {
-          data = {
-            embed_type: 'basic_lti',
-            url: location.protocol + "//" + location.host + "/tool_redirect?url=" + encodeURIComponent(data.url),
-            text: data.text
-          };
+          if(data.embed_type == 'oembed') {
+            data = {
+              embed_type: 'basic_lti',
+              url: location.protocol + "//" + location.host + "/oembed_render?endpoint=" + encodeURIComponent(data.endpoint) + "&url=" + encodeURIComponent(data.url),
+              text: "New Resource"
+            };
+          } else {
+            data = {
+              embed_type: 'basic_lti',
+              url: location.protocol + "//" + location.host + "/tool_redirect?url=" + encodeURIComponent(data.url),
+              text: data.text
+            };
+          }
         }
         var url = returnUrl;
         for(var idx in data) {

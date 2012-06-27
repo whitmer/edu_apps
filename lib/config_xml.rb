@@ -218,6 +218,12 @@ module Sinatra
             <lticm:property name="selection_width">740</lticm:property>
             <lticm:property name="selection_height">450</lticm:property>
           </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=' + params['id'])}</lticm:property>
+            <lticm:property name="text">#{params['name']}</lticm:property>
+            <lticm:property name="selection_width">740</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
         </blti:extensions>
         <blti:icon>#{params['icon_url']}</blti:icon>
       XML

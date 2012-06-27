@@ -54,6 +54,28 @@ get "/tool_redirect" do
   redirect to("/")
 end
 
+get "/oembed_render" do
+  html = "<html><body>"
+  endpoint = params[:endpoint]
+  url = params[:url]
+  uri = URI.parse(endpoint + (endpoint.match(/\?/) ? '&url=' : '?url=') + CGI.escape(url) + '&format=json')
+  res = Net::HTTP.get(uri) rescue "{}"
+  data = JSON.parse(res) rescue {}
+  if data['type']
+    if data['type'] == 'photo' && data['url'] && data['url'].match(/^http/)
+      html += "<img src='#{data['url']}' alt='#{data['title']}'/>"
+    elsif data['type'] == 'link' && data['url'] && data['url'].match(/^(http|https|mailto)/)
+      html += "<a href='#{data['url']}'>#{data['title']}</a>"
+    elsif data['type'] == 'video' || data['type'] == 'rich'
+      html += data['html']
+    end
+  else
+    html += "<p>There was a problem retrieving this resource. The external tool provided invalid information about the resource.</p>"
+  end
+  html += "</body></html>"
+  html
+end
+
 get "/analytics_key.json" do
   config = ExternalConfig.first(:config_type => 'google_analytics')
   return {:key => (config && config.value)}.to_json
