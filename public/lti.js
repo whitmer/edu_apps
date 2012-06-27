@@ -4,7 +4,7 @@ var trackEvent;
 var trackUrl = location.href.split(/\?/)[0];
 (function() {
   var url = location.href;
-  var args = (url.split(/\?/)[1] || "").split(/\&/);
+  var args = (url.split(/#/)[0].split(/\?/)[1] || "").split(/\&/);
   var params = {}
   for(var idx in args) {
     var arg = args[idx].split(/\=/);
@@ -62,7 +62,7 @@ if(!skipValidation) {
   }
   (function() {
     var params = lti.params;
-    if(params['selection_directive'] != "embed_content" || !params['launch_presentation_return_url']) {
+    if(!params['selection_directive'] || !params['launch_presentation_return_url']) {
       console.log("This page is normally used an an example of embedding content, but you've referenced it some other way. As such, it's not going to be very useful to you, other than maybe for demo purposes.");
       callbackUrl = null;
     } else if(!params['launch_presentation_return_url'].match(/\?/)) {
@@ -73,6 +73,14 @@ if(!skipValidation) {
       if(returnUrl && returnUrl != "undefined" && returnUrl != "undefined?") {
         if(trackEvent) {
           trackEvent('resource_selected', lti.tool_id || data.embed_type, trackUrl);
+        }
+        // TODO: add support for oembed with select_link
+        if(lti.params.selection_directive == 'select_link' && data.embed_type != 'oembed' && data.embed_type != 'basic_lti') {
+          data = {
+            embed_type: 'basic_lti',
+            url: location.protocol + "//" + location.host + "/tool_redirect?url=" + encodeURIComponent(data.url),
+            text: data.text
+          };
         }
         var url = returnUrl;
         for(var idx in data) {

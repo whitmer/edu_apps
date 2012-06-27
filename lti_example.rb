@@ -45,7 +45,8 @@ post "/tool_redirect" do
   params.each do |key, val|
     args << "#{CGI.escape(key)}=#{CGI.escape(val)}" if key.match(/^custom_/) || ['launch_presentation_return_url', 'selection_directive'].include?(key)
   end
-  url = url + (url.match(/\?/) ? "&" : "?") + args.join('&')
+  pre_hash, post_hash = url.split(/#/)
+  url = pre_hash + (url.match(/\?/) ? "&" : "?") + args.join('&') + (post_hash ? "##{post_hash}" : "")
   redirect to(url)
 end
 

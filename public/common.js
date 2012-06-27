@@ -247,7 +247,7 @@ Handlebars.template = Handlebars.VM.template;
 (function() {
   var extensions_hash = {
     'editor_button': 'editor button',
-    'resource_selecetion': 'resource selection',
+    'resource_selection': 'resource selection',
     'course_nav': 'course navigation',
     'user_nav': 'profile navigation',
     'account_nav': 'account navigation'

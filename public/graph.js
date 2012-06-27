@@ -60,7 +60,8 @@
       embed_type: 'iframe',
       width: '500',
       height: '400',
-      url: link
+      url: link,
+      text: "Embedded Graph"
     });
   });
   var options = {};

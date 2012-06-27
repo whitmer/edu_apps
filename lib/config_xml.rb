@@ -189,7 +189,12 @@ module Sinatra
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/graph.html')}</lticm:property>
             <lticm:property name="icon_url">#{host}/graph.tk/favicon.png</lticm:property>
             <lticm:property name="text">Embed Graph</lticm:property>
-            <lticm:property name="selection_width">740</lticm:property>
+            <lticm:property name="selection_width">780</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/graph.html')}</lticm:property>
+            <lticm:property name="selection_width">780</lticm:property>
             <lticm:property name="selection_height">450</lticm:property>
           </lticm:options>
         </blti:extensions>

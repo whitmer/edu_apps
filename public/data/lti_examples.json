@@ -84,7 +84,7 @@
       "levels": ["7th-12th Grade", "Postsecondary"],
       "categories": ["Math"],
       "launch_url": "/graph.html",
-      "extensions": ["editor_button"],
+      "extensions": ["editor_button", "resource_selection"],
       "preview": {
         "url": "/graph.html",
         "height": 475,
