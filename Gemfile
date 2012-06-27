@@ -9,9 +9,9 @@ gem 'dm-core'
 gem 'dm-migrations'
 gem 'dm-aggregates'
 gem 'dm-postgres-adapter'
-gem 'dm-sqlite-adapter'
 
 group :development do
+    gem 'dm-sqlite-adapter'
     gem "handlebars"
     gem 'rspec'
 end
