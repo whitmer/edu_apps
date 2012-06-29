@@ -9,6 +9,16 @@ module Sinatra
       json_result(list.to_json)
     end
     
+    get "/api/v1/app_categories" do
+      data = JSON.parse(File.read('./public/data/lti_examples.json'))
+      categories = data.map{|d| d['categories'] }.flatten.compact.uniq.sort
+      list = {
+        :levels => ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+        :categories => categories
+      }
+      list.to_json
+    end
+    
     # single app details
     get "/api/v1/apps/:tool_id" do
       host = request.scheme + "://" + request.host_with_port
@@ -32,6 +42,8 @@ module Sinatra
       next_url = total > offset + limit ? (host + "/api/v1/apps/#{params[:tool_id]}/reviews?offset=#{offset+limit}") : nil
       result = {
         :meta => {:next => next_url},
+        :current_offset => offset,
+        :limit => limit,
         :objects => found_reviews.map{|r| review_as_json(r) }
       }
       json_result(result.to_json)
@@ -47,8 +59,8 @@ module Sinatra
         params[:user_id] = key
         params[:user_avatar_url] = "https://api.twitter.com/1/users/profile_image/#{key}"
       end
-      required_fields = [:user_name, :user_url, :user_id, :rating]
-      optional_fields = [:user_avatar_url, :comments]
+      required_fields = [:user_name, :user_id, :rating]
+      optional_fields = [:user_avatar_url, :comments, :user_url]
       required_fields.each do |field|
         if !params[field] || params[field].empty?
           return {:message => "The field '#{field}' is required", :type => 'error'}.to_json
@@ -89,6 +101,8 @@ module Sinatra
           next_url = data.length > offset + limit ? (host + "/api/v1/apps?offset=#{offset + limit}") : nil
           {
             :meta => {:next => next_url},
+            :current_offset => offset,
+            :limit => limit,
             :objects => found_data
           }
         else
