@@ -22,14 +22,10 @@ $(function() {
   $(".logout").live('click', function() {
     $.store.set('user_key', null);
   });
-  if($.store.get('user_key')) {
+  $.getJSON('/user_key.json', function(data) {
+    $.store.set('user_key', data.user_key);
     sessionReady();
-  } else {
-    $.getJSON('/user_key.json', function(data) {
-      $.store.set('user_key', data.user_key);
-      sessionReady();
-    });
-  }
+  });
 });
 
 // lib/handlebars/base.js
