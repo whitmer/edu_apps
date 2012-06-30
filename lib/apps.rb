@@ -66,6 +66,9 @@ module Sinatra
           return {:message => "The field '#{field}' is required", :type => 'error'}.to_json
         end
       end
+      optional_fields.each do |field|
+        params.delete(field) if params[field] && params[field].empty?
+      end
       review = AppReview.first_or_new(:tool_id => params[:tool_id], :external_access_token_id => @token.id, :user_id => params[:user_id])
       review.tool_name = @tool['name']
       review.created_at ||= Time.now
