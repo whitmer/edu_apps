@@ -212,6 +212,9 @@
       });
     }
   });
+  $(".btn-cancel").live('click', function() {
+    $("#add_rating").slideUp();
+  });
   $("#add_rating").live('submit', function(event) {
     event.preventDefault();
     event.stopPropagation();
