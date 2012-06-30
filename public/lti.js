@@ -18,10 +18,9 @@ var trackUrl = location.href.split(/\?/)[0];
   if(lti.params.tool) {
     trackUrl = trackUrl + "tool=" + lti.params.tool;
   }
-  if(trackEvent && (lti.tool_id || params.tool)) {
+  if(trackEvent && (params.tool || lti.tool_id)) {
     trackEvent('tool_launch', (params.tool || lti.tool_id), trackUrl);
   }
-
 })();
 if(!skipValidation) {
   function showPickedResource(data) {
