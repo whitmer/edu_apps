@@ -5,6 +5,7 @@ require 'nokogiri'
 module Sinatra
   module ExternalSearch
     get "/quizlet_search" do
+      @@quizlet_config = ExternalConfig.first(:config_type => 'quizlet')
       return "Quizlet not propertly configured" unless @@quizlet_config
       uri = URI.parse("https://api.quizlet.com/2.0/search/sets")
       http = Net::HTTP.new(uri.host, uri.port)
@@ -37,6 +38,7 @@ module Sinatra
     end
     
     get '/slideshare_search' do
+      @@slideshare_config = ExternalConfig.first(:config_type => 'slideshare')
       return "Slideshare not properly configured" unless @@slideshare_config
       uri = URI.parse("http://www.slideshare.net/api/2/search_slideshows")
       ts = Time.now.to_i.to_s

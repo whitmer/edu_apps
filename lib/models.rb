@@ -75,8 +75,6 @@ module Sinatra
     configure do
       DataMapper.setup(:default, (ENV["DATABASE_URL"] || "sqlite3:///#{Dir.pwd}/development.sqlite3"))
       DataMapper.auto_upgrade!
-      @@quizlet_config = ExternalConfig.first(:config_type => 'quizlet')
-      @@slideshare_config = ExternalConfig.first(:config_type => 'slideshare')
     end
   end
   
