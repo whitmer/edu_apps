@@ -40,7 +40,7 @@
     <div class="row">
       <span class="span12">
         <div style='margin-bottom: 5px;'>        
-          <a href="https://twitter.com/intent/tweet?button_hashtag=lti&text=" class="twitter-hashtag-button" data-lang="en" data-size="large" data-related="whitmer">Tweet #lti_apps</a>
+          <a href="https://twitter.com/intent/tweet?button_hashtag=lti_apps&text=" class="twitter-hashtag-button" data-lang="en" data-size="large" data-related="whitmer">Tweet #lti_apps</a>
           <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </div>
 
@@ -49,7 +49,7 @@
         new TWTR.Widget({
           version: 2,
           type: 'search',
-          search: '#lti',
+          search: '#lti OR #lti_apps',
           interval: 30000,
           title: 'LTI Apps Talk',
           subject: 'Of Awesomeness and Quality',
@@ -57,7 +57,7 @@
           height: 300,
           theme: {
             shell: {
-              background: '#8ec1da',
+              background: '#7d7d7d',
               color: '#ffffff'
             },
             tweets: {
