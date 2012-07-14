@@ -167,7 +167,7 @@ function program7(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " dropdown\">\n                <a href=\"/code.html\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Coding <span class='caret' style=\"color: #fff;\"></span></a>\n                <ul class=\"dropdown-menu\">\n                    <li><a href=\"/code.html\">Basics</a></li>\n                    <li><a href=\"/extensions.html\">Extensions</a></li>\n                    <li class=\"divider\"></li>\n                    <li><a href=\"https://github.com/whitmer/lti_example\">Source</a></li>\n                </ul>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</header>\n";
+  buffer += " dropdown\">\n                <a href=\"/code.html\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Coding <span class='caret' style=\"color: #fff;\"></span></a>\n                <ul class=\"dropdown-menu\">\n                    <li><a href=\"/code.html\">Basics</a></li>\n                    <li><a href=\"/extensions.html\">Examples</a></li>\n                    <li><a href=\"/api.html\">API</a></li>\n                    <li class=\"divider\"></li>\n                    <li><a href=\"https://github.com/whitmer/lti_example\">Source</a></li>\n                </ul>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</header>\n";
   return buffer;});
 templates['tool'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;
@@ -351,8 +351,8 @@ function program24(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n            ";
-  foundHelper = helpers.config_url;
-  stack1 = foundHelper || depth0.config_url;
+  foundHelper = helpers.has_config_url;
+  stack1 = foundHelper || depth0.has_config_url;
   stack2 = helpers['if'];
   tmp1 = self.program(25, program25, data);
   tmp1.hash = {};
@@ -376,16 +376,14 @@ function program25(depth0,data) {
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n                ";
-  foundHelper = helpers.config_url;
-  stack1 = foundHelper || depth0.config_url;
-  foundHelper = helpers.if_string;
-  stack2 = foundHelper || depth0.if_string;
+  foundHelper = helpers.config_urls;
+  stack1 = foundHelper || depth0.config_urls;
+  stack2 = helpers['if'];
   tmp1 = self.program(31, program31, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
-  tmp1.inverse = self.program(33, program33, data);
-  if(foundHelper && typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, tmp1); }
-  else { stack1 = blockHelperMissing.call(depth0, stack2, stack1, tmp1); }
+  tmp1.inverse = self.program(34, program34, data);
+  stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n            ";
   return buffer;}
@@ -454,25 +452,11 @@ function program29(depth0,data) {
 function program31(depth0,data) {
   
   var buffer = "", stack1, stack2;
-  buffer += "\n                    <label>configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='";
-  foundHelper = helpers.config_url;
-  stack1 = foundHelper || depth0.config_url;
-  foundHelper = helpers.full_url;
-  stack2 = foundHelper || depth0.full_url;
-  if(typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, { hash: {} }); }
-  else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "full_url", stack1, { hash: {} }); }
-  else { stack1 = stack2; }
-  buffer += escapeExpression(stack1) + "'/></label>\n                ";
-  return buffer;}
-
-function program33(depth0,data) {
-  
-  var buffer = "", stack1, stack2;
   buffer += "\n                    ";
-  foundHelper = helpers.config_url;
-  stack1 = foundHelper || depth0.config_url;
+  foundHelper = helpers.config_urls;
+  stack1 = foundHelper || depth0.config_urls;
   stack2 = helpers.each;
-  tmp1 = self.program(34, program34, data);
+  tmp1 = self.program(32, program32, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -480,7 +464,7 @@ function program33(depth0,data) {
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n                ";
   return buffer;}
-function program34(depth0,data) {
+function program32(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n                        <label>";
@@ -497,6 +481,20 @@ function program34(depth0,data) {
   else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "full_url", stack1, { hash: {} }); }
   else { stack1 = stack2; }
   buffer += escapeExpression(stack1) + "'/></label>\n                    ";
+  return buffer;}
+
+function program34(depth0,data) {
+  
+  var buffer = "", stack1, stack2;
+  buffer += "\n                    <label>configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='";
+  foundHelper = helpers.config_url;
+  stack1 = foundHelper || depth0.config_url;
+  foundHelper = helpers.full_url;
+  stack2 = foundHelper || depth0.full_url;
+  if(typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, { hash: {} }); }
+  else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "full_url", stack1, { hash: {} }); }
+  else { stack1 = stack2; }
+  buffer += escapeExpression(stack1) + "'/></label>\n                ";
   return buffer;}
 
 function program36(depth0,data) {

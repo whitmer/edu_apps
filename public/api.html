@@ -1,0 +1,316 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LTI of Magic API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/common.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      footer {
+        border-top: 1px solid #e5e5e5;
+        margin-top: 40px;
+      }
+      .row.description span > p {
+        margin-bottom: 35px;
+      }
+    </style>
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+  <body data-view='coding'>
+    <div id="content" class="container">
+    <div class="hero-unit">
+      <h1>LTI of Magic API</h1>
+      
+      <p>
+        All of the information on LTI of Magic is programmatically available. You 
+        can call the API to get the current information out. You can also help
+        add to the magic by registering your learning platform here. Then not
+        only can your users see the apps and ratings, but they can also post
+        app ratings back to LTI of Magic through your platform.
+        <a href="#contributing">Find out how at the bottom of the page</a>
+      </p>
+      <p style="float: right;">
+        <a href="/api/v1/apps">json</a> | 
+        <a href="/api/v1/apps?callback=my_callback">jsonp</a> | 
+        <a href="/data/lti_apps.atom">atom</a>
+      </p>
+    </div>
+    <ul class='breadcrumb nav nav-pills'>
+      <li>
+        <a href="#intro">Introduction</a>
+      </li>
+      <li>
+        <a href="#apps">Apps List</a>
+      </li>
+      <li>
+        <a href="#app">App Details</a>
+      </li>
+      <li>
+        <a href="#reviews">App Reviews</a>
+      </li>
+      <li>
+        <a href="#contributing">Contributing Reviews</a>
+      </li>
+    </ul>
+    <div id="contents">
+      <div class="row description">
+        <span class="span12">
+          <a name="intro"></a>
+          <h2>Introduction</h2>
+          <p>APIs are cool. This one returns paginated JSON responses. There's no
+          auth required for anything other than posting comments and reviews. All
+          pagination information is included in the JSON response body.
+          </p>
+          <div style="clear:both;"></div>
+
+          <a name="apps"></a>
+          <h2>App List</h2>
+          <p>Returns a list of all known apps. Includes some summary information
+          around the number of ratings and comments, as well as all information
+          needed to configure and place the tools in a learning system.</p>
+          <div style="margin-left: 30px;">
+          <code>GET /api/v1/apps</code>
+<pre class='prettyprint'>
+{
+  "meta": 
+    {
+      "next": "http://url.for/more/objects/if/any"
+    },
+  "objects": [
+    {
+      "id": "unique_identifier",
+      "name": "Human Readable Tool Name",
+      "extensions": ["multiple", "values"], // possible values: editor_button, resource_selection, user_nav, course_nav, account_nav
+      "added": "2012-03-27T00:00:00Z",
+      "avg_rating": 3.5,
+      "big_image_url": "http://example.com/240x125.png",
+      "image_url": "http://example.com/72x72.png",
+      "launch_url": "http://example.com/tool.launch",
+      "any_key": true,
+      "short_description": "Short tool description",
+      "comments_count": 21,
+      "ratings_count": 45,
+      "preview": {
+        "url":"/twitter.html",
+        "height":475
+      },
+      "categories": ["list of", "human-readable", "category names"],
+      "levels": ["multiple", "values"], // possible values: "K-6th Grade", "7th-12th Grade", "Postsecondary"
+      "description": "Longer tool description",
+      "config_url": "http://more.info/available/below"
+    },
+    { ... },
+    { ... }
+  ]
+}
+</pre>
+          <p>
+            Most of the information is consistent across all tools. <code>preview</code>
+            is an optional value, and there are some possible configuration options
+            listed below:
+          </p>
+          <h3>Possible Configuration Options</h3>
+          <table class='table table-bordered table-striped'>
+            <tr>
+              <td><code>config_directions</code></td>
+              <td>
+                This tool doesn't have a standardized
+                way to configure it, so instead it will return 
+                some HTML code containing
+                directions on how to manually configure the tool.
+              </td>
+            </tr>
+            <tr>
+              <td><code>config_url</code>
+              </td>
+              <td>
+                <p>
+                  If <code>config_options</code> is not provided, then this is
+                  the url that can be queried to retrieve the XML configuration
+                  for this tool.
+                </p>
+                <p>
+                  If <code>config_options</code> is provided, then it will contain
+                  a list of options that can be specified by the user to help
+                  specify tool configuration. These options should be appended
+                  to <code>config_url</code> as query parameters. The format of 
+                  the options is below.
+                </p>
+<pre>
+{
+    "name": "query_parameter_key",
+    "description": "Human-readable description", 
+    "required": true,
+    "type": "text", // possible values: text, checkbox
+    "value": "default_query_parameter_value"
+},
+{ ... },
+{ ... } 
+</pre>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td><code>config_urls</code></td>
+              <td>
+                <p>This value provides a list of configuration URLs rather than
+                a single configuration URL. <code>config_options</code> can
+                still be specified as with <code>config_url</code>. The format
+                of the URL list is below.
+                </p>
+<pre>
+{
+  "url": "http://example.com/config.xml",
+  "description": "Human-readable description"
+},
+{ ... },
+{ ... }
+</pre>
+              </td>
+            </tr>
+              
+          </table>
+          </div>
+          
+          <a name="app"></a>
+          <h2>App Details</h2>
+          <p>Returns information on a single app.
+          This doesn't provide any additional information than what's
+          available in the app list response.</p>
+          <div style="margin-left: 30px;">
+          <code>GET /api/v1/apps/:app_id</code>
+<pre>
+{
+  "id": "unique_identifier",
+  "name": "Human Readable Tool Name",
+  // Same as above
+},
+</pre>
+          </div>
+
+          <a name="reviews"></a>
+          <h2>App Reviews List</h2>
+          <p>Returns a paginated list of reviews for the specified app.
+          Reviews may have come from multiple sources, including from the
+          site itself using Twitter logins, or from other platforms/tools
+          that have registered. More information on registering a tool
+          is available in <a href="#contributing">the "contributing" section.</a></p>
+          <div style="margin-left: 30px;">
+          <code>GET /api/v1/apps/:app_id/reviews</code>
+<pre>
+{
+  "objects": [
+    {
+      "user_avatar_url": "http://example.com/user/avatar/50x50.png",
+      "source_name": "Human-readable name of platform/tool where user posted",
+      "tool_name": "Human-readable name of the app",
+      "rating": 3, // out of 5
+      "source_url": "http://example.com/platform_or_tool/homepage",
+      "user_name": "User name",
+      "user_url": "http://example.com/user/profile",
+      "id": 1,
+      "comments": "user-provided comments, if any",
+      "created": "Jun 19, 2012"
+    }
+  ],
+  "meta": {
+    "next": "http://example.com/more/reviews"
+  }}
+</pre>
+          </div>
+
+          <a name="contributing"></a>
+          <h2>Contributing Reviews</h2>
+          <p>Allows adding ratings and reviews from a registered platform or
+          tool. Required/optional fields are listed below. For more information
+          on registering a tool, please <a href="https://twitter.com/whitmer">contact
+          @whitmer</a>.</p>
+          <div style="margin-left: 30px;">
+          <code>POST /api/v1/apps/:app_id/reviews</code>
+<pre>
+{
+  "user_avatar_url": "http://example.com/user/avatar/50x50.png",
+  "source_name": "Human-readable name of platform/tool where user posted",
+  // Same as above
+}
+</pre>
+          <h3>Required/optional fiels</h3>
+          <table class='table table-bordered table-striped'>
+            <tr>
+              <td><code>access_token</code></td>
+              <td><span class='label label-success'>required</span></td>
+              <td>This is the access token provided by this site to
+              the platform/tool after registration. This should be kept secret
+              (i.e. server-side only -- don't put it in your JavaScript), 
+              otherwise anyone can post comments and ratings as if they were
+              your platform/tool.
+              </td>
+            </tr>
+            <tr>
+              <td><code>rating</code></td>
+              <td><span class='label label-success'>required</span></td>
+              <td>This is an integer from 1 to 5.
+              </td>
+            </tr>
+            <tr>
+              <td><code>user_name</code></td>
+              <td><span class='label label-success'>required</span></td>
+              <td>This is the human-readable name for the commenting
+              user within
+              your platform/tool.
+              </td>
+            </tr>
+            <tr>
+              <td><code>user_id</code></td>
+              <td><span class='label label-success'>required</span></td>
+              <td>This is the unique identifier for the user.
+              </td>
+            </tr>
+            <tr>
+              <td><code>user_url</code></td>
+              <td><span class='label'>optional</span></td>
+              <td>This is the public profile URL for the user, if any.
+              </td>
+            </tr>
+            <tr>
+              <td><code>user_avatar_url</code></td>
+              <td><span class='label'>optional</span></td>
+              <td>This is the URL to a public avatar image for the
+              commenting user, if any.
+              </td>
+            </tr>
+            <tr>
+              <td><code>comments</code></td>
+              <td><span class='label'>optional</span></td>
+              <td>This is the plaintext comments provided by the user.
+              </td>
+            </tr>
+          </table>
+          </div>
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <script src="jquery.min.js"></script>
+  <script src="/analytics.js"></script>
+  <script src="jquery.store.js"></script>
+  <script src="/common.js"></script>
+  <script src="bootstrap-dropdown.js"></script>
+  </body>
+</html>

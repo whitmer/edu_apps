@@ -70,8 +70,10 @@
         width: 300px;
        }
        .filters.well {
-        margin-top: -5px;
-        margin-bottom: 5px;
+        margin-top: -15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        
        }
        #preview {
         vertical-align: top;
@@ -276,6 +278,7 @@
       tool.config_details = tools.length == 1 || tool.extensions || tool.preview;
       tool.show_votes = tools.length == 1 || params['show_votes'];
       tool.description = (tools.length == 1 ? tool.description : tool.description.split(/<br/)[0]);
+      tool.has_config_url = tool.config_url || tool.config_urls;
       if(tool.any_key && tools.length == 1) {
         tool.description = tool.description + "<br/><br/>Any key and secret will work for this tool.";
         tool.preview = {

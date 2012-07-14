@@ -47,7 +47,7 @@
     {{#if config_details}}
         <div class='config alert alert-info'>
         {{#if single_tool}}
-            {{#if config_url}}
+            {{#if has_config_url}}
                 {{#each config_options}}
                     {{#if_eql type val="checkbox"}}
                         <div class='form-horizontal'><label><input style='margin: -4px 3px 0 0;' type='checkbox' class='config_option' name='{{name}}' value='{{value}}'/> {{description}}</label></div>
@@ -56,13 +56,13 @@
                     {{/if_eql}}
                     <br/>
                 {{/each}}
-                {{#if_string config_url}}
-                    <label>configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='{{full_url config_url}}'/></label>
-                {{else}}
-                    {{#each config_url}}
+                {{#if config_urls}}
+                    {{#each config_urls}}
                         <label>{{description}}: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='{{full_url url}}'/></label>
                     {{/each}}
-                {{/if_string}}
+                {{else}}
+                    <label>configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='{{full_url config_url}}'/></label>
+                {{/if}}
             {{else}}
                 {{#if config_dir}}
                     {{config_dir}}
