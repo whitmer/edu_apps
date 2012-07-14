@@ -94,3 +94,6 @@ span.stars.star4_5 img.star5 {
   color: #ffffff !important;
   text-shadow: 0 0 0.2em #0088CC, 0 0 0.2em #0088CC, 0 0 0.2em #0088CC;
 }
+.filters select {
+  margin-right: 20px;
+}

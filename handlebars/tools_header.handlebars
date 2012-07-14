@@ -1,0 +1,20 @@
+<div class="filters form-inline well">
+    <label for="category">Category:</label>
+    <select id="category">
+        <option value="all">All Categories</option>
+        <option value="recent">Recently Added</option>
+        {{#each categories}}
+            <option value="{{this}}">{{this}}</option>
+        {{/each}}
+    </select>
+    
+    <label for="level">Grade Level:</label>
+    <select id="level">
+        <option value="all">All Grade Levels</option>
+        {{#each levels}}
+            <option value="{{this}}">{{this}}</option>
+        {{/each}}
+    </select>
+    <span id="visible_app_count"></span>
+    Apps Shown
+</div>

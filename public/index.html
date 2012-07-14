@@ -123,6 +123,8 @@
     'editor_button': "rich editor",
     'course_nav': "course navigation"
   };
+  var grade_levels = {};
+  var categories = {};
   $("#preview").live('click', function() {
     var tool = visible_tools[0];
     $(".preview_pane").remove();
@@ -207,6 +209,7 @@
         }
     });
   });
+  $("#category,#level").live('change', filterTools);
   if(params.tool) {
     $.getJSON('/api/v1/apps/' + params.tool, function(data) {
       toolsReady([data]);
@@ -227,6 +230,69 @@
     }
     moreTools();
   }
+  function filterTools() {
+    var tools = visible_tools;
+    var category = $("#category").val();
+    var level = $("#level").val();
+    $("#contents").empty();
+    var mod = 0;
+    var $div = null;
+    filterTools.appCount = 0;
+    for(var idx = 0; idx < tools.length; idx++) {
+      var tool = tools[idx];
+      if(tool.full_tool) {
+        tool.launch_url = "/tools.html?tool=" + tool.id;
+        delete tool['data_url'];
+      }
+      if(tool.pending) {
+        continue;
+      }
+      if(category == "recent" && !tool['new']) {
+        continue;
+      }
+      if(category != "all" && !(tool.categories || []).join(" ").match(category)) {
+        continue;
+      }
+      if(level != "all" && !(tool.levels || []).join(" ").match(level)) {
+        continue;
+      }
+      filterTools.appCount++;
+      if(tool.categories) {
+        for(var jdx in tool.categories) {
+          categories[tool.categories[jdx]] = true;
+        }
+      }
+      var refUrl = location.protocol + "//" + location.host + "/index.html?tool=" + tool.id;
+      tool.refUrl = refUrl;
+      tool.single_tool = tools.length == 1;
+      tool.extensions_or_preview = tool.extensions || tool.preview;
+      tool.config_details = tools.length == 1 || tool.extensions || tool.preview;
+      tool.show_votes = tools.length == 1 || params['show_votes'];
+      tool.description = (tools.length == 1 ? tool.description : tool.description.split(/<br/)[0]);
+      if(tool.any_key) {
+        tool.description = tool.description + "<br/><br/>Any key and secret will work for this tool.";
+        tool.preview = {
+          "url": "/tools.html?tool=" + tool.id,
+          "height": 475
+        };
+      }
+      tool.desc = new Handlebars.SafeString(tool.description);
+      html = Handlebars.templates['tool'](tool);
+      if(mod == 0) {
+        $div = $("<div/>", {'class': 'row'});
+        $("#contents").append($div);
+      }
+      var $tool = $(html).data('tool', tool);
+      $div.append($tool);
+      if(tools.length == 1) {
+        // add ratings and comments
+        $(".app .config").css('visibility', 'visible');
+        $("title,h1").text(tools[0].name);
+      }
+      mod = (mod + 1) % 4;
+    }
+    $("#visible_app_count").text(filterTools.appCount);
+  }
   function toolsReady(tools) {
     var url = location.href;
     var refUrl = "";
@@ -241,43 +307,37 @@
         tools = [tool];
       }
     }
-    visible_tools = tools;
     
-    var mod = 0;
-    var $div = null;
-    for(var idx = 0; idx < tools.length; idx++) {
-      var tool = tools[idx];
-      if(tool.full_tool) {
-        tool.launch_url = "/tools.html?tool=" + tool.id;
-        delete tool['data_url'];
+    visible_tools = tools.sort(function(a, b) {
+      if((a.uses || 0) > (b.uses || 0)) {
+        return -1;
+      } else if((a.uses || 0) < (b.uses || 0)) {
+        return 1;
+      } else {
+        if(a.name.toLowerCase() < b.name.toLowerCase()) {
+          return -1;
+        } else if(a.name.toLowerCase() > b.name.toLowerCase()) {
+          return 1;
+        } else {
+          return 0;
+        }
       }
-      if(tool.pending || tool.data_url) {
-        continue;
-      }
-      var refUrl = location.protocol + "//" + location.host + "/index.html?tool=" + tool.id;
-      tool.refUrl = refUrl;
-      tool.single_tool = tools.length == 1;
-      tool.extensions_or_preview = tool.extensions || tool.preview;
-      tool.config_details = tools.length == 1 || tool.extensions || tool.preview;
-      tool.show_votes = tools.length == 1 || params['show_votes'];
-      tool.description = (tools.length == 1 ? tool.description : tool.description.split(/<br/)[0]);
-      if(tool.any_key) {
-        tool.description = tool.description + "<br/><br/>Any key and secret will work for this tool.";
-      }
-      tool.description = new Handlebars.SafeString(tool.description);
-      html = Handlebars.templates['tool'](tool);
-      if(mod == 0) {
-        $div = $("<div/>", {'class': 'row'});
-        $("#contents").append($div);
-      }
-      $div.append(html);
-      if(tools.length == 1) {
-        // add ratings and comments
-        $(".app .config").css('visibility', 'visible');
-        $("title,h1").text(tools[0].name);
-      }
-      mod = (mod + 1) % 4;
+    });
+    
+    filterTools();
+    var categories_list = [];
+    for(var idx in categories) {
+      categories_list.push(idx);
     }
+    
+    if(tools.length > 1) {
+      categories_list = categories_list.sort();
+      var levels_list = ["K-6th Grade", "7th-12th Grade", "Postsecondary"];
+      var header = Handlebars.templates['tools_header']({categories: categories_list, levels: levels_list});
+      $("#contents").before(header);
+      $("#visible_app_count").text(filterTools.appCount);
+    }
+    
     if(tools.length == 1 || params['show_votes']) {
       var script = document.createElement('script');
       script.type = 'text/javascript';
