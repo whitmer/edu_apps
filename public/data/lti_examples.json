@@ -119,7 +119,7 @@
       "config_url": "/config/smarterer.xml",
       "extensions": ["editor_button", "resource_selection"],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
-      "categories": ["Content", "Open Content"],
+      "categories": ["Content"],
       "preview": {
         "url": "/tools.html?tool=smarterer",
         "height": 475
@@ -963,7 +963,7 @@
       "big_image_url": "/big_tools/studyegg.png",
       "icon_url": "/icons/studyegg.png",
       "levels": ["7th-12th Grade", "Postsecondary"],
-      "categories": ["Content", "Open Content"],
+      "categories": ["Content"],
       "description": "StudyEgg offers customized lessons using online video and questions.",
       "short_description": "Adaptive learning activities",
       "any_key": true,
@@ -1024,7 +1024,7 @@
       "big_image_url": "/big_tools/wordpress.png",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Content", "Community"],
-      "description": "WordPress is a popular blogging and publishing platform. You could use it to host student or class blogs. This tool allows for auto-login to the WordPress platform from another system. Links can be added to course content, or optionally as course navigation.<br/><br/><b>Directions for configuring WordPress:</b><ol><li>Configure your WordPress <a href='http://codex.wordpress.org/Create_A_Network'>account for multisite</a></li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Wordpress/wordpressLTIPlugin.zip/download'>the WordPress LTI plugin</a></li><li>Extract the LTI plugin into <code>wp-content/mu-plugin</code></li><li>Log as superAdmin and go to Network Dashboard -> Settings -> LTI Consumers Keys. Here you can manage the authorized consumers keys</li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Wordpress'>follow the directions here</a></ol>",
+      "description": "WordPress is a blogging and publishing platform. You could use it to host student or class blogs. This tool allows for auto-login to the WordPress platform. Links can be added to course content, or optionally as course navigation.<br/><br/><b>Directions for configuring WordPress:</b><ol><li>Configure your WordPress <a href='http://codex.wordpress.org/Create_A_Network'>account for multisite</a></li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Wordpress/wordpressLTIPlugin.zip/download'>the WordPress LTI plugin</a></li><li>Extract the LTI plugin into <code>wp-content/mu-plugin</code></li><li>Log as superAdmin and go to Network Dashboard -> Settings -> LTI Consumers Keys. Here you can manage the authorized consumers keys</li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Wordpress'>follow the directions here</a></ol>",
       "config_url": "/config/wordpress.xml",
       "extensions": ["course_nav"],
       "config_options": [

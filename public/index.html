@@ -25,7 +25,10 @@
         color: #000;
       }
       .app {
-        margin-bottom: 20px;
+        margin-bottom: 5px;
+      }
+      .app .config.alert {
+        margin-bottom: 5px;
       }
       .app .header {
         padding: 5px;
@@ -40,7 +43,7 @@
         background: transparent;
       }
       .app .description {
-        height: 130px;
+        height: 110px;
         overflow: hidden;
       }
       .app.single_app .description {
@@ -65,6 +68,10 @@
       .config_field {
         height: auto;
         width: 300px;
+       }
+       .filters.well {
+        margin-top: -5px;
+        margin-bottom: 5px;
        }
        #preview {
         vertical-align: top;
@@ -247,10 +254,10 @@
       if(tool.pending) {
         continue;
       }
-      if(category == "recent" && !tool['new']) {
+      if(category == "recent" && !tool['recent']) {
         continue;
       }
-      if(category != "all" && !(tool.categories || []).join(" ").match(category)) {
+      if(category != "all" && category != "recent" && !(tool.categories || []).join(" ").match(category)) {
         continue;
       }
       if(level != "all" && !(tool.levels || []).join(" ").match(level)) {
@@ -269,7 +276,7 @@
       tool.config_details = tools.length == 1 || tool.extensions || tool.preview;
       tool.show_votes = tools.length == 1 || params['show_votes'];
       tool.description = (tools.length == 1 ? tool.description : tool.description.split(/<br/)[0]);
-      if(tool.any_key) {
+      if(tool.any_key && tools.length == 1) {
         tool.description = tool.description + "<br/><br/>Any key and secret will work for this tool.";
         tool.preview = {
           "url": "/tools.html?tool=" + tool.id,
@@ -277,6 +284,7 @@
         };
       }
       tool.desc = new Handlebars.SafeString(tool.description);
+      tool.config_dir = new Handlebars.SafeString(tool.config_directions);
       html = Handlebars.templates['tool'](tool);
       if(mod == 0) {
         $div = $("<div/>", {'class': 'row'});
@@ -308,6 +316,20 @@
       }
     }
     
+    var newest_tools = tools.sort(function(a, b) {
+      if(a.added > b.added) {
+        return -1;
+      } else if(a.added < b.added) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    for(var jdx = 0; jdx < newest_tools.length; jdx++) {
+      if(newest_tools[jdx]['new'] || jdx < 12) {
+        newest_tools[jdx].recent = true;
+      }
+    }
     visible_tools = tools.sort(function(a, b) {
       if((a.uses || 0) > (b.uses || 0)) {
         return -1;

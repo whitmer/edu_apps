@@ -503,8 +503,8 @@ function program36(depth0,data) {
   
   var buffer = "", stack1, stack2;
   buffer += "\n                ";
-  foundHelper = helpers.config_directions;
-  stack1 = foundHelper || depth0.config_directions;
+  foundHelper = helpers.config_dir;
+  stack1 = foundHelper || depth0.config_dir;
   stack2 = helpers['if'];
   tmp1 = self.program(37, program37, data);
   tmp1.hash = {};
@@ -518,10 +518,10 @@ function program37(depth0,data) {
   
   var buffer = "", stack1;
   buffer += "\n                    ";
-  foundHelper = helpers.config_directions;
-  stack1 = foundHelper || depth0.config_directions;
+  foundHelper = helpers.config_dir;
+  stack1 = foundHelper || depth0.config_dir;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
-  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "config_directions", { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "config_dir", { hash: {} }); }
   buffer += escapeExpression(stack1) + "\n                ";
   return buffer;}
 
