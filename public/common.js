@@ -550,7 +550,7 @@ function program12(depth0,data) {
 function program14(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n                <div style='width: 55px; margin-right: 7px;' class='voter'><a href='https://twitter.com/share' class='twitter-share-button' data-lang='en' data-count='vertical' data-url='";
+  buffer += "\n                <div style='width: 55px;' class='voter'><a href='https://twitter.com/share' class='twitter-share-button' data-lang='en' data-count='vertical' data-url='";
   foundHelper = helpers.refUrl;
   stack1 = foundHelper || depth0.refUrl;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
@@ -565,7 +565,7 @@ function program14(depth0,data) {
   stack1 = foundHelper || depth0.refUrl;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "refUrl", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "' style='width: 55px;'></div>\n                <div style='padding-top: 1px;' class='voter'><div class='g-plusone' data-annotation='bubble' data-size='tall' data-width='55' data-href='";
+  buffer += escapeExpression(stack1) + "' style='width: 55px;'></div>\n                <div style='padding-top: 1px; margin-right: 7px;' class='voter'><div class='g-plusone' data-annotation='bubble' data-size='tall' data-width='55' data-href='";
   foundHelper = helpers.refUrl;
   stack1 = foundHelper || depth0.refUrl;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
