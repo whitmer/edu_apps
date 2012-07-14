@@ -78,3 +78,19 @@ span.stars.star4_5 img.star5 {
     float: left;
     padding-top: 10px;
 }
+
+.navbar .brand:hover {
+  text-decoration: none;
+  text-shadow: 0 0 0.4em #fff, 0 0 0.4em #fff, 0 0 0.4em #fff;
+}
+.navbar .brand {
+  display: block;
+  float: left;
+  padding: 8px 20px 12px;
+  margin-left: -20px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1;
+  color: #ffffff !important;
+  text-shadow: 0 0 0.2em #0088CC, 0 0 0.2em #0088CC, 0 0 0.2em #0088CC;
+}

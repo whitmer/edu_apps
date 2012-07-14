@@ -31,30 +31,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
   </head>
-  <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/index.html">LTI of Magic</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="/index.html">Home</a></li>
-              <li><a href="/talk.html">Talk</a></li>
-              <li class="active"><a href="/tutorials.html">Tutorials</a></li>
-              <li><a href="/code.html">Coding</a></li>
-              <li><a href="/extensions.html">Extensions</a></li>
-              <li><a href="https://github.com/whitmer/lti_example">Source</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-    <div class="container">
+  <body data-view='tutorials'>
+    <div id="content" class="container">
     <div class="hero-unit">
       <h1>LTI Tutorials</h1>
       
@@ -66,69 +44,82 @@
       </p>
     </div>
     <div class="row">
-      <span class="span8">
-        <h2>Configuring Tools in Canvas</h2>
-        <p>LTI tool configuration in Canvas can happen on the course or account.
-        Click the "Settings" link in the left sidebar of the course or account
-        where you want to add the tool. Click the "External Tools" tab and click
-        "Add External Tool".
-        </p>
-        <p>Enter the name, consumer key and shared secret for the
-        tool (for these demo tools you can put any key and secret that you like).
-        For "configuration type" select "By URL" and paste in the full URL of the
-        link configuration (copy the URL from one of the links below).
-        </p>
-        <p>After the tool is saved you should see it appear as configured in the
-        course our account content. Depending on the integration type, the tool
-        may appear different places, but most tools will appear under
-        "External Tools" when adding items to a module.</p>
-      </span>
-      <span class="span4">
-        <img src="/tool_config.png" class="thumbnail" style="width: 300px;" alt=""/>
-      </span>
-    </div>
-    <div class="row">
       <span class="span12">
-        <h2>Configuring Tools in Blackboard Learn</h2>
-        Blackboard added support for LTI tools in Learn 9.1 SP4. The following video explains LTI links and how they can be used in Blackboard Learn.<br/>
-        <iframe style="width: 420px; height: 315px; margin-left: 20px;" src="http://www.youtube.com/embed/Qh_X3J8VADE?rel=0" frameborder="0" allowfullscreen></iframe>
-      </span>
-    </div>
-    <div class="row">
-      <span class="span12">
-        <h2>Configuring Tools in Moodle</h2>
-        Moodle added support for LTI tools in version 2.2. The following page explains how to set up external tools in Moodle.<br/>
-        <iframe style="margin-left: 20px;width: 80%; height: 400px; border: 1px solid #ccc;" src="http://docs.moodle.org/22/en/External_tool_settings" frameborder="0" allowfullscreen></iframe>
-      </span>
-    </div>
-    <div class="row">
-      <span class="span12">
-        <h2>Configuring Tools in Sakai</h2>
-        <p>Sakai is LTI compatible, and has been since version 2.5.
-        <a href="http://www.edugarage.com/download/attachments/75071496/2010-06-15-blti.pdf">This document</a> has some resources around LTI, including the following directions for trying out LTI in Sakai:
-        </p>
-        <ul>
-          <li><a href="http://nightly2.sakaiproject.org:8085/portal">http://nightly2.sakaiproject.org:8085/portal</a></li>
-          <li>Make an account – Include full name and E-Mail</li>
-          <li>Make a site, Add Basic LTI, Configure the BLTI Tool</li>
-          <li>http://wiscrowd.appspot.com/wiscrowd</li>
-          <li>Key = 12345 / secret</li> 
+        <ul class='nav nav-pills'>
+          <li class='active'><a href='#canvas' data-toggle="pill">Canvas</a></li>
+          <li><a href='#moodle' data-toggle="pill">Moodle</a></li>
+          <li><a href='#bb' data-toggle="pill">Blackboard</a></li>
+          <li><a href='#sakai' data-toggle="pill">Sakai</a></li>
+          <li><a href='#d2l' data-toggle="pill">Desire2Learn</a></li>
         </ul>
       </span>
     </div>
-    <div class="row">
-      <span class="span12">
-        <h2>Configuring Tools in Desire2Learn</h2>
-        Desire2Learn added support for LTI tools in version 8.4. We're still looking for a good resource explaining how to set up LTI tools in Desire2Learn's Learning Environment.
-      </span>
+    <div class="tab-content">
+      <div class="tab-pane row active" id="canvas">
+        <span class="span8">
+          <h2>Configuring Tools in Canvas</h2>
+          <p>LTI tool configuration in Canvas can happen on the course or account.
+          Click the "Settings" link in the left sidebar of the course or account
+          where you want to add the tool. Click the "External Tools" tab and click
+          "Add External Tool".
+          </p>
+          <p>Enter the name, consumer key and shared secret for the
+          tool (for these demo tools you can put any key and secret that you like).
+          For "configuration type" select "By URL" and paste in the full URL of the
+          link configuration (copy the URL from one of the links below).
+          </p>
+          <p>After the tool is saved you should see it appear as configured in the
+          course our account content. Depending on the integration type, the tool
+          may appear different places, but most tools will appear under
+          "External Tools" when adding items to a module.</p>
+        </span>
+        <span class="span4">
+          <img src="/tool_config.png" class="thumbnail" style="width: 300px;" alt=""/>
+        </span>
+      </div>
+      <div class="tab-pane row" id="bb">
+        <span class="span12">
+          <h2>Configuring Tools in Blackboard Learn</h2>
+          Blackboard added support for LTI tools in Learn 9.1 SP4. The following video and page explains LTI links and how they can be used in Blackboard Learn.<br/>
+          <iframe style="width: 420px; height: 315px; margin-left: 20px;" src="http://www.youtube.com/embed/Qh_X3J8VADE?rel=0" frameborder="0" allowfullscreen></iframe>
+          <iframe style="width: 100%; height: 400px; margin-left: 20px;" src="http://library.blackboard.com/ref/df5b20ed-ce8d-4428-a595-a0091b23dda3/Content/_admin_app_system/admin_app_basic_lti_tool_providers.htm" frameborder="0"></iframe>
+        </span>
+      </div>
+      <div class="tab-pane row" id="moodle">
+        <span class="span12">
+          <h2>Configuring Tools in Moodle</h2>
+          Moodle added support for LTI tools in version 2.2. The following page explains how to set up external tools in Moodle.<br/>
+          <iframe style="margin-left: 20px;width: 80%; height: 400px; border: 1px solid #ccc;" src="http://docs.moodle.org/22/en/External_tool_settings" frameborder="0" allowfullscreen></iframe>
+        </span>
+      </div>
+      <div class="tab-pane row" id="sakai">
+        <span class="span12">
+          <h2>Configuring Tools in Sakai</h2>
+          <p>Sakai is LTI compatible, and has been since version 2.5.
+          <a href="http://www.edugarage.com/download/attachments/75071496/2010-06-15-blti.pdf">This document</a> has some resources around LTI, including the following directions for trying out LTI in Sakai:
+          </p>
+          <ul>
+            <li><a href="http://nightly2.sakaiproject.org:8085/portal">http://nightly2.sakaiproject.org:8085/portal</a></li>
+            <li>Make an account – Include full name and E-Mail</li>
+            <li>Make a site, Add Basic LTI, Configure the BLTI Tool</li>
+            <li>http://wiscrowd.appspot.com/wiscrowd</li>
+            <li>Key = 12345 / secret</li> 
+          </ul>
+        </span>
+      </div>
+      <div class="tab-pane row" id="d2l">
+        <span class="span12">
+          <h2>Configuring Tools in Desire2Learn</h2>
+          Desire2Learn added support for LTI tools in version 8.4. We're still looking for a good resource explaining how to set up LTI tools in Desire2Learn's Learning Environment.
+        </span>
+      </div>
     </div>
-    <footer class="footer">
-      <p>Interested in writing your own LTI integrations? Check out the <a href="http://www.imsglobal.org/lti/">IMS page</a> for official specs and certification, and the <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API documentation</a> for some simple but powerful LTI extensions.</p>
-    </footer>
   </div>
   <script src="jquery.min.js"></script>
+  <script src="bootstrap-tab.js"></script>
   <script src="/analytics.js"></script>
   <script src="jquery.store.js"></script>
   <script src="/common.js"></script>
+  <script src="bootstrap-dropdown.js"></script>
   </body>
 </html>

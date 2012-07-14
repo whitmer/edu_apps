@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>LTI Integrations</title>
+    <title>LTI Apps</title>
     <link href="/data/lti_apps.atom" type="application/atom+xml" rel="alternate" title="App Feed" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -83,33 +83,11 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
   </head>
-  <body>
+  <body data-view='index'>
     <div id="fb-root"></div>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/index.html">LTI of Magic</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="/index.html">Home</a></li>
-              <li><a href="/talk.html">Talk</a></li>
-              <li><a href="/tutorials.html">Tutorials</a></li>
-              <li><a href="/code.html">Coding</a></li>
-              <li><a href="/extensions.html">Extensions</a></li>
-              <li><a href="https://github.com/whitmer/lti_example">Source</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
     <div class="container" id="content">
     <div class="hero-unit">
-      <h1>LTI Integrations</h1>
+      <h1>LTI Apps</h1>
       
       <p>
         Awesome stuff happens with <a href="http://www.imsglobal.org/lti/">LTI</a>. You know this is true. Here are some examples of LTI integrations you can use today.
@@ -129,9 +107,6 @@
       </div>
     </div>
     <div id="contents"></div>
-    <footer class="footer">
-      <p>Interested in writing your own LTI integrations? Check out the <a href="http://www.imsglobal.org/lti/">IMS page</a> for official specs and certification, and the <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API documentation</a> for some simple but powerful LTI extensions.</p>
-    </footer>
   </div>
   <script src="jquery.min.js"></script>
   <script src="/analytics.js"></script>
@@ -362,5 +337,6 @@
 })();
   </script>
   <script src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=197367153633354"></script>
+  <script src="bootstrap-dropdown.js"></script>
   </body>
 </html>

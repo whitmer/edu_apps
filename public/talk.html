@@ -28,50 +28,59 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
   </head>
-  <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/index.html">LTI of Magic</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="/index.html">Home</a></li>
-              <li class="active"><a href="/talk.html">Talk</a></li>
-              <li><a href="/tutorials.html">Tutorials</a></li>
-              <li><a href="/code.html">Coding</a></li>
-              <li><a href="/extensions.html">Extensions</a></li>
-              <li><a href="https://github.com/whitmer/lti_example">Source</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-    <div class="container">
+  <body data-view='talk'>
+    <div id="content" class="container">
     <div class="hero-unit">
-      <h1>LTI Examples Talk</h1>
+      <h1>LTI Talk</h1>
       
       <p>
-        Something as magical as LTI deserves to be talked about. There's a lot of great ideas that can be shared, and sometimes it helps getting someone else's help if you're thinking about building an LTI tool yourself. This may or may not be a good place to accomplish those purposes.
+        Something as magical as LTI deserves to be talked about. There's a lot of great ideas that can be shared, and sometimes it helps getting someone else's help if you're thinking about building an LTI tool yourself. Here you can see some of the latest tweets about LTI, and share your thoughts/questions as well.
       </p>
-        Note that right now you'll need to log in to the discussion board separate from your site login. We hope to fix this soon :-).
     </div>
     <div class="row">
       <span class="span12">
-        <script type="text/javascript" src="http://pvhlzbifcn.embed.tal.ki/embed/1.js"></script><div style="font-size:80%; text-align:center;" id="pvhlzbifcnt4lk1prm0">get your own <a href="http://tal.ki?utm_source=install&utm_medium=link&utm_campaign=get_your_own">embeddable forum</a> with Talki</div>
+        <div style='margin-bottom: 5px;'>        
+          <a href="https://twitter.com/intent/tweet?button_hashtag=lti&text=" class="twitter-hashtag-button" data-lang="en" data-size="large" data-related="whitmer">Tweet #lti_apps</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+
+        <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+        <script>
+        new TWTR.Widget({
+          version: 2,
+          type: 'search',
+          search: '#lti',
+          interval: 30000,
+          title: 'LTI Apps Talk',
+          subject: 'Of Awesomeness and Quality',
+          width: 'auto',
+          height: 300,
+          theme: {
+            shell: {
+              background: '#8ec1da',
+              color: '#ffffff'
+            },
+            tweets: {
+              background: '#ffffff',
+              color: '#444444',
+              links: '#1985b5'
+            }
+          },
+          features: {
+            scrollbar: true,
+            loop: false,
+            live: true,
+            behavior: 'all'
+          }
+        }).render().start();
+        </script>
       </span>
     </div>
-    <footer class="footer">
-      <p>Interested in writing your own LTI integrations? Check out the <a href="http://www.imsglobal.org/lti/">IMS page</a> for official specs and certification, and the <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API documentation</a> for some simple but powerful LTI extensions.</p>
-    </footer>
   </div>
   <script src="jquery.min.js"></script>
   <script src="/analytics.js"></script>
   <script src="jquery.store.js"></script>
   <script src="/common.js"></script>
+  <script src="bootstrap-dropdown.js"></script>
   </body>
 </html>

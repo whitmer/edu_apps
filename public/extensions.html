@@ -38,30 +38,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
   </head>
-  <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/index.html">LTI of Magic</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="/index.html">Home</a></li>
-              <li><a href="/talk.html">Talk</a></li>
-              <li><a href="/tutorials.html">Tutorials</a></li>
-              <li><a href="/code.html">Coding</a></li>
-              <li class="active"><a href="/extensions.html">Extensions</a></li>
-              <li><a href="https://github.com/whitmer/lti_example">Source</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-    <div class="container">
+  <body data-view='coding'>
+    <div id="content" class="container">
     <div class="hero-unit">
       <h1>LTI Examples</h1>
       
@@ -253,13 +231,11 @@
       <span class="span4">
       </span>
     </div>
-    <footer class="footer">
-      <p>Interested in writing your own LTI integrations? Check out the <a href="http://www.imsglobal.org/lti/">IMS page</a> for official specs and certification, and the <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API documentation</a> for some simple but powerful LTI extensions.</p>
-    </footer>
   </div>
   <script src="jquery.min.js"></script>
   <script src="/analytics.js"></script>
   <script src="jquery.store.js"></script>
   <script src="/common.js"></script>
+  <script src="bootstrap-dropdown.js"></script>
   </body>
 </html>
