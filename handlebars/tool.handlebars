@@ -5,7 +5,11 @@
     <div class='header'>
         <div class='icon'>
             <a href='/index.html?tool={{id}}'>
-                <img src='{{image_url}}' alt=''/>
+                {{#if single_tool }}
+                    <img src='{{big_image_url}}' alt=''/>
+                {{else}}
+                    <img src='{{image_url}}' alt=''/>
+                {{/if}}
             </a>
         </div>
         <h3>
