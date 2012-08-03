@@ -103,7 +103,7 @@ if(!skipValidation) {
   })();
 }
 if($("#header_img").length && lti.params && lti.params['custom_lti_back_button']) {
-  var $btn = $("<button id='back' style='float: left; width: 30px; font-size: 10px; height: 72px; margin-right: 3px;' class='btn btn-inverse' type='button'><span class='icon-white icon-chevron-left'></span> Back</button>");
+  var $btn = $("<button id='back' style='float: left; width: 30px; font-size: 10px; height: 72px; margin-right: 3px; padding: 0;' class='btn btn-inverse' type='button'><span class='icon-white icon-chevron-left'></span><span>Back</span></button>");
   $("#header_img").before($btn);  
   $btn.click(function() {
     history.back();

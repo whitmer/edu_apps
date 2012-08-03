@@ -12,6 +12,9 @@ gem 'dm-postgres-adapter'
 
 group :development do
     gem 'dm-sqlite-adapter'
-    gem "handlebars"
+    gem 'handlebars'
     gem 'rspec'
+    gem 'rack-test'
+    gem 'selenium-webdriver'
+    gem 'capybara'
 end

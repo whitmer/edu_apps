@@ -39,7 +39,7 @@
       "name": "Public Collections",
       "image_url": "/collections.png",
       "big_image_url": "/big_tools/collections.png",
-      "description": "Browse or search through multiple content repositories including MIT OCW, Softchalk Connect, Khan Academy, USA Today, etc.",
+      "description": "Browse or search through multiple content repositories including MIT OCW, Khan Academy, USA Today, etc.",
       "any_key": true,
       "config_url": "/config/tools.xml",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
@@ -839,16 +839,16 @@
       "launch_url": "/usatoday.html"
     },
     {
-      "id": "softchalk_connect",
-      "name": "SoftChalk Connect",
+      "id": "softchalk_cloud",
+      "name": "SoftChalk Cloud",
       "added": "2012-02-28T00:00:00Z",
       "image_url": "/tools/softchalk.png",
       "big_image_url": "/big_tools/softchalk.png",
       "icon_url": "/icons/softchalk.png",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Content", "Open Content"],
-      "description": "SoftChalk Connect hosts a collection of open-licensed learning resources created by users. Preview or link to any of these resources.",
-      "short_description": "Reusable content built using SoftChalk Connect",
+      "description": "SoftChalk Cloud hosts a collection of open-licensed learning resources created by users. Preview or link to any of these resources.",
+      "short_description": "Reusable content built using SoftChalk Cloud",
       "data_url": "/data/softchalk.json"
     },
     {

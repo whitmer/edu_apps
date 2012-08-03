@@ -119,16 +119,15 @@ module Sinatra
           tool['ratings_count'] = tool_summary.ratings_count
           tool['comments_count'] = tool_summary.comments_count
           tool['avg_rating'] = tool_summary.avg_rating
-        else
-          tool['ratings_count'] = 0
-          tool['comments_count'] = 0
-          tool['avg_rating'] = 0
         end
+        tool['ratings_count'] ||= 0
+        tool['comments_count'] ||= 0
+
         ['big_image_url', 'image_url', 'icon_url', 'config_url', 'launch_url', 'data_url'].each do |key|
           tool[key] = prepend_host(tool[key], host) if tool[key]
         end
         tool['config_url'] ||= tool['config_urls']
-        if tool['data_url'] && tool['icon_url'] && !tool['config_url']
+        if tool['data_url'] && tool['icon_url'] && !tool['config_url'] && !tool['config_urls']
           tool['config_url'] = host + "/config/data_tool.xml?id=" + tool['id'] + "&name=" + CGI.escape(tool['name']) + "&icon_url=" + CGI.escape(tool['icon_url']) + "&description=" + CGI.escape(tool['description'])
           tool['extensions'] = ["editor_button", "resource_selection"]
           tool['any_key'] = true

@@ -73,7 +73,7 @@ end
 module Sinatra
   module Models
     configure do
-      DataMapper.setup(:default, (ENV["DATABASE_URL"] || "sqlite3:///#{Dir.pwd}/development.sqlite3"))
+      DataMapper.setup(:default, (ENV["DATABASE_URL"] || "sqlite3:///#{Dir.pwd}/#{ENV['RACK_ENV']}.sqlite3"))
       DataMapper.auto_upgrade!
     end
   end
