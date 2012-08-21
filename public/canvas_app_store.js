@@ -818,7 +818,7 @@ define([
   'jqueryui/dialog',
   'jquery.instructure_misc_plugins' /* confirmDelete, showIf */,
   'jquery.instructure_date_and_time',
-  'jquery.templateData' /* fillTemplateData, getTemplateData */,
+  'jquery.templateData' /* fillTemplateData, getTemplateData */
 ], function(I18n, $, _, ENV, userSettings, Handlebars) {
 
 if(!$("#external_tools").length) { return; }
