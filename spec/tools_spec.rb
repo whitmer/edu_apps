@@ -117,8 +117,40 @@ describe 'Tools Selenium' do
   end
   
   describe "/twitter.html" do
-    it "should load" do
+    it "should load search" do
       visit_tool '/twitter.html'
+      fill_in('query', :with => 'bacon')
+      click_on('Preview')
+      all('iframe')[0][:src].should match(/twitter\.html/)
+      click_on('Add')
+      all('.insertion textarea').length.should > 0
+      all('.insertion textarea')[0][:value].should match(/twitter\.html\?#type=search&amp;query=bacon/)
+    end
+    
+    it "should load user" do
+      visit_tool '/twitter.html'
+      page.select('User Tweets', :from => 'type')
+      fill_in('query', :with => 'bacon')
+      click_on('Preview')
+      all('iframe')[0][:src].should match(/twitter\.html/)
+      click_on('Add')
+      all('.insertion textarea').length.should > 0
+      all('.insertion textarea')[0][:value].should match(/twitter\.html\?#type=profile&amp;query=bacon/)
+    end
+    
+    it "should render twitter iframes correctly" do
+      visit_tool '/twitter.html#type=search&query=bacon'
+      keep_trying_until{ all('.twtr-tweet').length > 0 }
+      all('#twtr-widget-1').length.should == 1
+      all('#twtr-widget-1 .twtr-hd h4')[0].text.should == 'bacon'
+      all('#twtr-widget-1 .twtr-tweet').length.should > 5
+      
+      visit '/index.html'
+      visit_tool '/twitter.html#type=profile&query=whitmer'
+      keep_trying_until{ all('#twtr-widget-1').length > 0 }
+      all('#twtr-widget-1').length.should == 1
+      all('#twtr-widget-1 .twtr-hd h4')[0].text.should == 'whitmer'
+      all('#twtr-widget-1 .twtr-tweet').length.should > 5
     end
   end
   
