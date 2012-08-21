@@ -41,6 +41,20 @@ describe 'Tools Selenium' do
     page.should have_selector('h1')
   end
   
+  def check_embed_result(embed_type, regex)
+    embed_lookups = {
+      :link => /^<a/,
+      :iframe => /^<iframe/
+    }
+    all('.insertion textarea').length.should > 0
+    all('.insertion textarea')[0][:value].should match(embed_lookups[embed_type])
+    all('.insertion textarea')[0][:value].should match(regex)
+  end
+  
+  def check_default_results
+    all('#results .result').length.should > 5
+  end
+  
   describe "/tools.html" do
     it "shoud load" do
       visit_tool '/tools.html'
@@ -62,6 +76,12 @@ describe 'Tools Selenium' do
   describe "/archive.html" do
     it "should load" do
       visit_tool '/archive.html'
+      fill_in('query', :with => 'man')
+      find('#search .btn').click
+      keep_trying_until{ all('#results .result').length > 5 }
+      find("#results .result .title").text.should match(/man/i)
+      find("#results .result").click
+      check_embed_result(:link, /archive\.org/)
     end
   end
   
@@ -94,6 +114,13 @@ describe 'Tools Selenium' do
   describe "/schooltube.html" do
     it "should load" do
       visit_tool '/schooltube.html'
+      check_default_results
+      fill_in('query', :with => 'biology')
+      find('#search .btn').click
+      keep_trying_until{ all('#results .result').length > 5 }
+      find("#results .result .title").text.should match(/biology/i)
+      find("#results .result").click
+      check_embed_result(:link, /bit\.ly/)
     end
   end
   
@@ -112,6 +139,7 @@ describe 'Tools Selenium' do
   describe "/ted_ed.html" do
     it "should load" do
       visit_tool '/ted_ed.html'
+      check_default_results
       youtube_test
     end
   end
@@ -123,8 +151,7 @@ describe 'Tools Selenium' do
       click_on('Preview')
       all('iframe')[0][:src].should match(/twitter\.html/)
       click_on('Add')
-      all('.insertion textarea').length.should > 0
-      all('.insertion textarea')[0][:value].should match(/twitter\.html\?#type=search&amp;query=bacon/)
+      check_embed_result(:iframe, /twitter\.html\?#type=search&amp;query=bacon/)
     end
     
     it "should load user" do
@@ -134,15 +161,15 @@ describe 'Tools Selenium' do
       click_on('Preview')
       all('iframe')[0][:src].should match(/twitter\.html/)
       click_on('Add')
-      all('.insertion textarea').length.should > 0
-      all('.insertion textarea')[0][:value].should match(/twitter\.html\?#type=profile&amp;query=bacon/)
+      check_embed_result(:iframe, /twitter\.html\?#type=profile&amp;query=bacon/)
     end
     
     it "should render twitter iframes correctly" do
-      visit_tool '/twitter.html#type=search&query=bacon'
+      visit '/index.html'
+      visit_tool '/twitter.html#type=search&query=love'
       keep_trying_until{ all('.twtr-tweet').length > 0 }
       all('#twtr-widget-1').length.should == 1
-      all('#twtr-widget-1 .twtr-hd h4')[0].text.should == 'bacon'
+      all('#twtr-widget-1 .twtr-hd h4')[0].text.should == 'love'
       all('#twtr-widget-1 .twtr-tweet').length.should > 5
       
       visit '/index.html'
@@ -180,6 +207,13 @@ describe 'Tools Selenium' do
   end
   
   def youtube_test
+    find('#search .btn').click
+    keep_trying_until{ all('#results .result').length > 5 }
+    fill_in('query', :with => 'a')
+    find('#search .btn').click
+    keep_trying_until{ all('#results .result').length > 5 }
+    find("#results .result").click
+    check_embed_result(:link, /youtube/)
   end
   
   describe "/index.html" do
