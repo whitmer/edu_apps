@@ -823,6 +823,7 @@ define([
 
 if(!$("#external_tools").length) { return; }
 $("#external_tools").attr('data-app_center_enabled', 'true');
+$("#tab-tools > .button-container").appendTo($("#external_tools"));
 var app = Handlebars.templates['apps/app'];
 var app_rating = Handlebars.templates['apps/app_rating'];
 var app_overlay = Handlebars.templates['apps/app_overlay'];
