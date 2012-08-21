@@ -1,4 +1,4 @@
-define('jst/apps/app_overlay', ["compiled/handlebars_helpers","i18n!apps.app_overlay"], function (Handlebars) {
+define('jst/apps/app_overlay', ["compiled/handlebars_helpers"], function (Handlebars) {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
   templates['apps/app_overlay'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;
@@ -733,7 +733,7 @@ define('jst/apps/app_rating', ["compiled/handlebars_helpers"], function (Handleb
   return templates['apps/app_rating'];
 });
 
-define('jst/apps/app', ["compiled/handlebars_helpers","i18n!apps.app"], function (Handlebars) {
+define('jst/apps/app', ["compiled/handlebars_helpers"], function (Handlebars) {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
   templates['apps/app'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;
