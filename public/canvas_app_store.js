@@ -822,6 +822,7 @@ define([
 ], function(I18n, $, _, ENV, userSettings, Handlebars) {
 
 if(!$("#external_tools").length) { return; }
+$("#external_tools").attr('data-app_center_enabled', 'true');
 var app = Handlebars.templates['apps/app'];
 var app_rating = Handlebars.templates['apps/app_rating'];
 var app_overlay = Handlebars.templates['apps/app_overlay'];
