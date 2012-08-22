@@ -31,7 +31,7 @@ var lti;
     $message.show().text("Loading...");
     var query = encodeURIComponent($("#query").val());
     var userPathPart = window.youtubeAccount ? ("/users/" + window.youtubeAccount + "/uploads") : '/videos';
-    var url = "http://gdata.youtube.com/feeds/api" + userPathPart + "?v=2&q=" + query + "&orderby=relevance&alt=json-in-script";
+    var url = "https://gdata.youtube.com/feeds/api" + userPathPart + "?v=2&q=" + query + "&orderby=relevance&alt=json-in-script";
     $.ajax({
       url: url,
       success: function(data) {
