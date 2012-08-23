@@ -1,3 +1,18 @@
+.review_table {
+  border: 1px solid #ccc;
+}
+.review_table td {
+  padding: 5px 10px;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+.review_table tr:last-child td * {
+  visibility: hidden
+}
+.review_table tr:last-child td:hover * {
+  visibility: visible
+}
+
 #tools .tool .stars { display: none; }
 #app_list .overlay .padding .all_ratings { display: none; }
 
