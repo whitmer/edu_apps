@@ -15,6 +15,11 @@ rescue LoadError
 end
 
 require 'sinatra'
+
+if defined?(RACK_ENV)
+  set :environment, RACK_ENV
+end
+
 require './lib/models'
 require './lib/external_search'
 require './lib/apps'

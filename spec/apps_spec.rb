@@ -1,9 +1,8 @@
+RACK_ENV='test'
 require 'lti_example'
 require 'rspec'
 require 'rack/test'
 require 'json'
-
-set :environment, :test
 
 describe 'Apps API' do
   include Rack::Test::Methods

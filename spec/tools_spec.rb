@@ -1,3 +1,4 @@
+RACK_ENV='test'
 require 'lti_example'
 require 'capybara'
 require 'capybara/dsl'
@@ -5,7 +6,6 @@ require 'rspec'
 require 'rack/test'
 require 'json'
 
-set :environment, :test
 
 Capybara.app = Sinatra::Application
 
@@ -42,13 +42,20 @@ describe 'Tools Selenium' do
   end
   
   def check_embed_result(embed_type, regex)
-    embed_lookups = {
-      :link => /^<a/,
-      :iframe => /^<iframe/
-    }
-    all('.insertion textarea').length.should > 0
-    all('.insertion textarea')[0][:value].should match(embed_lookups[embed_type])
-    all('.insertion textarea')[0][:value].should match(regex)
+    if embed_type == :oembed
+      all('.insertion textarea').length.should == 0
+      all('.insertion p').length.should == 1
+      all('.insertion')[0]['data-endpoint'].should match(/\/oembed/)
+      all('.insertion')[0]['data-url'].should match(regex)
+    else
+      embed_lookups = {
+        :link => /^<a/,
+        :iframe => /^<iframe/
+      }
+      all('.insertion textarea').length.should > 0
+      all('.insertion textarea')[0][:value].should match(embed_lookups[embed_type])
+      all('.insertion textarea')[0][:value].should match(regex)
+    end
   end
   
   def check_default_results
@@ -102,12 +109,36 @@ describe 'Tools Selenium' do
   describe "/ocw_search.html" do
     it "should load" do
       visit_tool '/ocw_search.html'
+      fill_in('query', :with => '11.948 mit')
+      find('#search .btn').click
+      keep_trying_until{ all('#results .result').length > 5 }
+      find("#results .result .title").text.should match(/11\.948/i)
+      find("#results .result").click
+      check_embed_result(:link, /ocw\.mit\.edu/)
     end
   end
   
   describe "/quizlet.html" do
+    # needs an api token
     it "should load" do
+      ExternalConfig.first(:config_type => 'quizlet').should_not be_nil
       visit_tool '/quizlet.html'
+      fill_in('query', :with => 'car')
+      find('#search .btn').click
+      keep_trying_until{ all('#results .result').length > 5 }
+      find("#results .result .title").text.should match(/car/i)
+      find("#results .result").click
+      find("#quizlet_preview")[:src].should match(/quizlet\.com/)
+      find("#quizlet_preview")[:src].should match(/familiarize/)
+      page.select('Learn', :from => 'quizlet_type')
+      find("#quizlet_preview")[:src].should match(/quizlet\.com/)
+      find("#quizlet_preview")[:src].should match(/learn/)
+      page.select('Scatter Game', :from => 'quizlet_type')
+      find("#quizlet_preview")[:src].should match(/quizlet\.com/)
+      find("#quizlet_preview")[:src].should match(/scatter/)
+      find("#add").click
+      
+      check_embed_result(:iframe, /quizlet\.com/)
     end
   end
   
@@ -126,13 +157,30 @@ describe 'Tools Selenium' do
   
   describe "/slideshare.html" do
     it "should load" do
+      ExternalConfig.first(:config_type => 'slideshare').should_not be_nil
       visit_tool '/slideshare.html'
+      fill_in('query', :with => 'bacon')
+      find('#search .btn').click
+      keep_trying_until{ all('#results .result').length > 5 }
+      find("#results .result .title").text.should match(/bacon/i)
+      find("#results .result").click
+      find("#slideshare_wrapper object").should_not be_nil
+      find("#link").click
+      check_embed_result(:link, /slideshare\.net/)
     end
   end
   
   describe "/storify.html" do
     it "should load" do
       visit_tool '/storify.html'
+      keep_trying_until{ all('#results .result').length > 5 }
+      page.select('Latest', :from => 'type')
+      keep_trying_until{ all('#results .result').length > 5 }
+      fill_in('query', :with => 'love')
+      find('#search .btn').click
+      keep_trying_until{ all('#results .result').length > 5 }
+      find("#results .result").click
+      check_embed_result(:link, /storify\.com/)
     end
   end
   
@@ -184,18 +232,45 @@ describe 'Tools Selenium' do
   describe "/usatoday.html" do
     it "should load" do
       visit_tool '/usatoday.html'
+      fill_in('query', :with => 'love')
+      find('#search .btn').click
+      keep_trying_until{ all('#results .result').length > 5 }
+      find("#results .result").click
+      check_embed_result(:link, /usatoday\.com/)
     end
   end
   
   describe "/wikipedia.html" do
     it "should load" do
       visit_tool '/wikipedia.html'
+      fill_in('query', :with => 'justin bieber')
+      find('#search .btn').click
+      keep_trying_until{ all('#results .result').length > 5 }
+      find("#results .result .title").text.should match(/bieber/i)
+      find("#results .result").click
+      check_embed_result(:link, /wikipedia\.org/)
+      
+      visit_tool '/wikipedia.html'
+      fill_in('query', :with => 'heart')
+      find('#search .btn').click
+      keep_trying_until{ all('#results .result').length > 5 }
+      find("#results .result .title").text.should match(/heart/i)
+      find("#results .result .embed").click
+      check_embed_result(:iframe, /wikipedia\.org/)
     end
   end
   
   describe "/wiktionary.html" do
     it "should load" do
       visit_tool '/wiktionary.html'
+      fill_in('query', :with => 'heart')
+      find('#search .btn').click
+      keep_trying_until{ all('#results .result').length > 5 }
+      find("#results .header a")[:href].should match(/wiktionary\.org\/wiki\/heart/)
+      find("#results .header a").text.should == 'heart'
+      find("#results .result .type").text.should match(/noun/i)
+      find("#results .result").click
+      check_embed_result(:oembed, /wiktionary\.org/)
     end
   end
   
