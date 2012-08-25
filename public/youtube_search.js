@@ -7,22 +7,8 @@ var lti;
     var videoUrl = $(this).attr('rel');
     var entry = $(this).data('entry');
     console.log(entry);
-    // http://www.youtube.com/watch?v=embgWgjwybc&feature=youtube_gdata
-    // http://www.youtube.com/embed/embgWgjwybc
-    if(lti.params && lti.params.selection_directive == 'select_link') {
-      var id = entry.link[0].href.match(/v=(\w+)/)[1];
-      lti.resourceSelected({
-        embed_type: 'link',
-        url: "http://www.youtube.com/embed/" + id,
-        text: entry.title['$t']
-      });
-    } else {
-      lti.resourceSelected({
-        embed_type: 'link',
-        url: entry.link[0].href,
-        text: entry.title['$t']
-      });
-    }
+    var id = entry.link[0].href.match(/v=(\w+)/)[1];
+    selectVideo(id, entry.title['$t']);
   });
   $("#search").submit(function(event) {
     event.preventDefault();
@@ -44,10 +30,7 @@ var lti;
           var entry = data.feed.entry[idx];
           var $entry = $result.clone(true);
           $entry.data('entry', entry);
-          var duration = parseInt(entry['media$group']['yt$duration']['seconds'], 10);
-          var seconds = duration % 60;
-          var minutes = (duration - seconds) / 60;
-          duration = (minutes || "0") + ":" + (seconds < 10 ? ("0" + seconds) : seconds);
+          var duration = durationString(parseInt(entry['media$group']['yt$duration']['seconds'], 10));
           $entry.find(".title").text("(" + duration + ") " + entry.title['$t']);
           $entry.find(".img").attr('src', entry['media$group']['media$thumbnail'][0].url);
           $entry.attr('rel', entry.link[0].href);
@@ -60,3 +43,26 @@ var lti;
     });
   });
 })();
+function durationString(duration) {
+  var seconds = duration % 60;
+  var minutes = (duration - seconds) / 60;
+  duration = (minutes || "0") + ":" + (seconds < 10 ? ("0" + seconds) : seconds);
+  return duration;
+}
+function selectVideo(id, title) {
+  // http://www.youtube.com/watch?v=embgWgjwybc&feature=youtube_gdata
+  // http://www.youtube.com/embed/embgWgjwybc
+  if(lti.params && lti.params.selection_directive == 'select_link') {
+    lti.resourceSelected({
+      embed_type: 'link',
+      url: "http://www.youtube.com/embed/" + id,
+      text: title
+    });
+  } else {
+    lti.resourceSelected({
+      embed_type: 'link',
+      url: "http://www.youtube.com/watch?" + id,
+      text: title
+    });
+  }
+}

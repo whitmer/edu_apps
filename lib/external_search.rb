@@ -125,6 +125,63 @@ module Sinatra
       return res.to_json
     end
     
+    get '/youtube_edu_browse' do
+      if params['course_id']
+        url = "http://gdata.youtube.com/feeds/api/edu/lectures?course=#{params['course_id']}&v=2"
+        lectures = []
+        while url
+          uri = URI.parse(url)
+          xml = Nokogiri::HTML(Net::HTTP.get(uri))
+          xml.css('entry').each do |lecture|
+            lectures << {
+              :id => lecture.css('videoid')[0].content,
+              :thumbnail => lecture.css('group thumbnail')[0]['url'],
+              :title => lecture.css('title')[0].content,
+              :updated => lecture.css('updated')[0].content,
+              :description => lecture.css('group description')[0].content,
+              :duration => lecture.css('duration')[0]['seconds']
+            }
+          end
+          url = xml.css("link[rel='next']")[0]['href'] rescue nil
+        end
+        return lectures.to_json
+      elsif params['category_id'] && params['category_id'] != 'root'
+        url = "http://gdata.youtube.com/feeds/api/edu/courses?v=2&category=#{params['category_id']}"
+        uri = URI.parse(url)
+        xml = Nokogiri::HTML(Net::HTTP.get(uri))
+        courses = []
+        xml.css('entry').each do |course|
+          courses << {
+            :thumbnail => course.css('group thumbnail')[0]['url'],
+            :title => course.css('title')[0].content,
+            :id => course.css('playlistid')[0].content,
+            :updated => course.css('updated')[0].content
+          }
+        end
+        return courses.to_json
+      else
+        url = "http://gdata.youtube.com/schemas/2007/educategories.cat"
+        uri = URI.parse(url)
+        xml = Nokogiri::HTML(Net::HTTP.get(uri))
+        cats_by_parent = {}
+        xml.css('category').each do |cat|
+          parent_id = cat.css('parentcategory')[0]['term'] rescue 'root'
+          cats_by_parent[parent_id] ||= []
+          cats_by_parent[parent_id] << {
+            :id => cat['term'],
+            :title => cat['label']
+          }
+        end
+#        cats_by_parent['root'].each do |cat|
+#          url = "http://gdata.youtube.com/feeds/api/edu/courses?v=2&category=#{cat[:id]}&max-results=1"
+#          uri = URI.parse(url)
+#          xml = Nokogiri::HTML(Net::HTTP.get(uri))
+#          cat[:thumbnail] = xml.css('entry group thumbnail')[0]['url']
+#        end
+        return cats_by_parent.to_json
+      end
+    end
+    
     get "/wiktionary_search" do
       url = "http://en.wiktionary.org/wiki/#{params['q']}"
       uri = URI.parse(url)
