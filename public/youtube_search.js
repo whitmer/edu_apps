@@ -61,7 +61,7 @@ function selectVideo(id, title) {
   } else {
     lti.resourceSelected({
       embed_type: 'link',
-      url: "http://www.youtube.com/watch?" + id,
+      url: "http://www.youtube.com/watch?v=" + id,
       text: title
     });
   }

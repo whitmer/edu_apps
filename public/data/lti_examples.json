@@ -775,6 +775,25 @@
       }
     },
     {
+      "id": "youtube_edu",
+      "new": true,
+      "uses": 0,
+      "name": "YouTube For Schools",
+      "added": "2012-03-22T00:00:00Z",
+      "image_url": "/tools/youtube_edu.png",
+      "big_image_url": "/big_tools/youtube_edu.png",
+      "description": "YouTube for Schools is a collection of edu-centric videos that can be whitelisted for campus access without opening up all of YouTube. A new icon in your course editor lets you browse YouTube's EDU content and click to embed videos in your course.<br/><br/><a href='http://www.youtube.com/schools'>Learn more about setting up YouTube for Schools</a>.",
+      "any_key": true,
+      "config_url": "/config/youtube_edu.xml",
+      "extensions": ["editor_button", "resource_selection"],
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Web 2.0", "Media"],
+      "preview": {
+        "url": "/youtube_edu.html",
+        "height": 475
+      }
+    },
+    {
       "id": "titanpad",
       "uses": 10,
       "name": "TitanPad",

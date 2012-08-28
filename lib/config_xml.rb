@@ -391,6 +391,32 @@ module Sinatra
         <blti:icon>#{host}/icons/youtube.png</blti:icon>
       XML
     end
+    get "/config/youtube_edu.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      headers 'Content-Type' => 'text/xml'
+      config_wrap <<-XML
+        <blti:title>YouTube for Schools</blti:title>
+        <blti:description>Browse and insert links to edu-centric videos hosted on YouTube.</blti:description>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">youtube_edu</lticm:property>
+          <lticm:property name="privacy_level">anonymous</lticm:property>
+          <lticm:options name="editor_button">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/youtube_edu.html')}</lticm:property>
+            <lticm:property name="icon_url">#{host}/icons/youtube.png</lticm:property>
+            <lticm:property name="text">YouTube for Schools</lticm:property>
+            <lticm:property name="selection_width">600</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/youtube_edu.html')}</lticm:property>
+            <lticm:property name="text">YouTube for Schools</lticm:property>
+            <lticm:property name="selection_width">600</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
+        </blti:extensions>
+        <blti:icon>#{host}/icons/youtube.png</blti:icon>
+      XML
+    end
     
     
     get "/config/quizlet.xml" do
