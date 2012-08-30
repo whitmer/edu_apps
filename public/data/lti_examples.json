@@ -231,6 +231,7 @@
     },
     {
       "id": "open_tapestry",
+      "pending": true,
       "name": "Open Tapestry",
       "added": "2012-08-30T00:00:00Z",
       "image_url": "/tools/opentapestry.png",
@@ -251,16 +252,6 @@
         "url": "http://www.youtube.com/embed/c2aXFuhvk98",
         "height": 400
       }
-    },
-    {
-      "pending": true,
-      "id": "opentapestry",
-      "added": "2012-01-10T00:00:00Z",
-      "name": "OpenTapestry",
-      "image_url": "/tools/opentapestry.png",
-      "big_image_url": "/tools/opentapestry.png",
-      "description": "Browse and insert private and public collections tapestries from OpenTapestry. Each tapestry is a collection of content from anywhere on the web. Content can be annotated and enhanced to tailor it to your specific learning environment.<br/><br/><a href='http://opentapestry.com'>Register on OpenTapestry</a> to retrieve your consumer key and shared secret.",
-      "config_url": "/config/opentapestry.xml"
     },
     {
       "id": "nook_study",
