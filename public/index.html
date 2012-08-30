@@ -413,8 +413,11 @@
     }
     $comment.remove();
   }
-  $(".config_field").live('click focus', function() {
-    $(this).select();
+  $(".config_field").live('click focus mouseup', function() {
+    var $obj = $(this);
+    setTimeout(function() {
+      $obj.select();
+    }, 50);
   });
   $(document).ready(function() {
     $(".works_in").tooltip();

@@ -230,6 +230,29 @@
       }
     },
     {
+      "id": "open_tapestry",
+      "name": "Open Tapestry",
+      "added": "2012-08-30T00:00:00Z",
+      "image_url": "/tools/opentapestry.png",
+      "big_image_url": "/big_tools/opentapestry.png",
+      "description": "Browse and insert private and public collections tapestries from OpenTapestry. Each tapestry is a collection of content from anywhere on the web. Content can be annotated and enhanced to tailor it to your specific learning environment.<br/><br/><a href='http://opentapestry.com'>Register on OpenTapestry</a> to retrieve your consumer key and shared secret.",
+      "short_description": "Embed open learning resources",
+      "config_urls": [{
+        "url": "/config/open_tapestry_rich_editor.xml",
+        "description": "Rich editor button"
+      },
+      {
+        "url": "/config/open_tapestry_link_selection.xml",
+        "description": "Link selection tool"
+      }],
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Community", "Content", "Media", "Open Content"],
+      "preview": {
+        "url": "http://www.youtube.com/embed/c2aXFuhvk98",
+        "height": 400
+      }
+    },
+    {
       "pending": true,
       "id": "opentapestry",
       "added": "2012-01-10T00:00:00Z",
