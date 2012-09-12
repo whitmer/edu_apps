@@ -211,7 +211,7 @@ module Sinatra
         <blti:title>#{params['name']}</blti:title>
         <blti:description>#{params['description']}</blti:description>
         <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">tool_#{params['id']}</lticm:property>
+          <lticm:property name="tool_id">#{params['id']}</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
           <lticm:options name="editor_button">
             <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=' + params['id'])}</lticm:property>
