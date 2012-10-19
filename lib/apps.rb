@@ -77,7 +77,9 @@ module Sinatra
       end
       review.save!
       @tool_summary.update_counts
-      json_result(review_as_json(review).to_json)
+      json = review_as_json(review)
+      json['app'] = fix_tool(@tool, @tool_summary)
+      json_result(json.to_json)
     end
     
     helpers do
