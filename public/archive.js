@@ -38,7 +38,7 @@ var lti;
     $results.empty().hide();
     $message.show().text("Loading...");
     var query = encodeURIComponent($("#query").val());
-    var url = "http://archive.org/advancedsearch.php?q=" + query + "&fl%5B%5D=collection&fl%5B%5D=description&fl%5B%5D=format&fl%5B%5D=headerImage&fl%5B%5D=identifier&fl%5B%5D=licenseurl&fl%5B%5D=mediatype&fl%5B%5D=source&fl%5B%5D=subject&fl%5B%5D=title&rows=50&page=1&output=json&callback=callback&save=yes#raw";
+    var url = "https://archive.org/advancedsearch.php?q=" + query + "&fl%5B%5D=collection&fl%5B%5D=description&fl%5B%5D=format&fl%5B%5D=headerImage&fl%5B%5D=identifier&fl%5B%5D=licenseurl&fl%5B%5D=mediatype&fl%5B%5D=source&fl%5B%5D=subject&fl%5B%5D=title&rows=50&page=1&output=json&callback=callback&save=yes#raw";
     $.ajax({
       url: url,
       success: function(data) {

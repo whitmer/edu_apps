@@ -281,10 +281,12 @@
       tool.has_config_url = tool.config_url || tool.config_urls;
       if(tool.any_key && tools.length == 1) {
         tool.description = tool.description + "<br/><br/>Any key and secret will work for this tool.";
-        tool.preview = {
-          "url": "/tools.html?tool=" + tool.id,
-          "height": 475
-        };
+        if(!tool.preview) {
+          tool.preview = {
+            "url": "/tools.html?tool=" + tool.id,
+            "height": 475
+          };
+        }
       }
       tool.desc = new Handlebars.SafeString(tool.description);
       tool.config_dir = new Handlebars.SafeString(tool.config_directions);

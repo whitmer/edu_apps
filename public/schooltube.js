@@ -33,8 +33,7 @@ var lti;
     $results.empty().hide();
     $message.show().text("Loading...");
     var query = encodeURIComponent($("#query").val());
-    var search = query ? "/search" : "";
-    var url = "http://www.schooltube.com/api/v1/video" + search + "?term=" + encodeURIComponent(query) + "&order_by=-view_count&limit=48";
+    var url = "/schooltube_search?q=" + query;
     $.ajax({
       url: url,
       success: function(data) {
@@ -64,7 +63,7 @@ var lti;
         $results.show();
         $message.hide();
       },
-      dataType: 'jsonp'
+      dataType: 'json'
     });
   }).submit();
 })();

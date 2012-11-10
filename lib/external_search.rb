@@ -37,6 +37,16 @@ module Sinatra
       return json['content']['stories'].to_json
     end
     
+    get '/schooltube_search' do
+      url = ""
+      query = CGI.escape(params['q'] || '')
+      search = query.length > 0 ? "/search/" : "/"
+      url = "http://www.schooltube.com/api/v1/video#{search}?term=#{query}&order_by=-view_count&limit=48"
+      response = Net::HTTP.get(URI.parse(url))
+      
+      return response
+    end
+    
     get '/slideshare_search' do
       @@slideshare_config = ExternalConfig.first(:config_type => 'slideshare')
       return "Slideshare not properly configured" unless @@slideshare_config
@@ -165,7 +175,9 @@ module Sinatra
         xml = Nokogiri::HTML(Net::HTTP.get(uri))
         cats_by_parent = {}
         xml.css('category').each do |cat|
+          next if cat['term'] == '0'
           parent_id = cat.css('parentcategory')[0]['term'] rescue 'root'
+          parent_id = 'root' if parent_id == '0'
           cats_by_parent[parent_id] ||= []
           cats_by_parent[parent_id] << {
             :id => cat['term'],

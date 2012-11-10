@@ -259,7 +259,7 @@
       "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/nook_study.png",
       "big_image_url": "/big_tools/nook_study.png",
-      "description": "This would allow you to insert link as items in a module that the teacher can use to specify a set of require reading materials for the course, or to link to specific textbook material that will load for students.",
+      "description": "Nook Study LTI allows you to insert link as items in a module that the teacher can use to specify a set of require reading materials for the course, or to link to specific textbook material that will load for students.<br/><br/>You can find directions for obtaining a key and secret <a href='http://www.barnesandnoble.com/nookstudy/integration/index.asp'>on the Nook Study LTI site</a>",
       "config_urls": [{
         "url": "/config/nook_textbooks_list.xml",
         "description": "Required reading list"
@@ -314,7 +314,7 @@
       "name": "Inigral Schools App",
       "image_url": "/tools/inigral.png",
       "big_image_url": "/big_tools/inigral.png",
-      "description": "Schools App is a private social network within Facebook for colleges and universities. Links to a school's app can be launched from within a course, and can also be added as a link that students will see in their user profile.",
+      "description": "Schools App is a private social network within Facebook for colleges and universities. Links to a school's app can be launched from within a course, and can also be added as a link that students will see in their user profile.<br/><br/>To set up you'll need to have an existing <a href='http://www.inigral.com/'>partnership with Inigral</a>, and they will provide you with the app name to enter in the configuration.",
       "any_key": true,
       "config_url": "/config/inigral.xml",
       "config_options": [
@@ -492,8 +492,8 @@
       "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/course_smart.png",
       "big_image_url": "/big_tools/course_smart.png",
-      "description": "Add links to rich online textbooks, chapters, etc.",
-      "config_directions": "Contact <a href='http:www.coursesmart.com/'>CourseSmart</a> for configuration instructions.",
+      "description": "Add links to rich online textbooks, chapters, etc. If your institution is set up with CourseSmart then you can select and insert learning materials within your course content.",
+      "config_directions": "Contact <a href='http:www.coursesmart.com/'>CourseSmart</a> or your institution's administrator for configuration instructions.",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Textbooks/eBooks"]
     },
@@ -504,7 +504,7 @@
       "name": "Sage",
       "image_url": "/tools/sage_cell.png",
       "big_image_url": "/big_tools/sage_cell.png",
-      "description": "Sage is an online open source mathematics software system, an alternative to Mathematica or Matlab. Users can build interactive mathematical systems that are rendered in the browser.",
+      "description": "Sage is an online open source mathematics software system, an alternative to Mathematica or Matlab. Users can build interactive mathematical systems that are rendered in the browser.<br/><br/>Once the tool is added, you can add the tool to your course content and launch it, then start building out your visualizations to be reviewed by students.",
       "config_url": "/config/sage_cell.xml",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "any_key": true,
@@ -528,7 +528,7 @@
       "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/elgg.png",
       "big_image_url": "/big_tools/elgg.png",
-      "description": "Open source social networking. You can add a link to your course navigation that will send users to an Elgg network already logged in.<br/><br/>You'll need to install the <a href='http://community.elgg.org/pg/plugins/project/851496/developer/spb1/www.celtic-project.org'>LTI plugin for Elgg</a> in order for this integration to work.",
+      "description": "Open source social networking. You can add a link to your course navigation that will send users to an Elgg network already logged in.<br/><br/>You need to have a running Elgg server, and then you'll need to install the <a href='http://community.elgg.org/pg/plugins/project/851496/developer/spb1/www.celtic-project.org'>LTI plugin for Elgg</a> in order for this integration to work.",
       "any_key": true,
       "config_url": "/config/elgg.xml",
       "config_options": [
@@ -556,7 +556,7 @@
       "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/noteflight.png",
       "big_image_url": "/big_tools/noteflight.png",
-      "description": "Build musical annotations on the web. This could be useful in music classes for both teaching and assigning to students as homework.",
+      "description": "Build musical annotations on the web. Great in music classes for both teaching and assigning to students as homework. Load the tool and create annotations that can be reviewed by students.<br/><br/>You'll need to <a href='http://www.noteflight.com/info/learn_more_k12'>sign up for noteflight</a> and contact them to get your key and secret.",
       "config_url": "/config/noteflight.xml",
       "config_options": [
         {
@@ -576,7 +576,7 @@
       "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/courseload.png",
       "big_image_url": "/big_tools/courseload.png",
-      "description": "Add links to rich online textbooks, chapters, etc.",
+      "description": "Add links to rich online textbooks, chapters, etc. If your institution is set up with Courseload then you can select and insert learning materials within your course content.",
       "config_directions": "Contact <a href='http:courseload.com/'>Courseload</a> for configuration instructions. "
     },
     {
@@ -910,7 +910,7 @@
       "added": "2012-04-12T00:00:00Z",
       "image_url": "/tools/storify.png",
       "big_image_url": "/big_tools/storify.png",
-      "description": "Storify lets users organize events from across the web into a single cohesive \"story\". Search through and link to these social stories within your course material.",
+      "description": "Storify lets users organize events from across the web into a single cohesive \"story\". Adding this tool allows you to search through and link to social stories from within your course material.",
       "short_description": "Search and link to social stories",
       "any_key": true,
       "config_url": "/config/storify.xml",
