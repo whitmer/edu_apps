@@ -16,11 +16,10 @@
     $results.empty().hide();
     $message.show().text("Loading...");
     var query = encodeURIComponent($("#query").val());
-    var url = "http://api.usatoday.com/open/articles?search=" + query + "&count=15&encoding=json&api_key=6zb4ck73bzbqtczgcq7tsjaf";
+    var url = "/usa_today_search?q=" + query;
     $.ajax({
       url: url,
       success: function(data) {
-        console.log(data);
         if(!data.stories || data.stories.length == 0) {
           $results.empty().hide();
           $message.show().text("No Results Found");
@@ -29,6 +28,7 @@
         for(var idx = 0; idx < data.stories.length && data.stories[idx]; idx++) {
           var entry = data.stories[idx];
           var $entry = $result.clone(true);
+          if(entry.pubDate.length == 0) { entry.pubDate = ""; }
           var date = entry.pubDate.split(/\s/)
           $entry.data('entry', entry);
           $entry.find(".title").text(entry.title);
@@ -40,9 +40,7 @@
         $results.show();
         $message.hide();
       },
-      dataType: 'jsonp',
-      jsonp: 'jsoncallbackmethod',
-      jsonpCallback: 'usatodayresults'
+      dataType: 'json'
     });
   });
 })();

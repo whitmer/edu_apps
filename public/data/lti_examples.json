@@ -159,6 +159,25 @@
       }
     },
     {
+      "id": "usa_today",
+      "name": "USA Today",
+      "added": "2012-02-25T00:00:00Z",
+      "image_url": "/tools/usa_today.png",
+      "big_image_url": "/big_tools/usa_today.png",
+      "any_key": true,
+      "config_url": "/config/usa_today.xml",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content"],
+      "description": "Search for and link to articles from USA Today's archives.",
+      "short_description": "Articles from USA Today",
+      "launch_url": "/usatoday.html",
+      "extensions": ["editor_button", "resource_selection"],
+      "preview": {
+        "url": "/usatoday.html",
+        "height": 475
+      }
+    },
+    {
       "id": "brainpop",
       "name": "BrainPOP",
       "added": "2012-03-06T00:00:00Z",
@@ -858,18 +877,6 @@
       "description": "Elementary Paper offers printable handwriting practice sheets. Link to any of the freely available sheets.",
       "short_description": "Browse printable writing practice sheets",
       "data_url": "/data/elem_paper.json"
-    },
-    {
-      "id": "usa_today",
-      "pending": true,
-      "added": "2012-02-25T00:00:00Z",
-      "name": "USA Today",
-      "image_url": "/tools/usa_today.png",
-      "big_image_url": "/big_tools/usa_today.png",
-      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
-      "categories": ["Content"],
-      "short_description": "Articles from USA Today",
-      "launch_url": "/usatoday.html"
     },
     {
       "id": "softchalk_cloud",

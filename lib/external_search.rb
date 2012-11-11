@@ -37,13 +37,20 @@ module Sinatra
       return json['content']['stories'].to_json
     end
     
+    get '/usa_today_search' do
+      @@usa_today_config = ExternalConfig.first(:config_type => 'usa_today')
+      query = CGI.escape(params['q'] || '')
+      url = "http://api.usatoday.com/open/articles?search=#{query}&count=15&encoding=json&api_key=#{@@usa_today_config.value}"
+      response = Net::HTTP.get(URI.parse(url))
+      return response
+      
+    end
+    
     get '/schooltube_search' do
-      url = ""
       query = CGI.escape(params['q'] || '')
       search = query.length > 0 ? "/search/" : "/"
       url = "http://www.schooltube.com/api/v1/video#{search}?term=#{query}&order_by=-view_count&limit=48"
       response = Net::HTTP.get(URI.parse(url))
-      
       return response
     end
     

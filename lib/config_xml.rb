@@ -764,6 +764,33 @@ module Sinatra
       XML
     end
     
+    get "/config/usa_today.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      headers 'Content-Type' => 'text/xml'
+      config_wrap <<-XML
+        <blti:title>USA Today</blti:title>
+        <blti:description>Search for and link to articles from the USA Today archives.</blti:description>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">usa_today</lticm:property>
+          <lticm:property name="privacy_level">anonymous</lticm:property>
+          <lticm:options name="editor_button">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/usatoday.html')}</lticm:property>
+            <lticm:property name="icon_url">#{host}/icons/usa_today.png</lticm:property>
+            <lticm:property name="text">USA Today</lticm:property>
+            <lticm:property name="selection_width">690</lticm:property>
+            <lticm:property name="selection_height">530</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/usatoday.html')}</lticm:property>
+            <lticm:property name="text">USA Today</lticm:property>
+            <lticm:property name="selection_width">690</lticm:property>
+            <lticm:property name="selection_height">530</lticm:property>
+          </lticm:options>
+        </blti:extensions>
+        <blti:icon>#{host}/icons/usa_today.png</blti:icon>
+      XML
+    end
+    
     get "/config/storify.xml" do
       host = request.scheme + "://" + request.host_with_port
       headers 'Content-Type' => 'text/xml'
