@@ -71,6 +71,7 @@ if(!skipValidation) {
       params['launch_presentation_return_url'] = params['launch_presentation_return_url'] + "?";
     }
     var returnUrl = params['launch_presentation_return_url'];
+    lti.returnUrl = returnUrl;
     lti.resourceSelected = function(data) {
       if(returnUrl && returnUrl != "undefined" && returnUrl != "undefined?") {
         if(trackEvent) {
