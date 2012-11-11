@@ -747,7 +747,7 @@
       "added": "2012-03-21T00:00:00Z",
       "image_url": "/tools/wikispaces.png",
       "big_image_url": "/tools/wikispaces.png",
-      "description": "Wikispaces offers free wikis for educational purposes. Private label sites can be configured to use LTI for authentication.",
+      "description": "Wikispaces offers free wikis for educational purposes. Private label sites can be configured to use LTI for authentication. You'll need a private label site as opposed to just a personal account in order for this tool to work properly.",
       "config_directions": "Visit <a href='https://help.wikispaces.com/basic+lti'>the Wikispages LTI configuration page</a> for directions on configuring your Wikispaces private label site."
     },
     {
