@@ -290,6 +290,7 @@
       }
       tool.desc = new Handlebars.SafeString(tool.description);
       tool.config_dir = new Handlebars.SafeString(tool.config_directions);
+      tool.user_key = window.user_key;
       html = Handlebars.templates['tool'](tool);
       if(mod == 0) {
         $div = $("<div/>", {'class': 'row'});

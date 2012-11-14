@@ -98,6 +98,9 @@
             {{#if comments_count}}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> {{comments_count}}
             {{/if}}
+            {{#unless user_key}}
+            <div><a href='/login'><img src='/icons/twitter.png'/> Login via Twitter</a> to rate and review this app</div>
+            {{/unless}}
             <form id='add_rating' style="display: none;">
                 <input id="rating_star" type="hidden" name="rating" value=""/>
                 <textarea id="rating_comments" placeholder="Type any additional comments here" style="width: 300px; height: 50px;"></textarea><br/>

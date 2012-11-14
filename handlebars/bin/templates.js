@@ -630,11 +630,21 @@ function program51(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n            ";
+  foundHelper = helpers.user_key;
+  stack1 = foundHelper || depth0.user_key;
+  stack2 = helpers.unless;
+  tmp1 = self.program(54, program54, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n            <form id='add_rating' style=\"display: none;\">\n                <input id=\"rating_star\" type=\"hidden\" name=\"rating\" value=\"\"/>\n                <textarea id=\"rating_comments\" placeholder=\"Type any additional comments here\" style=\"width: 300px; height: 50px;\"></textarea><br/>\n                <button type='submit' class='btn btn-primary'>Submit Comments</button>\n                <button type='button' class='bnt btn-cancel'>No Comment</button>\n            </form>\n            ";
   foundHelper = helpers.comments_count;
   stack1 = foundHelper || depth0.comments_count;
   stack2 = helpers['if'];
-  tmp1 = self.program(54, program54, data);
+  tmp1 = self.program(56, program56, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -656,9 +666,14 @@ function program52(depth0,data) {
 function program54(depth0,data) {
   
   
-  return "\n                <h3>Recent Comments</h3>\n                <div class='comments'>\n                </div>\n            ";}
+  return "\n            <div><a href='/login'><img src='/icons/twitter.png'/> Login via Twitter</a> to rate and review this app</div>\n            ";}
 
 function program56(depth0,data) {
+  
+  
+  return "\n                <h3>Recent Comments</h3>\n                <div class='comments'>\n                </div>\n            ";}
+
+function program58(depth0,data) {
   
   
   return "\n    <span class='span2 app'></span>\n";}
@@ -786,7 +801,7 @@ function program56(depth0,data) {
   foundHelper = helpers.single_tool;
   stack1 = foundHelper || depth0.single_tool;
   stack2 = helpers['if'];
-  tmp1 = self.program(56, program56, data);
+  tmp1 = self.program(58, program58, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
