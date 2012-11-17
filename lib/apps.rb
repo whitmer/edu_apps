@@ -113,8 +113,13 @@ module Sinatra
             data = recent
           end
         end
-        if params['platform'] && params['platform'].length > 0 && params['platform'] != 'Canvas'
-          data = data.select{|e| !e['extensions'] && !e['data_url'] }
+        if params['platform'] && params['platform'].length > 0 
+          if params['platform'] == 'Canvas'
+            bad_tools = ['titanpad']
+            data = data.select{|e| !bad_tools.include?(e['id']) }
+          else
+            data = data.select{|e| !e['extensions'] && !e['data_url'] }
+          end
         end
         found_data = data
         if paginated
