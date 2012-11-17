@@ -840,19 +840,6 @@
       "config_url": "/config/titanpad.xml"
     },
     {
-      "id": "bumpin",
-      "name": "Bumpin Social Chat",
-      "added": "2012-03-24T00:00:00Z",
-      "image_url": "/tools/bumpin.png",
-      "big_image_url": "/tools/bumpin.png",
-      "description": "Bumpin social chat allows you to add chat rooms to web pages. This tool lets you add a chat room as a course navigation link for your students.",
-      "any_key": true,
-      "config_url": "/config/bumpin.xml",
-      "levels": ["Postsecondary"],
-      "categories": ["Web 2.0", "Community"],
-      "extensions": ["course_nav"]
-    },
-    {
       "id": "flat_world_knowledge",
       "name": "Flat World Knowledge",
       "added": "2012-03-06T00:00:00Z",
