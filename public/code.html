@@ -37,7 +37,7 @@
       <h1>Writing LTI Stuff</h1>
       
       <p>
-        This page goes over the basics of creating a tool that leverages LTI. There's
+        This page goes over the basics of creating an app that leverages LTI. There's
         a lot of great links at the bottom that may help out, but it's probably a good
         idea to at least read the intro first to get a feel for what LTI does exactly.
       </p>
@@ -56,7 +56,7 @@
         <a href="#params">POST Parameters</a>
       </li>
       <li>
-        <a href="#building">Building an LTI Tool</a>
+        <a href="#building">Building an LTI App</a>
       </li>
       <li>
         <a href="#links">Other Resources</a>
@@ -69,7 +69,7 @@
           <h2>Introduction</h2>
           <div class="thumbnail" style="float: right; width: 300px; margin-left: 10px;">
             <img src="/tool_launch.png" alt=""/>
-            <p>Identity assertion is a one-way "handshake" coming from the learning platform (consumer) to the tool (provider).</p>
+            <p>Identity assertion is a one-way "handshake" coming from the learning platform (consumer) to the app (provider).</p>
           </div>
           <p>
             The main thing with LTI is the identity assertion. LTI is a way for 
@@ -106,29 +106,29 @@
             launched by submitting a form. Most of the time the form is submitted via
             JavaScript to an iframe rendered on a page within the <span class='label label-warning'>consumer</span>, 
             so the user doesn't have an extra step when trying to launch
-            a tool.
+            an app.
           </p>
           <p>
             <a href="#params">Below are a list of parameters</a> that can be sent as part of the POST
-            request. Some are required, some are optional. Most tools shouldn't need more
+            request. Some are required, some are optional. Most apps shouldn't need more
             than the first set of parameters and can probably just ignore the rest.
           </p>
           <div style="clear:both;"></div>
         </span>
         <span class="span12">
           <a name="building"></a>
-          <h2>Building an LTI Tool</h2>
-          <p>If you want to build an LTI-compliant tool or <span class='label label-info'>provider</span>
+          <h2>Building an LTI App</h2>
+          <p>If you want to build an LTI-compliant app or <span class='label label-info'>provider</span>
           then there's really only a couple things you need to worry about: how users can
-          configure your tool, how to accept a launch from a <span class='label label-warning'>consumer</span>,
+          configure your app, how to accept a launch from a <span class='label label-warning'>consumer</span>,
           and potentially handling some of the extra goodies LTI makes possible.</p>
           
-          <h3>Tool Configuration</h3>
-          <p>Tool configuration is <a href="/tutorials.html">different for every LMS</a> right
+          <h3>App Configuration</h3>
+          <p>App configuration is <a href="/tutorials.html">different for every LMS</a> right
           now, but we're working on that. The best way to provide a standard configuration
-          for your tool is by providing a url that returns an xml configuration for your
-          tool. There's a lot of 
-          <a href="https://canvas.instructure.com/doc/api/tools_xml.html">examples of tool 
+          for your app is by providing a url that returns an xml configuration for your
+          app. There's a lot of 
+          <a href="https://canvas.instructure.com/doc/api/tools_xml.html">examples of app 
           configurations in the Canvas API documentation</a>. Remember, if there's custom
           values you want to make sure come across with every user, this is the place
           to include them. The only really crucial piece to specify is the url endpoint that will
@@ -141,8 +141,8 @@
           secret values that a <span class='label label-info'>provider</span> gives them
           into the <span class='label label-warning'>consumer</span> manually.</p>
           
-          <h3>Tool Launch</h3>
-          <p>Once a tool is configured, it will be added by one or more instructors into
+          <h3>App Launch</h3>
+          <p>Once an app is configured, it will be added by one or more instructors into
           their material as some sort of link or button in the <span class='label label-warning'>consumer</span>.
           Any time a student, instructor, administrator, or random internet passersby clicks
           the link they will be directed to the <span class='label label-info'>provider</span>
@@ -153,7 +153,7 @@
           valid then you should accept the identity assertion provided by the <span class='label label-warning'>consumer</span>
           and log the user in to your service. Many services have their own registration flow,
           so it's not uncommon to require an additional registration step the first
-          time a user launches your tool.</p>
+          time a user launches your app.</p>
           <p>Signatures are generated using <a href="http://oauth.net/core/1.0/#signing_process">the OAuth signing process</a>.
           Google provides <a href="http://oauth.googlecode.com/svn/code/javascript/example/signature.html">a nice tool for generating OAuth signatures</a>
           that you can use to test your signing code, although you'll probably save yourself
@@ -175,7 +175,7 @@
           <h2>POST Parameters</h2>
           <p>These are all of the known values that can be passed from the 
           <span class='label label-warning'>consumer</span> to the <span class='label label-info'>provider</span>
-          when a user clicks a link to launch the tool.
+          when a user clicks a link to launch the app.
           <div style='margin: 0 50px;'>
           <h3>Most Common Parameters</h3>
           <table class='table table-bordered table-striped'>
@@ -201,12 +201,12 @@
                 <td><code>resource_link_id</code></td>
                 <td><span class='label label-success'>required</span></td>
                 <td>
-                unique id referencing the link, or "placement", of the tool in the
-                <span class='label label-warning'>consumer</span>. If a tool was added twice
+                unique id referencing the link, or "placement", of the app in the
+                <span class='label label-warning'>consumer</span>. If an app was added twice
                 to the same class, each placement would send a different id, and
                 should be considered a unique "launch". For example, if the
                 <span class='label label-info'>provider</span> were a chat room
-                tool, then each <code>resource_link_id</code> would be a separate
+                app, then each <code>resource_link_id</code> would be a separate
                 room.
                 </td>
               </tr>
@@ -215,7 +215,7 @@
                 <td><span class='label'>recommended</span></td>
                 <td>
                 unique id referencing the user accessing the
-                tool. <span class='label label-info'>providers</span> should
+                app. <span class='label label-info'>providers</span> should
                 consider this id an opaque identifier.
                 </td>
               </tr>
@@ -244,12 +244,12 @@
               <tr>
                 <td><code>lis_person_name_full</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>Full name of the user accessing the tool. This won't be sent if tools are configured to launch users anonymously or with minimal information.</td>
+                <td>Full name of the user accessing the app. This won't be sent if apps are configured to launch users anonymously or with minimal information.</td>
               </tr>
               <tr>
                 <td><code>lis_outcome_service_url</code></td>
                 <td><span class='label'>optional</span></td>
-                <td>If this url is passed to the <span class='label label-info'>provider</span> then it means the tool is authorized to send grade values back to the <span class='label label-warning'>consumer</span> gradebook for any students that access the tool. There's more information available in the <a href="https://canvas.instructure.com/doc/api/assignment_tools.html">Canvas API documentation</a>.</td>
+                <td>If this url is passed to the <span class='label label-info'>provider</span> then it means the app is authorized to send grade values back to the <span class='label label-warning'>consumer</span> gradebook for any students that access the app. There's more information available in the <a href="https://canvas.instructure.com/doc/api/assignment_tools.html">Canvas API documentation</a>.</td>
               </tr>
               <tr>
                 <td><code>selection_directive</code></td>
@@ -271,57 +271,57 @@
               <tr>
                 <td><code>lis_person_name_given</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>First name of the user accessing the tool. This won't be sent if tools are configured to launch users anonymously or with minimal information.</td>
+                <td>First name of the user accessing the app. This won't be sent if apps are configured to launch users anonymously or with minimal information.</td>
               </tr>
               <tr>
                 <td><code>lis_person_name_family</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>Last name of the user accessing the tool. This won't be sent if tools are configured to launch users anonymously or with minimal information.</td>
+                <td>Last name of the user accessing the app. This won't be sent if apps are configured to launch users anonymously or with minimal information.</td>
               </tr>
               <tr>
                 <td><code>lis_person_contact_email_primary</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>Email address of the user accessing the tool. This won't be sent if tools are configured to launch users anonymously or with minimal information.</td>
+                <td>Email address of the user accessing the app. This won't be sent if apps are configured to launch users anonymously or with minimal information.</td>
               </tr>
               <tr>
                 <td><code>resource_link_title</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>name of the link that launched the tool</td>
+                <td>name of the link that launched the app</td>
               </tr>
               <tr>
                 <td><code>resource_link_description</code></td>
                 <td><span class='label'>optional</span></td>
-                <td>description of the link that launched the tool</td>
+                <td>description of the link that launched the app</td>
               </tr>
               <tr>
                 <td><code>context_id</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>unique id of the course from which the user is accessing the tool. If a tool were added multiple times to the same course, this id would be the same regardless of which link was used to launch the tool.</td>
+                <td>unique id of the course from which the user is accessing the app. If a app were added multiple times to the same course, this id would be the same regardless of which link was used to launch the app.</td>
               </tr>
               <tr>
                 <td><code>context_type</code></td>
                 <td><span class='label'>optional</span></td>
-                <td>this is the type of context from which the user is accessing the tool. If it's provided, this will most likely be <code>CourseSection</code></td>
+                <td>this is the type of context from which the user is accessing the app. If it's provided, this will most likely be <code>CourseSection</code></td>
               </tr>
               <tr>
                 <td><code>context_title</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>name of the course from which the user is accessing the tool</td>
+                <td>name of the course from which the user is accessing the app</td>
               </tr>
               <tr>
                 <td><code>context_label</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>short name or course code of the course from which the user is accessing the tool</td>
+                <td>short name or course code of the course from which the user is accessing the app</td>
               </tr>
               <tr>
                 <td><code>launch_presentation_locale</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>locale (i.e. <code>en-US</code>) for the user accessing the tool</td>
+                <td>locale (i.e. <code>en-US</code>) for the user accessing the app</td>
               </tr>
               <tr>
                 <td><code>launch_presentation_document_target</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>if provided, this value will be either <code<window</code> (if the tool has been launched in a new window) or <code>iframe</code>.</td>
+                <td>if provided, this value will be either <code<window</code> (if the app has been launched in a new window) or <code>iframe</code>.</td>
               </tr>
               <tr>
                 <td><code>launch_presentation_css_url</code></td>
@@ -331,12 +331,12 @@
               <tr>
                 <td><code>launch_presentation_width</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>width of the frame or window in which the tool is launched. This is only a starting point, since the frame could change if the user resizes their window.</td>
+                <td>width of the frame or window in which the app is launched. This is only a starting point, since the frame could change if the user resizes their window.</td>
               </tr>
               <tr>
                 <td><code>launch_presentation_height</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>height of the frame or window in which the tool is launched. This is only a starting point, since the frame could change if the user resizes their window.</td>
+                <td>height of the frame or window in which the app is launched. This is only a starting point, since the frame could change if the user resizes their window.</td>
               </tr>
               <tr>
                 <td><code>launch_presentation_return_url</code></td>
@@ -365,27 +365,27 @@
               <tr>
                 <td><code>tool_consumer_instance_guid</code></td>
                 <td><span class='label'>strongly recommended</span></td>
-                <td>unique id referencing the instance from which the user is accessing the tool. This mostly makes sense only in a multi-tenant environment.</td>
+                <td>unique id referencing the instance from which the user is accessing the app. This mostly makes sense only in a multi-tenant environment.</td>
               </tr>
               <tr>
                 <td><code>tool_consumer_instance_name</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>name of the instance from which the user is accessing the tool.</td>
+                <td>name of the instance from which the user is accessing the app.</td>
               </tr>
               <tr>
                 <td><code>tool_consumer_instance_description</code></td>
                 <td><span class='label'>optional</span></td>
-                <td>description of the instance from which the user is accessing the tool.</td>
+                <td>description of the instance from which the user is accessing the app.</td>
               </tr>
               <tr>
                 <td><code>tool_consumer_instance_url</code></td>
                 <td><span class='label'>optional</span></td>
-                <td>url of the instance from which the user is accessing the tool.</td>
+                <td>url of the instance from which the user is accessing the app.</td>
               </tr>
               <tr>
                 <td><code>tool_consumer_instance_contact_email</code></td>
                 <td><span class='label'>recommended</span></td>
-                <td>email address of a contact at the instance from which the user is accessing the tool.</td>
+                <td>email address of a contact at the instance from which the user is accessing the app.</td>
               </tr>
               <tr>
                 <td><code>custom_*</code></td>
@@ -394,7 +394,7 @@
                   any number of custom values can optionally be sent across. The key
                   for any custom values should start with <code>custom_</code> and should
                   be in snake case. Custom values can optionally be defined on the 
-                  <span class='label label-warning'>consumer</span> side as part of the tool configuration
+                  <span class='label label-warning'>consumer</span> side as part of the app configuration
                   process.
                 </td>
               </tr>
@@ -408,7 +408,7 @@
           <ul class='nav nav-list'>
             <li class='nav-header'>Code / Libraries</li>
             <li>
-              <a href="/data/lti_examples.jsonp">The list of tools on this site's home page is available as a <strong>jsonp</strong> list</a>
+              <a href="/data/lti_examples.jsonp">The list of apps on this site's home page is available as a <strong>jsonp</strong> list</a>
             </li>
             <li>
               <a href="https://github.com/instructure/ims-lti">Source code for LTI <strong>ruby</strong> gem</a>
@@ -421,7 +421,7 @@
             </li>
             <li class='nav-header'>Documentation</li>
             <li>
-              <a href="/extensions.html">Examples of tools that leverage LTI extensions</a>
+              <a href="/extensions.html">Examples of apps that leverage LTI extensions</a>
             </li>
             <li>
               <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas documentation on LTI external tools</a>

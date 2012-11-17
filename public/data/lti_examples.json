@@ -76,7 +76,7 @@
       "name": "TED Ed",
       "image_url": "/tools/ted_ed.png",
       "big_image_url": "/big_tools/ted_ed.png",
-      "description": "TED Ed is a collection of quality videos that can be used for instructional purposes. This tool lets you search for and embed TED Ed vidoes in your course material.",
+      "description": "TED Ed is a collection of quality videos that can be used for instructional purposes. This app lets you search for and embed TED Ed vidoes in your course material.",
       "short_description": "Online instructional videos",
       "any_key": true,
       "config_url": "/config/ted_ed.xml",
@@ -542,7 +542,7 @@
       "name": "Sage",
       "image_url": "/tools/sage_cell.png",
       "big_image_url": "/big_tools/sage_cell.png",
-      "description": "Sage is an online open source mathematics software system, an alternative to Mathematica or Matlab. Users can build interactive mathematical systems that are rendered in the browser.<br/><br/>Once the tool is added, you can add the tool to your course content and launch it, then start building out your visualizations to be reviewed by students.",
+      "description": "Sage is an online open source mathematics software system, an alternative to Mathematica or Matlab. Users can build interactive mathematical systems that are rendered in the browser.<br/><br/>Once the app is added, you can add the app to your course content and launch it, then start building out your visualizations to be reviewed by students.",
       "config_url": "/config/sage_cell.xml",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "any_key": true,
@@ -594,7 +594,7 @@
       "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/noteflight.png",
       "big_image_url": "/big_tools/noteflight.png",
-      "description": "Build musical annotations on the web. Great in music classes for both teaching and assigning to students as homework. Load the tool and create annotations that can be reviewed by students.<br/><br/>You'll need to <a href='http://www.noteflight.com/info/learn_more_k12'>sign up for noteflight</a> and contact them to get your key and secret.",
+      "description": "Build musical annotations on the web. Great in music classes for both teaching and assigning to students as homework. Load the app and create annotations that can be reviewed by students.<br/><br/>You'll need to <a href='http://www.noteflight.com/info/learn_more_k12'>sign up for noteflight</a> and contact them to get your key and secret.",
       "config_url": "/config/noteflight.xml",
       "config_options": [
         {
@@ -766,7 +766,7 @@
       "added": "2012-03-21T00:00:00Z",
       "image_url": "/tools/wikispaces.png",
       "big_image_url": "/tools/wikispaces.png",
-      "description": "Wikispaces offers free wikis for educational purposes. Private label sites can be configured to use LTI for authentication. You'll need a private label site as opposed to just a personal account in order for this tool to work properly.",
+      "description": "Wikispaces offers free wikis for educational purposes. Private label sites can be configured to use LTI for authentication. You'll need a private label site as opposed to just a personal account in order for this app to work properly.",
       "config_directions": "Visit <a href='https://help.wikispaces.com/basic+lti'>the Wikispages LTI configuration page</a> for directions on configuring your Wikispaces private label site."
     },
     {
@@ -864,7 +864,7 @@
       "added": "2012-11-17T00:00:00Z",
       "image_url": "/tools/speeqe.png",
       "big_image_url": "/tools/speeqe.png",
-      "description": "Speeqe chat allows you to add chat rooms to web pages. This tool lets you add a chat room as a course navigation link for your students.<br/><br/><b>NOTE</b> that since Speeqe doesn't run over SSL, you'll get security warnings when using in a Canvas instance that runs on https",
+      "description": "Speeqe chat allows you to add chat rooms to web pages. This app lets you add a chat room as a course navigation link for your students.<br/><br/><b>NOTE</b> that since Speeqe doesn't run over SSL, you'll get security warnings when using in a Canvas instance that runs on https",
       "any_key": true,
       "config_url": "/config/speeqe.xml",
       "levels": ["Postsecondary"],
@@ -940,7 +940,7 @@
       "added": "2012-04-12T00:00:00Z",
       "image_url": "/tools/storify.png",
       "big_image_url": "/big_tools/storify.png",
-      "description": "Storify lets users organize events from across the web into a single cohesive \"story\". Adding this tool allows you to search through and link to social stories from within your course material.",
+      "description": "Storify lets users organize events from across the web into a single cohesive \"story\". Adding this app allows you to search through and link to social stories from within your course material.",
       "short_description": "Search and link to social stories",
       "any_key": true,
       "config_url": "/config/storify.xml",
@@ -1087,7 +1087,7 @@
       "big_image_url": "/big_tools/wordpress.png",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Content", "Community"],
-      "description": "WordPress is a blogging and publishing platform. You could use it to host student or class blogs. This tool allows for auto-login to the WordPress platform. Links can be added to course content, or optionally as course navigation.<br/><br/><b>Directions for configuring WordPress:</b><ol><li>Configure your WordPress <a href='http://codex.wordpress.org/Create_A_Network'>account for multisite</a></li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Wordpress/wordpressLTIPlugin.zip/download'>the WordPress LTI plugin</a></li><li>Extract the LTI plugin into <code>wp-content/mu-plugin</code></li><li>Log as superAdmin and go to Network Dashboard -> Settings -> LTI Consumers Keys. Here you can manage the authorized consumers keys</li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Wordpress'>follow the directions here</a></ol>",
+      "description": "WordPress is a blogging and publishing platform. You could use it to host student or class blogs. This app allows for auto-login to the WordPress platform. Links can be added to course content, or optionally as course navigation.<br/><br/><b>Directions for configuring WordPress:</b><ol><li>Configure your WordPress <a href='http://codex.wordpress.org/Create_A_Network'>account for multisite</a></li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Wordpress/wordpressLTIPlugin.zip/download'>the WordPress LTI plugin</a></li><li>Extract the LTI plugin into <code>wp-content/mu-plugin</code></li><li>Log as superAdmin and go to Network Dashboard -> Settings -> LTI Consumers Keys. Here you can manage the authorized consumers keys</li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Wordpress'>follow the directions here</a></ol>",
       "config_url": "/config/wordpress.xml",
       "extensions": ["course_nav"],
       "config_options": [
@@ -1115,7 +1115,7 @@
       "big_image_url": "/big_tools/status_net.png",
       "levels": ["7th-12th Grade", "Postsecondary"],
       "categories": ["Content", "Community"],
-      "description": "Status.net is a private microblogging platform that can be run for your institution, department or course. This tool allows for auto-login to the Status.net system from course content or course navigation.<br/><br/><b>NOTE</b>: This tool will only work when set to open in a new tab, it will not work in an embedded iframe.<br/><br/><b>Directions for configuring Status.net:</b><ol><li>Configure your Status.net instance</li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Status.net/LTIAuthentication.zip/download'>the Status.net LTI plugin</a></li><li>Extract the LTI plugin into Status.net's <code>plugins</code> folder</li><li>Edit config.php and add<br/><br/><code>addPlugin('LTIAuthentication', array('provider_name'=>'LTI'));</code><br/><br/></li><li>Edit <code>BLTI/IMSBasicLTI/configuration/authorizedConsumersKey.cfg</code>, adding the following lines:<br/><br/><code>consumer_key.&lt;consumer_key&gt;.enabled=1</code><br/><code>consumer_key.&lt;consumer_key&gt;.secret=&lt;password&gt;</code><br/><br/></li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Status.net_English'>follow the directions here</a></ol>",
+      "description": "Status.net is a private microblogging platform that can be run for your institution, department or course. This app allows for auto-login to the Status.net system from course content or course navigation.<br/><br/><b>NOTE</b>: This app will only work when set to open in a new tab, it will not work in an embedded iframe.<br/><br/><b>Directions for configuring Status.net:</b><ol><li>Configure your Status.net instance</li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Status.net/LTIAuthentication.zip/download'>the Status.net LTI plugin</a></li><li>Extract the LTI plugin into Status.net's <code>plugins</code> folder</li><li>Edit config.php and add<br/><br/><code>addPlugin('LTIAuthentication', array('provider_name'=>'LTI'));</code><br/><br/></li><li>Edit <code>BLTI/IMSBasicLTI/configuration/authorizedConsumersKey.cfg</code>, adding the following lines:<br/><br/><code>consumer_key.&lt;consumer_key&gt;.enabled=1</code><br/><code>consumer_key.&lt;consumer_key&gt;.secret=&lt;password&gt;</code><br/><br/></li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Status.net_English'>follow the directions here</a></ol>",
       "config_url": "/config/status_net.xml",
       "extensions": ["course_nav"],
       "config_options": [
@@ -1143,7 +1143,7 @@
       "big_image_url": "/big_tools/question2answer.png",
       "levels": ["7th-12th Grade", "Postsecondary"],
       "categories": ["Content", "Community"],
-      "description": "Question2Answer is an open source Q&A site. You could use it to host course or institution-level Q&A services. This tool allows for auto-login to the Question2Answer platform from another system. Links can be added to course content, or optionally as course navigation.<br/><br/><b>Directions for configuring Question2Answer:</b><ol><li>Configure your Question2Answer instance</li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Question2Answer/qa-plugin.zip/download'>the Q2A LTI plugin</a></li><li>Extract the LTI plugin into Q2A's main folder</li><li>Log as administrator, go to Administration center - Plugins</li><li>Click over 'options'</li><li>Configure BasicLTI Settings:<ol><li>Enable Plugin</li><li>Disable Default BLTI Username: You have to define the parameter of basic lti with the custom username instead of the default BasicLTI Parameter</li><li>Parameter Username: If you enabled Disable BLTI Username you have to indicate the custom username, usuarlly is custom_username</li><li>Logout URL: Full url (include http://) to logout from the SSO and this Q2A application</li><li>New user message: Optional. Message shown to new users when they login for the first time.</li></ol></li><li>Edit <code>BLTI/IMSBasicLTI/configuration/authorizedConsumersKey.cfg</code>, adding the following lines:<br/><br/><code>consumer_key.&lt;consumer_key&gt;.enabled=1</code><br/><code>consumer_key.&lt;consumer_key&gt;.secret=&lt;password&gt;</code><br/><br/></li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Q2a_English'>follow the directions here</a></ol>",
+      "description": "Question2Answer is an open source Q&A site. You could use it to host course or institution-level Q&A services. This app allows for auto-login to the Question2Answer platform from another system. Links can be added to course content, or optionally as course navigation.<br/><br/><b>Directions for configuring Question2Answer:</b><ol><li>Configure your Question2Answer instance</li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Question2Answer/qa-plugin.zip/download'>the Q2A LTI plugin</a></li><li>Extract the LTI plugin into Q2A's main folder</li><li>Log as administrator, go to Administration center - Plugins</li><li>Click over 'options'</li><li>Configure BasicLTI Settings:<ol><li>Enable Plugin</li><li>Disable Default BLTI Username: You have to define the parameter of basic lti with the custom username instead of the default BasicLTI Parameter</li><li>Parameter Username: If you enabled Disable BLTI Username you have to indicate the custom username, usuarlly is custom_username</li><li>Logout URL: Full url (include http://) to logout from the SSO and this Q2A application</li><li>New user message: Optional. Message shown to new users when they login for the first time.</li></ol></li><li>Edit <code>BLTI/IMSBasicLTI/configuration/authorizedConsumersKey.cfg</code>, adding the following lines:<br/><br/><code>consumer_key.&lt;consumer_key&gt;.enabled=1</code><br/><code>consumer_key.&lt;consumer_key&gt;.secret=&lt;password&gt;</code><br/><br/></li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Q2a_English'>follow the directions here</a></ol>",
       "config_url": "/config/question2answer.xml",
       "extensions": ["course_nav"],
       "config_options": [
@@ -1171,7 +1171,7 @@
       "big_image_url": "/big_tools/mahara.png",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Content", "Community"],
-      "description": "Mahara is an open source ePortfolio and social networking tool. This tool allows for auto-login to the Mahara platform from another system. Links can be added to course content, or optionally as course navigation.<br/><br/><b>Directions for configuring Mahara:</b><ol><li>Configure your Mahara instance</a></li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Mahara/blti_provider.zip/download'>the Mahara LTI plugin</a></li><li>Extract the LTI plugin into Mahara's <code>auth</code> folder</li><li>Go to Admin home - Extensions - Plugin Administration - Plugin type: auth</li><li>Enable 'blti'</li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Mahara_English'>follow the directions here</a></ol>",
+      "description": "Mahara is an open source ePortfolio and social networking tool. This app allows for auto-login to the Mahara platform from another system. Links can be added to course content, or optionally as course navigation.<br/><br/><b>Directions for configuring Mahara:</b><ol><li>Configure your Mahara instance</a></li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Mahara/blti_provider.zip/download'>the Mahara LTI plugin</a></li><li>Extract the LTI plugin into Mahara's <code>auth</code> folder</li><li>Go to Admin home - Extensions - Plugin Administration - Plugin type: auth</li><li>Enable 'blti'</li><li>For more detailed configuration, <a href='http://sourceforge.net/apps/mediawiki/learningapps/index.php?title=LTI4Mahara_English'>follow the directions here</a></ol>",
       "config_url": "/config/mahara.xml",
       "extensions": ["course_nav"],
       "config_options": [

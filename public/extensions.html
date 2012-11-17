@@ -57,7 +57,7 @@
     <div class="row">
       <span class="span12">
         <h2>Introduction</h2>
-        <p>For information on configuring LTI tools, check out
+        <p>For information on configuring LTI apps, check out
         <a href="/tutorials.html">the Tutorials page</a>. Right now most of the
         LTI extensions on this page are only supported by Canvas. We are planning to add more
         extensions using the conventions outlined here in the near future, and
@@ -65,16 +65,16 @@
         <p>Each extension listed below includes an example XML file that can be
         used to configure the extensions in your learning system. Copy either the
         raw XML file or the link to the XML file and use that the configure the 
-        tool in your system. Feel free to try modifying the XML to better understand
+        app in your system. Feel free to try modifying the XML to better understand
         what the settings do, or to set up more advanced configurations. More 
-        information on tool configuration is availabe in the 
+        information on app configuration is availabe in the 
         <a href="https://canvas.instructure.com/doc/api/tools_intro.html">Canvas API docs</a>.
         </p>
         <p>
         The examples are
         very basic, really just enough to get the point of the extension across.
         If you are interested in seeing more advanced or practical implementations,
-        check out <a href="/index.html">the list of LTI tools on the home page</a>.</p>
+        check out <a href="/index.html">the list of LTI apps on the home page</a>.</p>
       </span>
     </div>
     <div class="row data-row">
@@ -85,8 +85,8 @@
           course navigation. This link is available to anyone with access to 
           the course. If it's configured at the account level, the link will
           be added to all courses within that account. Permissions can be set
-          to determine which user types have access to the tool, and whether 
-          the tool is enabled by default for all applicable courses, or if
+          to determine which user types have access to the app, and whether 
+          the app is enabled by default for all applicable courses, or if
           it needs to be configured manually for each course.
         </p>
         <a class='label label-info' href="/config/course_navigation.xml">xml configuration</a>
@@ -103,7 +103,7 @@
           This is an example of a standard configuration for adding a link to
           account navigation. This link is available to anyone with access to 
           the account. The link will appear in the current account and any
-          sub-accounts of that account. Remember that tool launches will send
+          sub-accounts of that account. Remember that app launches will send
           all role types associated with a user, which in the case of 
           account-level links should always include at least the admin role,
           <code>urn:lti:instrole:ims/lis/Administrator</code>.
@@ -137,8 +137,8 @@
             This example showcases the LTI Outcomes functionality which is
             part of LTI 1.1, and is supported by more systems than just Canvas. 
             In Canvas, you can set up grade passback by first 
-            configuring the tool, then creating a new assignment
-            with type "External Tool". Select the configured tool and then
+            configuring the app, then creating a new assignment
+            with type "External Tool". Select the configured app and then
             access the assignment as a student to test its functionality.
           </p>
         <a class='label label-info' href="/config/grade_passback.xml">xml configuration</a>
@@ -154,12 +154,12 @@
             This shows adding an editor button to the rich editor
             in course/group content. Editor button extensions show up in Canvas
             as icons in the right editor, in this case as a fish icon.
-            This simple demo tool lets the user pick from a list of fish
+            This simple demo app lets the user pick from a list of fish
             pictures. The picture they choose will be inserted into the 
             rich editor.</p>
           <p>
-            Editor button tools can be configured at the course or account
-            levels. If the tool is configured at the account
+            Editor button apps can be configured at the course or account
+            levels. If the app is configured at the account
             level, then the button will appear for any courses/groups within 
             that account.
           </p>
@@ -180,7 +180,7 @@
             to the user's specified dimensions.
           </p>
           <p>
-            Again, if the tool is configured at the account
+            Again, if the app is configured at the account
             level, then the button will appear for any courses/groups within 
             that account.
           </p>
@@ -195,18 +195,18 @@
       <span class="span8">
         <h3>Links in Modules Demo</h3>
           <p>
-            This tool allows the user to pick and insert custom content as link
+            This app allows the user to pick and insert custom content as link
             in course modules. When inserting content into a module, if the user
-            picks "External Tools" they'll see the configured tool with a "find"
-            icon. Clicking the tool will bring up a new dialog where the user
+            picks "External Tools" they'll see the configured app with a "find"
+            icon. Clicking the app will bring up a new dialog where the user
             can pick/build content (in this case creating a page that shows an
             image of a fish with a user-specified name for the fish) 
             to be inserted as a page or resource within
             the current module.
           </p>
           <p>
-            Module linking tools can be configured at the course or account level.
-            If the tool is configured at the account level,
+            Module linking apps can be configured at the course or account level.
+            If the app is configured at the account level,
             then it will be available for any courses within that account.
           </p>
         <a class='label label-info' href="/config/resource_selection.xml">xml configuration</a>
@@ -220,8 +220,8 @@
       <span class="span8">
         <h3>Combination Rich Editor Button and Module links Demo</h3>
           <p>
-            This example shows configuring a tool to serve multiple purposes at
-            the same time. In this case, a single tool can add both a fish 
+            This example shows configuring an app to serve multiple purposes at
+            the same time. In this case, a single app can add both a fish 
             icon to the rich editor, and the ability to add named fish pages to
             course modules.
           </p>

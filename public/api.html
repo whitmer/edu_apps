@@ -82,7 +82,7 @@
           <h2>App List</h2>
           <p>Returns a list of all known apps. Includes some summary information
           around the number of ratings and comments, as well as all information
-          needed to configure and place the tools in a learning system.</p>
+          needed to configure and place the apps in a learning system.</p>
           <div style="margin-left: 30px;">
           <code>GET /api/v1/apps</code>
 <pre class='prettyprint'>
@@ -94,15 +94,15 @@
   "objects": [
     {
       "id": "unique_identifier",
-      "name": "Human Readable Tool Name",
+      "name": "Human Readable App Name",
       "extensions": ["multiple", "values"], // possible values: editor_button, resource_selection, user_nav, course_nav, account_nav
       "added": "2012-03-27T00:00:00Z",
       "avg_rating": 3.5,
       "big_image_url": "http://example.com/240x125.png",
       "image_url": "http://example.com/72x72.png",
-      "launch_url": "http://example.com/tool.launch",
+      "launch_url": "http://example.com/app.launch",
       "any_key": true,
-      "short_description": "Short tool description",
+      "short_description": "Short app description",
       "comments_count": 21,
       "ratings_count": 45,
       "preview": {
@@ -111,7 +111,7 @@
       },
       "categories": ["list of", "human-readable", "category names"],
       "levels": ["multiple", "values"], // possible values: "K-6th Grade", "7th-12th Grade", "Postsecondary"
-      "description": "Longer tool description",
+      "description": "Longer app description",
       "config_url": "http://more.info/available/below"
     },
     { ... },
@@ -156,7 +156,7 @@
               <td>Filters to only apps have been added in
               the past 24 weeks. If less than 6 apps have been 
               added in the last 24 weeks, it will go back farther
-              until at least 6 tools are returned.
+              until at least 6 apps are returned.
               Setting this value to anything other
               than an empty string will apply the filter.
               </td>
@@ -168,7 +168,7 @@
               the specified platform. This is a bit of a placeholder
               parameter, since right now there are only two
               options, <code>Canvas</code> and anything other
-              than <code>Canvas</code>. As more tools and extensions
+              than <code>Canvas</code>. As more apps and extensions
               are added, more platforms will be explicitly supported.
               </td>
             </tr>
@@ -187,7 +187,7 @@
           </table>
           
           <p>
-            Most of the information is consistent across all tools. <code>preview</code>
+            Most of the information is consistent across all apps. <code>preview</code>
             is an optional value, and there are some possible configuration options
             listed below:
           </p>
@@ -196,10 +196,10 @@
             <tr>
               <td><code>config_directions</code></td>
               <td>
-                This tool doesn't have a standardized
+                This app doesn't have a standardized
                 way to configure it, so instead it will return 
                 some HTML code containing
-                directions on how to manually configure the tool.
+                directions on how to manually configure the app.
               </td>
             </tr>
             <tr>
@@ -209,12 +209,12 @@
                 <p>
                   If <code>config_options</code> is not provided, then this is
                   the url that can be queried to retrieve the XML configuration
-                  for this tool.
+                  for this app.
                 </p>
                 <p>
                   If <code>config_options</code> is provided, then it will contain
                   a list of options that can be specified by the user to help
-                  specify tool configuration. These options should be appended
+                  specify app configuration. These options should be appended
                   to <code>config_url</code> as query parameters. The format of 
                   the options is below.
                 </p>
@@ -264,7 +264,7 @@
 <pre>
 {
   "id": "unique_identifier",
-  "name": "Human Readable Tool Name",
+  "name": "Human Readable App Name",
   // Same as above
 },
 </pre>
@@ -274,8 +274,8 @@
           <h2>App Reviews List</h2>
           <p>Returns a paginated list of reviews for the specified app.
           Reviews may have come from multiple sources, including from the
-          site itself using Twitter logins, or from other platforms/tools
-          that have registered. More information on registering a tool
+          site itself using Twitter logins, or from other platforms/apps
+          that have registered. More information on registering an app
           is available in <a href="#contributing">the "contributing" section.</a></p>
           <div style="margin-left: 30px;">
           <code>GET /api/v1/apps/:app_id/reviews</code>
@@ -284,10 +284,10 @@
   "objects": [
     {
       "user_avatar_url": "http://example.com/user/avatar/50x50.png",
-      "source_name": "Human-readable name of platform/tool where user posted",
+      "source_name": "Human-readable name of platform/app where user posted",
       "tool_name": "Human-readable name of the app",
       "rating": 3, // out of 5
-      "source_url": "http://example.com/platform_or_tool/homepage",
+      "source_url": "http://example.com/platform_or_app/homepage",
       "user_name": "User name",
       "user_url": "http://example.com/user/profile",
       "id": 1,
@@ -304,15 +304,15 @@
           <a name="contributing"></a>
           <h2>Contributing Reviews</h2>
           <p>Allows adding ratings and reviews from a registered platform or
-          tool. Required/optional fields are listed below. For more information
-          on registering a tool, please <a href="https://twitter.com/whitmer">contact
+          app. Required/optional fields are listed below. For more information
+          on registering an app, please <a href="https://twitter.com/whitmer">contact
           @whitmer</a>.</p>
           <div style="margin-left: 30px;">
           <code>POST /api/v1/apps/:app_id/reviews</code>
 <pre>
 {
   "user_avatar_url": "http://example.com/user/avatar/50x50.png",
-  "source_name": "Human-readable name of platform/tool where user posted",
+  "source_name": "Human-readable name of platform/app where user posted",
   // Same as above
 }
 </pre>
@@ -322,10 +322,10 @@
               <td><code>access_token</code></td>
               <td><span class='label label-success'>required</span></td>
               <td>This is the access token provided by this site to
-              the platform/tool after registration. This should be kept secret
+              the platform/app after registration. This should be kept secret
               (i.e. server-side only -- don't put it in your JavaScript), 
               otherwise anyone can post comments and ratings as if they were
-              your platform/tool.
+              your platform/app.
               </td>
             </tr>
             <tr>
@@ -339,7 +339,7 @@
               <td><span class='label label-success'>required</span></td>
               <td>This is the human-readable name for the commenting
               user within
-              your platform/tool.
+              your platform/app.
               </td>
             </tr>
             <tr>
