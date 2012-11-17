@@ -20,6 +20,25 @@
       }
     },
     {
+      "id": "wolfram",
+      "name": "Wolfram Alpha",
+      "added": "2012-11-17T00:00:00Z",
+      "image_url": "/tools/wolfram.png",
+      "big_image_url": "/big_tools/wolfram.png",
+      "description": "Wolfram Alpha provides graphs, data sets and other information about numbers, equations, etc. This app lets you quickly insert links to Wolfram Alpha search results into your course material.",
+      "short_description": "Link to Wolfram Alpha search results",
+      "any_key": true,
+      "config_url": "/config/wolfram.xml",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Math", "Science"],
+      "launch_url": "/wolfram.html",
+      "extensions": ["editor_button", "resource_selection"],
+      "preview": {
+        "url": "/wolfram.html",
+        "height": 120
+      }
+    },
+    {
       "id": "mit_ocw",
       "name": "MIT OCW",
       "added": "2012-03-15T00:00:00Z",
@@ -838,6 +857,23 @@
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0", "Content"],
       "config_url": "/config/titanpad.xml"
+    },
+    {
+      "id": "speeqe",
+      "name": "Speeqe Chat",
+      "added": "2012-11-17T00:00:00Z",
+      "image_url": "/tools/speeqe.png",
+      "big_image_url": "/tools/speeqe.png",
+      "description": "Speeqe chat allows you to add chat rooms to web pages. This tool lets you add a chat room as a course navigation link for your students.<br/><br/><b>NOTE</b> that since Speeqe doesn't run over SSL, you'll get security warnings when using in a Canvas instance that runs on https",
+      "any_key": true,
+      "config_url": "/config/speeqe.xml",
+      "levels": ["Postsecondary"],
+      "categories": ["Web 2.0", "Community"],
+      "extensions": ["course_nav"],
+      "preview": {
+        "url": "/speeqe",
+        "height": 475
+      }
     },
     {
       "id": "flat_world_knowledge",

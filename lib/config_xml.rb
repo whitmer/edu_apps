@@ -693,18 +693,18 @@ module Sinatra
       XML
     end
     
-    get "/config/bumpin.xml" do
+    get "/config/speeqe.xml" do
       host = request.scheme + "://" + request.host_with_port
       headers 'Content-Type' => 'text/xml'
       config_wrap <<-XML
-        <blti:title>Bumpin</blti:title>
-        <blti:description>Add course navigation to allow a Bumpin Social chat room to your courses</blti:description>
+        <blti:title>Speeqe</blti:title>
+        <blti:description>Add course navigation to allow a Speeqe chat room to your courses.</blti:description>
         <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">bumpin</lticm:property>
+          <lticm:property name="tool_id">speeqe</lticm:property>
           <lticm:property name="privacy_level">name_only</lticm:property>
           <lticm:options name="course_navigation">
-            <lticm:property name="url">#{host}/bumpin</lticm:property>
-            <lticm:property name="text">Bumpin Chat</lticm:property>
+            <lticm:property name="url">#{host}/speeqe</lticm:property>
+            <lticm:property name="text">Speeqe Chat</lticm:property>
           </lticm:options>
         </blti:extensions>
       XML
@@ -734,6 +734,33 @@ module Sinatra
           </lticm:options>
         </blti:extensions>
         <blti:icon>#{host}/icons/twitter.png</blti:icon>
+      XML
+    end
+    
+    get "/config/wolfram.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      headers 'Content-Type' => 'text/xml'
+      config_wrap <<-XML
+        <blti:title>Wolfram Alpha Search</blti:title>
+        <blti:description>Insert links to Wolfram Alpha search results</blti:description>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">wolfram</lticm:property>
+          <lticm:property name="privacy_level">anonymous</lticm:property>
+          <lticm:options name="editor_button">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wolfram.html')}</lticm:property>
+            <lticm:property name="icon_url">#{host}/icons/wolfram.png</lticm:property>
+            <lticm:property name="text">Wolfram Alpha</lticm:property>
+            <lticm:property name="selection_width">400</lticm:property>
+            <lticm:property name="selection_height">150</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wolfram.html')}</lticm:property>
+            <lticm:property name="text">Wolfram Alpha</lticm:property>
+            <lticm:property name="selection_width">400</lticm:property>
+            <lticm:property name="selection_height">150</lticm:property>
+          </lticm:options>
+        </blti:extensions>
+        <blti:icon>#{host}/icons/wolfram.png</blti:icon>
       XML
     end
     
