@@ -127,6 +127,9 @@ module Sinatra
         end
         if paginated
           next_url = data.length > offset + limit ? (host + "/api/v1/apps?offset=#{offset + limit}") : nil
+          if next_url
+            response.headers['Link'] = "<#{next_url}>; rel=\"next\""
+          end
           {
             :meta => {:next => next_url},
             :current_offset => offset,
