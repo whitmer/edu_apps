@@ -92,7 +92,30 @@ module Sinatra
         limit = 24
         params = request.params
         offset = params['offset'].to_i
+        
         data = JSON.parse(File.read('./public/data/lti_examples.json'))
+        [['category', 'categories'], ['level', 'levels'], ['extension', 'extensions']].each do |filter, key|
+          if params[filter] && params[filter].length > 0
+            if params[filter] == 'all'
+              data = data.select{|e| e[key] }
+            else
+              data = data.select{|e| e[key] && e[key].include?(params[filter]) }
+            end
+          end
+        end
+        if params['recent'] && params['recent'].length > 0
+          data = data.sort{|a, b| b['added'] <=> a['added'] }
+          cutoff = (Time.now - (60 * 60 * 24 * 7 * 24)).utc.iso8601
+          recent = data.select{|e| e['added'] > cutoff}
+          if recent.length < 6
+            data = data[0, 6]
+          else
+            data = recent
+          end
+        end
+        if params['platform'] && params['platform'].length > 0 && params['platform'] != 'Canvas'
+          data = data.select{|e| !e['extensions'] && !e['data_url'] }
+        end
         found_data = data
         if paginated
           found_data = found_data[offset, limit]

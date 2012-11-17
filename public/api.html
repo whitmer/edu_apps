@@ -119,12 +119,79 @@
   ]
 }
 </pre>
+          <h3>Optional parameters</h3>
+          <table class='table table-bordered table-striped'>
+            <tr>
+              <td><code>level</code></td>
+              <td><span class='label'>optional</span></td>
+              <td>Filter to only apps that are marked for the 
+              specified grade level. The levels are available
+              on the home page, and are 
+              <code>all</code>, 
+              <code>K-6th Grade</code>, 
+              <code>7th-12th Grade</code>, and
+              <code>Postsecondary</code>
+              </td>
+            </tr>
+            <tr>
+              <td><code>category</code></td>
+              <td><span class='label'>optional</span></td>
+              <td>Filter to only apps that are categorized for
+              the specified category. The categories are available
+              on the home page, and are
+              <code>all</code>,
+              <code>Community</code>, 
+              <code>Content</code>, 
+              <code>Math</code>, 
+              <code>Open Content</code>, 
+              <code>Science</code>, 
+              <code>Study Helps</code>, 
+              <code>Textbooks/eBooks</code>, and
+              <code>Web 2.0</code>
+              </td>
+            </tr>
+            <tr>
+              <td><code>recent</code></td>
+              <td><span class='label'>optional</span></td>
+              <td>Filters to only apps have been added in
+              the past 24 weeks. If less than 6 apps have been 
+              added in the last 24 weeks, it will go back farther
+              until at least 6 tools are returned.
+              Setting this value to anything other
+              than an empty string will apply the filter.
+              </td>
+            </tr>
+            <tr>
+              <td><code>platform</code></td>
+              <td><span class='label'>optional</span></td>
+              <td>Filters to only apps that can be used in
+              the specified platform. This is a bit of a placeholder
+              parameter, since right now there are only two
+              options, <code>Canvas</code> and anything other
+              than <code>Canvas</code>. As more tools and extensions
+              are added, more platforms will be explicitly supported.
+              </td>
+            </tr>
+            <tr>
+              <td><code>extension</code></td>
+              <td><span class='label'>optional</span></td>
+              <td>Filters to only apps that support the
+              specified extension. Available extensions are
+              <code>all</code>, 
+              <code>editor_button</code>, 
+              <code>resource_selection</code>, 
+              <code>user_navigation</code>, and
+              <code>course_navigation</code>
+              </td>
+            </tr>
+          </table>
+          
           <p>
             Most of the information is consistent across all tools. <code>preview</code>
             is an optional value, and there are some possible configuration options
             listed below:
           </p>
-          <h3>Possible Configuration Options</h3>
+          <h3>Possible Configuration Return Values</h3>
           <table class='table table-bordered table-striped'>
             <tr>
               <td><code>config_directions</code></td>
@@ -249,7 +316,7 @@
   // Same as above
 }
 </pre>
-          <h3>Required/optional fiels</h3>
+          <h3>Required/optional parameters</h3>
           <table class='table table-bordered table-striped'>
             <tr>
               <td><code>access_token</code></td>
