@@ -115,10 +115,11 @@ module Sinatra
         end
         if params['platform'] && params['platform'].length > 0 
           if params['platform'] == 'Canvas'
-            bad_tools = ['titanpad']
+            bad_tools = ['titanpad', 'flickr']
             data = data.select{|e| !bad_tools.include?(e['id']) }
           else
-            data = data.select{|e| !e['extensions'] && !e['data_url'] }
+            bad_tools = ['wolfram', 'wiktionary']
+            data = data.select{|e| !bad_tools.include?(e['id']) }
           end
         end
         found_data = data

@@ -15,6 +15,7 @@ rescue LoadError
 end
 
 require 'sinatra'
+require 'md5'
 
 if defined?(RACK_ENV)
   set :environment, RACK_ENV
@@ -50,9 +51,36 @@ post "/tool_redirect" do
   params.each do |key, val|
     args << "#{CGI.escape(key)}=#{CGI.escape(val)}" if key.match(/^custom_/) || ['launch_presentation_return_url', 'selection_directive'].include?(key)
   end
-  pre_hash, post_hash = url.split(/#/)
-  url = pre_hash + (url.match(/\?/) ? "&" : "?") + args.join('&') + (post_hash ? "##{post_hash}" : "")
-  redirect to(url)
+  
+  key = "#{params['resource_link_id']}_" + MD5.hexdigest("#{params['context_id']}-#{params['tool_consumer_instance_guid']}-#{params['tool_consumer_info_product_family_code']}")[0, 5] if params['resource_link_id'] && params['tool_consumer_instance_guid']
+  if key
+    session[key] = true
+    args << "key=#{key}"
+  end
+  lr = key && LaunchRedirect.first(:token => key)
+  if lr && lr.url
+    lr.last_launched_at = Time.now
+    lr.launches = (lr.launches || 0) + 1
+    lr.save
+    redirect to(lr.url)
+  else
+    pre_hash, post_hash = url.split(/#/)
+    
+    url = pre_hash + (url.match(/\?/) ? "&" : "?") + args.join('&') + (post_hash ? "##{post_hash}" : "")
+    redirect to(url)
+  end
+end
+
+post "/tool_remember" do
+  if params['key'] && session[params['key']]
+    lr = LaunchRedirect.first_or_new(:token => params['key'])
+    lr.created_at ||= Time.now
+    lr.url = params['url']
+    lr.save
+    {:success => true, :id => lr.id, :key => lr.token, :url => lr.url}.to_json
+  else
+    {:success => false}.to_json
+  end
 end
 
 get "/tool_redirect" do

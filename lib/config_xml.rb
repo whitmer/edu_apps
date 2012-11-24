@@ -183,6 +183,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Embeddable Graphs</blti:title>
         <blti:description>This tool allows for the creation and insertion of rich, interactive graphs.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/graph.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">inline_graph</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -210,6 +211,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>#{params['name']}</blti:title>
         <blti:description>#{params['description']}</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=' + params['id'])}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">#{params['id']}</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -237,6 +239,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Khan Academy Videos</blti:title>
         <blti:description>Search for and insert links to Khan Academy lecture videos.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/khan.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">khan_academy</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -264,6 +267,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>SchoolTube Videos</blti:title>
         <blti:description>Search for and insert links to SchoolTube-hosted videos.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/schooltube.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">schooltube</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -291,6 +295,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Wikipedia Articles</blti:title>
         <blti:description>Search for and insert links to Wikipedia articles.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/wikipedia.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">wikipedia</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -313,6 +318,7 @@ module Sinatra
     end
     
     get "/config/wiktionary.xml" do
+      # TODO: fix for non-embed tools
       host = request.scheme + "://" + request.host_with_port
       headers 'Content-Type' => 'text/xml'
       config_wrap <<-XML
@@ -345,6 +351,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>TED Ed Videos</blti:title>
         <blti:description>Search for and insert links to high quality instructional videos from TED Ed.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/ted_ed.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">ted_ed</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -371,6 +378,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>YouTube Videos</blti:title>
         <blti:description>Search for and insert links to videos hosted on YouTube.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/youtube.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">youtube</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -397,6 +405,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>YouTube for Schools</blti:title>
         <blti:description>Browse and insert links to edu-centric videos hosted on YouTube.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/youtube_edu.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">youtube_edu</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -425,6 +434,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Quizlet Flash Cards</blti:title>
         <blti:description>Search for and insert publicly available flash card sets from quizlet.com</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/quizlet.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">quizlet</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -452,6 +462,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Pinterest</blti:title>
         <blti:description>Search for images and resources linked to on Pinterest</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/pinterest.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">pinterest</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -479,6 +490,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Slideshare CC Slideshows</blti:title>
         <blti:description>Search for and link to or embed Creative Commons-licensed presentations</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/slideshare.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">slideshare</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -506,6 +518,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Public Resource Libraries</blti:title>
         <blti:description>Collection of resources from multiple sources, including Kahn Academy, Quizlet, etc.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">tools</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -533,6 +546,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Merlot</blti:title>
         <blti:description>Collection of multimedia resources collected and curated by MERLOT.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=merlot')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">merlot</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -560,6 +574,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Mathalicious</blti:title>
         <blti:description>Collection of standards-based math videos based on real-world story problems.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=mathalicious')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">mathalicious</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -587,6 +602,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>CK-12</blti:title>
         <blti:description>Collection of free, open, user-modifiable textbooks for K-12</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=ck12')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">ck12</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -614,6 +630,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Smarterer</blti:title>
         <blti:description>Crowdsources quizzes.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=smarterer')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">smarterer</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -641,6 +658,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>StudyEgg</blti:title>
         <blti:description>Dynamic learning paths through open content</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=studyegg')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">studyegg</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -699,6 +717,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Speeqe</blti:title>
         <blti:description>Add course navigation to allow a Speeqe chat room to your courses.</blti:description>
+        <blti:launch_url>#{host}/speeqe</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">speeqe</lticm:property>
           <lticm:property name="privacy_level">name_only</lticm:property>
@@ -716,6 +735,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Twitter List</blti:title>
         <blti:description>Embed a list of tweets based on search results or a user's profile</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/twitter.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">twitter</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -738,6 +758,7 @@ module Sinatra
     end
     
     get "/config/wolfram.xml" do
+      # TODO: fix for non-embed platforms
       host = request.scheme + "://" + request.host_with_port
       headers 'Content-Type' => 'text/xml'
       config_wrap <<-XML
@@ -770,6 +791,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Internet Archive</blti:title>
         <blti:description>Search public domain videos, audio files, books, images, etc. on archive.org.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/archive.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">archive</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -797,6 +819,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>USA Today</blti:title>
         <blti:description>Search for and link to articles from the USA Today archives.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/usatoday.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">usa_today</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -824,6 +847,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Storify</blti:title>
         <blti:description>Search publicly available "social stories" from storify.com</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/storify.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">storify</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -851,6 +875,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>OCW Search</blti:title>
         <blti:description>Search freely available online university courses and course content</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/ocw_search.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">ocw_search</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -878,6 +903,7 @@ module Sinatra
       config_wrap <<-XML
         <blti:title>Connexions</blti:title>
         <blti:description>Search publicly available courses, modules, etc.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/connexions.html')}</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
           <lticm:property name="tool_id">connexions</lticm:property>
           <lticm:property name="privacy_level">anonymous</lticm:property>
@@ -1130,6 +1156,38 @@ module Sinatra
           <lticm:options name="course_navigation">
             <lticm:property name="url">https://#{params['domain']}.learningobjects.com/control/lti#{params['type'] && ("?custom_request_type=" + params['type'])}</lticm:property>
             <lticm:property name="text">#{long_type}</lticm:property>
+          </lticm:options>
+        XML
+      end
+      xml +=  <<-XML
+        </blti:extensions>
+      XML
+      config_wrap(xml)
+    end
+    
+    get "/config/bb_collaborate.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      headers 'Content-Type' => 'text/xml'
+      options = {
+        'default' =>      ['https://lti.bbcollab.com/collaborate/webconferencing/', 'Collaborate'],
+        'voiceboard' =>   ['https://lti.bbcollab.com/collaborate/voice/board', 'Voice Board'],
+        'podcaster' =>    ['https://lti.bbcollab.com/collaborate/voice/podcaster/', 'Podcaster'],
+        'presentation' => ['https://lti.bbcollab.com/collaborate/voice/presentation', 'Presentation']
+      }
+      url, name = options[params['type'] || ''] || options['default']
+      xml =  <<-XML
+        <blti:title>Bb Collaborate - #{name}</blti:title>
+        <blti:description>Blackboard Collaborate #{name}</blti:description>
+        <blti:launch_url>#{url}</blti:launch_url>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">bb_collaborate</lticm:property>
+          <lticm:property name="privacy_level">public</lticm:property>
+      XML
+      if params['course_nav']
+        xml +=  <<-XML
+          <lticm:options name="course_navigation">
+            <lticm:property name="url">#{url}</lticm:property>
+            <lticm:property name="text">#{name}</lticm:property>
           </lticm:options>
         XML
       end

@@ -46,7 +46,7 @@
     var tool = toolsHash[id];
     $collection_name.text(tool.name);
     if(tool.launch_url) {
-      location.href = tool.launch_url + "?selection_directive=embed_content&custom_lti_back_button=" + (lti.params['tool'] ? '' : '1') + "&launch_presentation_return_url=" + encodeURIComponent(lti.returnUrl);
+      location.href = tool.launch_url + "?selection_directive=embed_content&custom_lti_back_button=" + (lti.params['tool'] ? '' : '1') + "&launch_presentation_return_url=" + encodeURIComponent(lti.returnUrl) + "&key=" + encodeURIComponent(lti.params.key || '');
     } else {
       $tools.hide();
       $back.toggle(!lti.params['tool']);

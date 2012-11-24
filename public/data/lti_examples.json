@@ -740,6 +740,42 @@
       "categories": ["Content"]
     },
     {
+      "id": "bb_collaborate",
+      "name": "Blackboard Collaborate",
+      "added": "2012-11-20T00:00:00Z",
+      "image_url": "/tools/bb_collaborate.png",
+      "big_image_url": "/big_tools/bb_collaborate.png",
+      "description": "Create and record web conferencing sessions within your course. Can be used for virtual classrooms time, office hours, group work, etc.<br/><br/>Contact <a href='http://blackboard.com'>Blackboard</a> for account registration and to retrieve a key and secret.",
+      "config_urls": [
+          {
+            "url": "/config/bb_collaborate.xml",
+            "description": "Collaborate"
+          },
+          {
+            "url": "/config/bb_collaborate.xml?type=voiceboard",
+            "description": "Voice Board"
+          },
+          {
+            "url": "/config/bb_collaborate.xml?type=podcaster",
+            "description": "Podcaster"
+          },
+          {
+            "url": "/config/bb_collaborate.xml?type=presentation",
+            "description": "Presentation"
+          }
+      ],
+      "extensions": ["course_nav"],
+      "config_options": [
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        }
+      ],
+      "categories": ["Media"]
+    },
+    {
       "pending": true,
       "id": "pathbrite",
       "name": "Pathbrite",

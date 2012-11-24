@@ -62,6 +62,23 @@ if(!skipValidation) {
       $(".insertion").attr('data-endpoint', data.endpoint);
     }
   }
+  function rememberPickedResource(data) {
+    var url = data.url;
+    $.ajax({
+      url: "/tool_remember",
+      data: {
+        'key': lti.params.key,
+        'url': url
+      },
+      type: 'POST',
+      dataType: 'json',
+      success: function() {
+      }
+    });
+    var $stuff = $("<div style='width: 400px; margin: 20px auto;' class='insertion'><h1>Resource Selected!</h1><p>You've picked the resource that users will see when the load this tool at this point in your course from now on. The link users will be directed to is shown below.</p><p><a href='#' id='redirect_url'>&nbsp;</a></p></div>");
+    $("body").empty().append($stuff);
+    $("#redirect_url").attr('href', url).text(url);
+  };
   (function() {
     var params = lti.params;
     if(!params['selection_directive'] || !params['launch_presentation_return_url']) {
@@ -73,7 +90,7 @@ if(!skipValidation) {
     var returnUrl = params['launch_presentation_return_url'];
     lti.returnUrl = returnUrl;
     lti.resourceSelected = function(data) {
-      if(returnUrl && returnUrl != "undefined" && returnUrl != "undefined?") {
+      if(lti.params.selection_directive && returnUrl && returnUrl != "undefined" && returnUrl != "undefined?") {
         if(trackEvent) {
           trackEvent('resource_selected', lti.tool_id || data.embed_type, trackUrl);
         }
@@ -98,10 +115,14 @@ if(!skipValidation) {
         }
         location.href = url;
       } else {
-      if(trackEvent) {
-        trackEvent('resource_selected_without_embed', data.embed_type, trackUrl);
-      }
-        showPickedResource(data);
+        if(trackEvent) {
+          trackEvent('resource_selected_without_embed', data.embed_type, trackUrl);
+        }
+        if(lti.params.key && data.embed_type != 'oembed') {
+          rememberPickedResource(data);
+        } else {
+          showPickedResource(data);
+        }
       }
     };
   })();
