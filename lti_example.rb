@@ -15,7 +15,7 @@ rescue LoadError
 end
 
 require 'sinatra'
-require 'md5'
+require 'digest/md5'
 
 if defined?(RACK_ENV)
   set :environment, RACK_ENV
@@ -52,7 +52,7 @@ post "/tool_redirect" do
     args << "#{CGI.escape(key)}=#{CGI.escape(val)}" if key.match(/^custom_/) || ['launch_presentation_return_url', 'selection_directive'].include?(key)
   end
   
-  key = "#{params['resource_link_id']}_" + MD5.hexdigest("#{params['context_id']}-#{params['tool_consumer_instance_guid']}-#{params['tool_consumer_info_product_family_code']}")[0, 5] if params['resource_link_id'] && params['tool_consumer_instance_guid']
+  key = "#{params['resource_link_id']}_" + Digest::MD5.hexdigest("#{params['context_id']}-#{params['tool_consumer_instance_guid']}-#{params['tool_consumer_info_product_family_code']}")[0, 5] if params['resource_link_id'] && params['tool_consumer_instance_guid']
   if key
     session[key] = true
     args << "key=#{key}"
