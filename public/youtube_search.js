@@ -52,7 +52,7 @@ function durationString(duration) {
 function selectVideo(id, title) {
   // http://www.youtube.com/watch?v=embgWgjwybc&feature=youtube_gdata
   // http://www.youtube.com/embed/embgWgjwybc
-  if(lti.params && lti.params.selection_directive == 'select_link') {
+  if(lti.params && (lti.params.selection_directive == 'select_link' || !lti.params.selection_directive)) {
     lti.resourceSelected({
       embed_type: 'link',
       url: "http://www.youtube.com/embed/" + id,
