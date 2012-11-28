@@ -951,6 +951,51 @@ module Sinatra
       config_wrap(xml)
     end
     
+    get "/config/redirect.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      return "url required" if !params['url'] || params['url'] == ''
+      url = params['url']
+      name = params['name'] if params['name'] != ''
+      name ||= "Redirect"
+      headers 'Content-Type' => 'text/xml'
+      xml =  <<-XML
+        <blti:title>#{name}</blti:title>
+        <blti:description>This tool redirects users to the URL: #{url}</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape(url)}</blti:launch_url>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">redirect</lticm:property>
+          <lticm:property name="privacy_level">anonymous</lticm:property>
+      XML
+      if params['course_nav']
+        xml +=  <<-XML
+          <lticm:options name="course_navigation">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape(url)}</lticm:property>
+            <lticm:property name="text">#{name}</lticm:property>
+          </lticm:options>
+        XML
+      end
+      if params['user_nav']
+        xml +=  <<-XML
+          <lticm:options name="user_navigation">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape(url)}</lticm:property>
+            <lticm:property name="text">#{name}</lticm:property>
+          </lticm:options>
+        XML
+      end
+      if params['account_nav']
+        xml +=  <<-XML
+          <lticm:options name="account_navigation">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape(url)}</lticm:property>
+            <lticm:property name="text">#{name}</lticm:property>
+          </lticm:options>
+        XML
+      end
+      xml +=  <<-XML
+        </blti:extensions>
+      XML
+      config_wrap(xml)
+    end
+    
     get "/config/wordpress.xml" do
       host = request.scheme + "://" + request.host_with_port
       return "url required" if !params['site_url'] || params['site_url'] == ''

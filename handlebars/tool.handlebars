@@ -80,13 +80,15 @@
         {{/if}}
         {{#if extensions_or_preview}}
             <div class='extensions'>
+              {{#if preview}}
                 {{#if single_tool}}
                     <span class='label label-info'>preview</span>
                 {{else}}
                     <a href="/index.html?tool={{id}}#preview">
                         <span class='label label-info'>preview</span></a>
                 {{/if}}
-                {{extensions_list extensions}}
+              {{/if}}
+              {{extensions_list extensions}}
             </div>
         {{/if}}
         </div>

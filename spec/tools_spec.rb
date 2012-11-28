@@ -61,7 +61,7 @@ describe 'Tools Selenium' do
   def check_default_results
     all('#results .result').length.should > 5
   end
-  
+
   describe "/tools.html" do
     it "shoud load" do
       visit_tool '/tools.html'

@@ -281,7 +281,7 @@
       tool.has_config_url = tool.config_url || tool.config_urls;
       if(tool.any_key && tools.length == 1) {
         tool.description = tool.description + "<br/><br/>Any key and secret will work for this tool.";
-        if(!tool.preview) {
+        if(!tool.preview && !tool.config_options) {
           tool.preview = {
             "url": "/tools.html?tool=" + tool.id,
             "height": 475
