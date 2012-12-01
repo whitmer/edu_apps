@@ -43,8 +43,10 @@ module Sinatra
     end
     
     get "/user_key.json" do
+      suggestions_config = ExternalConfig.first(:config_type => 'suggestions_form')
       {
-        :user_key => session[:user_key]
+        :user_key => session[:user_key],
+        :suggestions => !!suggestions_config
       }.to_json
     end
     

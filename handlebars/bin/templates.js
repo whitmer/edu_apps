@@ -127,6 +127,11 @@ function program7(depth0,data) {
   
   return "active ";}
 
+function program9(depth0,data) {
+  
+  
+  return " class=\"active\"";}
+
   buffer += "<header>\n  <div id=\"nav\" class=\"navbar navbar-fixed-top\">\n    <div class=\"navbar-inner\">\n      <div class=\"container\">\n        <a class=\"brand\" href=\"/index.html\">LTI of Magic</a>\n        <div class=\"nav-collapse\">\n          <ul class=\"nav\">\n            <li";
   foundHelper = helpers.index;
   stack1 = foundHelper || depth0.index;
@@ -167,7 +172,17 @@ function program7(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " dropdown\">\n                <a href=\"/code.html\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Coding <span class='caret' style=\"color: #fff;\"></span></a>\n                <ul class=\"dropdown-menu\">\n                    <li><a href=\"/code.html\">Basics</a></li>\n                    <li><a href=\"/extensions.html\">Examples</a></li>\n                    <li><a href=\"/api.html\">API</a></li>\n                    <li class=\"divider\"></li>\n                    <li><a href=\"https://github.com/whitmer/lti_example\">Source</a></li>\n                </ul>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</header>\n";
+  buffer += " dropdown\">\n                <a href=\"/code.html\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Coding <span class='caret' style=\"color: #fff;\"></span></a>\n                <ul class=\"dropdown-menu\">\n                    <li><a href=\"/code.html\">Basics</a></li>\n                    <li><a href=\"/extensions.html\">Examples</a></li>\n                    <li><a href=\"/api.html\">API</a></li>\n                    <li class=\"divider\"></li>\n                    <li><a href=\"https://github.com/whitmer/lti_example\">Source</a></li>\n                </ul>\n            </li>\n            <li";
+  foundHelper = helpers.suggestions;
+  stack1 = foundHelper || depth0.suggestions;
+  stack2 = helpers['if'];
+  tmp1 = self.program(9, program9, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " style=\"display: none;\" id=\"suggestions\"><a href=\"/suggestions\">Suggestions</a></li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</header>\n";
   return buffer;});
 templates['tool'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;

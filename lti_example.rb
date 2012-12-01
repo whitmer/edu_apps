@@ -109,6 +109,15 @@ get "/oembed_render" do
   html
 end
 
+get "/suggestions" do
+  suggestions_config = ExternalConfig.first(:config_type => 'suggestions_form')
+  if !suggestions_config
+    redirect to("/index.html")
+  else
+    redirect to("/suggestions.html?url=#{CGI.escape(suggestions_config.value)}")
+  end
+end
+
 get "/analytics_key.json" do
   config = ExternalConfig.first(:config_type => 'google_analytics')
   return {:key => (config && config.value)}.to_json
