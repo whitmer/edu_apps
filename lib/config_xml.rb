@@ -399,6 +399,36 @@ module Sinatra
         <blti:icon>#{host}/icons/youtube.png</blti:icon>
       XML
     end
+    get "/config/youtube_user.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      headers 'Content-Type' => 'text/xml'
+      return "Channel name required" unless params['user_name']
+      user_name = params['user_name']
+      user_title = params['user_title'] || user_name
+      config_wrap <<-XML
+        <blti:title>YouTube Search: #{user_title}</blti:title>
+        <blti:description>Search for and insert links to videos hosted on the #{user_title} channel of YouTube.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape("/youtube_user.html?user_name=#{user_name}&user_title=#{user_title}")}</blti:launch_url>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">youtube</lticm:property>
+          <lticm:property name="privacy_level">anonymous</lticm:property>
+          <lticm:options name="editor_button">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape("/youtube_user.html?user_name=#{user_name}&user_title=#{user_title}")}</lticm:property>
+            <lticm:property name="icon_url">#{host}/icons/youtube.png</lticm:property>
+            <lticm:property name="text">#{user_title}</lticm:property>
+            <lticm:property name="selection_width">590</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape("/youtube_user.html?user_name=#{user_name}&user_title=#{user_title}")}</lticm:property>
+            <lticm:property name="text">#{user_title}</lticm:property>
+            <lticm:property name="selection_width">590</lticm:property>
+            <lticm:property name="selection_height">450</lticm:property>
+          </lticm:options>
+        </blti:extensions>
+        <blti:icon>#{host}/icons/youtube.png</blti:icon>
+      XML
+    end
     get "/config/youtube_edu.xml" do
       host = request.scheme + "://" + request.host_with_port
       headers 'Content-Type' => 'text/xml'

@@ -425,6 +425,7 @@
     },
     {
       "id": "redirect",
+      "new": true,
       "added": "2012-11-28T00:00:00Z",
       "name": "Redirect Tool",
       "image_url": "/tools/redirect.png",
@@ -897,6 +898,24 @@
       "categories": ["Web 2.0", "Media"],
       "preview": {
         "url": "/youtube.html",
+        "height": 475
+      }
+    },
+    {
+      "id": "youtube_user",
+      "new": true,
+      "name": "YouTube Channel",
+      "added": "2012-03-22T00:00:00Z",
+      "image_url": "/tools/youtube_channel.png",
+      "big_image_url": "/big_tools/youtube_channel.png",
+      "description": "Search publicly available YouTube videos within a specific channel. A new icon will show up in your course rich editor letting you search YouTube and click to embed videos in your course material.<br/><br/>YouTube channel names are found in the URL of the channel (i.e. the channel name for http://www.youtube.com/user/DiscoveryEducation would be DiscoveryEducation).",
+      "any_key": true,
+      "config_url": "/config/youtube_user.xml",
+      "extensions": ["editor_button", "resource_selection"],
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Web 2.0", "Media"],
+      "preview": {
+        "url": "/youtube_user.html?user_name=DiscoveryEducation&user_title=Discovery%20Education",
         "height": 475
       }
     },
