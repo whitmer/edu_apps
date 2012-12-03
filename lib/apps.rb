@@ -244,11 +244,11 @@ module Sinatra
     end
     
     get "/data/lti_apps.atom" do
-      data = apps_list(request).select{|a| !a['pending'] }
+      data = apps_list(request, false).select{|a| !a['pending'] }
       host = request.scheme + "://" + request.host_with_port
       headers 'Content-Type' => 'application/atom+xml'
       xml = <<-XML
-        <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
          
         <feed xmlns="http://www.w3.org/2005/Atom">
          
@@ -260,6 +260,7 @@ module Sinatra
                 <updated>#{Time.now.iso8601}</updated>    
       XML
       data.each do |app|
+        puts app.to_json
         url = app['data_url'] ? "#{host}/tools.html?tool=#{app['id']}" : "#{host}/index.html?tool=#{app['id']}"
         xml += <<-XML
           <entry>
