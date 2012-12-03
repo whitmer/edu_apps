@@ -435,6 +435,12 @@
       "config_url": "/config/redirect.xml",
       "config_options": [
         {
+            "name": "name",
+            "description": "Link Name",
+            "type": "text",
+            "value": ""
+        },
+        {
             "name": "url",
             "description": "URL Redirect",
             "type": "text",
