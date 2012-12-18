@@ -269,25 +269,17 @@
     },
     {
       "id": "open_tapestry",
-      "pending": true,
       "name": "Open Tapestry",
-      "added": "2012-08-30T00:00:00Z",
+      "added": "2012-12-18T00:00:00Z",
       "image_url": "/tools/opentapestry.png",
       "big_image_url": "/big_tools/opentapestry.png",
-      "description": "Browse and insert private and public collections tapestries from OpenTapestry. Each tapestry is a collection of content from anywhere on the web. Content can be annotated and enhanced to tailor it to your specific learning environment.<br/><br/><a href='http://opentapestry.com'>Register on OpenTapestry</a> to retrieve your consumer key and shared secret.",
+      "description": "Open Tapestry helps instructors discover, modify, and share open educational resources from across the web. Resources and lessons can be inserted directly into course content, while maintaining their functionality.<br/><br/><a href='http://opentapestry.com'>Register on OpenTapestry</a> and click \"Configure Integrations\" to retrieve your consumer key and shared secret.",
       "short_description": "Embed open learning resources",
-      "config_urls": [{
-        "url": "/config/open_tapestry_rich_editor.xml",
-        "description": "Rich editor button"
-      },
-      {
-        "url": "/config/open_tapestry_link_selection.xml",
-        "description": "Link selection tool"
-      }],
+      "config_url": "/config/open_tapestry.xml",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Community", "Content", "Media", "Open Content"],
       "preview": {
-        "url": "http://www.youtube.com/embed/c2aXFuhvk98",
+        "url": "http://www.youtube.com/embed/SC65qg_R9fA",
         "height": 400
       }
     },
@@ -344,6 +336,17 @@
       "config_url": "/config/tegrity.xml",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Media"]
+    },
+    {
+      "id": "scorm_cloud",
+      "name": "SCORM Cloud",
+      "added": "2012-12-18T00:00:00Z",
+      "image_url": "/tools/scorm_cloud.png",
+      "big_image_url": "/big_tools/scorm_cloud.png",
+      "description": "Delivers SCORM packages in a standardized way across learning platforms. Robust SCORM engine with built-in grade passback and activity tracking.<br/><br/><a href='https://cloud.scorm.com/sc/guest/SignUpForm'>Sign up for a SCORM Cloud account</a> and upload your SCORM packages to generate a consumer key and secret.",
+      "config_url": "/config/scorm_cloud.xml",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content"]
     },
     {
       "id": "inigral",
