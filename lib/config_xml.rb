@@ -1047,8 +1047,8 @@ module Sinatra
         XML
       end
       xml +=  <<-XML
-        <blti:icon>#{host}/icons/wordpress.png</blti:icon>
         </blti:extensions>
+        <blti:icon>#{host}/icons/wordpress.png</blti:icon>
       XML
       config_wrap(xml)
     end
@@ -1074,8 +1074,8 @@ module Sinatra
         XML
       end
       xml +=  <<-XML
-        <blti:icon>#{host}/icons/status_net.png</blti:icon>
         </blti:extensions>
+        <blti:icon>#{host}/icons/status_net.png</blti:icon>
       XML
       config_wrap(xml)
     end
@@ -1101,8 +1101,25 @@ module Sinatra
         XML
       end
       xml +=  <<-XML
-        <blti:icon>#{host}/icons/vanilla.png</blti:icon>
         </blti:extensions>
+        <blti:icon>#{host}/icons/vanilla.png</blti:icon>
+      XML
+      config_wrap(xml)
+    end
+    
+    get "/config/web_pa.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      return "url required" if !params['site_url'] || params['site_url'] == ''
+      headers 'Content-Type' => 'text/xml'
+      xml =  <<-XML
+        <blti:title>WebPA</blti:title>
+        <blti:description>Launch WebPA peer assessment tool</blti:description>
+        <blti:launch_url>#{params['site_url']}</blti:launch_url>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">web_pa</lticm:property>
+          <lticm:property name="privacy_level">public</lticm:property>
+        </blti:extensions>
+        <blti:icon>#{host}/icons/web_pa.png</blti:icon>
       XML
       config_wrap(xml)
     end
@@ -1128,8 +1145,8 @@ module Sinatra
         XML
       end
       xml +=  <<-XML
-        <blti:icon>#{host}/icons/mahara.png</blti:icon>
         </blti:extensions>
+        <blti:icon>#{host}/icons/mahara.png</blti:icon>
       XML
       config_wrap(xml)
     end
@@ -1155,8 +1172,8 @@ module Sinatra
         XML
       end
       xml +=  <<-XML
-        <blti:icon>#{host}/icons/question2answer.png</blti:icon>
         </blti:extensions>
+        <blti:icon>#{host}/icons/question2answer.png</blti:icon>
       XML
       config_wrap(xml)
     end
@@ -1208,8 +1225,8 @@ module Sinatra
         XML
       end
       xml +=  <<-XML
-        <blti:icon>#{host}/icons/inigral.png</blti:icon>
         </blti:extensions>
+        <blti:icon>#{host}/icons/inigral.png</blti:icon>
       XML
       config_wrap(xml)
     end
@@ -1235,8 +1252,8 @@ module Sinatra
         XML
       end
       xml +=  <<-XML
-        <blti:icon>#{host}/icons/hoot_me.png</blti:icon>
         </blti:extensions>
+        <blti:icon>#{host}/icons/hoot_me.png</blti:icon>
       XML
       config_wrap(xml)
     end

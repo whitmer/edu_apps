@@ -1287,6 +1287,26 @@
       ]
     },
     {
+      "id": "web_pa",
+      "added": "2012-12-18T00:00:00Z",
+      "name": "WebPA",
+      "image_url": "/tools/web_pa.png",
+      "big_image_url": "/big_tools/web_pa.png",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Community"],
+      "description": "WebPA is an open source online peer assessment tool that can be used for course activities. It also allows sharing assessment activities across courses or even institutions.<br/><br/><b>Directions for configuring WebPA:</b><ol><li>Set up your WebPA instance</li><li><a href='http://projects.oscelot.org/gf/project/webpa-lti'>Download the WebPA LTI connector</a></li><li><a href='http://www.spvsoftwareproducts.com/php/webpa-lti/'>Follow these configuration instructions</a></li></ol>",
+      "config_url": "/config/web_pa.xml",
+      "config_options": [
+        {
+            "name": "site_url",
+            "description": "WebPA forum site auth URL",
+            "required": true,
+            "type": "text",
+            "value": "https://webpa.url/webpa/mod/lti/index.php"
+        }
+      ]
+    },
+    {
       "id": "question2answer",
       "added": "2012-05-04T00:00:00Z",
       "name": "Question2Answer",
