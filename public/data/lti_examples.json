@@ -284,6 +284,17 @@
       }
     },
     {
+      "id": "voice_thread",
+      "name": "Voice Thread",
+      "added": "2012-12-18T00:00:00Z",
+      "image_url": "/tools/voice_thread.png",
+      "big_image_url": "/big_tools/voice_thread.png",
+      "description": "VoiceThread is a collaborative communication tool that allows text, audio, video, voice and annotated communication.<br/><br/><a href='https://voicethread.com/'>Register at VoiceThread.com</a> and contact the company about receiving a consumer key and shared secret.",
+      "config_url": "/config/voice_thread.xml",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Community","Media"]
+    },
+    {
       "id": "nook_study",
       "name": "Nook Study",
       "added": "2012-01-10T00:00:00Z",
