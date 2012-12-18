@@ -1249,6 +1249,33 @@
       ]
     },
     {
+      "id": "vanilla",
+      "added": "2012-12-18T00:00:00Z",
+      "name": "Vanilla Forums",
+      "image_url": "/tools/vanilla.png",
+      "big_image_url": "/big_tools/vanilla.png",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Community"],
+      "description": "Vanilla is an open source community forum tool that can be run for your institution, department or course. This app allows for auto-login to the Vanilla forum from course content or course navigation.<br/><br/><b>Directions for configuring Vanilla:</b><ol><li>Set up your Vanilla forum</li><li>Download <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Vanilla2/'>the Vanilla LTI plugin</a></li><li>Extract the LTI plugin into Vanilla's <code>plugins</code> folder</li><li>Enter the Vanilla plugin section to enable it</li><li>Edit IMSBasicLTI/configuration/authorizedConsumersKey.cfg and add<br/><br/><code>consumer_key.external.enabled=1</code><br/><code>consumer_key.external.secret=super_sekret_code</code><br/><br/>where <code>external</code> is replaced with whatever you want to be the consumer key</li><li>For more detailed configuration, <a href='http://sourceforge.net/projects/learningapps/files/Files/Basic%20LTI%20Integrations/Vanilla2/'>follow the directions here</a></ol>",
+      "config_url": "/config/vanilla.xml",
+      "extensions": ["course_nav"],
+      "config_options": [
+        {
+            "name": "site_url",
+            "description": "Vanilla forum site auth URL",
+            "required": true,
+            "type": "text",
+            "value": "http://vanilla.url/index.php?p=/entry/signin"
+        },
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        }
+      ]
+    },
+    {
       "id": "question2answer",
       "added": "2012-05-04T00:00:00Z",
       "name": "Question2Answer",

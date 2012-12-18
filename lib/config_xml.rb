@@ -1053,6 +1053,60 @@ module Sinatra
       config_wrap(xml)
     end
     
+    get "/config/status_net.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      return "url required" if !params['site_url'] || params['site_url'] == ''
+      headers 'Content-Type' => 'text/xml'
+      xml =  <<-XML
+        <blti:title>Status.net</blti:title>
+        <blti:description>Launch Status.net microblogging tool</blti:description>
+        <blti:launch_url>#{params['site_url']}</blti:launch_url>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">status_net</lticm:property>
+          <lticm:property name="privacy_level">public</lticm:property>
+      XML
+      if params['course_nav']
+        xml +=  <<-XML
+          <lticm:options name="course_navigation">
+            <lticm:property name="url">#{params['site_url']}</lticm:property>
+            <lticm:property name="text">Status.net</lticm:property>
+          </lticm:options>
+        XML
+      end
+      xml +=  <<-XML
+        <blti:icon>#{host}/icons/status_net.png</blti:icon>
+        </blti:extensions>
+      XML
+      config_wrap(xml)
+    end
+    
+    get "/config/vanilla.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      return "url required" if !params['site_url'] || params['site_url'] == ''
+      headers 'Content-Type' => 'text/xml'
+      xml =  <<-XML
+        <blti:title>Vanilla Forums</blti:title>
+        <blti:description>Launch Vanilla community forums tool</blti:description>
+        <blti:launch_url>#{params['site_url']}</blti:launch_url>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">vanilla</lticm:property>
+          <lticm:property name="privacy_level">public</lticm:property>
+      XML
+      if params['course_nav']
+        xml +=  <<-XML
+          <lticm:options name="course_navigation">
+            <lticm:property name="url">#{params['site_url']}</lticm:property>
+            <lticm:property name="text">Vanilla</lticm:property>
+          </lticm:options>
+        XML
+      end
+      xml +=  <<-XML
+        <blti:icon>#{host}/icons/vanilla.png</blti:icon>
+        </blti:extensions>
+      XML
+      config_wrap(xml)
+    end
+    
     get "/config/mahara.xml" do
       host = request.scheme + "://" + request.host_with_port
       return "url required" if !params['site_url'] || params['site_url'] == ''
