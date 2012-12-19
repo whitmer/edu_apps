@@ -268,6 +268,7 @@
       }
     },
     {
+      "new": true,
       "id": "open_tapestry",
       "name": "Open Tapestry",
       "added": "2012-12-18T00:00:00Z",
@@ -284,8 +285,9 @@
       }
     },
     {
+      "new": true,
       "id": "voice_thread",
-      "name": "Voice Thread",
+      "name": "VoiceThread",
       "added": "2012-12-18T00:00:00Z",
       "image_url": "/tools/voice_thread.png",
       "big_image_url": "/big_tools/voice_thread.png",
@@ -349,6 +351,7 @@
       "categories": ["Media"]
     },
     {
+      "new": true,
       "id": "scorm_cloud",
       "name": "SCORM Cloud",
       "added": "2012-12-18T00:00:00Z",
@@ -1260,6 +1263,7 @@
       ]
     },
     {
+      "new": true,
       "id": "vanilla",
       "added": "2012-12-18T00:00:00Z",
       "name": "Vanilla Forums",
@@ -1287,6 +1291,7 @@
       ]
     },
     {
+      "new": true,
       "id": "web_pa",
       "added": "2012-12-18T00:00:00Z",
       "name": "WebPA",
