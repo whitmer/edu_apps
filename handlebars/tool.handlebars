@@ -62,10 +62,56 @@
                 {{/each}}
                 {{#if config_urls}}
                     {{#each config_urls}}
-                        <label>{{description}}: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='{{full_url url}}'/></label>
+                        <label>{{description}}: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='{{full_url url}}'/>
+                        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                                width="110"
+                                height="14"
+                                id="clippy" >
+                        <param name="movie" value="/flash/clippy.swf"/>
+                        <param name="allowScriptAccess" value="always" />
+                        <param name="quality" value="high" />
+                        <param name="scale" value="noscale" />
+                        <param NAME="FlashVars" value="text={{full_url url}}">
+                        <param name="bgcolor" value="#D9EDF7">
+                        <embed src="/flash/clippy.swf"
+                               width="110"
+                               height="14"
+                               name="clippy"
+                               quality="high"
+                               allowScriptAccess="always"
+                               type="application/x-shockwave-flash"
+                               pluginspage="http://www.macromedia.com/go/getflashplayer"
+                               FlashVars="text={{full_url url}}"
+                               bgcolor="#D9EDF7"
+                        />
+                        </object>      
+                        </label>                  
                     {{/each}}
                 {{else}}
-                    <label>configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='{{full_url config_url}}'/></label>
+                    <label>configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='{{full_url config_url}}'/>
+                    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                            width="110"
+                            height="14"
+                            id="clippy" >
+                    <param name="movie" value="/clippy.swf"/>
+                    <param name="allowScriptAccess" value="always" />
+                    <param name="quality" value="high" />
+                    <param name="scale" value="noscale" />
+                    <param NAME="FlashVars" value="text={{full_url config_url}}">
+                    <param name="bgcolor" value="#D9EDF7">
+                    <embed src="/clippy.swf"
+                           width="110"
+                           height="14"
+                           name="clippy"
+                           quality="high"
+                           allowScriptAccess="always"
+                           type="application/x-shockwave-flash"
+                           pluginspage="http://www.macromedia.com/go/getflashplayer"
+                           FlashVars="text={{full_url config_url}}"
+                           bgcolor="#D9EDF7"
+                    />
+                    </object>
+                    </label>                        
                 {{/if}}
             {{else}}
                 {{#if config_dir}}
