@@ -156,6 +156,9 @@ module Sinatra
         end
         tool['ratings_count'] ||= 0
         tool['comments_count'] ||= 0
+        tool['big_image_url'] ||= "/big_tools/#{tool['id']}.png"
+        tool['image_url'] ||= "/tools/#{tool['id']}.png"
+        tool['config_url'] = "/config/#{tool['id']}.xml" if !tool['config_url'] && !tool['config_urls'] && !tool['config_directions']
 
         ['big_image_url', 'image_url', 'icon_url', 'config_url', 'launch_url', 'data_url'].each do |key|
           tool[key] = prepend_host(tool[key], host) if tool[key]

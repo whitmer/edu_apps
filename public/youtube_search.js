@@ -1,43 +1,31 @@
 var lti;
+var results;
 (function() {
-  var $results = $("#results");
-  var $message = $("#message");
-  var $result = $("#result").detach().removeAttr('id');
-  $result.click(function() {
-    var videoUrl = $(this).attr('rel');
-    var entry = $(this).data('entry');
-    console.log(entry);
-    var id = entry.link[0].href.match(/v=(\w+)/)[1];
-    selectVideo(id, entry.title['$t']);
-  });
   $("#search").submit(function(event) {
     event.preventDefault();
     event.stopPropagation();
-    $results.empty().hide();
-    $message.show().text("Loading...");
+    results.loading();
     var query = encodeURIComponent($("#query").val());
     var userPathPart = window.youtubeAccount ? ("/users/" + window.youtubeAccount + "/uploads") : '/videos';
     var url = "https://gdata.youtube.com/feeds/api" + userPathPart + "?v=2&q=" + query + "&orderby=relevance&alt=json-in-script";
     $.ajax({
       url: url,
       success: function(data) {
-        if(!data.feed || !data.feed.entry || data.feed.entry.length == 0) {
-          $results.empty().hide();
-          $message.show().text("No Results Found");
-          return;
-        }
+        var videos = [];
         for(var idx = 0; idx < 16 && idx < data.feed.entry.length && data.feed.entry[idx]; idx++) {
           var entry = data.feed.entry[idx];
-          var $entry = $result.clone(true);
-          $entry.data('entry', entry);
           var duration = durationString(parseInt(entry['media$group']['yt$duration']['seconds'], 10));
-          $entry.find(".title").text("(" + duration + ") " + entry.title['$t']);
-          $entry.find(".img").attr('src', entry['media$group']['media$thumbnail'][0].url);
-          $entry.attr('rel', entry.link[0].href);
-          $results.append($entry.show());
+          videos.push({
+            title: "(" + duration + ") " + entry.title['$t'],
+            image: entry['media$group']['media$thumbnail'][0].url,
+            url: entry.link[0].href,
+            id: entry.link[0].href.match(/v=(\w+)/)[1],
+            link_title: entry.title['$t']
+          });
         }
-        $results.show();
-        $message.hide();
+        results.ready(videos, function(video) {
+          selectVideo(video.id, video.link_title);
+        });
       },
       dataType: 'jsonp'
     });

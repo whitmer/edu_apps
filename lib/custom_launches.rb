@@ -11,7 +11,7 @@ module Sinatra
     
     post "/speeqe" do
       return "invalid parameters" unless params['context_id'] && params['resource_link_id']
-      str = "#{params['context_id']}-#{params['resource_link_id']}"
+      str = Digest::MD5.hexdigest("#{params['context_id']}-#{params['resource_link_id']}")[0, 20]
       redirect to("http://#{str}.speeqe.com")
     end
     

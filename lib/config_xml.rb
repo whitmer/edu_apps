@@ -654,6 +654,34 @@ module Sinatra
       XML
     end
     
+    get "/config/gooru.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      headers 'Content-Type' => 'text/xml'
+      config_wrap <<-XML
+        <blti:title>Gooru Learning</blti:title>
+        <blti:description>Library of searchable, open and public learning collections</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/gooru.html')}</blti:launch_url>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">gooru</lticm:property>
+          <lticm:property name="privacy_level">anonymous</lticm:property>
+          <lticm:options name="editor_button">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/gooru.html')}</lticm:property>
+            <lticm:property name="icon_url">#{host}/icons/gooru.png</lticm:property>
+            <lticm:property name="text">Gooru Learning</lticm:property>
+            <lticm:property name="selection_width">700</lticm:property>
+            <lticm:property name="selection_height">550</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/gooru.html')}</lticm:property>
+            <lticm:property name="text">Gooru Learning</lticm:property>
+            <lticm:property name="selection_width">700</lticm:property>
+            <lticm:property name="selection_height">550</lticm:property>
+          </lticm:options>
+        </blti:extensions>
+        <blti:icon>#{host}/icons/gooru.png</blti:icon>
+      XML
+    end
+    
     get "/config/smarterer.xml" do
       host = request.scheme + "://" + request.host_with_port
       headers 'Content-Type' => 'text/xml'
