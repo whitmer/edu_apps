@@ -1378,6 +1378,23 @@
       ]
     },
     {
+      "id": "question_mark",
+      "added": "2012-05-04T00:00:00Z",
+      "name": "QuestionMark",
+      "levels": ["7th-12th Grade", "Postsecondary"],
+      "categories": ["Content"],
+      "description": "QuestionMark is a tool for creating and delivering surveys, quizzes and exams. Instructors can add assessments to their course content on configured accounts.<br/><br/><b>Directions for configuring QuestionMark:</b><ol><li>Configure your QuestionMark instance</li><li>Download and install <a href='http://projects.oscelot.org/gf/project/lti-qm/frs/'>the QuestionMark LTI extension</a></li><li>Follow the <a href='http://projects.oscelot.org/gf/project/lti-qm/wiki/?pagename=QuestionmarkConfiguration'>provided configuration direction</a></li><li>For more detailed configuration, <a href='http://projects.oscelot.org/gf/project/lti-qm/wiki/'>follow the directions here</a></ol>",
+      "config_options": [
+        {
+            "name": "site_url",
+            "description": "QuestionMark site URL",
+            "required": true,
+            "type": "text",
+            "value": "http://my.questionmark.url"
+        }
+      ]
+    },
+    {
       "id": "mahara",
       "added": "2012-05-04T00:00:00Z",
       "name": "Mahara",

@@ -1135,6 +1135,23 @@ module Sinatra
       config_wrap(xml)
     end
     
+    get "/config/question_mark.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      return "url required" if !params['site_url'] || params['site_url'] == ''
+      headers 'Content-Type' => 'text/xml'
+      xml =  <<-XML
+        <blti:title>QuestionMark</blti:title>
+        <blti:description>Launch QuestionMark assessment</blti:description>
+        <blti:launch_url>#{params['site_url']}</blti:launch_url>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">question_mark</lticm:property>
+          <lticm:property name="privacy_level">public</lticm:property>
+        </blti:extensions>
+        <blti:icon>#{host}/icons/question_mark.png</blti:icon>
+      XML
+      config_wrap(xml)
+    end
+    
     get "/config/web_pa.xml" do
       host = request.scheme + "://" + request.host_with_port
       return "url required" if !params['site_url'] || params['site_url'] == ''
