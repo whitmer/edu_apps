@@ -19,7 +19,12 @@ var trackUrl = location.href.split(/\?/)[0];
     trackUrl = trackUrl + "tool=" + lti.params.tool;
   }
   if(trackEvent && (params.tool || lti.tool_id)) {
-    trackEvent('tool_launch', (params.tool || lti.tool_id), trackUrl);
+    if(params['selection_directive'] && params['launch_presentation_return_url']) {
+      trackEvent('tool_launch', (params.tool || lti.tool_id), trackUrl);
+    } else {
+      // If not launched as a resource selection, track separately
+      trackEvent('tool_load', (params.tool || lti.tool_id), trackUrl);
+    }
   }
 })();
 if(!skipValidation) {
