@@ -352,6 +352,7 @@
     },
     {
       "id": "mh_campus",
+      "pending": true,
       "name": "McGraw Hill Campus",
       "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/mh_campus.png",
@@ -363,6 +364,7 @@
     },
     {
       "id": "plato",
+      "pending": true,
       "name": "Plato Learning",
       "added": "2012-01-10T00:00:00Z",
       "image_url": "/tools/plato.png",
@@ -771,6 +773,7 @@
     },
     {
       "id": "gooru",
+      "pending": true,
       "uses": 30,
       "name": "Gooru Learning",
       "added": "2012-12-26T00:00:00Z",
@@ -1379,6 +1382,7 @@
     },
     {
       "id": "question_mark",
+      "pending": true,
       "added": "2012-05-04T00:00:00Z",
       "name": "QuestionMark",
       "levels": ["7th-12th Grade", "Postsecondary"],
