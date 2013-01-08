@@ -4,12 +4,9 @@
       "id": "twitter",
       "name": "Twitter",
       "added": "2012-03-27T00:00:00Z",
-      "image_url": "/tools/twitter.png",
-      "big_image_url": "/big_tools/twitter.png",
       "description": "Embed lists of recent tweets from Twitter. Lists can be derived from search results, or from a user's twitter feed.",
       "short_description": "Embed tweet streams",
       "any_key": true,
-      "config_url": "/config/twitter.xml",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Web 2.0"],
       "launch_url": "/twitter.html",
@@ -24,12 +21,9 @@
       "id": "wolfram",
       "name": "Wolfram Alpha",
       "added": "2012-11-17T00:00:00Z",
-      "image_url": "/tools/wolfram.png",
-      "big_image_url": "/big_tools/wolfram.png",
       "description": "Wolfram Alpha provides graphs, data sets and other information about numbers, equations, etc. This app lets you quickly insert links to Wolfram Alpha search results into your course material.",
       "short_description": "Link to Wolfram Alpha search results",
       "any_key": true,
-      "config_url": "/config/wolfram.xml",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Math", "Science"],
       "launch_url": "/wolfram.html",
@@ -352,27 +346,31 @@
     },
     {
       "id": "mh_campus",
-      "pending": true,
       "name": "McGraw Hill Campus",
-      "added": "2012-01-10T00:00:00Z",
+      "added": "2013-01-04T00:00:00Z",
       "image_url": "/tools/mh_campus.png",
       "big_image_url": "/big_tools/mh_campus.png",
-      "description": "MH-Campus",
+      "description": "Provides access to McGraw Hill's interactive resources tied to course content and textbooks.<br/><br/><a href='http://www.mhcampus.com/'>Visit mhcampus.com</a> for more information.",
       "config_url": "/config/mh_campus.xml",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Content"]
     },
     {
       "id": "plato",
-      "pending": true,
-      "name": "Plato Learning",
+      "name": "PLATO",
       "added": "2012-01-10T00:00:00Z",
-      "image_url": "/tools/plato.png",
-      "big_image_url": "/big_tools/plato.png",
-      "description": "Plato Learning",
-      "config_url": "/config/plato.xml",
+      "description": "PLATO provides standards-based online curriculum in a rich, interactive environment. Embed learning resources from PLATO within your course.<br/><br/><a href='http://www.edmentum.com/products-services/plato-courseware'>Visit the PLATO web site</a> for more information.",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
-      "categories": ["Content"]
+      "categories": ["Content"],
+      "config_options": [
+        {
+            "name": "domain",
+            "description": "Domain",
+            "required": true,
+            "type": "text",
+            "value": "lti.demople.platoweb.com"
+        }
+      ]
     },
     {
       "new": true,
@@ -897,8 +895,6 @@
       "id": "pathbrite",
       "name": "Pathbrite",
       "added": "2012-01-10T00:00:00Z",
-      "image_url": "/tools/pathbrite.png",
-      "big_image_url": "/tools/pathbrite.png",
       "description": "Pathbrite is an ePortfolio tool that can be integrated into the LMS.",
       "config_directions": "Contact <a href='http://www.pathbrite.com/'>Pathbrite</a> for configuration instructions."
     },
@@ -1382,7 +1378,6 @@
     },
     {
       "id": "question_mark",
-      "pending": true,
       "added": "2012-05-04T00:00:00Z",
       "name": "QuestionMark",
       "levels": ["7th-12th Grade", "Postsecondary"],

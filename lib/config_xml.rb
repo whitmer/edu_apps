@@ -1404,6 +1404,22 @@ module Sinatra
       config_wrap(xml)
     end
     
+    get "/config/plato.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      headers 'Content-Type' => 'text/xml'
+      return "domain required" if !params['domain'] || params['domain'] == ''
+      xml =  <<-XML
+        <blti:title>PLATO</blti:title>
+        <blti:description>Embed rich, interactive, standards-based learning resources.</blti:description>
+        <blti:launch_url>https://#{params['domain']}/oauth/launch</blti:launch_url>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">plato</lticm:property>
+          <lticm:property name="privacy_level">public</lticm:property>
+        </blti:extensions>
+      XML
+      config_wrap(xml)
+    end
+    
     get "/config/elgg.xml" do
       host = request.scheme + "://" + request.host_with_port
       headers 'Content-Type' => 'text/xml'
