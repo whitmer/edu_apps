@@ -220,7 +220,6 @@
       "id": "ck12",
       "name": "CK-12",
       "added": "2012-05-16T00:00:00Z",
-      "new": true,
       "image_url": "/tools/ck12.png",
       "big_image_url": "/big_tools/ck12.png",
       "icon_url": "/icons/ck12.png",
@@ -243,7 +242,6 @@
       "name": "Mathalicious",
       "added": "2012-05-16T00:00:00Z",
       "exclude_from_public_collections": true,
-      "new": true,
       "image_url": "/tools/mathalicious.png",
       "big_image_url": "/big_tools/mathalicious.png",
       "icon_url": "/icons/mathalicious.png",
@@ -313,7 +311,6 @@
       }
     },
     {
-      "new": true,
       "id": "schooltube",
       "name": "SchoolTube",
       "added": "2012-04-07T00:00:00Z",
@@ -346,7 +343,7 @@
     },
     {
       "id": "mh_campus",
-      "pending": true,
+      "new": true,
       "name": "McGraw Hill Campus",
       "added": "2013-01-04T00:00:00Z",
       "image_url": "/tools/mh_campus.png",
@@ -358,7 +355,7 @@
     },
     {
       "id": "plato",
-      "pending": true,
+      "new": true,
       "name": "PLATO",
       "added": "2012-01-10T00:00:00Z",
       "description": "PLATO provides standards-based online curriculum in a rich, interactive environment. Embed learning resources from PLATO within your course.<br/><br/><a href='http://www.edmentum.com/products-services/plato-courseware'>Visit the PLATO web site</a> for more information.",
@@ -623,7 +620,6 @@
     },
     {
       "id": "sage_cell",
-      "new": true,
       "added": "2012-05-02T00:00:00Z",
       "name": "Sage",
       "image_url": "/tools/sage_cell.png",
@@ -980,7 +976,6 @@
     },
     {
       "id": "youtube_user",
-      "new": true,
       "name": "YouTube Channel",
       "added": "2012-03-22T00:00:00Z",
       "image_url": "/tools/youtube_channel.png",
@@ -998,7 +993,6 @@
     },
     {
       "id": "youtube_edu",
-      "new": true,
       "uses": 0,
       "name": "YouTube For Schools",
       "added": "2012-03-22T00:00:00Z",
@@ -1029,7 +1023,6 @@
       "config_url": "/config/titanpad.xml"
     },
     {
-      "new": true,
       "id": "speeqe",
       "name": "Speeqe Chat",
       "added": "2012-11-17T00:00:00Z",
@@ -1380,7 +1373,7 @@
     },
     {
       "id": "question_mark",
-      "pending": true,
+      "new": true,
       "added": "2012-05-04T00:00:00Z",
       "name": "QuestionMark",
       "levels": ["7th-12th Grade", "Postsecondary"],
