@@ -136,12 +136,16 @@ module Sinatra
           if next_url
             response.headers['Link'] = "<#{next_url}>; rel=\"next\""
           end
-          {
-            :meta => {:next => next_url},
-            :current_offset => offset,
-            :limit => limit,
-            :objects => found_data
-          }
+          if params['no_meta']
+            found_data
+          else
+            {
+              :meta => {:next => next_url},
+              :current_offset => offset,
+              :limit => limit,
+              :objects => found_data
+            }
+          end
         else
           data
         end
