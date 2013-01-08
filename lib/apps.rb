@@ -134,6 +134,7 @@ module Sinatra
         if paginated
           next_url = data.length > offset + limit ? (host + "/api/v1/apps?offset=#{offset + limit}") : nil
           if next_url
+            next_url += "&no_meta=1" if params['no_meta']
             response.headers['Link'] = "<#{next_url}>; rel=\"next\""
           end
           if params['no_meta']
