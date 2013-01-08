@@ -40,12 +40,18 @@ module Sinatra
       offset = params[:offset].to_i
       found_reviews = reviews.all(:offset => offset, :limit => limit)
       next_url = total > offset + limit ? (host + "/api/v1/apps/#{params[:tool_id]}/reviews?offset=#{offset+limit}") : nil
-      result = {
-        :meta => {:next => next_url},
-        :current_offset => offset,
-        :limit => limit,
-        :objects => found_reviews.map{|r| review_as_json(r) }
-      }
+      if params['no_meta']
+        next_url += "&no_meta=1" if next_url
+        result = found_reviews.map{|r| review_as_json(r) }
+      else
+        result = {
+          :meta => {:next => next_url},
+          :current_offset => offset,
+          :limit => limit,
+          :objects => found_reviews.map{|r| review_as_json(r) }
+        }
+      end
+      response.headers['Link'] = "<#{next_url}>; rel=\"next\"" if next_url
       json_result(result.to_json)
     end
     
