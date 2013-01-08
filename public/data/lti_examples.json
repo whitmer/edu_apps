@@ -191,6 +191,22 @@
       }
     },
     {
+      "id": "nytimes",
+      "name": "New Tork Times",
+      "added": "2013-01-08T00:00:00Z",
+      "any_key": true,
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content"],
+      "description": "Search for and link to articles from New York Time's archives. Articles can be filtered by relevance and year published.",
+      "short_description": "Articles from NY Times",
+      "launch_url": "/nytimes.html",
+      "extensions": ["editor_button", "resource_selection"],
+      "preview": {
+        "url": "/nytimes.html",
+        "height": 475
+      }
+    },
+    {
       "id": "brainpop",
       "name": "BrainPOP",
       "added": "2012-03-06T00:00:00Z",
@@ -1386,6 +1402,37 @@
             "required": true,
             "type": "text",
             "value": "http://my.questionmark.url"
+        }
+      ]
+    },
+    {
+      "id": "drupal",
+      "new": true,
+      "added": "2013-01-08T00:00:00Z",
+      "name": "Drupal",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content"],
+      "description": "Drupal is an open source content management system. It's flexible enough to be used for community sites, Q&A services, forums, standard web pages, etc. This LTI app allows auto-login to Drupal sites from another system.<br/><br/><b>Directions for configuring Drupal:</b><ol><li>Follow the directions <a href='http://drupal.org/project/lti_tool_provider'>on the Drupal LTI Tool Provider page</a> to install and configure.</li><li>Be sure to make a note of the consumer key and shared secret.</li><li><a href='http://drupal.org/node/1859658'>More information is available here</a></ol>",
+      "config_options": [
+        {
+            "name": "site_url",
+            "description": "Drupal site URL",
+            "required": true,
+            "type": "text",
+            "value": "https://drupalprovider.example.com/lti"
+        },
+        {
+            "name": "course_nav",
+            "description": "Show in Course Navigation",
+            "type": "checkbox",
+            "value": "1"
+        },
+        {
+            "name": "link_name",
+            "description": "Navigation Text",
+            "required": true,
+            "type": "text",
+            "value": "Drupal"
         }
       ]
     },

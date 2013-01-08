@@ -43,7 +43,6 @@ module Sinatra
       url = "http://api.usatoday.com/open/articles?search=#{query}&count=15&encoding=json&api_key=#{@@usa_today_config.value}"
       response = Net::HTTP.get(URI.parse(url))
       return response
-      
     end
     
     get '/schooltube_search' do
@@ -199,6 +198,22 @@ module Sinatra
 #        end
         return cats_by_parent.to_json
       end
+    end
+    
+    get "/nytimes_search" do
+      @@nytimes_config = ExternalConfig.first(:config_type => 'nytimes')
+      search = "rank=#{params['rank'] || 'newest'}"
+      if params['year'] && params['year'] != 'any'
+        search += "&begin_date=#{params['year']}0101&end_date=#{params['year']}1231"
+      end
+      query = CGI.escape(params['q'] || '')
+      url = "http://api.nytimes.com/svc/search/v1/article?format=json&#{search}&query=#{query}&api-key=#{@@nytimes_config.value}"
+      puts url
+      uri = URI.parse(url)
+      response = Net::HTTP.get(uri)
+      puts response
+      json = JSON.parse(response)
+      return json['results'].to_json
     end
     
     get "/wiktionary_search" do

@@ -899,6 +899,34 @@ module Sinatra
       XML
     end
     
+    get "/config/nytimes.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      headers 'Content-Type' => 'text/xml'
+      config_wrap <<-XML
+        <blti:title>New York Times</blti:title>
+        <blti:description>Search for and link to articles from the New York Times archives.</blti:description>
+        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/nytimes.html')}</blti:launch_url>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">nytimes</lticm:property>
+          <lticm:property name="privacy_level">anonymous</lticm:property>
+          <lticm:options name="editor_button">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/nytimes.html')}</lticm:property>
+            <lticm:property name="icon_url">#{host}/icons/nytimes.png</lticm:property>
+            <lticm:property name="text">New Tork Times</lticm:property>
+            <lticm:property name="selection_width">690</lticm:property>
+            <lticm:property name="selection_height">530</lticm:property>
+          </lticm:options>
+          <lticm:options name="resource_selection">
+            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/nytimes.html')}</lticm:property>
+            <lticm:property name="text">New York Times</lticm:property>
+            <lticm:property name="selection_width">690</lticm:property>
+            <lticm:property name="selection_height">530</lticm:property>
+          </lticm:options>
+        </blti:extensions>
+        <blti:icon>#{host}/icons/nytimes.png</blti:icon>
+      XML
+    end
+    
     get "/config/storify.xml" do
       host = request.scheme + "://" + request.host_with_port
       headers 'Content-Type' => 'text/xml'
@@ -1429,7 +1457,7 @@ module Sinatra
         <blti:description>Elgg is an open source social network</blti:description>
         <blti:launch_url>https://#{params['domain'].sub(/\/$/, '')}/pg/blti/</blti:launch_url>
         <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">elgg </lticm:property>
+          <lticm:property name="tool_id">elgg</lticm:property>
           <lticm:property name="privacy_level">public</lticm:property>
       XML
       if params['course_nav']
@@ -1446,6 +1474,33 @@ module Sinatra
       config_wrap(xml)
     end
     
+    get "/config/drupal.xml" do
+      host = request.scheme + "://" + request.host_with_port
+      headers 'Content-Type' => 'text/xml'
+      return "site url required" if !params['site_url'] || params['site_url'] == ''
+      name = "Drupal"
+      name += " - #{params['link_name']}" if params['link_name'] && params['link_name'] != 'Drupal'
+      xml =  <<-XML
+        <blti:title>#{name}</blti:title>
+        <blti:description>Open source content management system</blti:description>
+        <blti:launch_url>#{params['site_url']}</blti:launch_url>
+        <blti:extensions platform="canvas.instructure.com">
+          <lticm:property name="tool_id">drupal</lticm:property>
+          <lticm:property name="privacy_level">public</lticm:property>
+      XML
+      if params['course_nav']
+        xml +=  <<-XML
+          <lticm:options name="course_navigation">
+            <lticm:property name="url">#{params['site_url']}</lticm:property>
+            <lticm:property name="text">#{params['link_name'] || 'Drupal'}</lticm:property>
+          </lticm:options>
+        XML
+      end
+      xml +=  <<-XML
+        </blti:extensions>
+      XML
+      config_wrap(xml)
+    end
   end 
   register ConfigXML
 end

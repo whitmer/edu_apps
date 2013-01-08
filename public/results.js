@@ -24,6 +24,8 @@ var results = (function() {
         var $entry = $result.clone(true);
         $entry.find(".title").text(entry.title);
         $entry.find(".img").attr('src', entry.image);
+        $entry.find(".date").text(entry.date);
+        $entry.find(".description").html(entry.description);
         $entry.data('clicked', function() {
           onSelect(entry);
         });
