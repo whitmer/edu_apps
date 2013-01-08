@@ -346,6 +346,7 @@
     },
     {
       "id": "mh_campus",
+      "pending": true,
       "name": "McGraw Hill Campus",
       "added": "2013-01-04T00:00:00Z",
       "image_url": "/tools/mh_campus.png",
@@ -357,6 +358,7 @@
     },
     {
       "id": "plato",
+      "pending": true,
       "name": "PLATO",
       "added": "2012-01-10T00:00:00Z",
       "description": "PLATO provides standards-based online curriculum in a rich, interactive environment. Embed learning resources from PLATO within your course.<br/><br/><a href='http://www.edmentum.com/products-services/plato-courseware'>Visit the PLATO web site</a> for more information.",
@@ -1378,6 +1380,7 @@
     },
     {
       "id": "question_mark",
+      "pending": true,
       "added": "2012-05-04T00:00:00Z",
       "name": "QuestionMark",
       "levels": ["7th-12th Grade", "Postsecondary"],
