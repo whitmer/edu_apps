@@ -192,6 +192,7 @@
     },
     {
       "id": "nytimes",
+      "new": true,
       "name": "New Tork Times",
       "added": "2013-01-08T00:00:00Z",
       "any_key": true,
