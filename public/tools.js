@@ -6,6 +6,7 @@
   $.getJSON('/data/lti_examples.json', function(data) {
     for(var idx = 0; idx < data.length; idx++) {
       if(data[idx].data_url || data[idx].launch_url) {
+        data[idx].image_url = data[idx].image_url || "/tools/" + data[idx].id + ".png";
         tools.push(data[idx]);
         toolsHash[data[idx].id] = data[idx];
       }
