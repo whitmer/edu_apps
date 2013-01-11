@@ -1,0 +1,10 @@
+<blti:title>Course Wanda Fish</blti:title>
+<blti:description>This tool adds a course navigation link to a page on a fish called "Wanda"</blti:description>
+<blti:extensions platform="canvas.instructure.com">
+  <lticm:property name="tool_id">course_navigation</lticm:property>
+  <lticm:property name="privacy_level">anonymous</lticm:property>
+  <lticm:options name="course_navigation">
+    <lticm:property name="url"><%= host %>/tool_redirect?url=<%= CGI.escape('/images.html?custom_fish_name=wanda') %></lticm:property>
+    <lticm:property name="text">Course Wanda Fish</lticm:property>
+  </lticm:options>
+</blti:extensions>

@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+<style>
+body {
+  font-family: Arial;
+}
+h1 {
+  margin-bottom: 0px;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: normal;
+}
+#query {
+  width: 300px;
+  margin-bottom: 5px;
+}
+#results {
+  width: 560px;
+}
+#results .result {
+  float: left;
+  width: 130px;
+  padding: 5px;
+}
+#results .result:hover {
+  background: #ccc;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#results .result .img {
+  padding: 0 5px;
+}
+#results .result .title {
+  height: 28px;
+  font-size: 12px;
+  padding-left: 5px;
+  overflow: hidden;
+  color: #444;
+  line-height: 14px;
+}
+#message {
+  font-weight: bold;
+  margin: 10px;
+}
+</style>
+</head>
+<body>
+<div id="header">
+  <img id="header_img" src="logo.png" style="padding-right: 10px; width: 70px; vertical-align: middle; float: left;"/>
+  <h1>
+  Enter what you want to calculate or know about:
+  </h1>
+  
+  <form id="search" action="http://www.wolframalpha.com/input/" class="form-inline" method="get" target="_blank">
+  <input type="text" name="i" id="query"/><br/>
+  <button type="submit" class='btn'><span class='icon-search'></span> Preview in a New Tab</button>
+  <button type="button" class='btn btn-primary' id="embed"><span class='icon-plus icon-white'></span> Embed</button>
+  </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>var lti = {tool_id: "wolfram"};</script>
+<script src="/analytics.js"></script>
+<script src="/lti.js"></script>
+<script src="wolfram.js"></script>
+</body>
+</html>

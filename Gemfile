@@ -11,6 +11,7 @@ gem 'dm-aggregates'
 gem 'dm-postgres-adapter'
 
 group :development do
+    gem 'ruby-debug19'
     gem 'dm-sqlite-adapter'
     gem 'handlebars'
     gem 'rspec'

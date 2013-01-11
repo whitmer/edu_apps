@@ -63,7 +63,7 @@
                 {{#if config_urls}}
                     {{#each config_urls}}
                         <label>{{description}}: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='{{full_url url}}'/>
-                        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                        <!--object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
                                 width="110"
                                 height="14"
                                 id="clippy" >
@@ -84,12 +84,12 @@
                                FlashVars="text={{full_url url}}"
                                bgcolor="#D9EDF7"
                         />
-                        </object>      
+                        </object-->      
                         </label>                  
                     {{/each}}
                 {{else}}
                     <label>configuration url: <input type='text' title='copy this URL and paste it into the tool configuration in your LMS' class='config_field' value='{{full_url config_url}}'/>
-                    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                    <!--object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
                             width="110"
                             height="14"
                             id="clippy" >
@@ -110,7 +110,7 @@
                            FlashVars="text={{full_url config_url}}"
                            bgcolor="#D9EDF7"
                     />
-                    </object>
+                    </object-->
                     </label>                        
                 {{/if}}
             {{else}}
@@ -147,7 +147,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='/comments.png'/> {{comments_count}}
             {{/if}}
             {{#unless user_key}}
-            <div><a href='/login'><img src='/icons/twitter.png'/> Login via Twitter</a> to rate and review this app</div>
+            <div><a href='/login'><img src='/tools/twitter/icon.png'/> Login via Twitter</a> to rate and review this app</div>
             {{/unless}}
             <form id='add_rating' style="display: none;">
                 <input id="rating_star" type="hidden" name="rating" value=""/>

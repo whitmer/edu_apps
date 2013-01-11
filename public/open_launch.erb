@@ -1,0 +1,22 @@
+<blti:title><%= @name %></blti:title>
+<blti:description><%= @desc %></blti:description>
+<% unless @no_launch %>
+  <blti:launch_url><%= host %>/tool_redirect?id=<%= @id %></blti:launch_url>
+<% end %>
+<blti:extensions platform="canvas.instructure.com">
+  <lticm:property name="tool_id"><%= @id %></lticm:property>
+  <lticm:property name="privacy_level">anonymous</lticm:property>
+  <lticm:options name="editor_button">
+    <lticm:property name="url"><%= host %>/tool_redirect?id=<%= @id %></lticm:property>
+    <lticm:property name="icon_url"><%= host %>/tools/<%= @id %>/icon.png</lticm:property>
+    <lticm:property name="text"><%= @link_name %></lticm:property>
+    <lticm:property name="selection_width"><%= @width %></lticm:property>
+    <lticm:property name="selection_height"><%= @height %></lticm:property>
+  </lticm:options>
+  <lticm:options name="resource_selection">
+    <lticm:property name="url"><%= host %>/tool_redirect?id=<%= @id %></lticm:property>
+    <lticm:property name="text"><%= @link_name %></lticm:property>
+    <lticm:property name="selection_width"><%= @width %></lticm:property>
+    <lticm:property name="selection_height"><%= @height %></lticm:property>
+  </lticm:options>
+</blti:extensions>

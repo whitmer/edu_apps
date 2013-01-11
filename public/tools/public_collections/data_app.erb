@@ -1,0 +1,21 @@
+<blti:title><%= @app_name %></blti:title>
+<blti:description><%= @app_desc %></blti:description>
+<blti:launch_url><%= host %>/tool_redirect?url=<%= CGI.escape('/tools/public_collections/index.html?tool=' + @id) %></blti:launch_url>
+<blti:extensions platform="canvas.instructure.com">
+  <lticm:property name="tool_id"><%= @id %></lticm:property>
+  <lticm:property name="privacy_level">anonymous</lticm:property>
+  <lticm:options name="editor_button">
+    <lticm:property name="url"><%= host %>/tool_redirect?url=<%= CGI.escape('/tools/public_collections/index.html?tool=' + @id) %></lticm:property>
+    <lticm:property name="icon_url"><%= host %>/tools/<%= @id %>/icon.png</lticm:property>
+    <lticm:property name="text"><%= @app_name %></lticm:property>
+    <lticm:property name="selection_width">740</lticm:property>
+    <lticm:property name="selection_height">450</lticm:property>
+  </lticm:options>
+  <lticm:options name="resource_selection">
+    <lticm:property name="url"><%= host %>/tool_redirect?url=<%= CGI.escape('/tools/public_collections/index.html?tool=' + @id) %></lticm:property>
+    <lticm:property name="text"><%= @app_name %></lticm:property>
+    <lticm:property name="selection_width">740</lticm:property>
+    <lticm:property name="selection_height">450</lticm:property>
+  </lticm:options>
+</blti:extensions>
+<blti:icon><%= host %>/tools/<%= @id %>/icon.png</blti:icon>

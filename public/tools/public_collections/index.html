@@ -1,0 +1,232 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+<style>
+body {
+  font-family: Arial;
+}
+h1 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+#tools .tool {
+  float: left;
+  width: 130px;
+  padding: 5px;
+  text-align: center;
+}
+#tools .tool:hover {
+  background: #ccc;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#tools .tool .logo {
+  padding: 0 5px 5px 5px;
+  width: 72px;
+  height: 72px;
+}
+#tools .tool .name {
+  display: block;
+  height: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #444;
+}
+#tools .tool .description {
+  display: block;
+  overflow: hidden;
+  font-size: 11px;
+  color: #555;
+  height: 26px;
+  line-height: 12px;
+}
+#tools .recent {
+  padding: 10px 20px;
+  margin: -10px 5px 10px;
+}
+#tools .recent h3 {
+  display: inline;
+  padding-right: 15px;
+  vertical-align: bottom;
+}
+#tools .recent img {
+  width: 32px;
+  height: 32px;
+  padding-right: 15px;
+  cursor: pointer;
+}
+#resources .resource {
+  float: left;
+  width: 235px;
+  height: 160px;
+  padding: 5px 10px;
+  position: relative;
+}
+#resources .resource.single_resource {
+  float: none;
+  width: 705px;
+  height: 320px;
+}
+#resources .resource.single_resource:hover {
+  background: transparent;
+  cursor: inherit;
+}
+#resources .resource.single_resource .name:hover {
+  background: #ccc;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#resources .resource.single_resource .name_link {
+  color: #444;
+}
+#resources .resource.single_resource .link_set .link img {
+  max-width: 50px;
+  max-height: 50px;
+  vertical-align: middle;
+  padding-right: 10px;
+}
+#resources .resource.single_resource .content {
+  height: auto;
+  font-size: 12px;
+  white-space: pre-line;
+  margin-bottom: 10px;
+}
+#resources .resource.single_resource:hover .preview {
+  display: none;
+}
+#resources .resource.slightly_bigger_image .img_holder {
+  float: none;
+}
+#resources .resource.slightly_bigger_image .img_holder img {
+  max-width: 200px;
+  max-height: 80px;
+}
+#resources .resource.single_resource .img_holder img {
+  max-width: 100px;
+  max-height: 100px;
+}
+#resources .resource .well {
+  padding: 5px 0;
+}
+#resources .resource .well .img_preview {
+  max-width: 75px;
+  max-height: 75px;
+  padding-right: 5px;
+}
+#resources .resource .link_count {
+  color: #888;
+}
+#resources .resource .name {
+  white-space: nowrap;
+  font-weight: bold;
+  overflow: hidden;
+}
+#resources .resource:hover {
+  background: #ccc;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#resources .resource .img_holder {
+  float: left;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+#resources .resource .img_holder img {
+  max-width: 75px;
+  max-height: 75px;
+}
+#resources .resource .content {
+  height: 125px;
+  overflow: auto;
+  font-size: 12px;
+  white-space: pre-line;
+}
+#resources .resource .preview {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  display: none;
+}
+#resources .resource:hover .preview {
+  display: inline;
+}
+#message {
+  font-weight: bold;
+  margin: 10px;
+}
+#back {
+  float: left;
+  margin-right: 3px;
+  height: 72px;
+  width: 30px;
+  font-size: 10px;
+}
+#header {
+  float: left;
+  width: 600px;
+}
+#header img {
+  float: left;
+  padding-right: 10px;
+}
+</style>
+</head>
+<body>
+<button id="back" style="display: none;" class="btn btn-inverse" type="button"><span class="icon-white icon-chevron-left"></span> Back</button>
+<div id="header">
+  <img src="/tools/public_collections/logo.png" rel="/tools/public_collections/logo.png" id="logo"/>
+  <h1>
+  Search <span id="collection_name">Collections</span>:
+  </h1>
+  <form id="search" class="form-inline">
+    <input type="text" id="query" autocomplete="off"/>
+    <button class="btn" type="submit"><span class="icon-search"></span> Search</button>
+  </form>
+</div>
+<div style="clear: both;"></div>
+<div id="message"></div>
+<div id="tools"></div>
+<div id="resources"></div>
+<div id="launch" style="display: none;">
+  <a href="#" id="back" class='btn'><span class='icon-chevron-left'></span> Back</a>
+  <span id="tool_name">Tool Name</span>
+  <div>
+    <iframe id="launch_frame" style="border: 0; width: 100%; height: 300px;" src="about:blank"></iframe>
+  </div>
+</div>
+<script src="/jquery.min.js"></script>
+<script src="/jquery.store.js"></script>
+<script>var lti = {tool_id: "tools"};</script>
+<script src="/analytics.js"></script>
+<script src="/lti.js"></script>
+<script src="tools.js"></script>
+<script src="/bootstrap-tooltip.js"></script>
+</body>
+</html>

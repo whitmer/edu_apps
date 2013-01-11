@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+<style>
+body {
+  font-family: Arial;
+}
+h1 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+#breadcrumb li {
+  max-width: 100px; 
+  overflow: hidden; 
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#breadcrumb li:last-child {
+  max-width: 200px;
+}
+#results {
+  width: 560px;
+}
+#results .result {
+  float: left;
+  width: 130px;
+  padding: 5px;
+  text-align: center;
+}
+#smaller_results, #normal_results {
+  clear: left;
+}
+#results .result:hover {
+  background: #ccc;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#results .result .img {
+  padding: 0 5px;
+  max-width: 80px;
+  max-height: 80px;
+}
+#results #smaller_results .result .img {
+  padding: 0 5px;
+  max-width: 50px;
+  max-height: 50px;
+}
+#results .result .title {
+  height: 28px;
+  font-size: 12px;
+  padding-left: 5px;
+  overflow: hidden;
+  color: #444;
+  line-height: 14px;
+}
+#results .playlist {
+  display: none;
+  position: absolute; 
+  width: 30px; 
+  height: 30px;
+}
+#results .course .playlist {
+  display: inline;
+}
+#results .category .title {
+  margin-top: 5px;
+}
+#message {
+  font-weight: bold;
+  margin: 10px;
+}
+</style>
+</head>
+<body>
+<img id="header_img" src="logo.png" style="padding-right: 10px; width: 70px; vertical-align: middle; float: left;"/>
+<h1>
+Browse YouTube EDU:
+</h1>
+<div style="font-size:11px; margin-top: -6px; margin-bottom: 20px;">
+  <a href="http://www.youtube.com/schools">check out YouTube Schools</a> for allowing only edu videos on campus
+</div>
+<ul id="breadcrumb" class="breadcrumb" style="margin-top: -10px;">
+  <li>
+    Loading...
+  </li>
+</ul>
+
+<div id="results">
+  <div id="smaller_results">
+  </div>
+  <div id="normal_results">
+  </div>
+</div>
+<div id="result" style="display: none;" class="result">
+  <img src="/playlist.png" class="playlist"/>
+  <img class="img"/>
+  <div class="duration"></div>
+  <div class="title"></div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>var lti = {tool_id: "youtube_edu"};</script>
+<script src="/analytics.js"></script>
+<script src="/lti.js"></script>
+<script src="youtube_edu.js"></script>
+<script src="/youtube_search.js"></script>
+</body>
+</html>

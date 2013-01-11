@@ -1,0 +1,19 @@
+<blti:title>I Like Fish</blti:title>
+<blti:description>I'm a big fan of fish, and I want to share the love</blti:description>
+<blti:extensions platform="canvas.instructure.com">
+  <lticm:property name="tool_id">editor_button_and_resource_selection</lticm:property>
+  <lticm:property name="privacy_level">anonymous</lticm:property>
+  <lticm:options name="editor_button">
+    <lticm:property name="url"><%= host %>/tool_redirect?url=<%= CGI.escape('/images.html') %></lticm:property>
+    <lticm:property name="icon_url"><%= host %>/examples/fish_icon.png</lticm:property>
+    <lticm:property name="text">Pick a Fish</lticm:property>
+    <lticm:property name="selection_width">500</lticm:property>
+    <lticm:property name="selection_height">300</lticm:property>
+  </lticm:options>
+  <lticm:options name="resource_selection">
+    <lticm:property name="url"><%= host %>/tool_redirect?url=<%= CGI.escape('/name.html') %></lticm:property>
+    <lticm:property name="text">Pick a Fish Name</lticm:property>
+    <lticm:property name="selection_width">500</lticm:property>
+    <lticm:property name="selection_height">300</lticm:property>
+  </lticm:options>
+</blti:extensions>

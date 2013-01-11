@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- 1. The 'widget' div element will contain the upload widget.
+         The 'player' div element will contain the player IFrame. -->
+    <div id="widget"></div>
+    <div id="player"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>var lti = {tool_id: "youtube_upload"};</script>
+    <script src="analytics.js"></script>
+    <script src="lti.js"></script>
+    <script>
+      // 2. Asynchronously load the Upload Widget and Player API code.
+      var tag = document.createElement('script');
+      tag.src = "//www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. Define global variables for the widget and the player.
+      //    The function loads the widget after the JavaScript code
+      //    has downloaded and defines event handlers for callback
+      //    notifications related to the widget.
+      var widget;
+      var player;
+      function onYouTubeIframeAPIReady() {
+        widget = new YT.UploadWidget('widget', {
+          webcamOnly: false,
+          width: 500,
+          events: {
+            'onUploadSuccess': onUploadSuccess
+          }
+        });
+      }
+
+      // 4. This function is called when a video has been successfully uploaded.
+      function onUploadSuccess(event) {
+        if(lti.params && (lti.params.selection_directive == 'select_link' || !lti.params.selection_directive)) {
+          lti.resourceSelected({
+            embed_type: 'link',
+            url: "http://www.youtube.com/embed/" + event.data.videoId,
+            text: "YouTube Video"
+          });
+        } else {
+          lti.resourceSelected({
+            embed_type: 'link',
+            url: "http://www.youtube.com/watch?v=" + event.data.videoId,
+            text: "YouTube Video"
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -14,7 +14,7 @@ $(function() {
     var $identity = $("<div/>", {'class': 'identity'});
     checkForSuggestions();
     if(!user_key || user_key == 'not_logged_in') {
-      $identity.append("<a href='/login'><img src='/icons/twitter.png'/> Login</a>");
+      $identity.append("<a href='/login'><img src='/tools/twitter/icon.png'/> Login</a>");
     } else {
       window.user_key = user_key;
       $("body").addClass('user_key');
@@ -1048,7 +1048,7 @@ function program53(depth0,data) {
 function program55(depth0,data) {
   
   
-  return "\n            <div><a href='/login'><img src='/icons/twitter.png'/> Login via Twitter</a> to rate and review this app</div>\n            ";}
+  return "\n            <div><a href='/login'><img src='/tools/twitter/icon.png'/> Login via Twitter</a> to rate and review this app</div>\n            ";}
 
 function program57(depth0,data) {
   

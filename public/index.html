@@ -249,10 +249,6 @@
     filterTools.appCount = 0;
     for(var idx = 0; idx < tools.length; idx++) {
       var tool = tools[idx];
-      if(tool.full_tool) {
-        tool.launch_url = "/tools.html?tool=" + tool.id;
-        delete tool['data_url'];
-      }
       if(tool.pending) {
         continue;
       }
@@ -281,12 +277,6 @@
       tool.has_config_url = tool.config_url || tool.config_urls;
       if(tool.any_key && tools.length == 1) {
         tool.description = tool.description + "<br/><br/>Any key and secret will work for this tool.";
-        if(!tool.preview && !tool.config_options) {
-          tool.preview = {
-            "url": "/tools.html?tool=" + tool.id,
-            "height": 475
-          };
-        }
       }
       tool.desc = new Handlebars.SafeString(tool.description);
       tool.config_dir = new Handlebars.SafeString(tool.config_directions);

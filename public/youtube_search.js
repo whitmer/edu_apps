@@ -19,7 +19,7 @@ var results;
             title: "(" + duration + ") " + entry.title['$t'],
             image: entry['media$group']['media$thumbnail'][0].url,
             url: entry.link[0].href,
-            id: entry.link[0].href.match(/v=(\w+)/)[1],
+            id: entry.link[0].href.match(/v=([-_\w]+)/)[1],
             link_title: entry.title['$t']
           });
         }

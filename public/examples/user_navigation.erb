@@ -1,0 +1,11 @@
+<blti:title>User Alexander Fish</blti:title>
+<blti:description>This tool adds a user navigation link (in a user's profile) to a page on a fish called "Alexander"</blti:description>
+<blti:extensions platform="canvas.instructure.com">
+  <lticm:property name="tool_id">account_navigation</lticm:property>
+  <lticm:property name="privacy_level">anonymous</lticm:property>
+  <lticm:options name="user_navigation">
+    <lticm:property name="url"><%= host %>/tool_redirect?url=<%= CGI.escape('/images.html?custom_fish_name=alexander') %></lticm:property>
+    <lticm:property name="text">User Alexander Fish</lticm:property>
+  </lticm:options>
+</blti:extensions>
+<blti:icon>#{host}/fish_icon.png</blti:icon>

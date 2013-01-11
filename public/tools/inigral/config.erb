@@ -1,0 +1,11 @@
+<blti:launch_url><%= host %>/tool_redirect?url=<%= CGI.escape('https://apps.facebook.com/' + params['app_name']) %></blti:launch_url>
+<blti:extensions platform="canvas.instructure.com">
+  <lticm:property name="tool_id">inigral</lticm:property>
+  <lticm:property name="privacy_level">anonymous</lticm:property>
+<% if params['user_nav'] %>
+  <lticm:options name="user_navigation">
+    <lticm:property name="url"><%= host %>/tool_redirect?url=<%= CGI.escape('https://apps.facebook.com/' + params['app_name']) %></lticm:property>
+    <lticm:property name="text">Schools App</lticm:property>
+  </lticm:options>
+<% end %>
+</blti:extensions>

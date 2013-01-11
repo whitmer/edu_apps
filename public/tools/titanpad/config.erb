@@ -1,0 +1,11 @@
+<blti:launch_url><%= host %>/titanpad</blti:launch_url>
+<blti:extensions platform="canvas.instructure.com">
+  <lticm:property name="tool_id">titanpad</lticm:property>
+  <lticm:property name="privacy_level">name_only</lticm:property>
+  <% if params['course_nav'] %>
+    <lticm:options name="course_navigation">
+      <lticm:property name="url"><%= host %>/titanpad</lticm:property>
+      <lticm:property name="text">TitanPad </lticm:property>
+    </lticm:options>
+  <% end %>
+</blti:extensions>

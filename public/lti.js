@@ -58,10 +58,12 @@ if(!skipValidation) {
       var $textarea = $("<textarea/>", {'style': 'width: 400px; height: 200px;'});
       $textarea.val($("<div/>").append($widget).html());
       var $stuff = $("<div style='width: 400px; margin: 20px auto;' class='insertion'><h1>Resource Selected!</h1><p>You're not in a system that supports auto-inserting content, so you'll need to copy and past the following code by hand in order to insert it into your content.</p></div>").append($textarea);
-      $("body").empty().append($stuff);
+      $("body > *").hide();
+      $("body").append($stuff);
     } else {
       var $stuff = $("<div style='width: 400px; margin: 20px auto;' class='insertion'><h1>Resource Selected!</h1><p>You're not in a system that supports auto-inserting content, and the resource you've selected can't just be copied and pasted into the system. Please request support for \"" + data.embed_type + "\" embedding by contacting your administrator.</p></div>").append($textarea);
-      $("body").empty().append($stuff);
+      $("body > *").hide();
+      $("body").append($stuff);
       console.log(data);
       $(".insertion").attr('data-url', data.url);
       $(".insertion").attr('data-endpoint', data.endpoint);

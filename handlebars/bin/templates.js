@@ -728,7 +728,7 @@ function program53(depth0,data) {
 function program55(depth0,data) {
   
   
-  return "\n            <div><a href='/login'><img src='/icons/twitter.png'/> Login via Twitter</a> to rate and review this app</div>\n            ";}
+  return "\n            <div><a href='/login'><img src='/tools/twitter/icon.png'/> Login via Twitter</a> to rate and review this app</div>\n            ";}
 
 function program57(depth0,data) {
   

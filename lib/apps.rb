@@ -119,6 +119,9 @@ module Sinatra
             data = recent
           end
         end
+        if params['public'] && params['public'].length > 0
+          data = data.select{|e| e['data_url'] || e['short_description'] }
+        end
         if params['platform'] && params['platform'].length > 0 
           if params['platform'] == 'Canvas'
             bad_tools = ['titanpad', 'flickr']
@@ -167,19 +170,35 @@ module Sinatra
         end
         tool['ratings_count'] ||= 0
         tool['comments_count'] ||= 0
-        tool['big_image_url'] ||= "/big_tools/#{tool['id']}.png"
-        tool['image_url'] ||= "/tools/#{tool['id']}.png"
+        tool['big_image_url'] ||= "/tools/#{tool['id']}/banner.png"
+        tool['image_url'] ||= "/tools/#{tool['id']}/logo.png"
+        tool['icon_url'] ||= "/tools/#{tool['id']}/icon.png"
 
-        ['big_image_url', 'image_url', 'icon_url', 'config_url', 'launch_url', 'data_url'].each do |key|
-          tool[key] = prepend_host(tool[key], host) if tool[key]
-        end
         tool['config_url'] ||= tool['config_urls']
-        if tool['data_url'] && tool['icon_url'] && !tool['config_url'] && !tool['config_urls']
-          tool['config_url'] = host + "/config/data_tool.xml?id=" + tool['id'] + "&name=" + CGI.escape(tool['name']) + "&icon_url=" + CGI.escape(tool['icon_url']) + "&description=" + CGI.escape(tool['description'])
+        tool['config_url'] ||= "/tools/#{tool['id']}/config.xml" if !tool['config_directions']
+        
+        if tool['app_type'] == 'data'
+          tool['launch_url'] = "/tools/public_collections/index.html?tool=#{tool['id']}"
+          tool['data_url'] = "/tools/#{tool['id']}/data.json"
+          tool['config_url'] = "/tools/#{tool['id']}/config.xml"
           tool['extensions'] = ["editor_button", "resource_selection"]
           tool['any_key'] = true
+          tool['preview'] ||= {
+            "url" => tool['launch_url'],
+            "height" => tool['height'] || 475
+          }
+          
+        elsif tool['app_type'] == 'open_launch'
+          tool['launch_url'] = "/tools/#{tool['id']}/index.html"
+          tool['any_key'] = true
+          tool['preview'] ||= {
+            "url" => tool['launch_url'],
+            "height" => tool['height'] || 475
+          }
         end
-        tool['config_url'] = "/config/#{tool['id']}.xml" if !tool['config_url'] && !tool['config_urls'] && !tool['config_directions']
+        ['big_image_url', 'image_url', 'icon_url', 'config_url', 'launch_url'].each do |key|
+          tool[key] = prepend_host(tool[key], host) if tool[key]
+        end
         tool
       end
       

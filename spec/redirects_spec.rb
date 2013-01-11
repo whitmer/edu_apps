@@ -47,6 +47,12 @@ describe 'Tool Redirects' do
       hash['selection_directive'].should == "do_something"
       hash['custom_bob'].should == "1"
     end
+    it "should redirect to new URL if changed" do
+      post "/tool_redirect?url=#{CGI.escape("/wikipedia.html")}&launch_presentation_return_url=#{CGI.escape("http://www.example.com/return")}"
+      last_response.should be_redirect
+      uri = URI.parse(last_response.location)
+      uri.path.should == "/tools/wikipedia/wikipedia.html"
+    end
     it "should redirect to stored URL if present" do
       # TODO
     end

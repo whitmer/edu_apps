@@ -2,1505 +2,294 @@ require 'sinatra/base'
 
 module Sinatra
   module ConfigXML
-    def config_wrap(xml)
-      res = <<-XML
-    <?xml version="1.0" encoding="UTF-8"?>
-      <cartridge_basiclti_link xmlns="http://www.imsglobal.org/xsd/imslticc_v1p0"
-          xmlns:blti = "http://www.imsglobal.org/xsd/imsbasiclti_v1p0"
-          xmlns:lticm ="http://www.imsglobal.org/xsd/imslticm_v1p0"
-          xmlns:lticp ="http://www.imsglobal.org/xsd/imslticp_v1p0"
-          xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation = "http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd
-          http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0.xsd
-          http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd
-          http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd">
-      XML
-      res += xml
-      res += <<-XML
-          <cartridge_bundle identifierref="BLTI001_Bundle"/>
-          <cartridge_icon identifierref="BLTI001_Icon"/>
-      </cartridge_basiclti_link>  
-      XML
-      res.sub(/\A\s+/, '')
+    set :views, settings.root + '/public'
+    
+    # Catchall
+    get "/tools/:tool_id/config.xml" do
+      load_app(params['tool_id'])
+      return "App not found" if !@app
+      if @app['app_type'] == 'data'
+        data_launch params['tool_id']
+      elsif @app['app_type'] == 'open_launch'
+        open_launch params['tool_id']
+      elsif @app['app_type'] == 'custom'
+        custom_launch params['tool_id']
+      else
+        config_launch params['tool_id']
+      end
     end
     
-    get "/config/course_navigation.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Course Wanda Fish</blti:title>
-        <blti:description>This tool adds a course navigation link to a page on a fish called "Wanda"</blti:description>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">course_navigation</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html?custom_fish_name=wanda')}</lticm:property>
-            <lticm:property name="text">Course Wanda Fish</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-      XML
-    end
-    
-    get "/config/account_navigation.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Account Phil Fish</blti:title>
-        <blti:description>This tool adds an account navigation link to a page on a fish named "Phil"</blti:description>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="account_navigation">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html?custom_fish_name=phil')}</lticm:property>
-            <lticm:property name="text">Account Phil Fish</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-      XML
-    end
-    
-    get "/config/user_navigation.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>User Alexander Fish</blti:title>
-        <blti:description>This tool adds a user navigation link (in a user's profile) to a page on a fish called "Alexander"</blti:description>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">account_navigation</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="user_navigation">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html?custom_fish_name=alexander')}</lticm:property>
-            <lticm:property name="text">User Alexander Fish</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/fish_icon.png</blti:icon>
-      XML
-    end
-    
-    get "/config/grade_passback.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Grade Passback Demo</blti:title>
-        <blti:description>This tool demos the LTI Outcomes (grade passback) available as part of LTI</blti:description>
-        <blti:launch_url>#{host}/assessment/start</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">grade_passback</lticm:property>
-          <lticm:property name="privacy_level">name_only</lticm:property>
-        </blti:extensions>
-      XML
-    end
-    
-    get "/config/editor_button.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>I Like Fish</blti:title>
-        <blti:description>I'm a big fan of fish, and I want to share the love</blti:description>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">editor_button</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/fish_icon.png</lticm:property>
-            <lticm:property name="text">Pick a Fish</lticm:property>
-            <lticm:property name="selection_width">500</lticm:property>
-            <lticm:property name="selection_height">300</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/fish_icon.png</blti:icon>
-      XML
-    end
-    
-    get "/config/editor_button2.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Placekitten.com</blti:title>
-        <blti:description>Placekitten.com is a quick and simple service for adding pictures of kittens to your site</blti:description>
-        <blti:launch_url>#{host}/tool_redirect</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">editor_button2</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/kitten.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/cat_icon.png</lticm:property>
-            <lticm:property name="text">Insert a Kitten</lticm:property>
-            <lticm:property name="selection_width">500</lticm:property>
-            <lticm:property name="selection_height">400</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/cat_icon.png</blti:icon>
-      XML
-    end
-    
-    get "/config/resource_selection.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>I Like Fish</blti:title>
-        <blti:description>I'm a big fan of fish, and I want to share the love</blti:description>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">resource_selection</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/name.html')}</lticm:property>
-            <lticm:property name="text">Pick a Fish Name</lticm:property>
-            <lticm:property name="selection_width">500</lticm:property>
-            <lticm:property name="selection_height">300</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-      XML
-    end
-    
-    get "/config/editor_button_and_resource_selection.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>I Like Fish</blti:title>
-        <blti:description>I'm a big fan of fish, and I want to share the love</blti:description>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">editor_button_and_resource_selection</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/images.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/fish_icon.png</lticm:property>
-            <lticm:property name="text">Pick a Fish</lticm:property>
-            <lticm:property name="selection_width">500</lticm:property>
-            <lticm:property name="selection_height">300</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/name.html')}</lticm:property>
-            <lticm:property name="text">Pick a Fish Name</lticm:property>
-            <lticm:property name="selection_width">500</lticm:property>
-            <lticm:property name="selection_height">300</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-      XML
-    end
-    
+    # The following routes are *mostly* just for backwards compatibility
     get "/config/inline_graph.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Embeddable Graphs</blti:title>
-        <blti:description>This tool allows for the creation and insertion of rich, interactive graphs.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/graph.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">inline_graph</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/graph.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/graph.tk/favicon.png</lticm:property>
-            <lticm:property name="text">Embed Graph</lticm:property>
-            <lticm:property name="selection_width">780</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/graph.html')}</lticm:property>
-            <lticm:property name="text">Embed Graph</lticm:property>
-            <lticm:property name="selection_width">780</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/graph.tk/favicon.png</blti:icon>
-      XML
+      open_launch(:graph_builder)
     end
     
     get "/config/data_tool.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>#{params['name']}</blti:title>
-        <blti:description>#{params['description']}</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=' + params['id'])}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">#{params['id']}</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=' + params['id'])}</lticm:property>
-            <lticm:property name="icon_url">#{params['icon_url']}</lticm:property>
-            <lticm:property name="text">#{params['name']}</lticm:property>
-            <lticm:property name="selection_width">740</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=' + params['id'])}</lticm:property>
-            <lticm:property name="text">#{params['name']}</lticm:property>
-            <lticm:property name="selection_width">740</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{params['icon_url']}</blti:icon>
-      XML
+      data_launch params['id']
     end
     
     get "/config/khan_academy.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Khan Academy Videos</blti:title>
-        <blti:description>Search for and insert links to Khan Academy lecture videos.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/khan.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">khan_academy</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/khan.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/khan.png</lticm:property>
-            <lticm:property name="text">Find Khan Academy Video</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/khan.html')}</lticm:property>
-            <lticm:property name="text">Find Khan Academy Video</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/khan.png</blti:icon>
-      XML
+      open_launch(:khan_academy)
     end
     
     get "/config/schooltube.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>SchoolTube Videos</blti:title>
-        <blti:description>Search for and insert links to SchoolTube-hosted videos.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/schooltube.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">schooltube</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/schooltube.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/schooltube.png</lticm:property>
-            <lticm:property name="text">SchoolTube Video</lticm:property>
-            <lticm:property name="selection_width">660</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/schooltube.html')}</lticm:property>
-            <lticm:property name="text">SchoolTube Video</lticm:property>
-            <lticm:property name="selection_width">660</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/schooltube.png</blti:icon>
-      XML
+      open_launch(:schooltube)
     end
     
     get "/config/wikipedia.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Wikipedia Articles</blti:title>
-        <blti:description>Search for and insert links to Wikipedia articles.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/wikipedia.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">wikipedia</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wikipedia.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/wikipedia.png</lticm:property>
-            <lticm:property name="text">Wikipedia Articles</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wikipedia.html')}</lticm:property>
-            <lticm:property name="text">Wikipedia Articles</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/wikipedia.png</blti:icon>
-      XML
+      open_launch(:wikipedia)
     end
     
     get "/config/wiktionary.xml" do
       # TODO: fix for non-embed tools
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Wiktionary Definitions</blti:title>
-        <blti:description>Search for and insert definitions from Wiktionary.</blti:description>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">wiktionary</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wiktionary.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/wikipedia.png</lticm:property>
-            <lticm:property name="text">Wiktionary Definitions</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wiktionary.html')}</lticm:property>
-            <lticm:property name="text">Wiktionary Definitions</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/wikipedia.png</blti:icon>
-      XML
+      open_launch :wiktionary
     end
     
     get "/config/ted_ed.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>TED Ed Videos</blti:title>
-        <blti:description>Search for and insert links to high quality instructional videos from TED Ed.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/ted_ed.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">ted_ed</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/ted_ed.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/ted_ed.png</lticm:property>
-            <lticm:property name="text">TED Ed Video</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/ted_ed.html')}</lticm:property>
-            <lticm:property name="text">TED Ed Video</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/ted_ed.png</blti:icon>
-      XML
-    end
-    get "/config/youtube.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>YouTube Videos</blti:title>
-        <blti:description>Search for and insert links to videos hosted on YouTube.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/youtube.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">youtube</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/youtube.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/youtube.png</lticm:property>
-            <lticm:property name="text">YouTube Video</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/youtube.html')}</lticm:property>
-            <lticm:property name="text">YouTube Video</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/youtube.png</blti:icon>
-      XML
-    end
-    get "/config/youtube_user.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      return "Channel name required" unless params['user_name']
-      user_name = params['user_name']
-      user_title = params['user_title'] || user_name
-      config_wrap <<-XML
-        <blti:title>YouTube Search: #{user_title}</blti:title>
-        <blti:description>Search for and insert links to videos hosted on the #{user_title} channel of YouTube.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape("/youtube_user.html?user_name=#{user_name}&user_title=#{user_title}")}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">youtube</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape("/youtube_user.html?user_name=#{user_name}&user_title=#{user_title}")}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/youtube.png</lticm:property>
-            <lticm:property name="text">#{user_title}</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape("/youtube_user.html?user_name=#{user_name}&user_title=#{user_title}")}</lticm:property>
-            <lticm:property name="text">#{user_title}</lticm:property>
-            <lticm:property name="selection_width">590</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/youtube.png</blti:icon>
-      XML
-    end
-    get "/config/youtube_edu.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>YouTube for Schools</blti:title>
-        <blti:description>Browse and insert links to edu-centric videos hosted on YouTube.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/youtube_edu.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">youtube_edu</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/youtube_edu.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/youtube.png</lticm:property>
-            <lticm:property name="text">YouTube for Schools</lticm:property>
-            <lticm:property name="selection_width">600</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/youtube_edu.html')}</lticm:property>
-            <lticm:property name="text">YouTube for Schools</lticm:property>
-            <lticm:property name="selection_width">600</lticm:property>
-            <lticm:property name="selection_height">450</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/youtube.png</blti:icon>
-      XML
+      open_launch :ted_ed
     end
     
+    get "/config/youtube.xml" do
+      open_launch :youtube
+    end
+    
+    get "/config/youtube_upload.xml" do
+      open_launch :youtube_upload
+    end
+    
+    get "/config/youtube_user.xml" do
+      config_launch :youtube_user
+    end
+    
+    get "/config/youtube_edu.xml" do
+      open_launch :youtube_edu
+    end
     
     get "/config/quizlet.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Quizlet Flash Cards</blti:title>
-        <blti:description>Search for and insert publicly available flash card sets from quizlet.com</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/quizlet.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">quizlet</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/quizlet.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/quizlet.png</lticm:property>
-            <lticm:property name="text">Embed Quizlet Flash Cards</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">510</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/quizlet.html')}</lticm:property>
-            <lticm:property name="text">Embed Quizlet Flash Cards</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">510</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/quizlet.png</blti:icon>
-      XML
+      open_launch :quizlet
     end
     
     get "/config/pinterest.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Pinterest</blti:title>
-        <blti:description>Search for images and resources linked to on Pinterest</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/pinterest.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">pinterest</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/pinterest.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/pinterest.png</lticm:property>
-            <lticm:property name="text">Pinterest</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">510</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/pinterest.html')}</lticm:property>
-            <lticm:property name="text">Pinterest</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">510</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/pinterest.png</blti:icon>
-      XML
+      open_launch :pinterest
     end
     
     get "/config/slideshare.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Slideshare CC Slideshows</blti:title>
-        <blti:description>Search for and link to or embed Creative Commons-licensed presentations</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/slideshare.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">slideshare</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/slideshare.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/slideshare.png</lticm:property>
-            <lticm:property name="text">Slideshare CC</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/slideshare.html')}</lticm:property>
-            <lticm:property name="text">Slideshare CC</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/slideshare.png</blti:icon>
-      XML
+      open_launch :slideshare
     end
     
     get "/config/tools.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Public Resource Libraries</blti:title>
-        <blti:description>Collection of resources from multiple sources, including Kahn Academy, Quizlet, etc.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">tools</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/tools.png</lticm:property>
-            <lticm:property name="text">Search Resource Libraries</lticm:property>
-            <lticm:property name="selection_width">800</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html')}</lticm:property>
-            <lticm:property name="text">Search Resource Libraries</lticm:property>
-            <lticm:property name="selection_width">800</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/tools.png</blti:icon>
-      XML
-    end
-    
-    get "/config/merlot.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Merlot</blti:title>
-        <blti:description>Collection of multimedia resources collected and curated by MERLOT.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=merlot')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">merlot</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=merlot')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/merlot.png</lticm:property>
-            <lticm:property name="text">Merlot</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=merlot')}</lticm:property>
-            <lticm:property name="text">Merlot</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/merlot.png</blti:icon>
-      XML
-    end
-    
-    get "/config/mathalicious.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Mathalicious</blti:title>
-        <blti:description>Collection of standards-based math videos based on real-world story problems.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=mathalicious')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">mathalicious</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=mathalicious')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/mathalicious.png</lticm:property>
-            <lticm:property name="text">Mathalicious</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=mathalicious')}</lticm:property>
-            <lticm:property name="text">Mathalicious</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/mathalicious.png</blti:icon>
-      XML
-    end
-    
-    get "/config/ck12.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>CK-12</blti:title>
-        <blti:description>Collection of free, open, user-modifiable textbooks for K-12</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=ck12')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">ck12</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=ck12')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/ck12.png</lticm:property>
-            <lticm:property name="text">CK-12</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=ck12')}</lticm:property>
-            <lticm:property name="text">CK-12</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/ck12.png</blti:icon>
-      XML
+      open_launch :public_collections
     end
     
     get "/config/gooru.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Gooru Learning</blti:title>
-        <blti:description>Library of searchable, open and public learning collections</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/gooru.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">gooru</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/gooru.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/gooru.png</lticm:property>
-            <lticm:property name="text">Gooru Learning</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/gooru.html')}</lticm:property>
-            <lticm:property name="text">Gooru Learning</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/gooru.png</blti:icon>
-      XML
-    end
-    
-    get "/config/smarterer.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Smarterer</blti:title>
-        <blti:description>Crowdsources quizzes.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=smarterer')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">smarterer</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=smarterer')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/smarterer.png</lticm:property>
-            <lticm:property name="text">Smarterer</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=smarterer')}</lticm:property>
-            <lticm:property name="text">Smarterer</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/smarterer.png</blti:icon>
-      XML
-    end
-    
-    get "/config/studyegg.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>StudyEgg</blti:title>
-        <blti:description>Dynamic learning paths through open content</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=studyegg')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">studyegg</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=studyegg')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/studyegg.png</lticm:property>
-            <lticm:property name="text">Smarterer</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/tools.html?tool=studyegg')}</lticm:property>
-            <lticm:property name="text">Smarterer</lticm:property>
-            <lticm:property name="selection_width">700</lticm:property>
-            <lticm:property name="selection_height">550</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/studyegg.png</blti:icon>
-      XML
+      open_launch :gooru
     end
     
     get "/config/titanpad.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>TitanPad (adding to modules)</blti:title>
-        <blti:description>Allow inserting TitanPad links into modules</blti:description>
-        <blti:launch_url>#{host}/titanpad</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">titanpad</lticm:property>
-          <lticm:property name="privacy_level">name_only</lticm:property>
-        </blti:extensions>
-      XML
-    end
-    
-    get "/config/titanpad_course_nav.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>TitanPad (adding to modules)</blti:title>
-        <blti:description>Allow inserting TitanPad links into modules</blti:description>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">titanpad_course_nav</lticm:property>
-          <lticm:property name="privacy_level">name_only</lticm:property>
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">#{host}/titanpad</lticm:property>
-            <lticm:property name="text">TitanPad </lticm:property>
-          </lticm:options>
-        </blti:extensions>
-      XML
+      config_launch :titanpad
     end
     
     get "/config/speeqe.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Speeqe</blti:title>
-        <blti:description>Add course navigation to allow a Speeqe chat room to your courses.</blti:description>
-        <blti:launch_url>#{host}/speeqe</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">speeqe</lticm:property>
-          <lticm:property name="privacy_level">name_only</lticm:property>
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">#{host}/speeqe</lticm:property>
-            <lticm:property name="text">Speeqe Chat</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-      XML
+      config_launch :speeqe
     end
     
     get "/config/twitter.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Twitter List</blti:title>
-        <blti:description>Embed a list of tweets based on search results or a user's profile</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/twitter.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">twitter</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/twitter.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/twitter.png</lticm:property>
-            <lticm:property name="text">Twitter List</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/twitter.html')}</lticm:property>
-            <lticm:property name="text">Twitter List</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/twitter.png</blti:icon>
-      XML
+      open_launch :twitter
     end
     
     get "/config/wolfram.xml" do
-      # TODO: fix for non-embed platforms
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Wolfram Alpha Search</blti:title>
-        <blti:description>Insert links to Wolfram Alpha search results</blti:description>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">wolfram</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wolfram.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/wolfram.png</lticm:property>
-            <lticm:property name="text">Wolfram Alpha</lticm:property>
-            <lticm:property name="selection_width">400</lticm:property>
-            <lticm:property name="selection_height">150</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/wolfram.html')}</lticm:property>
-            <lticm:property name="text">Wolfram Alpha</lticm:property>
-            <lticm:property name="selection_width">400</lticm:property>
-            <lticm:property name="selection_height">150</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/wolfram.png</blti:icon>
-      XML
+      open_launch :wolfram
     end
     
     get "/config/archive.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Internet Archive</blti:title>
-        <blti:description>Search public domain videos, audio files, books, images, etc. on archive.org.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/archive.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">archive</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/archive.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/archive.png</lticm:property>
-            <lticm:property name="text">Internet Archive</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/archive.html')}</lticm:property>
-            <lticm:property name="text">Internet Archive</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/archive.png</blti:icon>
-      XML
+      open_launch :archive
     end
     
     get "/config/usa_today.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>USA Today</blti:title>
-        <blti:description>Search for and link to articles from the USA Today archives.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/usatoday.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">usa_today</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/usatoday.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/usa_today.png</lticm:property>
-            <lticm:property name="text">USA Today</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/usatoday.html')}</lticm:property>
-            <lticm:property name="text">USA Today</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/usa_today.png</blti:icon>
-      XML
+      open_launch :usa_today
     end
     
     get "/config/nytimes.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>New York Times</blti:title>
-        <blti:description>Search for and link to articles from the New York Times archives.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/nytimes.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">nytimes</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/nytimes.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/nytimes.png</lticm:property>
-            <lticm:property name="text">New Tork Times</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/nytimes.html')}</lticm:property>
-            <lticm:property name="text">New York Times</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/nytimes.png</blti:icon>
-      XML
+      open_launch :nytimes
     end
     
     get "/config/storify.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Storify</blti:title>
-        <blti:description>Search publicly available "social stories" from storify.com</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/storify.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">storify</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/storify.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/storify.png</lticm:property>
-            <lticm:property name="text">Internet Archive</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/storify.html')}</lticm:property>
-            <lticm:property name="text">Internet Archive</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/storify.png</blti:icon>
-      XML
+      open_launch :storify
     end
     
     get "/config/ocw_search.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>OCW Search</blti:title>
-        <blti:description>Search freely available online university courses and course content</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/ocw_search.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">ocw_search</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/ocw_search.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/ocw_search.png</lticm:property>
-            <lticm:property name="text">OCW Search</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/ocw_search.html')}</lticm:property>
-            <lticm:property name="text">OCW Search</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/ocw_search.png</blti:icon>
-      XML
+      open_launch :ocw_search
     end
     
     get "/config/connexions.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Connexions</blti:title>
-        <blti:description>Search publicly available courses, modules, etc.</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('/connexions.html')}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">connexions</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-          <lticm:options name="editor_button">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/connexions.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/connexions.png</lticm:property>
-            <lticm:property name="text">Connexions</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-          <lticm:options name="resource_selection">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('/connexions.html')}</lticm:property>
-            <lticm:property name="icon_url">#{host}/icons/connexions.png</lticm:property>
-            <lticm:property name="text">Connexions</lticm:property>
-            <lticm:property name="selection_width">690</lticm:property>
-            <lticm:property name="selection_height">530</lticm:property>
-          </lticm:options>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/connexions.png</blti:icon>
-      XML
+      open_launch :connexions
     end
     
     get "/config/piazza.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      xml =  <<-XML
-        <blti:title>Piazza</blti:title>
-        <blti:description>This tool allows you to add the Piazza discussion tool to your course.</blti:description>
-        <blti:launch_url>https://piazza.com/basic_lti</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">piazza</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">https://piazza.com/basic_lti</lticm:property>
-            <lticm:property name="text">Piazza</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-      XML
-      config_wrap(xml)
+      config_launch :piazza
     end
     
     get "/config/redirect.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      return "url required" if !params['url'] || params['url'] == ''
-      url = params['url']
-      name = params['name'] if params['name'] != ''
-      name ||= "Redirect"
-      headers 'Content-Type' => 'text/xml'
-      xml =  <<-XML
-        <blti:title>#{name}</blti:title>
-        <blti:description>This tool redirects users to the URL: #{url}</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape(url)}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">redirect</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape(url)}</lticm:property>
-            <lticm:property name="text">#{name}</lticm:property>
-          </lticm:options>
-        XML
-      end
-      if params['user_nav']
-        xml +=  <<-XML
-          <lticm:options name="user_navigation">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape(url)}</lticm:property>
-            <lticm:property name="text">#{name}</lticm:property>
-          </lticm:options>
-        XML
-      end
-      if params['account_nav']
-        xml +=  <<-XML
-          <lticm:options name="account_navigation">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape(url)}</lticm:property>
-            <lticm:property name="text">#{name}</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-      XML
-      config_wrap(xml)
+      config_launch :redirect
     end
     
     get "/config/wordpress.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      return "url required" if !params['site_url'] || params['site_url'] == ''
-      headers 'Content-Type' => 'text/xml'
-      xml =  <<-XML
-        <blti:title>WordPress</blti:title>
-        <blti:description>Launch WordPress blogs</blti:description>
-        <blti:launch_url>#{params['site_url']}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">wordpress</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">#{params['site_url']}</lticm:property>
-            <lticm:property name="text">WordPress</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-        <blti:icon>#{host}/icons/wordpress.png</blti:icon>
-      XML
-      config_wrap(xml)
+      config_launch :wordpress
     end
     
     get "/config/status_net.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      return "url required" if !params['site_url'] || params['site_url'] == ''
-      headers 'Content-Type' => 'text/xml'
-      xml =  <<-XML
-        <blti:title>Status.net</blti:title>
-        <blti:description>Launch Status.net microblogging tool</blti:description>
-        <blti:launch_url>#{params['site_url']}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">status_net</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">#{params['site_url']}</lticm:property>
-            <lticm:property name="text">Status.net</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-        <blti:icon>#{host}/icons/status_net.png</blti:icon>
-      XML
-      config_wrap(xml)
+      config_launch :status_net
     end
     
     get "/config/vanilla.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      return "url required" if !params['site_url'] || params['site_url'] == ''
-      headers 'Content-Type' => 'text/xml'
-      xml =  <<-XML
-        <blti:title>Vanilla Forums</blti:title>
-        <blti:description>Launch Vanilla community forums tool</blti:description>
-        <blti:launch_url>#{params['site_url']}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">vanilla</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">#{params['site_url']}</lticm:property>
-            <lticm:property name="text">Vanilla</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-        <blti:icon>#{host}/icons/vanilla.png</blti:icon>
-      XML
-      config_wrap(xml)
+      config_launch :vanilla
     end
     
     get "/config/question_mark.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      return "url required" if !params['site_url'] || params['site_url'] == ''
-      headers 'Content-Type' => 'text/xml'
-      xml =  <<-XML
-        <blti:title>QuestionMark</blti:title>
-        <blti:description>Launch QuestionMark assessment</blti:description>
-        <blti:launch_url>#{params['site_url']}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">question_mark</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/question_mark.png</blti:icon>
-      XML
-      config_wrap(xml)
+      config_launch :question_mark
     end
     
     get "/config/web_pa.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      return "url required" if !params['site_url'] || params['site_url'] == ''
-      headers 'Content-Type' => 'text/xml'
-      xml =  <<-XML
-        <blti:title>WebPA</blti:title>
-        <blti:description>Launch WebPA peer assessment tool</blti:description>
-        <blti:launch_url>#{params['site_url']}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">web_pa</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/web_pa.png</blti:icon>
-      XML
-      config_wrap(xml)
+      config_launch :web_pa
     end
     
     get "/config/mahara.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      return "url required" if !params['site_url'] || params['site_url'] == ''
-      headers 'Content-Type' => 'text/xml'
-      xml =  <<-XML
-        <blti:title>Mahara</blti:title>
-        <blti:description>Launch Mahara ePortfolio and Social Networking tool</blti:description>
-        <blti:launch_url>#{params['site_url']}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">mahara</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">#{params['site_url']}</lticm:property>
-            <lticm:property name="text">Mahara</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-        <blti:icon>#{host}/icons/mahara.png</blti:icon>
-      XML
-      config_wrap(xml)
+      config_launch :mahara
     end
     
     get "/config/question2answer.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      return "url required" if !params['site_url'] || params['site_url'] == ''
-      headers 'Content-Type' => 'text/xml'
-      xml =  <<-XML
-        <blti:title>Question2Answer</blti:title>
-        <blti:description>Launch Question2Answer answers site</blti:description>
-        <blti:launch_url>#{params['site_url']}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">question2answer</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">#{params['site_url']}</lticm:property>
-            <lticm:property name="text">Question2Answer</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-        <blti:icon>#{host}/icons/question2answer.png</blti:icon>
-      XML
-      config_wrap(xml)
+      config_launch :question2answer
     end
     
     get "/config/panopto.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      return "domain required" if !params['domain'] || params['domain'] == ''
-      xml =  <<-XML
-        <blti:title>Panopto</blti:title>
-        <blti:description>Panopto is a lecture capture solution</blti:description>
-        <blti:launch_url>https://#{params['domain']}.hosted.panopto.com/Panopto/BasicLTI/BasicLTILanding.aspx</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">panopto</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">https://#{params['domain']}.hosted.panopto.com/Panopto/BasicLTI/BasicLTILanding.aspx</lticm:property>
-            <lticm:property name="text">Panopto</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-      XML
-      config_wrap(xml)
+      config_launch :panopto
     end
     
     get "/config/inigral.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      return "app name required" if !params['app_name'] || params['app_name'] == ''
-      xml =  <<-XML
-        <blti:title>Inigral Schools App</blti:title>
-        <blti:description>Schools App is a private social network for your college or university</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('https://apps.facebook.com/' + params['app_name'])}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">inigral</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-      XML
-      if params['user_nav']
-        xml +=  <<-XML
-          <lticm:options name="user_navigation">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('https://apps.facebook.com/' + params['app_name'])}</lticm:property>
-            <lticm:property name="text">Schools App</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-        <blti:icon>#{host}/icons/inigral.png</blti:icon>
-      XML
-      config_wrap(xml)
+      config_launch :inigral
     end
     
     get "/config/hoot_me.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      return "School Name" if !params['school_name'] || params['school_name'] == ''
-      xml =  <<-XML
-        <blti:title>Hoot.me</blti:title>
-        <blti:description>Launch hoot.me's Facebook study tools</blti:description>
-        <blti:launch_url>#{host}/tool_redirect?url=#{CGI.escape('https://app.hoot.me/?status=' + params['school_name'])}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">hoot_me</lticm:property>
-          <lticm:property name="privacy_level">anonymous</lticm:property>
-      XML
-      if params['user_nav']
-        xml +=  <<-XML
-          <lticm:options name="user_navigation">
-            <lticm:property name="url">#{host}/tool_redirect?url=#{CGI.escape('https://apps.facebook.com/hootapp/?status=' + params['school_name'])}</lticm:property>
-            <lticm:property name="text">Hoot.me</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-        <blti:icon>#{host}/icons/hoot_me.png</blti:icon>
-      XML
-      config_wrap(xml)
+      config_launch :hoot_me
     end
     
     get "/config/cengage.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      config_wrap <<-XML
-        <blti:title>Cengage MindLinks</blti:title>
-        <blti:description>Build and link to rich interactive learning resources</blti:description>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">cengage</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-          <lticm:property name="domain">gateway.cengage.com</lticm:property>
-        </blti:extensions>
-        <blti:icon>#{host}/icons/cengage.png</blti:icon>
-      XML
+      config_launch :cengage
     end
     
     get "/config/campus_pack.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      return "domain required" if !params['domain'] || params['domain'] == ''
-      long_type = "Collaboration Space"
-      if params['type'] == 'wiki'
-        long_type = 'Wiki'
-      elsif params['type'] == 'blog'
-        long_type = 'Blog'
-      elsif params['type'] == 'journal'
-        long_type = 'Journal'
-      elsif params['type'] == 'podcast'
-        long_type = 'Podcast'
-      else
-        params['type'] = nil
-      end
-      xml =  <<-XML
-        <blti:title>Campus Pack</blti:title>
-        <blti:description>Campus Pack #{long_type} - Learning Objects, Inc.</blti:description>
-        <blti:launch_url>https://#{params['domain']}.learningobjects.com/control/lti#{params['type'] && ("?custom_request_type=" + params['type'])}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">campus_pack</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">https://#{params['domain']}.learningobjects.com/control/lti#{params['type'] && ("?custom_request_type=" + params['type'])}</lticm:property>
-            <lticm:property name="text">#{long_type}</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-      XML
-      config_wrap(xml)
+      custom_launch :campus_pack
     end
     
     get "/config/bb_collaborate.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      options = {
-        'default' =>      ['https://lti.bbcollab.com/collaborate/webconferencing/', 'Collaborate'],
-        'voiceboard' =>   ['https://lti.bbcollab.com/collaborate/voice/board', 'Voice Board'],
-        'podcaster' =>    ['https://lti.bbcollab.com/collaborate/voice/podcaster/', 'Podcaster'],
-        'presentation' => ['https://lti.bbcollab.com/collaborate/voice/presentation', 'Presentation']
-      }
-      url, name = options[params['type'] || ''] || options['default']
-      xml =  <<-XML
-        <blti:title>Bb Collaborate - #{name}</blti:title>
-        <blti:description>Blackboard Collaborate #{name}</blti:description>
-        <blti:launch_url>#{url}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">bb_collaborate</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">#{url}</lticm:property>
-            <lticm:property name="text">#{name}</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-      XML
-      config_wrap(xml)
+      custom_launch :bb_collaborate
     end
     
     get "/config/noteflight.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      return "domain required" if !params['domain'] || params['domain'] == ''
-      xml =  <<-XML
-        <blti:title>Noteflight</blti:title>
-        <blti:description>Build musical annotations on the web.</blti:description>
-        <blti:launch_url>http://#{params['domain']}.noteflight.com/</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">noteflight</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-        </blti:extensions>
-      XML
-      config_wrap(xml)
+      config_launch :noteflight
     end
     
     get "/config/plato.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      return "domain required" if !params['domain'] || params['domain'] == ''
-      xml =  <<-XML
-        <blti:title>PLATO</blti:title>
-        <blti:description>Embed rich, interactive, standards-based learning resources.</blti:description>
-        <blti:launch_url>https://#{params['domain']}/oauth/launch</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">plato</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-        </blti:extensions>
-      XML
-      config_wrap(xml)
+      config_launch :plato
     end
     
     get "/config/elgg.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      return "domain required" if !params['domain'] || params['domain'] == ''
-      xml =  <<-XML
-        <blti:title>Elgg</blti:title>
-        <blti:description>Elgg is an open source social network</blti:description>
-        <blti:launch_url>https://#{params['domain'].sub(/\/$/, '')}/pg/blti/</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">elgg</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">https://#{params['domain'].sub(/\/$/, '')}/pg/blti/</lticm:property>
-            <lticm:property name="text">Elgg</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-      XML
-      config_wrap(xml)
+      config_launch :elgg
     end
     
     get "/config/drupal.xml" do
-      host = request.scheme + "://" + request.host_with_port
-      headers 'Content-Type' => 'text/xml'
-      return "site url required" if !params['site_url'] || params['site_url'] == ''
-      name = "Drupal"
-      name += " - #{params['link_name']}" if params['link_name'] && params['link_name'] != 'Drupal'
-      xml =  <<-XML
-        <blti:title>#{name}</blti:title>
-        <blti:description>Open source content management system</blti:description>
-        <blti:launch_url>#{params['site_url']}</blti:launch_url>
-        <blti:extensions platform="canvas.instructure.com">
-          <lticm:property name="tool_id">drupal</lticm:property>
-          <lticm:property name="privacy_level">public</lticm:property>
-      XML
-      if params['course_nav']
-        xml +=  <<-XML
-          <lticm:options name="course_navigation">
-            <lticm:property name="url">#{params['site_url']}</lticm:property>
-            <lticm:property name="text">#{params['link_name'] || 'Drupal'}</lticm:property>
-          </lticm:options>
-        XML
-      end
-      xml +=  <<-XML
-        </blti:extensions>
-      XML
-      config_wrap(xml)
+      custom_launch :drupal
     end
+    
+    # Configuration Examples
+    get "/config/course_navigation.xml" do
+      headers 'Content-Type' => 'text/xml'
+      erb :"examples/course_navigation"
+    end
+    
+    get "/config/account_navigation.xml" do
+      headers 'Content-Type' => 'text/xml'
+      erb :"examples/account_navigation"
+    end
+    
+    get "/config/user_navigation.xml" do
+      headers 'Content-Type' => 'text/xml'
+      erb :"examples/user_navigation"
+    end
+    
+    get "/config/grade_passback.xml" do
+      headers 'Content-Type' => 'text/xml'
+      erb :"examples/grade_passback"
+    end
+    
+    get "/config/editor_button.xml" do
+      headers 'Content-Type' => 'text/xml'
+      erb :"examples/editor_button"
+    end
+    
+    get "/config/editor_button2.xml" do
+      headers 'Content-Type' => 'text/xml'
+      erb :"examples/editor_button2"
+    end
+    
+    get "/config/resource_selection.xml" do
+      headers 'Content-Type' => 'text/xml'
+      erb :"examples/resource_selection"
+    end
+    
+    get "/config/editor_button_and_resource_selection.xml" do
+      headers 'Content-Type' => 'text/xml'
+      erb :"examples/editor_button_and_resource_selection"
+    end
+    
+    helpers do
+      def host
+        request.scheme + "://" + request.host_with_port
+      end
+      
+      def load_app(id)
+        return if @app && @app['id'] == id.to_s
+        @app = JSON.parse(File.read('./public/data/lti_examples.json')).detect{|a| a['id'] == id.to_s }
+        @id = id
+        @app_name = app['name']
+        @app_desc = app['short_description'] || app['description'].split("<br/>")[0]
+      end
+      
+      def data_launch(id)
+        headers 'Content-Type' => 'text/xml'
+        load_app(id)
+        @width = 740
+        @height = 450
+        @link_name = @name
+        erb :"data_launch"
+      end
+      
+      def open_launch(id, args={})
+        headers 'Content-Type' => 'text/xml'
+        load_app(id)
+        @width = @app['width'] || 700
+        @height = @app['height'] || 400
+        @link_name = @app['link_name'] || @name
+        @no_launch = @app['launch'] == false
+        erb :"open_launch"
+      end
+      
+      def config_launch(id)
+        load_app(id)
+        required_params = (@app['config_options'] || []).select{|o| o['required'] }.map{|o| o['name'] }
+        required_params.each do |param|
+          return "#{param} required" if !params[param] || params[param] == ''
+        end
+        headers 'Content-Type' => 'text/xml'
+        erb "tools/#{id}/config".to_sym
+      end
+      
+      def custom_launch(id)
+        headers 'Content-Type' => 'text/xml'
+        erb :"tools/#{id}/config"
+      end
+    end
+    
   end 
   register ConfigXML
 end

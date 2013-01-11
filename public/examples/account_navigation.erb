@@ -1,0 +1,9 @@
+<blti:title>Account Phil Fish</blti:title>
+<blti:description>This tool adds an account navigation link to a page on a fish named "Phil"</blti:description>
+<blti:extensions platform="canvas.instructure.com">
+  <lticm:property name="privacy_level">anonymous</lticm:property>
+  <lticm:options name="account_navigation">
+    <lticm:property name="url"><%= host %>/tool_redirect?url=<%= CGI.escape('/images.html?custom_fish_name=phil') %></lticm:property>
+    <lticm:property name="text">Account Phil Fish</lticm:property>
+  </lticm:options>
+</blti:extensions>
