@@ -2,7 +2,6 @@ require 'sinatra/base'
 
 module Sinatra
   module ConfigXML
-    set :views, settings.root + '/public'
     
     # Catchall
     get "/tools/:tool_id/config.xml" do
@@ -204,42 +203,42 @@ module Sinatra
     # Configuration Examples
     get "/config/course_navigation.xml" do
       headers 'Content-Type' => 'text/xml'
-      erb :"examples/course_navigation"
+      erb :"examples/course_navigation", :layout => :xml_layout
     end
     
     get "/config/account_navigation.xml" do
       headers 'Content-Type' => 'text/xml'
-      erb :"examples/account_navigation"
+      erb :"examples/account_navigation", :layout => :xml_layout
     end
     
     get "/config/user_navigation.xml" do
       headers 'Content-Type' => 'text/xml'
-      erb :"examples/user_navigation"
+      erb :"examples/user_navigation", :layout => :xml_layout
     end
     
     get "/config/grade_passback.xml" do
       headers 'Content-Type' => 'text/xml'
-      erb :"examples/grade_passback"
+      erb :"examples/grade_passback", :layout => :xml_layout
     end
     
     get "/config/editor_button.xml" do
       headers 'Content-Type' => 'text/xml'
-      erb :"examples/editor_button"
+      erb :"examples/editor_button", :layout => :xml_layout
     end
     
     get "/config/editor_button2.xml" do
       headers 'Content-Type' => 'text/xml'
-      erb :"examples/editor_button2"
+      erb :"examples/editor_button2", :layout => :xml_layout
     end
     
     get "/config/resource_selection.xml" do
       headers 'Content-Type' => 'text/xml'
-      erb :"examples/resource_selection"
+      erb :"examples/resource_selection", :layout => :xml_layout
     end
     
     get "/config/editor_button_and_resource_selection.xml" do
       headers 'Content-Type' => 'text/xml'
-      erb :"examples/editor_button_and_resource_selection"
+      erb :"examples/editor_button_and_resource_selection", :layout => :xml_layout
     end
     
     helpers do
@@ -261,7 +260,7 @@ module Sinatra
         @width = 740
         @height = 450
         @link_name = @name
-        erb :"data_launch"
+        erb :"data_launch", :layout => :xml_layout
       end
       
       def open_launch(id, args={})
@@ -271,7 +270,7 @@ module Sinatra
         @height = @app['height'] || 400
         @link_name = @app['link_name'] || @name
         @no_launch = @app['launch'] == false
-        erb :"open_launch"
+        erb :"open_launch", :layout => :xml_layout
       end
       
       def config_launch(id)
@@ -281,12 +280,12 @@ module Sinatra
           return "#{param} required" if !params[param] || params[param] == ''
         end
         headers 'Content-Type' => 'text/xml'
-        erb "tools/#{id}/config".to_sym
+        erb "tools/#{id}/config".to_sym, :layout => :xml_layout
       end
       
       def custom_launch(id)
         headers 'Content-Type' => 'text/xml'
-        erb :"tools/#{id}/config"
+        erb :"tools/#{id}/config", :layout => :xml_layout
       end
     end
     

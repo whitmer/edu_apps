@@ -20,6 +20,21 @@ class ExternalAccessToken
   property :active, Boolean
 end
 
+class AdminPermission
+  include DataMapper::Resource
+  property :id, Serial
+  property :username, String, :length => 256
+  property :apps, String, :length => 1024
+  
+  def to_json
+    {
+      :id => self.id,
+      :username => self.username,
+      :apps => self.apps
+    }.to_json
+  end
+end
+
 class LaunchRedirect
   include DataMapper::Resource
   property :id, Serial

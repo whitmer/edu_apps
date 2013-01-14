@@ -21,7 +21,11 @@ $(function() {
       $identity
         .append($("<img/>", 
           {'src': "https://api.twitter.com/1/users/profile_image/" + user_key}))
-        .append("<span>" + user_key + " |&nbsp;</span>")
+        .append("<span>" + user_key + " |&nbsp;</span>");
+      if($.store.get('admin')) {
+        $identity.append("<a href='/admin'>Admin</a> |&nbsp;")
+      }
+      $identity
         .append("<a href='/logout' class='logout'>Logout</a>");
     }
     $div.append($identity);
@@ -29,6 +33,7 @@ $(function() {
   checkForSuggestions();
   $(".logout").live('click', function() {
     $.store.set('user_key', null);
+    $.store.set('admin', null);
     $.store.set('suggestions', null);
   });
   var header = {};
@@ -38,6 +43,7 @@ $(function() {
   $.getJSON('/user_key.json', function(data) {
     $.store.set('user_key', data.user_key);
     $.store.set('suggestions', data.suggestions);
+    $.store.set('admin', data.admin);
     sessionReady();
   });
 });

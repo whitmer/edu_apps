@@ -31,6 +31,8 @@ module Sinatra
       session[:oauth_token] = nil
       session[:oauth_token_secret] = nil
       session[:user_key] = access_token.params['screen_name']
+      permission = AdminPermission.first(:username => "@#{session[:user_key]}")
+      session[:admin] = permission && permission.apps == "any"
       
       redirect to("/?logged_in")
     end
@@ -46,7 +48,8 @@ module Sinatra
       suggestions_config = ExternalConfig.first(:config_type => 'suggestions_form')
       {
         :user_key => session[:user_key],
-        :suggestions => !!suggestions_config
+        :suggestions => !!suggestions_config,
+        :admin => session[:admin]
       }.to_json
     end
     
