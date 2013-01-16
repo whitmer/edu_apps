@@ -865,6 +865,7 @@
       "name": "YouTube Channel",
       "added": "2012-03-22T00:00:00Z",
       "description": "Search publicly available YouTube videos within a specific channel. A new icon will show up in your course rich editor letting you search YouTube and click to embed videos in your course material.<br/><br/>YouTube channel names are found in the URL of the channel (i.e. the channel name for http://www.youtube.com/user/DiscoveryEducation would be DiscoveryEducation).",
+      "variable_name": "YouTube Channel - {{ user_title }}",
       "width": 690,
       "height": 530,
       "extensions": ["editor_button", "resource_selection"],

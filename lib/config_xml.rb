@@ -258,39 +258,6 @@ module Sinatra
         @app_desc = app['short_description'] || app['description'].split("<br/>")[0]
       end
       
-      def data_launch(id)
-        headers 'Content-Type' => 'text/xml'
-        load_app(id)
-        @width = 740
-        @height = 450
-        @link_name = @name
-        erb :"data_launch", :layout => :xml_layout
-      end
-      
-      def open_launch(id, args={})
-        headers 'Content-Type' => 'text/xml'
-        load_app(id)
-        @width = @app['width'] || 700
-        @height = @app['height'] || 400
-        @link_name = @app['link_name'] || @name
-        @no_launch = @app['launch'] == false
-        erb :"open_launch", :layout => :xml_layout
-      end
-      
-      def config_launch(id)
-        load_app(id)
-        required_params = (@app['config_options'] || []).select{|o| o['required'] }.map{|o| o['name'] }
-        required_params.each do |param|
-          return "#{param} required" if !params[param] || params[param] == ''
-        end
-        headers 'Content-Type' => 'text/xml'
-        erb "tools/#{id}/config".to_sym, :layout => :xml_layout
-      end
-      
-      def custom_launch(id)
-        headers 'Content-Type' => 'text/xml'
-        erb :"tools/#{id}/config", :layout => :xml_layout
-      end
     end
     
   end 

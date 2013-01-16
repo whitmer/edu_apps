@@ -39,10 +39,6 @@ class LTIExample < Sinatra::Application
   # the user takes assessments
   enable :sessions
   
-  def find_template(views, name, engine, &block)
-    super("./public", name, engine, &block) if File.exist?(File.join("./public", name.to_s + ".erb"))
-    super("./views", name, engine, &block)
-  end  
   get "/" do
     if request.host == 'lti-examples.heroku.com' && !request.ssl?
       redirect to('https://lti-examples.heroku.com/index.html') 
