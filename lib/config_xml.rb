@@ -7,15 +7,15 @@ module Sinatra
     get "/tools/:tool_id/config.xml" do
       load_app(params['tool_id'])
       return "App not found" if !@app
-      if @app['app_type'] == 'data'
-        data_launch params['tool_id']
-      elsif @app['app_type'] == 'open_launch'
-        open_launch params['tool_id']
-      elsif @app['app_type'] == 'custom'
-        custom_launch params['tool_id']
-      else
-        config_launch params['tool_id']
+      (@app['config_options'] || []).each do |args|
+        key = args['name']
+        if args['required'] && !params[key] || params[key] == ''
+          return "Missing required value: #{args['description']}"
+        end
       end
+      @opts = App.config_options(@app, params, host)
+      headers 'Content-Type' => 'text/xml'
+      erb :lti_xml, :layout => false
     end
     
     # The following routes are *mostly* just for backwards compatibility
