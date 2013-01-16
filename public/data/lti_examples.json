@@ -1234,6 +1234,7 @@
       "categories": ["Content"],
       "description": "Drupal is an open source content management system. It's flexible enough to be used for community sites, Q&amp;A services, forums, standard web pages, etc. This LTI app allows auto-login to Drupal sites from another system.<br/><br/><b>Directions for configuring Drupal:</b><ol><li>Follow the directions <a href='http://drupal.org/project/lti_tool_provider'>on the Drupal LTI Tool Provider page</a> to install and configure.</li><li>Be sure to make a note of the consumer key and shared secret.</li><li><a href='http://drupal.org/node/1859658'>More information is available here</a></ol>",
       "launch_url": "{{ site_url }}",
+      "course_nav_link_text": "{{ link_name }}",
       "privacy_level": "public",
       "config_options": [
         {
@@ -1252,12 +1253,12 @@
         {
             "name": "link_name",
             "description": "Navigation Text",
-            "required": true,
             "type": "text",
             "value": "Drupal"
         }
       ],
-      "app_type": "custom"
+      "app_type": "custom",
+      "extensions": ["course_nav"]
     },
     {
       "id": "mahara",

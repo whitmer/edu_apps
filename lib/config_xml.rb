@@ -5,202 +5,192 @@ module Sinatra
     
     # Catchall
     get "/tools/:tool_id/config.xml" do
-      load_app(params['tool_id'])
-      return "App not found" if !@app
-      (@app['config_options'] || []).each do |args|
-        key = args['name']
-        if args['required'] && !params[key] || params[key] == ''
-          return "Missing required value: #{args['description']}"
-        end
-      end
-      @opts = App.config_options(@app, params, host)
-      headers 'Content-Type' => 'text/xml'
-      erb :lti_xml, :layout => false
+      app_config(params['tool_id'])
     end
     
-    # The following routes are *mostly* just for backwards compatibility
+    # The following routes are just for backwards compatibility
     get "/config/inline_graph.xml" do
-      open_launch(:graph_builder)
+      app_config(:graph_builder)
     end
     
     get "/config/data_tool.xml" do
-      data_launch params['id']
+      app_config params['id']
     end
     
     get "/config/khan_academy.xml" do
-      open_launch(:khan_academy)
+      app_config(:khan_academy)
     end
     
     get "/config/schooltube.xml" do
-      open_launch(:schooltube)
+      app_config(:schooltube)
     end
     
     get "/config/wikipedia.xml" do
-      open_launch(:wikipedia)
+      app_config(:wikipedia)
     end
     
     get "/config/wiktionary.xml" do
       # TODO: fix for non-embed tools
-      open_launch :wiktionary
+      app_config :wiktionary
     end
     
     get "/config/ted_ed.xml" do
-      open_launch :ted_ed
+      app_config :ted_ed
     end
     
     get "/config/youtube.xml" do
-      open_launch :youtube
+      app_config :youtube
     end
     
     get "/config/youtube_upload.xml" do
-      open_launch :youtube_upload
+      app_config :youtube_upload
     end
     
     get "/config/youtube_user.xml" do
-      config_launch :youtube_user
+      app_config :youtube_user
     end
     
     get "/config/youtube_edu.xml" do
-      open_launch :youtube_edu
+      app_config :youtube_edu
     end
     
     get "/config/quizlet.xml" do
-      open_launch :quizlet
+      app_config :quizlet
     end
     
     get "/config/pinterest.xml" do
-      open_launch :pinterest
+      app_config :pinterest
     end
     
     get "/config/slideshare.xml" do
-      open_launch :slideshare
+      app_config :slideshare
     end
     
     get "/config/tools.xml" do
-      open_launch :public_collections
+      app_config :public_collections
     end
     
     get "/config/gooru.xml" do
-      open_launch :gooru
+      app_config :gooru
     end
     
     get "/config/titanpad.xml" do
-      config_launch :titanpad
+      app_config :titanpad
     end
     
     get "/config/speeqe.xml" do
-      config_launch :speeqe
+      app_config :speeqe
     end
     
     get "/config/twitter.xml" do
-      open_launch :twitter
+      app_config :twitter
     end
     
     get "/config/wolfram.xml" do
-      open_launch :wolfram
+      app_config :wolfram
     end
     
     get "/config/archive.xml" do
-      open_launch :archive
+      app_config :archive
     end
     
     get "/config/usa_today.xml" do
-      open_launch :usa_today
+      app_config :usa_today
     end
     
     get "/config/nytimes.xml" do
-      open_launch :nytimes
+      app_config :nytimes
     end
     
     get "/config/storify.xml" do
-      open_launch :storify
+      app_config :storify
     end
     
     get "/config/ocw_search.xml" do
-      open_launch :ocw_search
+      app_config :ocw_search
     end
     
     get "/config/connexions.xml" do
-      open_launch :connexions
+      app_config :connexions
     end
     
     get "/config/piazza.xml" do
-      config_launch :piazza
+      app_config :piazza
     end
     
     get "/config/redirect.xml" do
-      config_launch :redirect
+      app_config :redirect
     end
     
     get "/config/wordpress.xml" do
-      config_launch :wordpress
+      app_config :wordpress
     end
     
     get "/config/status_net.xml" do
-      config_launch :status_net
+      app_config :status_net
     end
     
     get "/config/vanilla.xml" do
-      config_launch :vanilla
+      app_config :vanilla
     end
     
     get "/config/question_mark.xml" do
-      config_launch :question_mark
+      app_config :question_mark
     end
     
     get "/config/web_pa.xml" do
-      config_launch :web_pa
+      app_config :web_pa
     end
     
     get "/config/mahara.xml" do
-      config_launch :mahara
+      app_config :mahara
     end
     
     get "/config/question2answer.xml" do
-      config_launch :question2answer
+      app_config :question2answer
     end
     
     get "/config/panopto.xml" do
-      config_launch :panopto
+      app_config :panopto
     end
     
     get "/config/inigral.xml" do
-      config_launch :inigral
+      app_config :inigral
     end
     
     get "/config/hoot_me.xml" do
-      config_launch :hoot_me
+      app_config :hoot_me
     end
     
     get "/config/cengage.xml" do
-      config_launch :cengage
+      app_config :cengage
     end
     
     get "/config/campus_pack.xml" do
-      custom_launch :campus_pack
+      app_config :campus_pack
     end
     
     get "/config/bb_collaborate.xml" do
-      custom_launch :bb_collaborate
+      app_config :bb_collaborate
     end
     
     get "/config/noteflight.xml" do
-      config_launch :noteflight
+      app_config :noteflight
     end
     
     get "/config/plato.xml" do
-      config_launch :plato
+      app_config :plato
     end
     
     get "/config/elgg.xml" do
-      config_launch :elgg
+      app_config :elgg
     end
     
     get "/config/drupal.xml" do
-      custom_launch :drupal
+      app_config :drupal
     end
     
-    # Configuration Examples
+    # Configuration Examples (not just for backwards compatibility)
     get "/config/course_navigation.xml" do
       headers 'Content-Type' => 'text/xml'
       erb :"examples/course_navigation", :layout => :xml_layout
@@ -244,6 +234,20 @@ module Sinatra
     helpers do
       def host
         request.scheme + "://" + request.host_with_port
+      end
+      
+      def app_config(id)
+        load_app(id)
+        return "App not found" if !@app
+        (@app['config_options'] || []).each do |args|
+          key = args['name']
+          if args['required'] && !params[key] || params[key] == ''
+            return "Missing required value: #{args['description']}"
+          end
+        end
+        @opts = App.config_options(@app, params, host)
+        headers 'Content-Type' => 'text/xml'
+        erb :lti_xml, :layout => false
       end
       
       def load_app(id)
