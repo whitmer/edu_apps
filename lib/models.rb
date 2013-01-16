@@ -76,13 +76,6 @@ class App
     hash['config_options'].each{|o| opts[o['name']] = o}
     hash['options'] = opts
     
-    # Some tools have multiple configs in a dropdown, which affects the launch URL, name and description
-    if hash['config_urls']
-      match = hash['config_urls'].detect{|o| o['url'] == params['launch_type'] }
-      match ||= hash['config_urls'][0]['url']
-      params['launch_name'] = match['description']
-      hash['launch_url'] = match['url']
-    end
     hash['extensions'] ||= []
     result['name'] = sub(hash['variable_name'] || hash['name'], hash, params)
     result['description'] = sub(hash['variable_description'] || hash['short_description'] || hash['description'].split(/<br\/>/)[0], hash, params)

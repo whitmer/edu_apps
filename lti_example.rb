@@ -44,7 +44,6 @@ class LTIExample < Sinatra::Application
     super("./views", name, engine, &block)
   end  
   get "/" do
-    return erb :index
     if request.host == 'lti-examples.heroku.com' && !request.ssl?
       redirect to('https://lti-examples.heroku.com/index.html') 
     else

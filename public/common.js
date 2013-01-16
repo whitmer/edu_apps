@@ -843,7 +843,7 @@ function program36(depth0,data) {
   if(typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, { hash: {} }); }
   else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "full_url", stack1, { hash: {} }); }
   else { stack1 = stack2; }
-  buffer += escapeExpression(stack1) + "'/>\n                        <object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\"\n                                width=\"110\"\n                                height=\"14\"\n                                id=\"clippy\" >\n                        <param name=\"movie\" value=\"/flash/clippy.swf\"/>\n                        <param name=\"allowScriptAccess\" value=\"always\" />\n                        <param name=\"quality\" value=\"high\" />\n                        <param name=\"scale\" value=\"noscale\" />\n                        <param NAME=\"FlashVars\" value=\"text=";
+  buffer += escapeExpression(stack1) + "'/>\n                        <!--object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\"\n                                width=\"110\"\n                                height=\"14\"\n                                id=\"clippy\" >\n                        <param name=\"movie\" value=\"/flash/clippy.swf\"/>\n                        <param name=\"allowScriptAccess\" value=\"always\" />\n                        <param name=\"quality\" value=\"high\" />\n                        <param name=\"scale\" value=\"noscale\" />\n                        <param NAME=\"FlashVars\" value=\"text=";
   foundHelper = helpers.url;
   stack1 = foundHelper || depth0.url;
   foundHelper = helpers.full_url;
@@ -859,7 +859,7 @@ function program36(depth0,data) {
   if(typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, { hash: {} }); }
   else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "full_url", stack1, { hash: {} }); }
   else { stack1 = stack2; }
-  buffer += escapeExpression(stack1) + "\"\n                               bgcolor=\"#D9EDF7\"\n                        />\n                        </object>      \n                        </label>                  \n                    ";
+  buffer += escapeExpression(stack1) + "\"\n                               bgcolor=\"#D9EDF7\"\n                        />\n                        </object-->      \n                        </label>                  \n                    ";
   return buffer;}
 
 function program38(depth0,data) {
@@ -873,7 +873,7 @@ function program38(depth0,data) {
   if(typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, { hash: {} }); }
   else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "full_url", stack1, { hash: {} }); }
   else { stack1 = stack2; }
-  buffer += escapeExpression(stack1) + "'/>\n                    <object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\"\n                            width=\"110\"\n                            height=\"14\"\n                            id=\"clippy\" >\n                    <param name=\"movie\" value=\"/clippy.swf\"/>\n                    <param name=\"allowScriptAccess\" value=\"always\" />\n                    <param name=\"quality\" value=\"high\" />\n                    <param name=\"scale\" value=\"noscale\" />\n                    <param NAME=\"FlashVars\" value=\"text=";
+  buffer += escapeExpression(stack1) + "'/>\n                    <!--object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\"\n                            width=\"110\"\n                            height=\"14\"\n                            id=\"clippy\" >\n                    <param name=\"movie\" value=\"/clippy.swf\"/>\n                    <param name=\"allowScriptAccess\" value=\"always\" />\n                    <param name=\"quality\" value=\"high\" />\n                    <param name=\"scale\" value=\"noscale\" />\n                    <param NAME=\"FlashVars\" value=\"text=";
   foundHelper = helpers.config_url;
   stack1 = foundHelper || depth0.config_url;
   foundHelper = helpers.full_url;
@@ -889,7 +889,7 @@ function program38(depth0,data) {
   if(typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, { hash: {} }); }
   else if(stack2=== undef) { stack1 = helperMissing.call(depth0, "full_url", stack1, { hash: {} }); }
   else { stack1 = stack2; }
-  buffer += escapeExpression(stack1) + "\"\n                           bgcolor=\"#D9EDF7\"\n                    />\n                    </object>\n                    </label>                        \n                ";
+  buffer += escapeExpression(stack1) + "\"\n                           bgcolor=\"#D9EDF7\"\n                    />\n                    </object-->\n                    </label>                        \n                ";
   return buffer;}
 
 function program40(depth0,data) {

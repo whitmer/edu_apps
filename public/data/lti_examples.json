@@ -224,22 +224,34 @@
       "categories": ["Community","Media"]
     },
     {
-      "TODO": "fix this use case so it can have more options",
       "id": "nook_study",
       "name": "Nook Study",
       "added": "2012-01-10T00:00:00Z",
       "description": "Nook Study LTI allows you to insert link as items in a module that the teacher can use to specify a set of require reading materials for the course, or to link to specific textbook material that will load for students.<br/><br/>You can find directions for obtaining a key and secret <a href='http://www.barnesandnoble.com/nookstudy/integration/index.asp'>on the Nook Study LTI site</a>",
       "variable_name": "{{ launch_name }}",
-      "config_urls": [{
-        "url": "/tools/nook_study/nook_textbooks_list.xml",
+      "course_nav_link_text": "{{ link_text }}",
+      "launch_url": "{{ launch_url }}",
+      "privacy_level": "public",
+      "config_urls": [
+      {
+        "url": "/tools/nook_study/config.xml?launch_url=http%3A%2F%2Fnookstudyblti.com%2FBN-BLTI-Textbook-1.0.0%2Findex.jsp&launch_name=Nook%20Study%20-%20Required%20reading%20list&link_text=Readings",
         "description": "Required reading list"
       },
       {
-        "url": "/tools/nook_study/nook_study_links.xml",
+        "url": "/tools/nook_study/config.xml?launch_url=http%3A%2F%2Fnookstudyblti.com%2FBN-BLTI-Link-1.0.0%2Findex.jsp&launch_name=Nook%20Study%20-%20Link%20to%20book%2Fchapter&link_text=Nook%20Study",
         "description": "Link to book/chapter"
       }],
+      "config_options": [
+        {
+          "name": "course_nav",
+          "description": "Show in Course Navigation",
+          "type": "checkbox",
+          "value": "1"
+        }
+      ],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Textbooks/eBooks"],
+      "extensions": ["course_nav"],
       "preview": {
         "url": "http://www.youtube.com/embed/SwtcDKxclbw?rel=0",
         "height": 400
@@ -678,31 +690,33 @@
       "categories": ["Web 2.0", "Open Content"]
     },
     {
-      "TODO": "this is just messed up",
       "id": "campus_pack",
       "name": "Campus Pack",
       "added": "2012-01-10T00:00:00Z",
       "description": "Load Campus Pack inside the LMS to add ePortfolios, blogs, wikis, etc.<br/><br/><b>Directions for configuring Campus Pack:</b><ol><li>Login to Campus Pack as an administrator.</li><li>Click Administrator Portal.</li><li>Click External System Connectors.</li><li>Click Create.</li><li>Click Basic LTI Tool Producer.</li><li>Fill out the form.  These values will be important later.</li><ol><li>Set Connector Id to blti-producer.</li><li>Set Name to your institution name.</li><li>Do not alter Shared Secret Key.</li><li>Ignore URL.</li><li>Ignore IP address.</li></ol><li>Click Submit.</li></ol>",
-      
+      "launch_url": "https://{{ domain }}.learningobjects.com/control/lti{{ launch_query }}",
+      "privacy_level": "public",
+      "variable_name": "Campus Pack - {{ launch_name }}",
+      "course_nav_link_text": "{{ link_text }}",
       "config_urls": [
           {
-            "url": "/tools/campus_pack/config.xml",
+            "url": "/tools/campus_pack/config.xml?launch_name=Collaboration&link_text=Campus%20Pack",
             "description": "Collaboration Space"
           },
           {
-            "url": "/tools/campus_pack/config.xml?type=wiki",
+            "url": "/tools/campus_pack/config.xml?launch_name=Wiki&link_text=Wiki&launch_query=%3Fcustom_request_type%3Dwiki",
             "description": "Wiki"
           },
           {
-            "url": "/tools/campus_pack/config.xml?type=blog",
+            "url": "/tools/campus_pack/config.xml?launch_name=Blog&link_text=Blog&launch_query=%3Fcustom_request_type%3Dblog",
             "description": "Blog"
           },
           {
-            "url": "/tools/campus_pack/config.xml?type=journal",
+            "url": "/tools/campus_pack/config.xml?launch_name=Journal&link_text=Journal&launch_query=%3Fcustom_request_type%3Djournal",
             "description": "Journal"
           },
           {
-            "url": "/tools/campus_pack/config.xml?type=podcast",
+            "url": "/tools/campus_pack/config.xml?launch_name=Podcast&link_text=Podcast&launch_query=%3Fcustom_request_type%3Dpodcast",
             "description": "Podcast"
           }
       ],
@@ -723,29 +737,33 @@
       ],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Content"],
+      "extensions": ["course_nav"],
       "app_type": "custom"
     },
     {
-      "TODO": "this is also messed up",
       "id": "bb_collaborate",
       "name": "Blackboard Collaborate",
       "added": "2012-11-20T00:00:00Z",
       "description": "Create and record web conferencing sessions within your course. Can be used for virtual classrooms time, office hours, group work, etc.<br/><br/>Contact <a href='http://blackboard.com'>Blackboard</a> for account registration and to retrieve a key and secret.",
+      "privacy_level": "public",
+      "launch_url": "{{ launch_url }}",
+      "variable_name": "Blackboard Collaborate - {{ launch_name }}",
+      "course_nav_link_text": "{{ launch_name }}",
       "config_urls": [
           {
-            "url": "/tools/bb_collaborate/config.xml",
+            "url": "/tools/bb_collaborate/config.xml?launch_name=Collaborate&launch_url=https%3A%2F%2Flti.bbcollab.com%2Fcollaborate%2Fwebconferencing%2F",
             "description": "Collaborate"
           },
           {
-            "url": "/tools/bb_collaborate/config.xml?type=voiceboard",
+            "url": "/tools/bb_collaborate/config.xml?launch_name=Voice%20Board&launch_url=https%3A%2F%2Flti.bbcollab.com%2Fcollaborate%2Fvoice%2Fboard",
             "description": "Voice Board"
           },
           {
-            "url": "/tools/bb_collaborate/config.xml?type=podcaster",
+            "url": "/tools/bb_collaborate/config.xml?launch_name=Podcaster&launch_url=https%3A%2F%2Flti.bbcollab.com%2Fcollaborate%2Fvoice%2Fpodcaster%2F",
             "description": "Podcaster"
           },
           {
-            "url": "/tools/bb_collaborate/config.xml?type=presentation",
+            "url": "/tools/bb_collaborate/config.xml?launch_name=Presentation&launch_url=https%3A%2F%2Flti.bbcollab.com%2Fcollaborate%2Fvoice%2Fpresentation",
             "description": "Presentation"
           }
       ],
