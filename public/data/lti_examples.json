@@ -409,7 +409,7 @@
             "description": "Link Name",
             "required": true,
             "type": "text",
-            "value": ""
+            "value": "Link"
         },
         {
             "name": "url",
