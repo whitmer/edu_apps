@@ -1,5 +1,5 @@
 RACK_ENV='test'
-require 'lti_example'
+require './lti_example'
 require 'capybara'
 require 'capybara/dsl'
 require 'rspec'
@@ -62,9 +62,9 @@ describe 'Tools Selenium' do
     all('#results .result').length.should > 5
   end
 
-  describe "/tools.html" do
+  describe "/tools/public_collections/index.html" do
     it "shoud load" do
-      visit_tool '/tools.html'
+      visit_tool '/tools/public_collections/index.html'
       keep_trying_until{ all('#tools .tool').length > 20 }
       all('#tools .tool').length.should > 20
       fill_in('query', :with => 'codec')
@@ -72,7 +72,7 @@ describe 'Tools Selenium' do
       find("#query").set('')
       find("#search button").click
       all('#tools .tool').length.should > 20
-      find("#tools .tool").click
+      first("#tools .tool").click
       page.should have_selector('#back')
       find("#back").click
       keep_trying_until{ all('#tools .tool').length > 20 }
@@ -80,54 +80,54 @@ describe 'Tools Selenium' do
     end
   end
   
-  describe "/archive.html" do
+  describe "/tools/archive/index.html" do
     it "should load" do
-      visit_tool '/archive.html'
+      visit_tool '/tools/archive/index.html'
       fill_in('query', :with => 'man')
       find('#search .btn').click
       keep_trying_until{ all('#results .result').length > 5 }
-      find("#results .result .title").text.should match(/man/i)
-      find("#results .result").click
+      first("#results .result .title").text.should match(/man/i)
+      first("#results .result").click
       check_embed_result(:link, /archive\.org/)
     end
   end
   
-  describe "/graph.html" do
+  describe "/tools/graph_builder/index.html" do
     it "should load" do
-      visit '/graph.html'
+      visit '/tools/graph_builder/index.html'
       page.should have_selector('iframe')
     end
   end
   
-  describe "/khan.html" do
+  describe "/tools/khan_academy/index.html" do
     it "should load" do
-      visit_tool '/khan.html'
+      visit_tool '/tools/khan_academy/index.html'
       youtube_test
     end
   end
   
-  describe "/ocw_search.html" do
+  describe "/tools/ocw_search/index.html" do
     it "should load" do
-      visit_tool '/ocw_search.html'
+      visit_tool '/tools/ocw_search/index.html'
       fill_in('query', :with => '11.948 mit')
       find('#search .btn').click
       keep_trying_until{ all('#results .result').length > 5 }
-      find("#results .result .title").text.should match(/11\.948/i)
-      find("#results .result").click
+      first("#results .result .title").text.should match(/11\.948/i)
+      first("#results .result").click
       check_embed_result(:link, /ocw\.mit\.edu/)
     end
   end
   
-  describe "/quizlet.html" do
+  describe "/tools/quizlet/index.html" do
     # needs an api token
     it "should load" do
       ExternalConfig.first(:config_type => 'quizlet').should_not be_nil
-      visit_tool '/quizlet.html'
+      visit_tool '/tools/quizlet/index.html'
       fill_in('query', :with => 'car')
       find('#search .btn').click
       keep_trying_until{ all('#results .result').length > 5 }
-      find("#results .result .title").text.should match(/car/i)
-      find("#results .result").click
+      first("#results .result .title").text.should match(/car/i)
+      first("#results .result").click
       find("#quizlet_preview")[:src].should match(/quizlet\.com/)
       find("#quizlet_preview")[:src].should match(/familiarize/)
       page.select('Learn', :from => 'quizlet_type')
@@ -142,86 +142,86 @@ describe 'Tools Selenium' do
     end
   end
   
-  describe "/schooltube.html" do
+  describe "/tools/schooltube/index.html" do
     it "should load" do
-      visit_tool '/schooltube.html'
-      check_default_results
+      visit_tool '/tools/schooltube/index.html'
+      keep_trying_until{ all('#results .result').length > 5 }
       fill_in('query', :with => 'biology')
       find('#search .btn').click
       keep_trying_until{ all('#results .result').length > 5 }
-      find("#results .result .title").text.should match(/biology/i)
-      find("#results .result").click
+      first("#results .result .title").text.should match(/biology/i)
+      first("#results .result").click
       check_embed_result(:link, /bit\.ly/)
     end
   end
   
-  describe "/slideshare.html" do
+  describe "/tools/slideshare/index.html" do
     it "should load" do
       ExternalConfig.first(:config_type => 'slideshare').should_not be_nil
-      visit_tool '/slideshare.html'
+      visit_tool '/tools/slideshare/index.html'
       fill_in('query', :with => 'bacon')
       find('#search .btn').click
       keep_trying_until{ all('#results .result').length > 5 }
-      find("#results .result .title").text.should match(/bacon/i)
-      find("#results .result").click
+      first("#results .result .title").text.should match(/bacon/i)
+      first("#results .result").click
       find("#slideshare_wrapper object").should_not be_nil
       find("#link").click
       check_embed_result(:link, /slideshare\.net/)
     end
   end
   
-  describe "/storify.html" do
+  describe "/tools/storify/index.html" do
     it "should load" do
-      visit_tool '/storify.html'
+      visit_tool '/tools/storify/index.html'
       keep_trying_until{ all('#results .result').length > 5 }
       page.select('Latest', :from => 'type')
       keep_trying_until{ all('#results .result').length > 5 }
       fill_in('query', :with => 'love')
       find('#search .btn').click
       keep_trying_until{ all('#results .result').length > 5 }
-      find("#results .result").click
+      first("#results .result").click
       check_embed_result(:link, /storify\.com/)
     end
   end
   
-  describe "/ted_ed.html" do
+  describe "/tools/ted_ed/index.html" do
     it "should load" do
-      visit_tool '/ted_ed.html'
+      visit_tool '/tools/ted_ed/index.html'
       check_default_results
       youtube_test
     end
   end
   
-  describe "/twitter.html" do
+  describe "/tools/twitter/index.html" do
     it "should load search" do
-      visit_tool '/twitter.html'
+      visit_tool '/tools/twitter/index.html'
       fill_in('query', :with => 'bacon')
       click_on('Preview')
-      all('iframe')[0][:src].should match(/twitter\.html/)
+      all('iframe')[0][:src].should match(/twitter\/index\.html/)
       click_on('Add')
-      check_embed_result(:iframe, /twitter\.html\?#type=search&amp;query=bacon/)
+      check_embed_result(:iframe, /twitter\/index\.html\#type=search&amp;query=bacon/)
     end
     
     it "should load user" do
-      visit_tool '/twitter.html'
+      visit_tool '/tools/twitter/index.html'
       page.select('User Tweets', :from => 'type')
       fill_in('query', :with => 'bacon')
       click_on('Preview')
-      all('iframe')[0][:src].should match(/twitter\.html/)
+      all('iframe')[0][:src].should match(/twitter\/index\.html/)
       click_on('Add')
-      check_embed_result(:iframe, /twitter\.html\?#type=profile&amp;query=bacon/)
+      check_embed_result(:iframe, /twitter\/index\.html\#type=profile&amp;query=bacon/)
     end
     
     it "should render twitter iframes correctly" do
       visit '/index.html'
-      visit_tool '/twitter.html#type=search&query=love'
+      visit_tool '/tools/twitter/index.html#type=search&query=love'
       keep_trying_until{ all('.twtr-tweet').length > 0 }
       all('#twtr-widget-1').length.should == 1
       all('#twtr-widget-1 .twtr-hd h4')[0].text.should == 'love'
       all('#twtr-widget-1 .twtr-tweet').length.should > 5
       
       visit '/index.html'
-      visit_tool '/twitter.html#type=profile&query=whitmer'
+      visit_tool '/tools/twitter/index.html#type=profile&query=whitmer'
       keep_trying_until{ all('#twtr-widget-1').length > 0 }
       all('#twtr-widget-1').length.should == 1
       all('#twtr-widget-1 .twtr-hd h4')[0].text.should == 'whitmer'
@@ -229,54 +229,54 @@ describe 'Tools Selenium' do
     end
   end
   
-  describe "/usatoday.html" do
+  describe "/tools/usa_today/index.html" do
     it "should load" do
-      visit_tool '/usatoday.html'
-      fill_in('query', :with => 'love')
+      visit_tool '/tools/usa_today/index.html'
+      fill_in('query', :with => 'hope')
       find('#search .btn').click
       keep_trying_until{ all('#results .result').length > 5 }
-      find("#results .result").click
+      first("#results .result").click
       check_embed_result(:link, /usatoday\.com/)
     end
   end
   
-  describe "/wikipedia.html" do
+  describe "/tools/wikipedia/index.html" do
     it "should load" do
-      visit_tool '/wikipedia.html'
+      visit_tool '/tools/wikipedia/index.html'
       fill_in('query', :with => 'justin bieber')
       find('#search .btn').click
       keep_trying_until{ all('#results .result').length > 5 }
-      find("#results .result .title").text.should match(/bieber/i)
-      find("#results .result").click
+      first("#results .result .title").text.should match(/bieber/i)
+      first("#results .result").click
       check_embed_result(:link, /wikipedia\.org/)
       
-      visit_tool '/wikipedia.html'
+      visit_tool '/tools/wikipedia/index.html'
       fill_in('query', :with => 'heart')
       find('#search .btn').click
       keep_trying_until{ all('#results .result').length > 5 }
-      find("#results .result .title").text.should match(/heart/i)
-      find("#results .result .embed").click
+      first("#results .result .title").text.should match(/heart/i)
+      first("#results .result .embed").click
       check_embed_result(:iframe, /wikipedia\.org/)
     end
   end
   
-  describe "/wiktionary.html" do
+  describe "/tools/wiktionary/index.html" do
     it "should load" do
-      visit_tool '/wiktionary.html'
+      visit_tool '/tools/wiktionary/index.html'
       fill_in('query', :with => 'heart')
       find('#search .btn').click
       keep_trying_until{ all('#results .result').length > 5 }
       find("#results .header a")[:href].should match(/wiktionary\.org\/wiki\/heart/)
       find("#results .header a").text.should == 'heart'
-      find("#results .result .type").text.should match(/noun/i)
-      find("#results .result").click
+      first("#results .result .type").text.should match(/noun/i)
+      first("#results .result").click
       check_embed_result(:oembed, /wiktionary\.org/)
     end
   end
   
-  describe "/youtube.html" do
+  describe "/tools/youtube/index.html" do
     it "should load" do
-      visit_tool '/youtube.html'
+      visit_tool '/tools/youtube/index.html'
       youtube_test
     end
   end
@@ -287,7 +287,7 @@ describe 'Tools Selenium' do
     fill_in('query', :with => 'a')
     find('#search .btn').click
     keep_trying_until{ all('#results .result').length > 5 }
-    find("#results .result").click
+    first("#results .result").click
     check_embed_result(:link, /youtube/)
   end
   

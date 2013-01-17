@@ -1,8 +1,9 @@
 RACK_ENV='test'
-require 'lti_example'
 require 'rspec'
 require 'rack/test'
 require 'json'
+require './lti_example'
+set :environment, :test
 
 describe 'Apps API' do
   include Rack::Test::Methods
@@ -90,6 +91,7 @@ describe 'Apps API' do
       last_response.should be_ok
       json = JSON.parse(last_response.body)
       json['meta'].should_not be_nil
+      json['objects'] = json['objects'].map{|o| {'added' => o['added']} }
       json['objects'].should_not be_nil
       json['objects'].length.should > 0
       json['objects'].sort{|a, b| b['added'] <=> a['added'] }.should == json['objects']

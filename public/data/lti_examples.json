@@ -538,7 +538,6 @@
       "launch_url": "http://www.myopenmath.com/sagecelllti.php",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "any_key": true,
-      "app_type": "custom",
       "categories": ["Math", "Science"]
     },
     {
@@ -737,8 +736,7 @@
       ],
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Content"],
-      "extensions": ["course_nav"],
-      "app_type": "custom"
+      "extensions": ["course_nav"]
     },
     {
       "id": "bb_collaborate",
@@ -776,8 +774,7 @@
             "value": "1"
         }
       ],
-      "categories": ["Media"],
-      "app_type": "custom"
+      "categories": ["Media"]
     },
     {
       "pending": true,
@@ -1258,7 +1255,6 @@
             "value": "Drupal"
         }
       ],
-      "app_type": "custom",
       "extensions": ["course_nav"]
     },
     {

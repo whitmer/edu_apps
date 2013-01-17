@@ -1,5 +1,5 @@
 RACK_ENV='test'
-require 'lti_example'
+require './lti_example'
 require 'rspec'
 require 'rack/test'
 require 'json'
@@ -15,7 +15,7 @@ describe 'Tool Redirects' do
     it "should redirect to a local URL" do
       post "/tool_redirect?url=#{CGI.escape("/tools.html")}"
       last_response.should be_redirect
-      last_response.location.should == "http://example.org/tools.html?"
+      last_response.location.should == "http://example.org/tools/public_collections/index.html?"
     end
     it "should redirect to a remove URL" do
       post "/tool_redirect?url=#{CGI.escape("http://www.example.com/tools.html")}"
@@ -51,7 +51,7 @@ describe 'Tool Redirects' do
       post "/tool_redirect?url=#{CGI.escape("/wikipedia.html")}&launch_presentation_return_url=#{CGI.escape("http://www.example.com/return")}"
       last_response.should be_redirect
       uri = URI.parse(last_response.location)
-      uri.path.should == "/tools/wikipedia/wikipedia.html"
+      uri.path.should == "/tools/wikipedia/index.html"
     end
     it "should redirect to stored URL if present" do
       # TODO
