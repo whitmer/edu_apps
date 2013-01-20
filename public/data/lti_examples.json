@@ -15,7 +15,6 @@
     },
     {
       "id": "wolfram",
-      "new": true,
       "name": "Wolfram Alpha",
       "added": "2012-11-17T00:00:00Z",
       "description": "Wolfram Alpha provides graphs, data sets and other information about numbers, equations, etc. This app lets you quickly insert links to Wolfram Alpha search results into your course material.",
@@ -25,7 +24,7 @@
       "app_type": "open_launch",
       "width": 400,
       "height": 150,
-      "launch": false,
+      "no_launch": true,
       "extensions": ["editor_button", "resource_selection"]
     },
     {
@@ -139,7 +138,6 @@
     },
     {
       "id": "nytimes",
-      "new": true,
       "name": "New Tork Times",
       "added": "2013-01-08T00:00:00Z",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
@@ -193,7 +191,6 @@
       "app_type": "data"
     },
     {
-      "new": true,
       "id": "open_tapestry",
       "name": "Open Tapestry",
       "added": "2012-12-18T00:00:00Z",
@@ -213,7 +210,6 @@
       }
     },
     {
-      "new": true,
       "id": "voice_thread",
       "name": "VoiceThread",
       "added": "2012-12-18T00:00:00Z",
@@ -289,7 +285,6 @@
     },
     {
       "id": "mh_campus",
-      "new": true,
       "name": "McGraw Hill Campus",
       "added": "2013-01-04T00:00:00Z",
       "description": "Provides access to McGraw Hill's interactive resources tied to course content and textbooks.<br/><br/><a href='http://www.mhcampus.com/'>Visit mhcampus.com</a> for more information.",
@@ -304,7 +299,6 @@
     },
     {
       "id": "plato",
-      "new": true,
       "name": "PLATO",
       "added": "2012-01-10T00:00:00Z",
       "description": "PLATO provides standards-based online curriculum in a rich, interactive environment. Embed learning resources from PLATO within your course.<br/><br/><a href='http://www.edmentum.com/products-services/plato-courseware'>Visit the PLATO web site</a> for more information.",
@@ -323,7 +317,6 @@
       ]
     },
     {
-      "new": true,
       "id": "scorm_cloud",
       "name": "SCORM Cloud",
       "added": "2012-12-18T00:00:00Z",
@@ -362,7 +355,6 @@
     },
     {
       "id": "hoot_me",
-      "new": true,
       "added": "2012-04-28T00:00:00Z",
       "name": "Hoot.me",
       "description": "Hoot.me lets students study and work collaboratively from within Facebook.",
@@ -395,11 +387,10 @@
     },
     {
       "id": "redirect",
-      "new": true,
       "added": "2012-11-28T00:00:00Z",
       "name": "Redirect Tool",
       "variable_name": "{{ name }}",
-      "launch_url": "{{ url }}",
+      "launch_url": "/tool_redirect?url={{ escape:url }}",
       "description": "Add links to external web resources that show up as navigation items in course, user or account navigation. Whatever URL you specify is loaded within the content pane when users click the link.",
       "variable_description": "Link to {{ name }} ({{ url }})",
       "any_key": true,
@@ -462,7 +453,7 @@
       "name": "Quizlet Flash Cards",
       "description": "Search for and embed publicly available question sets on Quizlet. Questions can be embedded as flash cards, review, or as a study game.",
       "short_description": "Flash card and study help tools",
-      "width:": 690,
+      "width": 690,
       "height": 510,
       "app_type": "open_launch",
       "extensions": ["editor_button", "resource_selection"],
@@ -553,7 +544,6 @@
     },
     {
       "id": "chalk_and_wire",
-      "new": true,
       "name": "Chalk and Wire",
       "added": "2012-12-01T00:00:00Z",
       "description": "Chalk &amp; Wire provides ePortfolio, Assessment and Data Analysis Tools that can be used to help improve the student learning experience.<br/><br/><a href='http://chalkandwire.com/'>Contact Chalk & Wire</a> for information on signing up for an account and getting a key and secret.",
@@ -614,6 +604,8 @@
       "uses": 30,
       "name": "Courseload",
       "added": "2012-01-10T00:00:00Z",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content"],
       "description": "Add links to rich online textbooks, chapters, etc. If your institution is set up with Courseload then you can select and insert learning materials within your course content.",
       "config_directions": "Contact <a href='http:courseload.com/'>Courseload</a> for configuration instructions. "
     },
@@ -682,7 +674,7 @@
       "short_description": "Definitions from the free dictionary",
       "app_type": "open_launch",
       "extensions": ["editor_button", "resource_selection"],
-      "launch": false,
+      "no_launch": true,
       "width": 690,
       "height": 530,
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
@@ -774,6 +766,7 @@
             "value": "1"
         }
       ],
+      "levels": ["7th-12th Grade", "Postsecondary"],
       "categories": ["Media"]
     },
     {
@@ -781,6 +774,8 @@
       "id": "pathbrite",
       "name": "Pathbrite",
       "added": "2012-01-10T00:00:00Z",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content"],
       "description": "Pathbrite is an ePortfolio tool that can be integrated into the LMS.",
       "config_directions": "Contact <a href='http://www.pathbrite.com/'>Pathbrite</a> for configuration instructions."
     },
@@ -789,6 +784,8 @@
       "id": "pebble_pad",
       "name": "PebblePad",
       "added": "2012-01-10T00:00:00Z",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content"],
       "description": "PebblePad is an ePortfolio tool that can be integrated into the LMS.",
       "config_directions": "Contact <a href='http://www.pebblepad.co.uk/'>PebblePad</a> for configuration instructions."
     },
@@ -797,6 +794,8 @@
       "name": "Wikispaces",
       "added": "2012-03-21T00:00:00Z",
       "description": "Wikispaces offers free wikis for educational purposes. Private label sites can be configured to use LTI for authentication. You'll need a private label site as opposed to just a personal account in order for this app to work properly.",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content"],
       "config_directions": "Visit <a href='https://help.wikispaces.com/basic+lti'>the Wikispages LTI configuration page</a> for directions on configuring your Wikispaces private label site."
     },
     {
@@ -804,17 +803,18 @@
       "id": "mediasite",
       "name": "MediaSite",
       "added": "2012-01-10T00:00:00Z",
+      "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
+      "categories": ["Content"],
       "description": "MediaSite is a webcasting and lecture capture solution that can be integrated into the LMS.",
       "config_directions": "Contact <a href='http://www.sonicfoundry.com/mediasite'>Sonic Foundry</a> for configuration instructions."
     },
     {
       "id": "aleks",
-      "new": true,
       "name": "Aleks",
       "added": "2012-12-01T00:00:00Z",
       "description": "Aleks is a site that offers customized assessment and learning resources that can be integrated into the LMS.<br/><br/>Contact <a href='http://www.aleks.com/'>ALEKS</a> for configuration instructions.",
       "launch_url": "https://secure.aleks.com/lti/canvas",
-      "privacy": "public",
+      "privacy_level": "public",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
       "categories": ["Content", "Community"]
     },
@@ -845,7 +845,6 @@
     {
       "id": "youtube_upload",
       "pending": true,
-      "new": true,
       "name": "YouTube Uploader",
       "added": "2012-03-22T00:00:00Z",
       "exclude_from_public_collections": true,
@@ -1131,7 +1130,6 @@
       ]
     },
     {
-      "new": true,
       "id": "vanilla",
       "added": "2012-12-18T00:00:00Z",
       "name": "Vanilla Forums",
@@ -1158,7 +1156,6 @@
       ]
     },
     {
-      "new": true,
       "id": "web_pa",
       "added": "2012-12-18T00:00:00Z",
       "name": "WebPA",
@@ -1205,7 +1202,6 @@
     },
     {
       "id": "question_mark",
-      "new": true,
       "added": "2012-05-04T00:00:00Z",
       "name": "QuestionMark",
       "levels": ["7th-12th Grade", "Postsecondary"],
@@ -1225,7 +1221,6 @@
     },
     {
       "id": "drupal",
-      "new": true,
       "added": "2013-01-08T00:00:00Z",
       "name": "Drupal",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],

@@ -8,6 +8,22 @@ module Sinatra
       app_config(params['tool_id'])
     end
     
+    # Fallbacks if images are stored elsewhere
+    get "/tools/:tool_id/icon.png" do
+      load_app(id)
+      redirect to @app['icon_url']
+    end
+    
+    get "/tools/:tool_id/logo.png" do
+      load_app(id)
+      redirect to @app['logo_url']
+    end
+    
+    get "/tools/:tool_id/banner.png" do
+      load_app(id)
+      redirect to @app['banner_url']
+    end
+    
     # The following routes are just for backwards compatibility
     get "/config/inline_graph.xml" do
       app_config(:graph_builder)
@@ -252,7 +268,7 @@ module Sinatra
       
       def load_app(id)
         return if @app && @app['id'] == id.to_s
-        @app = JSON.parse(File.read('./public/data/lti_examples.json')).detect{|a| a['id'] == id.to_s }
+        @app = App.load_apps.detect{|a| a['id'] == id.to_s }
         @id = id
         @app_name = app['name']
         @app_desc = app['short_description'] || app['description'].split("<br/>")[0]

@@ -33,14 +33,13 @@ module Sinatra
       session[:user_key] = access_token.params['screen_name']
       permission = AdminPermission.first(:username => "@#{session[:user_key]}")
       session[:admin] = permission && permission.apps == "any"
+      session[:apps] = permission.apps
       
-      redirect to("/?logged_in")
+      redirect to("/index.html?logged_in")
     end
     
     get "/logout" do
-      session[:user_key] = nil
-      session[:oauth_token] = nil
-      session[:oauth_token_secret] = nil
+      session.clear
       redirect to("/")
     end
     
@@ -49,7 +48,8 @@ module Sinatra
       {
         :user_key => session[:user_key],
         :suggestions => !!suggestions_config,
-        :admin => session[:admin]
+        :admin => session[:admin],
+        :apps => session[:apps]
       }.to_json
     end
     

@@ -1,4 +1,5 @@
 (function() {
+  Handlebars.partials = Handlebars.templates;
   if(location.href.match(/http:\/\/lti-examples\.heroku\.com/)) {
     location.href = location.href.replace(/^http/, 'https')
   }
@@ -124,9 +125,6 @@
     filterTools.appCount = 0;
     for(var idx = 0; idx < tools.length; idx++) {
       var tool = tools[idx];
-      if(tool.pending) {
-        continue;
-      }
       if(category == "recent" && !tool['recent']) {
         continue;
       }
@@ -151,7 +149,7 @@
       tool.description = (tools.length == 1 ? tool.description : tool.description.split(/<br/)[0]);
       tool.has_config_url = tool.config_url || tool.config_urls;
       if(tool.any_key && tools.length == 1) {
-        tool.description = tool.description + "<br/><br/>Any key and secret will work for this tool.";
+        tool.description = tool.description + "<br/><br/>Any key and secret will work for this app.";
       }
       tool.desc = new Handlebars.SafeString(tool.description);
       tool.config_dir = new Handlebars.SafeString(tool.config_directions);
@@ -167,6 +165,9 @@
         // add ratings and comments
         $(".app .config").css('visibility', 'visible');
         $("title,h1").text(tools[0].name);
+        if(($.store.get('admin') || ($.store.get('apps') && $.store.get('apps').indexOf(tool.id) > -1)) && window.manageApp) {
+          window.manageApp(tool);
+        }
       }
       mod = (mod + 1) % 4;
     }
@@ -290,4 +291,5 @@
   $(document).ready(function() {
     $(".works_in").tooltip();
   });
+  
 })();

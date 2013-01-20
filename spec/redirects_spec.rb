@@ -1,8 +1,4 @@
-RACK_ENV='test'
-require './lti_example'
-require 'rspec'
-require 'rack/test'
-require 'json'
+require File.dirname(__FILE__) + '/spec_helper'
 
 describe 'Tool Redirects' do
   include Rack::Test::Methods

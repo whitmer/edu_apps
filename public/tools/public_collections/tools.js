@@ -60,7 +60,7 @@
     } else {
       $tools.hide();
       $back.toggle(!lti.params['tool']);
-      $logo.attr('src', tool.image_url);
+      $logo.attr('src', tool.logo_url);
       searchMode = "resources";
       $resources.show();
       $resources.data('tool', tool);
@@ -120,7 +120,7 @@
       for(var idx = 0; idx < recent.length; idx++) {
         var tool = toolsHash[recent[idx]];
         if(tool) {
-          var $img = $("<img/>", {'src': tool.image_url, 'title': tool.name, 'class': 'recent_tool', 'data-id': tool.id})
+          var $img = $("<img/>", {'src': tool.logo_url, 'title': tool.name, 'class': 'recent_tool', 'data-id': tool.id})
           $div.append($img);
         }
       }
@@ -130,7 +130,7 @@
     for(var idx = 0; idx < matches.length; idx++) {
       var tool = matches[idx];
       var $tool = $("<div/>", {'class': 'tool'}).append(
-        $("<img/>", {src: tool.image_url, 'class': 'logo'})).append(
+        $("<img/>", {src: tool.logo_url, 'class': 'logo'})).append(
         $("<span/>", {'class': 'name'}).text(tool.name)).append(
         $("<span/>", {'class': 'description'}).text(tool.short_description || " "));
       $tool.data('tool', tool);

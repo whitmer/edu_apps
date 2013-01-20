@@ -18,6 +18,9 @@
                     <li><a href="https://github.com/whitmer/lti_example">Source</a></li>
                 </ul>
             </li>
+            {{#if allow_admin }}
+              <li{{#if admin}} class="active"{{/if}}><a href="/admin">Admin</a></li>
+            {{/if}}
             <li{{#if suggestions}} class="active"{{/if}} style="display: none;" id="suggestions"><a href="/suggestions">Suggestions</a></li>
           </ul>
         </div>

@@ -28,7 +28,7 @@
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
   </head>
-  <body data-view='VIEW'>
+  <body data-view='<%= data_view %>'>
     <div id="fb-root"></div>
     <div class="container" id="content">
       <%= yield %>
@@ -39,6 +39,6 @@
   <script src="/jquery.store.js"></script>
   <script src="/common.js"></script>
   <script src="/bootstrap-dropdown.js"></script>
-  <script src="/index.js"></script>
+  <%= more_scripts %>
   </body>
 </html>

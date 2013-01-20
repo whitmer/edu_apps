@@ -1,0 +1,67 @@
+<style>
+#apps td:first-child {
+  font-size: 16px;
+}
+#apps td {
+  font-size: 12px;
+}
+#apps .description {
+  font-size: 10px;
+  line-height: 12px;
+  max-height: 24px;
+  overflow: hidden;
+}
+</style>
+<div class="hero-unit">
+  <h1>Adminniness</h1>
+  
+  <p>
+    Manage people and apps and stuff.
+  </p>
+</div>
+<div id="contents">
+  <div class="row">
+    <div class="span10 offset1 ">
+      <h2>Admins</h2>
+      <table class="table table-striped" id="admins">
+        <thead>
+          <tr>
+            <td>Username</td>
+            <td>Permissions</td>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" placeholder="@twitter_handle" id="username"/></td>
+            <td><input type="text" placeholder="list of ids or 'any' for admins" id="allowed_apps" class="span6"/></td>
+            <td><button class='btn btn-primary add_admin'>Add</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span10 offset1 ">
+      <h2>Apps</h2>
+      <table class="table table-striped" id="apps">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Id</td>
+            <td>Author</td>
+            <td>Created</td>
+            <td>Description</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="5"><a href="/suggestions" class="btn btn-primary">Add a new App</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<% add_script '/admin.js' %>

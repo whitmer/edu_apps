@@ -32,28 +32,41 @@
     <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
   </head>
   <body data-view='suggestions'>
-    <div id="content" class="container">
-    <div class="hero-unit">
-      <h1>LTI App Suggestions</h1>
-      
+    <div id="contents" class="container">
+      <div class="hero-unit">
+        <h1>LTI App Suggestions</h1>
+        
+      </div>
+  
+      <div class="row">
+        <span class="offset1 span9">
+          <ul class='nav nav-pills'>
+            <li class='active'><a href='#suggest' data-toggle="pill">Suggest an App</a></li>
+            <li><a href='#submit' data-toggle="pill">Submit an App</a></li>
+          </ul>
+        </span>
+      </div>
+      <div class="tab-content">
+        <div class="tab-pane row active" id="suggest">
+          <span class="span9 offset1">
+            <iframe id="form" src="about:blank;" style="display: none; width: 100%; height: 1380px;" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+          </span>
+        </div>
+        <div class="tab-pane row" id="submit">
+        </div>
+      </div>
     </div>
-    <div class="row">
-      <span class="span2">&nbsp;</span>
-      <span class="span8">
-        <iframe id="form" src="about:blank;" style="display: none; width: 100%; height: 1380px;" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-      </span>
-      <span class="span2">&nbsp;</span>
-    </div>
-  </div>
   <script src="jquery.min.js"></script>
   <script src="bootstrap-tab.js"></script>
   <script src="/analytics.js"></script>
   <script src="jquery.store.js"></script>
   <script src="/common.js"></script>
   <script src="/lti.js"></script>
+  <script src="/app_settings.js"></script>
   <script src="bootstrap-dropdown.js"></script>
   <script>
     $("#form").attr('src', lti.params.url).show();
+    manageApp({});
   </script>
   </body>
 </html>

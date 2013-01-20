@@ -15,7 +15,6 @@ rescue LoadError
 end
 
 require 'sinatra'
-
 require 'digest/md5'
 
 if defined?(RACK_ENV)
@@ -34,9 +33,10 @@ require './lib/oembed'
 
 # sinatra wants to set x-frame-options by default, disable it
 disable :protection
-# enable sessions so we can remember  launch info between http requests, as
-# the user takes assessments
 enable :sessions
+# set session key in heroku with: heroku config:add SESSION_KEY=a_longish_secret_key
+#raise "session key required" if ENV['RACK_ENV'] == 'production' && !ENV['SESSION_KEY']
+# set :session_secret, ENV['SESSION_KEY'] || 'not_so_super_sekrit'
 
 get "/" do
   if request.host == 'lti-examples.heroku.com' && !request.ssl?
@@ -186,4 +186,14 @@ end
 get "/analytics_key.json" do
   config = ExternalConfig.first(:config_type => 'google_analytics')
   return {:key => (config && config.value)}.to_json
+end
+
+def add_script(src)
+  @scripts ||= []
+  @scripts << src
+end
+
+def more_scripts
+  @scripts ||= []
+  @scripts.map{|s| "<script src='#{s}'></script>" }.join("\n")
 end

@@ -1,9 +1,4 @@
-RACK_ENV='test'
-require 'rspec'
-require 'rack/test'
-require 'json'
-require './lti_example'
-set :environment, :test
+require File.dirname(__FILE__) + '/spec_helper'
 
 describe 'Apps API' do
   include Rack::Test::Methods
@@ -13,7 +8,7 @@ describe 'Apps API' do
   end
   
   def check_app_response(app)
-    ['image_url', 'big_image_url', 'description', 'name', 'comments_count', 'ratings_count'].each do |key|
+    ['logo_url', 'icon_url', 'banner_url', 'description', 'name', 'comments_count', 'ratings_count'].each do |key|
       app[key].should_not be_nil
     end
   end
@@ -119,8 +114,8 @@ describe 'Apps API' do
   end
   
   describe "app details" do
-  
     it "should return app details" do
+      App.all.destroy
       get '/api/v1/apps/twitter'
       last_response.should be_ok
       json = JSON.parse(last_response.body)

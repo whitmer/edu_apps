@@ -1,0 +1,24 @@
+{{increment_index}}
+<tr class="field">
+  <td>
+    <input type="text" placeholder="parameter_name" name="config_options[{{current_index}}][name]" value="{{ name }}" class="span2"/>
+  </td>
+  <td>
+    <input type="text" placeholder="Parameter" name="config_options[{{current_index}}][description]" value="{{ description }}" class="span2"/>
+  </td>
+  <td>
+    <input type="checkbox" name="config_options[{{current_index}}][required]" value="1"/>
+  </td>
+  <td>
+    <select name="config_options[{{current_index}}][type]" class="span2">
+       <option {{#if_eql type val="text"}}select{{/if_eql}}>text</option>
+       <option {{#if_eql type val="checkbox"}}selected{{/if_eql}}>checkbox</option>
+    </select>
+  </td>
+  <td>
+    <input type="text" placeholder="default" name="config_options[{{current_index}}][value]" value="{{ value }}" class="span2"/>
+  </td>
+  <td>
+    <button class="btn delete_field" type='button'>Delete</button>
+  </td>
+</tr>

@@ -10,7 +10,7 @@ module Sinatra
     end
     
     get "/api/v1/app_categories" do
-      data = JSON.parse(File.read('./public/data/lti_examples.json'))
+      data = App.load_apps
       categories = data.map{|d| d['categories'] }.flatten.compact.uniq.sort
       list = {
         :levels => ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
@@ -99,7 +99,7 @@ module Sinatra
         params = request.params
         offset = params['offset'].to_i
         
-        data = JSON.parse(File.read('./public/data/lti_examples.json'))
+        data = App.load_apps
         [['category', 'categories'], ['level', 'levels'], ['extension', 'extensions']].each do |filter, key|
           if params[filter] && params[filter].length > 0
             if params[filter] == 'all'
@@ -107,6 +107,13 @@ module Sinatra
             else
               data = data.select{|e| e[key] && e[key].include?(params[filter]) }
             end
+          end
+        end
+        if params['pending']
+          if admin?
+            data = App.all(:pending => true).map{|a| a.settings || {}}
+          else
+            data = []
           end
         end
         if params['recent'] && params['recent'].length > 0
@@ -143,7 +150,9 @@ module Sinatra
         if paginated
           next_url = data.length > offset + limit ? (host + "/api/v1/apps?offset=#{offset + limit}") : nil
           if next_url
-            next_url += "&no_meta=1" if params['no_meta']
+            ['no_meta', 'category', 'level', 'extension', 'recent', 'public', 'platform', 'pending'].each do |key|
+              next_url += "&#{key}=#{CGI.escape(params[key])}" if params[key]
+            end
             response.headers['Link'] = "<#{next_url}>; rel=\"next\""
           end
           if params['no_meta']
@@ -170,33 +179,33 @@ module Sinatra
         end
         tool['ratings_count'] ||= 0
         tool['comments_count'] ||= 0
-        tool['big_image_url'] ||= "/tools/#{tool['id']}/banner.png"
-        tool['image_url'] ||= "/tools/#{tool['id']}/logo.png"
+        tool['banner_url'] ||= "/tools/#{tool['id']}/banner.png"
+        tool['logo_url'] ||= "/tools/#{tool['id']}/logo.png"
         tool['icon_url'] ||= "/tools/#{tool['id']}/icon.png"
+        cutoff = (Time.now - (60 * 60 * 24 * 7 * 24)).utc.iso8601
+        tool['new'] = tool['added'] && tool['added'] > cutoff
 
-        tool['config_url'] ||= tool['config_urls']
+
         tool['config_url'] ||= "/tools/#{tool['id']}/config.xml" if !tool['config_directions']
         
         if tool['app_type'] == 'data'
-          tool['launch_url'] = "/tools/public_collections/index.html?tool=#{tool['id']}"
           tool['data_url'] = "/tools/#{tool['id']}/data.json"
-          tool['config_url'] = "/tools/#{tool['id']}/config.xml"
           tool['extensions'] = ["editor_button", "resource_selection"]
           tool['any_key'] = true
           tool['preview'] ||= {
-            "url" => tool['launch_url'],
+            "url" => "/tools/public_collections/index.html?tool=#{tool['id']}",
             "height" => tool['height'] || 475
           }
           
         elsif tool['app_type'] == 'open_launch'
-          tool['launch_url'] = "/tools/#{tool['id']}/index.html"
           tool['any_key'] = true
+          tool['extensions'] = ["editor_button", "resource_selection"]
           tool['preview'] ||= {
-            "url" => tool['launch_url'],
+            "url" => "/tools/#{tool['id']}/index.html",
             "height" => tool['height'] || 475
           }
         end
-        ['big_image_url', 'image_url', 'icon_url', 'config_url', 'launch_url'].each do |key|
+        ['big_image_url', 'image_url', 'icon_url', 'banner_url', 'logo_url', 'config_url', 'launch_url'].each do |key|
           tool[key] = prepend_host(tool[key], host) if tool[key]
         end
         tool
@@ -246,11 +255,26 @@ module Sinatra
         end
       end
       
+      def admin?(id='any')
+        permission = AdminPermission.first(:username => "@#{session['user_key']}")
+        res = permission && permission.allowed_access?(id)
+        res
+      end
+      
       def get_tool
         id = params[:tool_id]
-        data = JSON.parse(File.read('./public/data/lti_examples.json'))
-        @tool = data.detect{|t| t['id'] == id }
-        @tool_summary = App.first_or_create(:tool_id => @tool['id'] ) if @tool
+        @tool_summary = App.first(:tool_id => id )
+        if @tool_summary && @tool_summary.pending
+          @tool_summary = nil unless admin?(id)
+        end
+        
+        if @tool_summary && @tool_summary.settings
+          @tool = @tool_summary.settings
+        else
+          data = App.load_apps
+          @tool = data.detect{|t| t['id'] == id }
+          @tool_summary = App.first_or_create(:tool_id => @tool['id'] ) if @tool && !@tool['pending']
+        end
         if !@tool
           @error = {:message => "Tool not found", :type => "error"}.to_json
           false
@@ -262,7 +286,7 @@ module Sinatra
     
     # deprecated
     get "/data/lti_examples.jsonp" do
-      json = JSON.parse(File.read('./public/data/lti_examples.json')).to_json
+      json = App.load_apps.to_json
       return "#{params['callback'] || 'callback'}(#{json})"
     end
     

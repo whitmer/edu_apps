@@ -1,10 +1,7 @@
-RACK_ENV='test'
-require './lti_example'
+require File.dirname(__FILE__) + '/spec_helper'
+
 require 'capybara'
 require 'capybara/dsl'
-require 'rspec'
-require 'rack/test'
-require 'json'
 
 
 Capybara.app = Sinatra::Application
@@ -74,7 +71,7 @@ describe 'Tools Selenium' do
       all('#tools .tool').length.should > 20
       first("#tools .tool").click
       page.should have_selector('#back')
-      find("#back").click
+      first("#back").click
       keep_trying_until{ all('#tools .tool').length > 20 }
       all('#tools .tool').length.should > 20
     end
