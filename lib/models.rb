@@ -138,8 +138,8 @@ class App
   end
   
   def self.load_apps
-#    json_apps = JSON.parse(File.read('./public/data/lti_examples.json')).select{|a| !a['pending'] }
-    data_apps = App.all(:pending => false).select{|a| a.settings }.map{|a| a.settings }
+    json_apps = JSON.parse(File.read('./public/data/lti_examples.json')).select{|a| !a['pending'] }
+#    data_apps = App.all(:pending => false).select{|a| a.settings }.map{|a| a.settings }
   end
   
   def self.build_or_update(id, params, admin)
