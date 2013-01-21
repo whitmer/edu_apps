@@ -1,4 +1,3 @@
-require 'rubygems'
 require './lti_example'
 
 apps = JSON.parse(File.read('./public/data/lti_examples.json'))

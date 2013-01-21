@@ -261,7 +261,7 @@ module Sinatra
             return "Missing required value: #{args['description']}"
           end
         end
-        @opts = App.config_options(@app, params, host)
+        @opts = XmlConfigParser.config_options(@app, params, host)
         headers 'Content-Type' => 'text/xml'
         erb :lti_xml, :layout => false
       end

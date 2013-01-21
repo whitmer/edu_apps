@@ -1,2 +1,3 @@
 *.sqlite3
 *.yml
+public/data/lti_examples-*.json
