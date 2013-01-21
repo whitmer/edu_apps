@@ -1,5 +1,4 @@
 $.getJSON("/api/v1/admin/permissions", function(data) {
-  console.log(data);
   for(var idx in data) {
     var permission = data[idx];
     $("#admins tbody tr").filter(":last").before(Handlebars.templates['admin'](permission));
