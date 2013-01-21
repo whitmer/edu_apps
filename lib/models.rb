@@ -100,6 +100,7 @@ class App
         "url" => "/tools/public_collections/index.html?tool=#{res['id']}",
         "height" => res['height'] || 475
       }
+      res['open_launch_url'] = "/tools/#{res['id']}/index.html"
       
     elsif res['app_type'] == 'open_launch'
       res['any_key'] = true
@@ -108,9 +109,10 @@ class App
         "url" => "/tools/#{res['id']}/index.html",
         "height" => res['height'] || 475
       }
+      res['open_launch_url'] = "/tools/public_collections/index.html?tool=#{res['id']}"
     end
     if opts['host']
-      ['big_image_url', 'image_url', 'icon_url', 'banner_url', 'logo_url', 'config_url', 'launch_url'].each do |key|
+      ['big_image_url', 'image_url', 'icon_url', 'banner_url', 'logo_url', 'config_url', 'launch_url', 'open_launch_url'].each do |key|
         res[key] = prepend_host(res[key], opts['host']) if res[key]
       end
     end

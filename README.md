@@ -22,6 +22,10 @@ Next you'll want to install the necessary gems:
 
     $ bundle install
 
+After that you'll want to pre-populate your db with some known apps:
+
+    $ ruby parse_lti_examples.rb
+
 Now, just start it up:
 
     $ ruby -rubygems lti_example.rb

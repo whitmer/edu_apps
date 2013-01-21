@@ -65,6 +65,7 @@ describe 'Tools Selenium' do
 
   describe "/tools/public_collections/index.html" do
     it "shoud load" do
+      populate_apps
       visit_tool '/tools/public_collections/index.html'
       keep_trying_until{ all('#tools .tool').length > 20 }
       all('#tools .tool').length.should > 20
@@ -295,6 +296,7 @@ describe 'Tools Selenium' do
   
   describe "/index.html" do
     it "should load" do
+      populate_apps
       visit '/index.html'
       keep_trying_until{ all('#content .app').length > 5 }
       all_apps = all('#contents .app').length

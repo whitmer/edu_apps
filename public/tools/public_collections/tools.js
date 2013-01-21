@@ -53,8 +53,8 @@
     var tool = toolsHash[id];
     $collection_name.text(tool.name);
     if(tool.app_type != 'data') {
-      var amp_or_qmark = tool.launch_url.match(/\?/) ? "&" : "?";
-      location.href = tool.launch_url + amp_or_qmark + "selection_directive=embed_content&custom_lti_back_button=" + (lti.params['tool'] ? '' : '1') + "&launch_presentation_return_url=" + encodeURIComponent(lti.returnUrl) + "&key=" + encodeURIComponent(lti.params.key || '');
+      var amp_or_qmark = tool.preview.url.match(/\?/) ? "&" : "?";
+      location.href = tool.preview.url + amp_or_qmark + "selection_directive=embed_content&custom_lti_back_button=" + (lti.params['tool'] ? '' : '1') + "&launch_presentation_return_url=" + encodeURIComponent(lti.returnUrl) + "&key=" + encodeURIComponent(lti.params.key || '');
     } else {
       $tools.hide();
       $back.toggle(!lti.params['tool']);
