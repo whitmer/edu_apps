@@ -4,7 +4,7 @@ $(function() {
     $.store.set('admin', null);
     $.store.set('apps', null);
     $.store.set('suggestions', null);
-    location.href = location.href.sub(/logged_in/, '');
+    location.href = location.href.replace(/logged_in/, '');
   }
   function checkForSuggestions() {
     var suggestions = $.store.get('suggestions');
