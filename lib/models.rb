@@ -257,13 +257,15 @@ class App
       'launch_url' => result['launch_url'],
       'icon_url' => result['icon_url'],
       'width' => hash['width'] || 690,
-      'height' => hash['height'] || 530
+      'height' => hash['height'] || 530,
+      'link_text' => hash['name']
     }
     result['resource_selection'] = {
       'launch_url' => result['launch_url'],
       'icon_url' => result['icon_url'],
       'width' => hash['width'] || 690,
-      'height' => hash['height'] || 530
+      'height' => hash['height'] || 530,
+      'link_text' => hash['name']
     }
     result['launch_url'] = nil if hash['no_launch']
   end
@@ -277,7 +279,8 @@ class App
         'launch_url' => result['launch_url'],
         'icon_url' => result['icon_url'],
         'width' => hash['width'] || 690,
-        'height' => hash['height'] || 530
+        'height' => hash['height'] || 530,
+        'link_text' => hash['name']
       }
     end
     if hash['extensions'].include?('resource_selection')
@@ -285,7 +288,8 @@ class App
         'launch_url' => result['launch_url'],
         'icon_url' => result['icon_url'],
         'width' => hash['width'] || 690,
-        'height' => hash['height'] || 530
+        'height' => hash['height'] || 530,
+       'link_text' => hash['name']
       }
     end
   end
