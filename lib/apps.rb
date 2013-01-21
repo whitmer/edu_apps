@@ -102,7 +102,7 @@ module Sinatra
         params = request.params
         offset = params['offset'].to_i
         
-        data = App.load_apps.sort_by{|a| [(0 - (a['uses'] || 0)), a['name'] || 'zzz'] }
+        data = App.load_apps.sort_by{|a| [(0 - (a['uses'] || 0)), a['name'].downcase || 'zzz'] }
         [['category', 'categories'], ['level', 'levels'], ['extension', 'extensions']].each do |filter, key|
           if params[filter] && params[filter].length > 0
             if params[filter] == 'all'
