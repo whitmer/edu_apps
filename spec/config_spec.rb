@@ -29,6 +29,9 @@ describe 'Config Redirects' do
             last_response.should be_ok
             last_response.body.should match(/blti/)
           end
+          if(app['app_type'] == 'open_launch' || app['app_type'] == 'data') 
+            last_response.body.should match(/tool_redirect/)
+          end
             
         end
       end
