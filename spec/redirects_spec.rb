@@ -7,6 +7,13 @@ describe 'Tool Redirects' do
     Sinatra::Application
   end
   
+  before(:each) do
+    apps = JSON.parse(File.read('./public/data/lti_examples.json'))
+    apps.each_with_index do |app, idx|
+      obj = App.build_or_update(app['id'], app, true)
+    end
+  end
+  
   describe "/tool_redirect" do
     it "should redirect to a local URL" do
       post "/tool_redirect?url=#{CGI.escape("/tools.html")}"

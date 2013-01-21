@@ -13,6 +13,13 @@ describe 'Apps API' do
     end
   end
   
+  before(:each) do
+    apps = JSON.parse(File.read('./public/data/lti_examples.json'))
+    apps.each_with_index do |app, idx|
+      obj = App.build_or_update(app['id'], app, true)
+    end
+  end
+  
   describe "apps index" do
     it "should return list of apps" do
       get '/api/v1/apps'
@@ -115,7 +122,6 @@ describe 'Apps API' do
   
   describe "app details" do
     it "should return app details" do
-      App.all.destroy
       get '/api/v1/apps/twitter'
       last_response.should be_ok
       json = JSON.parse(last_response.body)

@@ -3,15 +3,13 @@
   var tools = [];
   var toolsHash = {};
   var maxRecentTools = 6;
-  var url = "/api/v1/apps";
+  var url = "/api/v1/apps?public=1";
   function getTools(url) {
     $.getJSON(url, function(data) {
       var results = data.objects;
       for(var idx = 0; idx < results.length; idx++) {
-        if(results[idx].data_url || results[idx].launch_url && !results[idx].pending) {
-          tools.push(results[idx]);
-          toolsHash[results[idx].id] = results[idx];
-        }
+        tools.push(results[idx]);
+        toolsHash[results[idx].id] = results[idx];
       }
       if(data.meta.next) {
         getTools(data.meta.next);

@@ -10,7 +10,11 @@ describe 'Config Redirects' do
   describe "config xml renders/redirects" do
     @apps = JSON.parse(File.read('./public/data/lti_examples.json')).select{|a| !a['pending'] }
     @apps.each do |app|
-      describe app['name'] do
+      describe app['name'] do 
+        before(:each) do
+          App.build_or_update(app['id'], app, true)
+        end
+        
         it "should not fail" do
           get "/tools/#{app['id']}/config.xml"
           if app['config_xml']

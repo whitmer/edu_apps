@@ -130,7 +130,7 @@ module Sinatra
           end
         end
         if params['public'] && params['public'].length > 0
-          data = data.select{|e| e['data_url'] || e['short_description'] }
+          data = data.select{|e| (e['app_type'] == 'open_launch' || e['app_type'] == 'data') && !e['exclude_from_public_collections'] }
         end
         if params['platform'] && params['platform'].length > 0 
           if params['platform'] == 'Canvas'
