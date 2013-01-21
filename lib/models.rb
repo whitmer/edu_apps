@@ -259,7 +259,7 @@ class App
       'width' => hash['width'] || 690,
       'height' => hash['height'] || 530
     }
-    result['editor_button'] = {
+    result['resource_selection'] = {
       'launch_url' => result['launch_url'],
       'icon_url' => result['icon_url'],
       'width' => hash['width'] || 690,
@@ -281,7 +281,7 @@ class App
       }
     end
     if hash['extensions'].include?('resource_selection')
-      result['editor_button'] = {
+      result['resource_selection'] = {
         'launch_url' => result['launch_url'],
         'icon_url' => result['icon_url'],
         'width' => hash['width'] || 690,

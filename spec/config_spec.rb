@@ -31,6 +31,8 @@ describe 'Config Redirects' do
           end
           if(app['app_type'] == 'open_launch' || app['app_type'] == 'data') 
             last_response.body.should match(/tool_redirect/)
+            last_response.body.should match(/editor_button/) if (app['extensions'] || []).include?('editor_button')
+            last_response.body.should match(/resource_selection/) if (app['extensions'] || []).include?('resource_selection')
           end
             
         end
