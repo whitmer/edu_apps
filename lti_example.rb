@@ -35,7 +35,8 @@ require './lib/oembed'
 disable :protection
 enable :sessions
 # set session key in heroku with: heroku config:add SESSION_KEY=a_longish_secret_key
-set(:session_secret, ENV['SESSION_KEY'] || raise "session key required") if ENV['RACK_ENV'] == 'production'
+raise "session key required" if ENV['RACK_ENV'] == 'production' && !ENV['SESSION_KEY']
+set :session_secret, ENV['SESSION_KEY'] if ENV['RACK_ENV'] == 'production'
 
 get "/" do
   if request.host == 'lti-examples.heroku.com' && !request.ssl?
