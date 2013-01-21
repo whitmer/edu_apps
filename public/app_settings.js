@@ -26,7 +26,7 @@ $(function() {
   $(document).on('submit', '#app_settings', function(event) {
     event.preventDefault();
     var args = {};
-    var array = $(event.target).seralizeArray();
+    var array = $(event.target).serializeArray();
     for(var idx in array) {
       args[array[idx]['name']] = array[idx]['value'];
     }
@@ -40,7 +40,7 @@ $(function() {
           alert("Submitted! Thank you!");
           location.href = "/";
         } else {
-          window.reload();
+          location.reload();
         }
       },
       error: function() {
