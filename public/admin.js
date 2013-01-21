@@ -5,18 +5,19 @@ $.getJSON("/api/v1/admin/permissions", function(data) {
     $("#admins tbody tr").filter(":last").before(Handlebars.templates['admin'](permission));
   }
 });
-function getApps(url) {
+function getApps(url, list_id) {
   $.getJSON(url, function(data) {
     for(var idx in data['objects']) {
       var app = data['objects'][idx];
-      $("#apps tbody tr").filter(":last").before(Handlebars.templates['app_admin'](app));
+      $(list_id + " tbody tr").filter(":last").before(Handlebars.templates['app_admin'](app));
     }
     if(data['meta'] && data['meta']['next']) {
-      getApps(data['meta']['next']);
+      getApps(data['meta']['next'], list_id);
     }
   });
 }
-getApps("/api/v1/apps");
+getApps("/api/v1/apps", "#apps");
+getApps("/api/v1/apps?pending=1", "#pending_apps");
 $(".add_admin").click(function() {
   $.ajax({
     url: "/api/v1/admin/permissions",

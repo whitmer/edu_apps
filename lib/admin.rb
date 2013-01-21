@@ -46,6 +46,9 @@ module Sinatra
         admin_check(params['id'])
       end
       @app = App.build_or_update(params['id'], params, true)
+      @app.settings['author_name'] = session[:user_key]
+      @app.settings['author_url'] = "https://twitter.com/#{session[:user_key]}"
+      @app.save
       @app.to_json
       # redirect to("/index.html?tool=#{@app.tool_id}")
     end

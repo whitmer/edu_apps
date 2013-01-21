@@ -13,8 +13,11 @@ module Sinatra
       data = App.load_apps
       categories = data.map{|d| d['categories'] }.flatten.compact.uniq.sort
       list = {
-        :levels => ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
-        :categories => categories
+        :levels => AppParser::LEVELS,
+        :categories => AppParser::CATEGORIES,
+        :extensions => AppParser::EXTENSIONS,
+        :privacy_levels => AppParser::PRIVACY_LEVELS,
+        :app_types => AppParser::APP_TYPES
       }
       list.to_json
     end
@@ -99,7 +102,7 @@ module Sinatra
         params = request.params
         offset = params['offset'].to_i
         
-        data = App.load_apps
+        data = App.load_apps.sort_by{|a| [(0 - (a['uses'] || 0)), a['name'] || 'zzz'] }
         [['category', 'categories'], ['level', 'levels'], ['extension', 'extensions']].each do |filter, key|
           if params[filter] && params[filter].length > 0
             if params[filter] == 'all'

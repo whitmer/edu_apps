@@ -29,6 +29,28 @@
         <input type="text" id="short_description" placeholder="(optional)" name="short_description" value="{{ short_description }}" class="span6"/>
       </div>      
     </div>
+    {{#if admin }}
+      <div class="control-group">
+        <label class="control-label" for="uses">Uses</label>
+        <div class="controls">
+          <input type="text" id="uses" placeholder="###" name="uses" value="{{ uses }}" class="span2"/>
+        </div>      
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="added">Added</label>
+        <div class="controls">
+          <input type="text" id="added" placeholder="iso8601 utc timestamp" name="added" value="{{ added }}" class="span2"/>
+        </div>      
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <label>
+            <input type="checkbox" name="pending" value="1" {{#if pending}}checked{{/if}} />
+            App Pending Review
+          </label>
+        </div>      
+      </div>
+    {{/if }}
     <div class="control-group">
       <label class="control-label" for="logo_url">Logo URL</label>
       <div class="controls">

@@ -23,13 +23,53 @@ $(function() {
     $("#config_options .fields").append(field);
     $("#config_options table").show();
   });
+  $(document).on('submit', '#app_settings', function(event) {
+    event.preventDefault();
+    var args = {};
+    var array = $(event.target).seralizeArray();
+    for(var idx in array) {
+      args[array[idx]['name']] = array[idx]['value'];
+    }
+    $.ajax({
+      url: $(event.target).attr('action'),
+      type: "POST",
+      data: args,
+      dataType: 'json',
+      success: function(data) { 
+        if(location.href.match(/suggestions/)) {
+          alert("Submitted! Thank you!");
+          location.href = "/";
+        } else {
+          window.reload();
+        }
+      },
+      error: function() {
+        alert("Error!");
+      }
+    });
+  });
 });
 function manageApp(tool) {
-  var admin_tool = JSON.parse(JSON.stringify(tool))
-  admin_tool.all_levels = ["K-6th Grade", "7th-12th Grade", "Postsecondary"];
-  admin_tool.all_categories = ["Community", "Content", "Math", "Media", "Open Content", "Science", "Study Helps", "Textbooks/eBooks", "Web 2.0"];
-  admin_tool.all_extensions = ["course_nav", "user_nav", "account_nav", "editor_button", "resource_selection"];
-  admin_tool.all_app_types = ["open_launch", "data"];
+  $.ajax({
+    url: "/api/v1/app_categories",
+    dataType: "json",
+    type: "GET",
+    success: function(data) {
+      manageAppFrd(tool, data);
+    },
+    error: function() {
+      $("#contents .row:last").append("<h2 class='offset1 span9'>There was a problem loading the app data</h2>");
+    }
+  });
+}
+function manageAppFrd(tool, categories) {
+  var admin_tool = JSON.parse(JSON.stringify(tool));
+
+  admin_tool.all_levels = categories.levels;
+  admin_tool.all_categories = categories.categories;
+  admin_tool.all_extensions = categories.extensions;
+  admin_tool.all_app_types = categories.app_types;
+  admin_tool.admin = $.store.get('admin');
   lookups = {
     "launch_url": "/tools/" + admin_tool.id + "/index.html",
     "icon_url": "/tools/" + admin_tool.id + "/icon.png",

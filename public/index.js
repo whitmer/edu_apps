@@ -124,7 +124,7 @@
     var $div = null;
     filterTools.appCount = 0;
     for(var idx = 0; idx < tools.length; idx++) {
-      var tool = tools[idx];
+      var tool = JSON.parse(JSON.stringify(tools[idx]));
       if(category == "recent" && !tool['recent']) {
         continue;
       }
@@ -166,7 +166,7 @@
         $(".app .config").css('visibility', 'visible');
         $("title,h1").text(tools[0].name);
         if(($.store.get('admin') || ($.store.get('apps') && $.store.get('apps').indexOf(tool.id) > -1)) && window.manageApp) {
-          window.manageApp(tool);
+          window.manageApp(tools[0]);
         }
       }
       mod = (mod + 1) % 4;
