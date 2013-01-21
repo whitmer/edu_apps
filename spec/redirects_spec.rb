@@ -49,6 +49,28 @@ describe 'Tool Redirects' do
       uri = URI.parse(last_response.location)
       uri.path.should == "/tools/wikipedia/index.html"
     end
+    it "should redirect to open launch apps" do
+      post "/tool_redirect?id=twitter&launch_presentation_return_url=#{CGI.escape("http://www.example.com/return")}"
+      last_response.should be_redirect
+      uri = URI.parse(last_response.location)
+      uri.path.should == "/tools/twitter/index.html"
+    end
+    
+    it "should redirect to data launch apps" do
+      post "/tool_redirect?id=brainpop&launch_presentation_return_url=#{CGI.escape("http://www.example.com/return")}"
+      last_response.should be_redirect
+      uri = URI.parse(last_response.location)
+      uri.path.should == "/tools/public_collections/index.html"
+      hash = Rack::Utils.parse_nested_query(uri.query)
+      hash['tool'].should == "brainpop"
+    end
+    
+    it "should not redirect to unknown apps" do
+      post "/tool_redirect?id=not_an_app&launch_presentation_return_url=#{CGI.escape("http://www.example.com/return")}"
+      last_response.should_not be_redirect
+      last_response.body.should == "Not found"
+    end
+    
     it "should redirect to stored URL if present" do
       # TODO
     end

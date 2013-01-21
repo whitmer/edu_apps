@@ -30,9 +30,17 @@ describe 'Config Redirects' do
             last_response.body.should match(/blti/)
           end
           if(app['app_type'] == 'open_launch' || app['app_type'] == 'data') 
-            last_response.body.should match(/tool_redirect/)
-            last_response.body.should match(/editor_button/) if (app['extensions'] || []).include?('editor_button')
-            last_response.body.should match(/resource_selection/) if (app['extensions'] || []).include?('resource_selection')
+            xml = Nokogiri(last_response.body)
+            xml.css('blti|launch_url').should_not be_empty
+            xml.css('blti|launch_url')[0].text.should == "http://example.org/tool_redirect?id=#{app['id']}"
+            if app['extensions'] && app['extensions'].include?('editor_button')
+              xml.css("lticm|options[name='editor_button']").should_not be_empty
+              xml.css("lticm|options[name='editor_button']")[0].css("lticm|property[name='url']").text.should == "http://example.org/tool_redirect?id=#{app['id']}"
+            end
+            if app['extensions'] && app['extensions'].include?('resource_selection')
+              xml.css("lticm|options[name='resource_selection']").should_not be_empty
+              xml.css("lticm|options[name='resource_selection']")[0].css("lticm|property[name='url']").text.should == "http://example.org/tool_redirect?id=#{app['id']}"
+            end
           end
             
         end

@@ -251,7 +251,7 @@ class App
   
   def self.set_data_launch_options!(result, hash, host)
     result['privacy_level'] = 'anonymous'
-    result['launch_url'] = host + "/tool_redirect?url=#{CGI.escape("/tools/public_collections/index.html?tool=#{result['id']}")}"
+    result['launch_url'] = host + "/tool_redirect?id=#{result['id']}"
     result['icon_url'] = host + "/tools/#{result['id']}/icon.png"
     result['editor_button'] = {
       'launch_url' => result['launch_url'],
@@ -272,7 +272,7 @@ class App
   
   def self.set_open_launch_options!(result, hash, host)
     result['privacy_level'] = 'anonymous'
-    result['launch_url'] = host + "/tool_redirect?url=#{CGI.escape("/tools/#{result['id']}/index.html")}"
+    result['launch_url'] = host + "/tool_redirect?id=#{result['id']}"
     result['icon_url'] = host + "/tools/#{result['id']}/icon.png"
     if hash['extensions'].include?('editor_button')
       result['editor_button'] = {

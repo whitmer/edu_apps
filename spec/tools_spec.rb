@@ -38,6 +38,10 @@ describe 'Tools Selenium' do
     page.should have_selector('h1')
   end
   
+  def load_config(key) 
+    ExternalConfig.create(:config_type => key, :value => YAML.load_file('./test_keys.yml')[key]['key'], :secret => YAML.load_file('./test_keys.yml')[key]['secret'])
+  end
+  
   def check_embed_result(embed_type, regex)
     if embed_type == :oembed
       all('.insertion textarea').length.should == 0
@@ -118,7 +122,7 @@ describe 'Tools Selenium' do
   describe "/tools/quizlet/index.html" do
     # needs an api token
     it "should load" do
-      ExternalConfig.first(:config_type => 'quizlet').should_not be_nil
+      load_config('quizlet')
       visit_tool '/tools/quizlet/index.html'
       fill_in('query', :with => 'car')
       find('#search .btn').click
@@ -154,7 +158,7 @@ describe 'Tools Selenium' do
   
   describe "/tools/slideshare/index.html" do
     it "should load" do
-      ExternalConfig.first(:config_type => 'slideshare').should_not be_nil
+      load_config('slideshare')
       visit_tool '/tools/slideshare/index.html'
       fill_in('query', :with => 'bacon')
       find('#search .btn').click
@@ -228,6 +232,7 @@ describe 'Tools Selenium' do
   
   describe "/tools/usa_today/index.html" do
     it "should load" do
+      load_config('usa_today')
       visit_tool '/tools/usa_today/index.html'
       fill_in('query', :with => 'hope')
       find('#search .btn').click
@@ -291,6 +296,7 @@ describe 'Tools Selenium' do
   describe "/index.html" do
     it "should load" do
       visit '/index.html'
+      keep_trying_until{ all('#content .app').length > 5 }
       all_apps = all('#contents .app').length
       all_apps.should > 20
       page.select('Recently Added', :from => 'category')

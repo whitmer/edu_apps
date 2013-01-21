@@ -91,6 +91,7 @@ def tool_redirect
   
   # figure out the tool id, if there is one
   id = params['id'] || (url && OLD_REDIRECTS[url]) || (url && OLD_REDIRECTS[url.split(/\?/)[0]])
+  app = App.load_apps.detect{|a| a['id'] == id }
   
   # include any arguments passed through the old-school URL
   args = []
@@ -102,7 +103,16 @@ def tool_redirect
   end
 
   # set to the new tool URL if it matches as a tool  
-  url = "/tools/#{id}/index.html" if id
+  if id
+    if !app
+      return "Not found"
+    elsif app['app_type'] == 'data'
+      url = "/tools/public_collections/index.html"
+      args << "tool=#{id}"
+    else
+      url = "/tools/#{id}/index.html" 
+    end
+  end
   
   # include the required arguments and any query string parameters
   params.each do |key, val|
