@@ -154,6 +154,7 @@ class App
     hash = AppParser.parse(params)
     hash['added'] = (admin && params['added']) || app.added || (!app.pending && Time.now.utc.iso8601)
     hash['uses'] = (admin && params['uses'] && params['uses'].to_i) || (app.settings && app.settings['uses'])
+
     if admin
       hash['pending'] = params['pending'] unless params['pending'].nil?
     else

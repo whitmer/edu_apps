@@ -1657,7 +1657,12 @@ function program38(depth0,data) {
   stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.height);
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "preview.height", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\"/>\n          <span class=\"add-on\">px</span>\n        </div>\n      </div>      \n    </div>\n    <div class=\"control-group\">\n      <div class=\"controls\">\n        <button class='btn btn-primary' type=\"submit\">Update App</button>\n      </div>\n    </div>\n  </fieldset>\n</form>\n</div>";
+  buffer += escapeExpression(stack1) + "\"/>\n          <span class=\"add-on\">px</span>\n        </div>\n      </div>      \n    </div>\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"description\">Testing Instructions</label>\n      <div class=\"controls\">\n        <textarea name=\"test_instructions\" rows=\"4\" class=\"span6\">";
+  foundHelper = helpers.test_instructions;
+  stack1 = foundHelper || depth0.test_instructions;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "test_instructions", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</textarea><br/>\n        If this is a new app, please provide directions on how we can test the app, including any\n        keys, secrets, and test-specific URLs needed for the test environment.\n      </div>      \n    </div>\n    <div class=\"control-group\">\n      <div class=\"controls\">\n        <button class='btn btn-primary' type=\"submit\">Update App</button>\n      </div>\n    </div>\n  </fieldset>\n</form>\n</div>";
   return buffer;});
 templates['tool_preview'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;

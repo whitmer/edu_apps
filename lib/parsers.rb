@@ -162,6 +162,7 @@ module AppParser
     hash['short_description'] = unless_empty(params['short_description'])
     hash['extensions'] = parse_extensions(params)
     hash['preview'] = parse_preview(params)
+    hash['test_instructions'] = params['test_instructions']
     
     if hash['app_type'] == 'open_launch'
       hash['no_launch'] = unless_empty(params['no_launch'] == '1' || params['no_launch'] == true)
