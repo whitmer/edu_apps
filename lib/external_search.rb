@@ -38,6 +38,8 @@ module Sinatra
     end
     
     get '/tweet_embed' do
+      tweet = CachedTweet.first(:tweet_id => params['id'])
+      return tweet.data if tweet
       url = "https://api.twitter.com/1/statuses/oembed.json?id=#{params['id']}"
       uri = URI.parse(url)
       path = uri.path + "?" + uri.query
@@ -46,6 +48,9 @@ module Sinatra
       request = Net::HTTP::Get.new(path)
       response = http.request(request)
       json = JSON.parse(response.body)
+      if json['html']
+        CachedTweet.create(:tweet_id => params['id'], :data => response.body)
+      end
       response.body
     end
     
