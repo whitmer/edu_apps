@@ -25,15 +25,11 @@ $(function() {
   });
   $(document).on('submit', '#app_settings', function(event) {
     event.preventDefault();
-    var args = {};
     var array = $(event.target).serializeArray();
-    for(var idx in array) {
-      args[array[idx]['name']] = array[idx]['value'];
-    }
     $.ajax({
       url: $(event.target).attr('action'),
       type: "POST",
-      data: args,
+      data: array,
       dataType: 'json',
       success: function(data) { 
         if(location.href.match(/suggestions/)) {
