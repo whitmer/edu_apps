@@ -228,6 +228,11 @@ describe 'Tools Selenium' do
       all('#twtr-widget-1').length.should == 1
       all('#twtr-widget-1 .twtr-hd h4')[0].text.should == 'whitmer'
       all('#twtr-widget-1 .twtr-tweet').length.should > 5
+      
+      visit '/index.html'
+      visit_tool '/tools/twitter/index.html#type=single&query=133640144317198338'
+      keep_trying_until{ all('.twitter-tweet').length > 0 }
+      all('.twitter-tweet').length.should == 1
     end
   end
   

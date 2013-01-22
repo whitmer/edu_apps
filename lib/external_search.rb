@@ -37,6 +37,18 @@ module Sinatra
       return json['content']['stories'].to_json
     end
     
+    get '/tweet_embed' do
+      url = "https://api.twitter.com/1/statuses/oembed.json?id=#{params['id']}"
+      uri = URI.parse(url)
+      path = uri.path + "?" + uri.query
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      request = Net::HTTP::Get.new(path)
+      response = http.request(request)
+      json = JSON.parse(response.body)
+      response.body
+    end
+    
     get '/usa_today_search' do
       @@usa_today_config = ExternalConfig.first(:config_type => 'usa_today')
       query = CGI.escape(params['q'] || '')
