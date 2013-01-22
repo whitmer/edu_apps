@@ -540,9 +540,14 @@ templates['config_option'] = template(function (Handlebars,depth0,helpers,partia
 function program1(depth0,data) {
   
   
-  return "select";}
+  return "checked";}
 
 function program3(depth0,data) {
+  
+  
+  return "select";}
+
+function program5(depth0,data) {
   
   
   return "selected";}
@@ -576,7 +581,17 @@ function program3(depth0,data) {
   stack1 = foundHelper || depth0.current_index;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "current_index", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "][required]\" value=\"1\"/>\n  </td>\n  <td>\n    <select name=\"config_options[";
+  buffer += escapeExpression(stack1) + "][required]\" ";
+  foundHelper = helpers.required;
+  stack1 = foundHelper || depth0.required;
+  stack2 = helpers['if'];
+  tmp1 = self.program(1, program1, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " value=\"1\"/>\n  </td>\n  <td>\n    <select name=\"config_options[";
   foundHelper = helpers.current_index;
   stack1 = foundHelper || depth0.current_index;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
@@ -589,7 +604,7 @@ function program3(depth0,data) {
   stack2['val'] = stack3;
   foundHelper = helpers.if_eql;
   stack3 = foundHelper || depth0.if_eql;
-  tmp1 = self.program(1, program1, data);
+  tmp1 = self.program(3, program3, data);
   tmp1.hash = stack2;
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -604,7 +619,7 @@ function program3(depth0,data) {
   stack2['val'] = stack3;
   foundHelper = helpers.if_eql;
   stack3 = foundHelper || depth0.if_eql;
-  tmp1 = self.program(3, program3, data);
+  tmp1 = self.program(5, program5, data);
   tmp1.hash = stack2;
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;

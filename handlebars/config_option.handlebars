@@ -7,7 +7,7 @@
     <input type="text" placeholder="Parameter" name="config_options[{{current_index}}][description]" value="{{ description }}" class="span2"/>
   </td>
   <td>
-    <input type="checkbox" name="config_options[{{current_index}}][required]" value="1"/>
+    <input type="checkbox" name="config_options[{{current_index}}][required]" {{#if required}}checked{{/if}} value="1"/>
   </td>
   <td>
     <select name="config_options[{{current_index}}][type]" class="span2">
