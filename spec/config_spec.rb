@@ -67,6 +67,66 @@ describe 'Config Redirects' do
         end
       end
     end
+    
+    describe "data json redirects" do
+      it "should return stored json" do
+        App.create(:tool_id => 'tool', :pending => false, :settings => {'id' => 'tool', 'description' => '', 'data_json' => [{}, {}]})
+        get "/tools/tool/data.json"
+        last_response.should be_ok
+        last_response.body.should == [{}, {}].to_json
+      end
+      it "should redirect to external json" do
+        App.create(:tool_id => 'tool', :pending => false, :settings => {'id' => 'tool', 'description' => '', 'data_url' => "http://www.example.com"})
+        get "/tools/tool/data.json"
+        last_response.should be_redirect
+        last_response.location.should == "http://www.example.com"
+      end
+      it "should return empty set if no json" do
+        App.create(:tool_id => 'tool', :pending => false, :settings => {'id' => 'tool', 'description' => ''})
+        get "/tools/tool/data.json"
+        last_response.should be_ok
+        last_response.body.should == [].to_json
+      end
+    end
+    
+    describe "image redirects" do
+      it "should redirect logo requests" do
+        App.create(:tool_id => 'tool', :pending => false, :settings => {'id' => 'tool', 'description' => '', 'logo_url' => 'http://www.example.com/logo.png'})
+        get "/tools/tool/logo.png"
+        last_response.should be_redirect
+        last_response.location.should == "http://www.example.com/logo.png"
+      end
+      it "should error if no logo url present" do
+        App.create(:tool_id => 'tool', :pending => false, :settings => {'id' => 'tool', 'description' => ''})
+        get "/tools/tool/logo.png"
+        last_response.should be_ok
+        last_response.body.should == "Not Found"
+      end
+      it "should redirect banner requests" do
+        App.create(:tool_id => 'tool', :pending => false, :settings => {'id' => 'tool', 'description' => '', 'banner_url' => 'http://www.example.com/banner.png'})
+        get "/tools/tool/banner.png"
+        last_response.should be_redirect
+        last_response.location.should == "http://www.example.com/banner.png"
+      end
+      it "should error if no banner url present" do
+        App.create(:tool_id => 'tool', :pending => false, :settings => {'id' => 'tool', 'description' => ''})
+        get "/tools/tool/banner.png"
+        last_response.should be_ok
+        last_response.body.should == "Not Found"
+      end
+      it "should redirect icon requests" do
+        App.create(:tool_id => 'tool', :pending => false, :settings => {'id' => 'tool', 'description' => '', 'icon_url' => 'http://www.example.com/icon.png'})
+        get "/tools/tool/icon.png"
+        last_response.should be_redirect
+        last_response.location.should == "http://www.example.com/icon.png"
+      end
+      it "should error if no icon url present" do
+        App.create(:tool_id => 'tool', :pending => false, :settings => {'id' => 'tool', 'description' => ''})
+        get "/tools/tool/icon.png"
+        last_response.should be_ok
+        last_response.body.should == "Not Found"
+      end
+    end
   end
     
 end

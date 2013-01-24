@@ -1,11 +1,28 @@
 $(function() {
-  $(document).on('change', '#app_type', function() {
+  function formChanged() {
+    var app_type = $("#app_type").val();
+    var preview = !!$("#preview_url").val();
+    var dialog = $("#extensions input[name='extensions[]'][value='editor_button']").attr('checked') || $("#extensions input[name='extensions[]'][value='resource_selection']").attr('checked');
+    var course_nav = $("#extensions input[name='extensions[]'][value='course_nav']").attr('checked');
+    var account_nav = $("#extensions input[name='extensions[]'][value='account_nav']").attr('checked');
+    var user_nav = $("#extensions input[name='extensions[]'][value='user_nav']").attr('checked');
+    var config_options = $("#config_options .fields tr").length > 0;
     $("#app_settings .control-group.app_type").hide()
-      .filter("." + $(this).val()).show();
+      .filter("." + app_type).show()
+        .filter(".preview" + (preview  ? "none" : "")).hide().end()
+        .filter(".dialog" + (dialog  ? "none" : "")).hide().end()
+        .filter(".account_nav" + (account_nav  ? "none" : "")).hide().end()
+        .filter(".course_nav" + (course_nav  ? "none" : "")).hide().end()
+        .filter(".user_nav" + (user_nav  ? "none" : "")).hide().end()
+        .filter(".config_options" + (config_options  ? "none" : "")).hide();
+  }
+  $(document).on('change keyup', '#app_type,#preview_url,#extensions :checkbox', function() {
+    formChanged();
   });
   $(document).on('click', '.delete_field', function(event) {
     event.preventDefault();
     $(this).closest(".field").remove();
+    formChanged();
   });
   $(document).on('click', '#custom_fields .add_field', function(event) {
     event.preventDefault();
@@ -22,6 +39,7 @@ $(function() {
     var field = Handlebars.templates['config_option']({});
     $("#config_options .fields").append(field);
     $("#config_options table").show();
+    formChanged();
   });
   $(document).on('submit', '#app_settings', function(event) {
     event.preventDefault();

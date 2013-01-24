@@ -338,6 +338,43 @@ templates['custom_field'] = template(function (Handlebars,depth0,helpers,partial
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "value", { hash: {} }); }
   buffer += escapeExpression(stack1) + "\" placeholder=\"value\"/>\n  <button class=\"btn delete_field\" type='button'>Delete</button>\n</div>\n";
   return buffer;});
+templates['data_entry'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers;
+  var buffer = "", stack1, foundHelper, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression;
+
+
+  buffer += "<tr class=\"record\">\n  <td class=\"tally\">\n    <a href=\"";
+  foundHelper = helpers.url;
+  stack1 = foundHelper || depth0.url;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "url", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\" target=\"_blank\">\n      <img src=\"";
+  foundHelper = helpers.image_url;
+  stack1 = foundHelper || depth0.image_url;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "image_url", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\" style=\"height: 20px; max-width: 30px;\"/>\n    </a>\n    <div><span class=\"cnt\"></span> / <span class=\"total\"></span></div>\n  </td>\n  <td>\n    <input type=\"text\" class=\"title span2\" placeholder=\"Resource name\" value=\"";
+  foundHelper = helpers.name;
+  stack1 = foundHelper || depth0.name;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\"/>\n  </td>\n  <td>\n    <input type=\"text\" class=\"url span3\" placeholder=\"https recommended\" value=\"";
+  foundHelper = helpers.url;
+  stack1 = foundHelper || depth0.url;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "url", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\"/>\n  </td>\n  <td>\n    <input type=\"text\" class=\"image_url span3\" placeholder=\"https recommended\" value=\"";
+  foundHelper = helpers.image_url;
+  stack1 = foundHelper || depth0.image_url;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "image_url", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\"/>\n  </td>\n  <td>\n    <textarea class=\"desc span4\" placeholder=\"Resource description\">";
+  foundHelper = helpers.description;
+  stack1 = foundHelper || depth0.description;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "description", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</textarea>\n  </td>\n  <td>\n    <button class='btn delete'>Delete</button>\n  </td>\n</tr>";
+  return buffer;});
 templates['footer'] = template(function (Handlebars,depth0,helpers,partials,data) {
   helpers = helpers || Handlebars.helpers;
   var foundHelper, self=this;
@@ -1164,6 +1201,16 @@ function program3(depth0,data) {
 
 function program5(depth0,data) {
   
+  
+  return "\n      <legend>App Settings</legend>\n    ";}
+
+function program7(depth0,data) {
+  
+  
+  return "\n      <h2>Submitting an App</h2>\n      <p>If you've built an LTI App or are ready to submit your data collection to be processed into\n      an LTI app, please the use form below to provide us with the information we need to test and\n      then add your app to the directory.\n      </p>\n    ";}
+
+function program9(depth0,data) {
+  
   var buffer = "", stack1, stack2;
   buffer += "\n      <div class=\"control-group\">\n        <label class=\"control-label\" for=\"uses\">Uses</label>\n        <div class=\"controls\">\n          <input type=\"text\" id=\"uses\" placeholder=\"###\" name=\"uses\" value=\"";
   foundHelper = helpers.uses;
@@ -1179,7 +1226,7 @@ function program5(depth0,data) {
   foundHelper = helpers.pending;
   stack1 = foundHelper || depth0.pending;
   stack2 = helpers['if'];
-  tmp1 = self.program(6, program6, data);
+  tmp1 = self.program(10, program10, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1187,12 +1234,12 @@ function program5(depth0,data) {
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += " />\n            App Pending Review\n          </label>\n        </div>      \n      </div>\n    ";
   return buffer;}
-function program6(depth0,data) {
+function program10(depth0,data) {
   
   
   return "checked";}
 
-function program8(depth0,data,depth1) {
+function program12(depth0,data,depth1) {
   
   var buffer = "", stack1, stack2, stack3;
   buffer += "\n          <label class=\"checkbox\">\n            <input type=\"checkbox\" value=\"";
@@ -1219,7 +1266,7 @@ function program8(depth0,data,depth1) {
   buffer += escapeExpression(stack1) + "\n          </label>\n        ";
   return buffer;}
 
-function program10(depth0,data,depth1) {
+function program14(depth0,data,depth1) {
   
   var buffer = "", stack1, stack2, stack3;
   buffer += "\n          <label class=\"checkbox\">\n            <input type=\"checkbox\" value=\"";
@@ -1246,7 +1293,7 @@ function program10(depth0,data,depth1) {
   buffer += escapeExpression(stack1) + "\n          </label>\n        ";
   return buffer;}
 
-function program12(depth0,data,depth1) {
+function program16(depth0,data,depth1) {
   
   var buffer = "", stack1, stack2, stack3;
   buffer += "\n          <label class=\"checkbox\">\n            <input type=\"checkbox\" value=\"";
@@ -1273,16 +1320,6 @@ function program12(depth0,data,depth1) {
   buffer += escapeExpression(stack1) + "\n          </label>\n        ";
   return buffer;}
 
-function program14(depth0,data) {
-  
-  
-  return "selected";}
-
-function program16(depth0,data) {
-  
-  
-  return "selected";}
-
 function program18(depth0,data) {
   
   
@@ -1290,25 +1327,55 @@ function program18(depth0,data) {
 
 function program20(depth0,data) {
   
+  var buffer = "", stack1, stack2, stack3;
+  buffer += "\n          <option ";
+  foundHelper = helpers.app_type;
+  stack1 = foundHelper || depth0.app_type;
+  stack2 = {};
+  stack3 = "open_launch";
+  stack2['val'] = stack3;
+  foundHelper = helpers.if_eql;
+  stack3 = foundHelper || depth0.if_eql;
+  tmp1 = self.program(21, program21, data);
+  tmp1.hash = stack2;
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  if(foundHelper && typeof stack3 === functionType) { stack1 = stack3.call(depth0, stack1, tmp1); }
+  else { stack1 = blockHelperMissing.call(depth0, stack3, stack1, tmp1); }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " value=\"open_launch\">Open Access App</option>\n          ";
+  return buffer;}
+function program21(depth0,data) {
+  
+  
+  return "selected";}
+
+function program23(depth0,data) {
+  
+  
+  return "selected";}
+
+function program25(depth0,data) {
+  
   
   return "checked";}
 
-function program22(depth0,data) {
+function program27(depth0,data) {
   
   
   return "selected";}
 
-function program24(depth0,data) {
+function program29(depth0,data) {
   
   
   return "selected";}
 
-function program26(depth0,data) {
+function program31(depth0,data) {
   
   
   return "selected";}
 
-function program28(depth0,data) {
+function program33(depth0,data) {
   
   var buffer = "", stack1;
   buffer += "\n              ";
@@ -1318,12 +1385,12 @@ function program28(depth0,data) {
   buffer += "\n            ";
   return buffer;}
 
-function program30(depth0,data) {
+function program35(depth0,data) {
   
   
   return "style=\"display: none;\"";}
 
-function program32(depth0,data) {
+function program37(depth0,data) {
   
   var buffer = "", stack1;
   buffer += "\n                ";
@@ -1333,7 +1400,7 @@ function program32(depth0,data) {
   buffer += "\n              ";
   return buffer;}
 
-function program34(depth0,data) {
+function program39(depth0,data) {
   
   var buffer = "", stack1;
   buffer += "\n              ";
@@ -1343,12 +1410,12 @@ function program34(depth0,data) {
   buffer += "\n            ";
   return buffer;}
 
-function program36(depth0,data) {
+function program41(depth0,data) {
   
   
   return "checked";}
 
-function program38(depth0,data) {
+function program43(depth0,data) {
   
   
   return "checked";}
@@ -1373,7 +1440,17 @@ function program38(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n  <fieldset>\n    <legend>App Settings</legend>\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"name\">Name</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"name\" placeholder=\"App Name\" name=\"name\" value=\"";
+  buffer += "\n  <fieldset>\n    ";
+  foundHelper = helpers.id;
+  stack1 = foundHelper || depth0.id;
+  stack2 = helpers['if'];
+  tmp1 = self.program(5, program5, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.program(7, program7, data);
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"name\">Name</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"name\" placeholder=\"App Name\" name=\"name\" value=\"";
   foundHelper = helpers.name;
   stack1 = foundHelper || depth0.name;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
@@ -1397,7 +1474,7 @@ function program38(depth0,data) {
   foundHelper = helpers.admin;
   stack1 = foundHelper || depth0.admin;
   stack2 = helpers['if'];
-  tmp1 = self.program(5, program5, data);
+  tmp1 = self.program(9, program9, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1422,7 +1499,7 @@ function program38(depth0,data) {
   foundHelper = helpers.all_categories;
   stack1 = foundHelper || depth0.all_categories;
   stack2 = helpers.each;
-  tmp1 = self.programWithDepth(program8, data, depth0);
+  tmp1 = self.programWithDepth(program12, data, depth0);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1432,17 +1509,17 @@ function program38(depth0,data) {
   foundHelper = helpers.all_levels;
   stack1 = foundHelper || depth0.all_levels;
   stack2 = helpers.each;
-  tmp1 = self.programWithDepth(program10, data, depth0);
+  tmp1 = self.programWithDepth(program14, data, depth0);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n      </div>      \n    </div>\n    <div class=\"control-group\">\n      <label class=\"control-label\">Extensions</label>\n      <div class=\"controls\">\n        ";
+  buffer += "\n      </div>      \n    </div>\n    <div class=\"control-group\" id=\"extensions\">\n      <label class=\"control-label\">Extensions</label>\n      <div class=\"controls\">\n        ";
   foundHelper = helpers.all_extensions;
   stack1 = foundHelper || depth0.all_extensions;
   stack2 = helpers.each;
-  tmp1 = self.programWithDepth(program12, data, depth0);
+  tmp1 = self.programWithDepth(program16, data, depth0);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1456,29 +1533,24 @@ function program38(depth0,data) {
   stack2['val'] = stack3;
   foundHelper = helpers.if_eql;
   stack3 = foundHelper || depth0.if_eql;
-  tmp1 = self.program(14, program14, data);
+  tmp1 = self.program(18, program18, data);
   tmp1.hash = stack2;
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
   if(foundHelper && typeof stack3 === functionType) { stack1 = stack3.call(depth0, stack1, tmp1); }
   else { stack1 = blockHelperMissing.call(depth0, stack3, stack1, tmp1); }
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " value=\"custom\">XML Configuration</option>\n          <option ";
-  foundHelper = helpers.app_type;
-  stack1 = foundHelper || depth0.app_type;
-  stack2 = {};
-  stack3 = "open_launch";
-  stack2['val'] = stack3;
-  foundHelper = helpers.if_eql;
-  stack3 = foundHelper || depth0.if_eql;
-  tmp1 = self.program(16, program16, data);
-  tmp1.hash = stack2;
+  buffer += " value=\"custom\">XML Configuration</option>\n          ";
+  foundHelper = helpers.admin;
+  stack1 = foundHelper || depth0.admin;
+  stack2 = helpers['if'];
+  tmp1 = self.program(20, program20, data);
+  tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
-  if(foundHelper && typeof stack3 === functionType) { stack1 = stack3.call(depth0, stack1, tmp1); }
-  else { stack1 = blockHelperMissing.call(depth0, stack3, stack1, tmp1); }
+  stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " value=\"open_launch\">Open Access App</option>\n          <option ";
+  buffer += "\n          <option ";
   foundHelper = helpers.app_type;
   stack1 = foundHelper || depth0.app_type;
   stack2 = {};
@@ -1486,7 +1558,7 @@ function program38(depth0,data) {
   stack2['val'] = stack3;
   foundHelper = helpers.if_eql;
   stack3 = foundHelper || depth0.if_eql;
-  tmp1 = self.program(18, program18, data);
+  tmp1 = self.program(23, program23, data);
   tmp1.hash = stack2;
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1497,7 +1569,7 @@ function program38(depth0,data) {
   foundHelper = helpers.any_key;
   stack1 = foundHelper || depth0.any_key;
   stack2 = helpers['if'];
-  tmp1 = self.program(20, program20, data);
+  tmp1 = self.program(25, program25, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1526,7 +1598,7 @@ function program38(depth0,data) {
   stack2['val'] = stack3;
   foundHelper = helpers.if_eql;
   stack3 = foundHelper || depth0.if_eql;
-  tmp1 = self.program(22, program22, data);
+  tmp1 = self.program(27, program27, data);
   tmp1.hash = stack2;
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1541,7 +1613,7 @@ function program38(depth0,data) {
   stack2['val'] = stack3;
   foundHelper = helpers.if_eql;
   stack3 = foundHelper || depth0.if_eql;
-  tmp1 = self.program(24, program24, data);
+  tmp1 = self.program(29, program29, data);
   tmp1.hash = stack2;
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1556,19 +1628,19 @@ function program38(depth0,data) {
   stack2['val'] = stack3;
   foundHelper = helpers.if_eql;
   stack3 = foundHelper || depth0.if_eql;
-  tmp1 = self.program(26, program26, data);
+  tmp1 = self.program(31, program31, data);
   tmp1.hash = stack2;
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
   if(foundHelper && typeof stack3 === functionType) { stack1 = stack3.call(depth0, stack1, tmp1); }
   else { stack1 = blockHelperMissing.call(depth0, stack3, stack1, tmp1); }
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " value=\"public\">Public</option>\n        </select>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand open_launch\">\n      <label class=\"control-label\" for=\"width\">Dialog Width</label>\n      <div class=\"controls\">\n        <div class=\"input-append\">\n          <input type=\"text\" id=\"width\" class=\"span1\" name=\"width\" value=\"";
+  buffer += " value=\"public\">Public</option>\n        </select>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand open_launch dialog\">\n      <label class=\"control-label\" for=\"width\">Dialog Width</label>\n      <div class=\"controls\">\n        <div class=\"input-append\">\n          <input type=\"text\" id=\"width\" class=\"span1\" name=\"width\" value=\"";
   foundHelper = helpers.width;
   stack1 = foundHelper || depth0.width;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "width", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\"/>\n          <span class=\"add-on\">px</span>\n        </div>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand open_launch\">\n      <label class=\"control-label\" for=\"height\">Dialog Height</label>\n      <div class=\"controls\">\n        <div class=\"input-append\">\n          <input type=\"text\" id=\"height\" class=\"span1\" name=\"height\" value=\"";
+  buffer += escapeExpression(stack1) + "\"/>\n          <span class=\"add-on\">px</span>\n        </div>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand open_launch dialog\">\n      <label class=\"control-label\" for=\"height\">Dialog Height</label>\n      <div class=\"controls\">\n        <div class=\"input-append\">\n          <input type=\"text\" id=\"height\" class=\"span1\" name=\"height\" value=\"";
   foundHelper = helpers.height;
   stack1 = foundHelper || depth0.height;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
@@ -1578,7 +1650,7 @@ function program38(depth0,data) {
   stack1 = foundHelper || depth0.custom_fields;
   foundHelper = helpers.each_in_hash;
   stack2 = foundHelper || depth0.each_in_hash;
-  tmp1 = self.program(28, program28, data);
+  tmp1 = self.program(33, program33, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1589,7 +1661,7 @@ function program38(depth0,data) {
   foundHelper = helpers.config_options;
   stack1 = foundHelper || depth0.config_options;
   stack2 = helpers.unless;
-  tmp1 = self.program(30, program30, data);
+  tmp1 = self.program(35, program35, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1599,7 +1671,7 @@ function program38(depth0,data) {
   foundHelper = helpers.config_options;
   stack1 = foundHelper || depth0.config_options;
   stack2 = helpers.each;
-  tmp1 = self.program(32, program32, data);
+  tmp1 = self.program(37, program37, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1609,42 +1681,52 @@ function program38(depth0,data) {
   foundHelper = helpers.config_urls;
   stack1 = foundHelper || depth0.config_urls;
   stack2 = helpers.each;
-  tmp1 = self.program(34, program34, data);
+  tmp1 = self.program(39, program39, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n          </div>\n          <button type='button' class=\"btn add_field\">Add Field</button>\n        </div>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand open_launch\">\n      <label class=\"control-label\" for=\"variable_name\">Variable Name</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"variable_name\" placeholder=\"substitute config parameters\" name=\"variable_name\" value=\"";
+  buffer += "\n          </div>\n          <button type='button' class=\"btn add_field\">Add Field</button>\n        </div>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand open_launch config_options\">\n      <label class=\"control-label\" for=\"variable_name\">Variable Name</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"variable_name\" placeholder=\"substitute config parameters\" name=\"variable_name\" value=\"";
   foundHelper = helpers.variable_name;
   stack1 = foundHelper || depth0.variable_name;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "variable_name", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand open_launch\">\n      <label class=\"control-label\" for=\"variable_description\">Variable Description</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"variable_description\" placeholder=\"substitute config parameters\" name=\"variable_description\" value=\"";
+  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand open_launch config_options\">\n      <label class=\"control-label\" for=\"variable_description\">Variable Description</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"variable_description\" placeholder=\"substitute config parameters\" name=\"variable_description\" value=\"";
   foundHelper = helpers.variable_description;
   stack1 = foundHelper || depth0.variable_description;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "variable_description", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand\">\n      <label class=\"control-label\" for=\"course_nav_link_text\">Course Nav Link Text</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"course_nav_link_text\" placeholder=\"blank to use app name\" name=\"course_nav_link_text\" value=\"";
+  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand course_nav\">\n      <label class=\"control-label\" for=\"course_nav_link_text\">Course Nav Link Text</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"course_nav_link_text\" placeholder=\"blank to use app name\" name=\"course_nav_link_text\" value=\"";
   foundHelper = helpers.course_nav_link_text;
   stack1 = foundHelper || depth0.course_nav_link_text;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "course_nav_link_text", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand\">\n      <label class=\"control-label\" for=\"account_nav_link_text\">Account Nav Link Text</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"account_nav_link_text\" placeholder=\"blank to use app name\" name=\"account_nav_link_text\" value=\"";
+  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand account_nav\">\n      <label class=\"control-label\" for=\"account_nav_link_text\">Account Nav Link Text</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"account_nav_link_text\" placeholder=\"blank to use app name\" name=\"account_nav_link_text\" value=\"";
   foundHelper = helpers.account_nav_link_text;
   stack1 = foundHelper || depth0.account_nav_link_text;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "account_nav_link_text", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand\">\n      <label class=\"control-label\" for=\"user_nav_link_text\">User Nav Link Text</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"user_nav_link_text\" placeholder=\"blank to use app name\" name=\"user_nav_link_text\" value=\"";
+  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand user_nav\">\n      <label class=\"control-label\" for=\"user_nav_link_text\">User Nav Link Text</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"user_nav_link_text\" placeholder=\"blank to use app name\" name=\"user_nav_link_text\" value=\"";
   foundHelper = helpers.user_nav_link_text;
   stack1 = foundHelper || depth0.user_nav_link_text;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "user_nav_link_text", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type open_launch data\">\n      <div class=\"controls\">\n        <label>\n          <input type=\"checkbox\" name=\"exclude_from_public_collections\" value=\"1\" ";
+  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type data\">\n      <label class=\"control-label\" for=\"data_url\">Data Source URL</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"data_url\" placeholder=\"must return json result\" name=\"data_url\" value=\"";
+  foundHelper = helpers.data_url;
+  stack1 = foundHelper || depth0.data_url;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "data_url", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\"/>\n        &nbsp;&nbsp;\n        <a href=\"/build_json.html\">what's a Data App?</a>\n      </div>      \n    </div>\n    <div class=\"control-group app_type data\">\n      <label class=\"control-label\" for=\"description\">Data App JSON</label>\n      <div class=\"controls\">\n        <textarea name=\"data_json\" rows=\"4\" class=\"span6\" placeholder=\"not required if Data Source URL provided. If more than 500 records use data URL\">";
+  foundHelper = helpers.data_json;
+  stack1 = foundHelper || depth0.data_json;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "data_json", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</textarea>\n      </div>      \n    </div>\n    <div class=\"control-group app_type open_launch data\">\n      <div class=\"controls\">\n        <label>\n          <input type=\"checkbox\" name=\"exclude_from_public_collections\" value=\"1\" ";
   foundHelper = helpers.exclude_from_public_collections;
   stack1 = foundHelper || depth0.exclude_from_public_collections;
   stack2 = helpers['if'];
-  tmp1 = self.program(36, program36, data);
+  tmp1 = self.program(41, program41, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1654,7 +1736,7 @@ function program38(depth0,data) {
   foundHelper = helpers.no_launch;
   stack1 = foundHelper || depth0.no_launch;
   stack2 = helpers['if'];
-  tmp1 = self.program(38, program38, data);
+  tmp1 = self.program(43, program43, data);
   tmp1.hash = {};
   tmp1.fn = tmp1;
   tmp1.inverse = self.noop;
@@ -1666,13 +1748,13 @@ function program38(depth0,data) {
   stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.url);
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "preview.url", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\" class=\"span6\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type open_launch by_hand custom\">\n      <label class=\"control-label\" for=\"preview_height\">Preview Height</label>\n      <div class=\"controls\">\n        <div class=\"input-append\">\n          <input type=\"text\" id=\"preview_height\" class=\"span1\" name=\"preview[height]\" value=\"";
+  buffer += escapeExpression(stack1) + "\" class=\"span6\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type open_launch by_hand custom preview\">\n      <label class=\"control-label\" for=\"preview_height\">Preview Height</label>\n      <div class=\"controls\">\n        <div class=\"input-append\">\n          <input type=\"text\" id=\"preview_height\" class=\"span1\" name=\"preview[height]\" value=\"";
   foundHelper = helpers.preview;
   stack1 = foundHelper || depth0.preview;
   stack1 = (stack1 === null || stack1 === undefined || stack1 === false ? stack1 : stack1.height);
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "preview.height", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\"/>\n          <span class=\"add-on\">px</span>\n        </div>\n      </div>      \n    </div>\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"description\">Testing Instructions</label>\n      <div class=\"controls\">\n        <textarea name=\"test_instructions\" rows=\"4\" class=\"span6\">";
+  buffer += escapeExpression(stack1) + "\"/>\n          <span class=\"add-on\">px</span>\n        </div>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand custom\">\n      <label class=\"control-label\" for=\"description\">Testing Instructions</label>\n      <div class=\"controls\">\n        <textarea name=\"test_instructions\" rows=\"4\" class=\"span6\">";
   foundHelper = helpers.test_instructions;
   stack1 = foundHelper || depth0.test_instructions;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }

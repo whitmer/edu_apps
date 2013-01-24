@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Data App Builder</title>
+    <link href="/data/lti_apps.atom" type="application/atom+xml" rel="alternate" title="App Feed" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/common.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      footer {
+        border-top: 1px solid #e5e5e5;
+        margin-top: 40px;
+      }
+      .tally {
+        font-size: 10px;
+        white-space: nowrap;
+      }
+      .tally img {
+        min-width: 20px;
+        border: 1px solid #ddd;
+      }
+    </style>
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <div class="container" id="content">
+    <div class="hero-unit">
+      <h1>Data App Builder</h1>
+      
+      <p>
+        Apps that are made up completely of collections of resources can be built as data apps. This page
+        provides a utility for quickly building or for better understanding the JSON data format used by
+        data apps.
+      </p>
+    </div>
+    <div id="contents">
+      <h2>Introduction</h2>
+      <p>
+      Some LTI apps require lots of custom functionality in order to work, but some apps can be handled
+      as simply a collection of links that can be inserted into course content. If your app, like
+      <a href="/tools/public_collections/index.html?tool=brainpop">a</a> 
+      <a href="/tools/public_collections/index.html?tool=codecademy">bunch</a> 
+      <a href="/tools/public_collections/index.html?tool=college_board">of</a> 
+      <a href="/tools/public_collections/index.html?tool=mathalicious">app</a> 
+      <a href="/tools/public_collections/index.html?tool=softchalk_cloud">on</a> 
+      <a href="/tools/public_collections/index.html?tool=spelling_city">this</a> 
+      <a href="/tools/public_collections/index.html?tool=smarterer">site</a>,
+      delivers a collection of links to rich content, then you can quickly and easily implement it
+      as an LTI app by building a JSON data set of the collection of resources. You can use the
+      table builder below to manually create resources, then click "Generate JSON". Or you can paste
+      in JSON you've built and make sure it parses correctly by clicking "Parse JSON".
+      </p>
+      <p>
+      Once you've built your data set, upload it to a public server and submit the URL as a "Data App" 
+      on the <a href="/suggestions#submit">Suggestions</a> page.
+      </p>
+      <h2>Table of Resources</h2>
+      <table id="data" class="table table-striped">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>Title</th>
+            <th>Resource URL</th>
+            <th>Image URL</th>
+            <th>Description</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="5">
+              <button class='btn' id="add">Add Resource</button>
+              <button class='btn' id="build">Generate JSON</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>JSON Output</h2>
+      <div>
+        <textarea id="json" class="span12" rows="8"></textarea>
+        <br/><button class='btn' id="parse">Parse JSON</button>
+      </div>
+    </div>
+  </div>
+  <script src="jquery.min.js"></script>
+  <script src="/analytics.js"></script>
+  <script src="bootstrap-tooltip.js"></script>
+  <script src="/jquery.store.js"></script>
+  <script src="/common.js"></script>
+  <script src="/build_json.js"></script>
+  <script src="bootstrap-dropdown.js"></script>
+  </body>
+</html>

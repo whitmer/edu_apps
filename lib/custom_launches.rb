@@ -18,6 +18,15 @@ module Sinatra
     get "/speeqe" do
       redirect to("http://lti-demo.speeqe.com")
     end
+    
+    get "/data_stream" do
+      uri = URI.parse("https://api.quizlet.com/2.0/search/sets")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = uri.ssl?
+      tmp_url = uri.path + "?" + uri.query
+      request = Net::HTTP::Get.new(tmp_url)
+      response = http.request(request)
+    end
   end 
   register CustomLaunches
 end

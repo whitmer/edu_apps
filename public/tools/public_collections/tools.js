@@ -76,6 +76,10 @@
             tool.resources = data;
             search();
           },
+          error: function(data) {
+            console.log(data);
+            alert("There was an error processing the result");
+          },
           dataType: 'json'
         });
       }

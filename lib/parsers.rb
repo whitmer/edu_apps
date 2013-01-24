@@ -166,6 +166,9 @@ module AppParser
     
     if hash['app_type'] == 'open_launch'
       hash['no_launch'] = unless_empty(params['no_launch'] == '1' || params['no_launch'] == true)
+    elsif hash['app_type'] == 'data'
+      hash['data_url'] = unless_empty(params['data_url'])
+      hash['data_json'] = parse_data_json(params['data_json'])
     end
     
     if hash['app_type'] == 'open_launch' || hash['app_type'] == 'data'
@@ -209,6 +212,17 @@ module AppParser
       hash.delete(key) if val == nil
     end
     hash
+  end
+  
+  def self.parse_data_json(str)
+    res = JSON.parse(str) rescue nil
+    res = nil if res && !res.is_a?(Array)
+    res = nil if res && (res.length > 500 || res.length == 0)
+    (res || []).each do |record|
+      res = nil if !record.is_a?(Hash) || !record['url'] || !record['name']
+      break if res == nil
+    end
+    res
   end
   
   def self.unless_zero(str)
@@ -325,3 +339,36 @@ module AppParser
   end
 end
 
+module Hasher
+  def self.diff(a, b)
+    if a.is_a?(Hash) && b.is_a?(Hash)
+      res = {}
+      a.keys.each do |key|
+        if d = diff(a[key], b[key])
+          res[key] = d
+        end
+      end
+      b.keys.each do |key|
+        if d = diff(a[key], b[key])
+          res[key] = d
+        end
+      end
+      res.empty? ? nil : res
+    elsif a.is_a?(Array) && b.is_a?(Array)
+      bads = []
+      a.each_with_index do |val, idx|
+        if d = diff(a[idx], b[idx])
+          bads << d
+        end
+      end
+      b.each_with_index do |val, idx|
+        if d = diff(a[idx], b[idx])
+          bads << d
+        end
+      end
+      bads.empty? ? nil : bads
+    else
+      a.to_s == b.to_s ? nil : (a || b)
+    end
+  end
+end

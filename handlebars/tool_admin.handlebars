@@ -4,7 +4,15 @@
     <input type="hidden" name="_method" value="PUT"/>
   {{/if}}
   <fieldset>
-    <legend>App Settings</legend>
+    {{#if id }}
+      <legend>App Settings</legend>
+    {{else }}
+      <h2>Submitting an App</h2>
+      <p>If you've built an LTI App or are ready to submit your data collection to be processed into
+      an LTI app, please the use form below to provide us with the information we need to test and
+      then add your app to the directory.
+      </p>
+    {{/if}}
     <div class="control-group">
       <label class="control-label" for="name">Name</label>
       <div class="controls">
@@ -91,7 +99,7 @@
         {{/each}}
       </div>      
     </div>
-    <div class="control-group">
+    <div class="control-group" id="extensions">
       <label class="control-label">Extensions</label>
       <div class="controls">
         {{#each all_extensions}}
@@ -108,7 +116,9 @@
         <select name="app_type" id="app_type">
           <option value="by_hand">Configure By Hand</option>
           <option {{#if_eql app_type val="custom"}}selected{{/if_eql}} value="custom">XML Configuration</option>
+          {{#if admin }}
           <option {{#if_eql app_type val="open_launch"}}selected{{/if_eql}} value="open_launch">Open Access App</option>
+          {{/if}}
           <option {{#if_eql app_type val="data"}}selected{{/if_eql}} value="data">Data App</option>
         </select>
       </div>      
@@ -149,7 +159,7 @@
         </select>
       </div>      
     </div>
-    <div class="control-group app_type by_hand open_launch">
+    <div class="control-group app_type by_hand open_launch dialog">
       <label class="control-label" for="width">Dialog Width</label>
       <div class="controls">
         <div class="input-append">
@@ -158,7 +168,7 @@
         </div>
       </div>      
     </div>
-    <div class="control-group app_type by_hand open_launch">
+    <div class="control-group app_type by_hand open_launch dialog">
       <label class="control-label" for="height">Dialog Height</label>
       <div class="controls">
         <div class="input-append">
@@ -218,34 +228,48 @@
         </div>
       </div>      
     </div>
-    <div class="control-group app_type by_hand open_launch">
+    <div class="control-group app_type by_hand open_launch config_options">
       <label class="control-label" for="variable_name">Variable Name</label>
       <div class="controls">
         <input type="text" id="variable_name" placeholder="substitute config parameters" name="variable_name" value="{{ variable_name }}"/>
       </div>      
     </div>
-    <div class="control-group app_type by_hand open_launch">
+    <div class="control-group app_type by_hand open_launch config_options">
       <label class="control-label" for="variable_description">Variable Description</label>
       <div class="controls">
         <input type="text" id="variable_description" placeholder="substitute config parameters" name="variable_description" value="{{ variable_description }}"/>
       </div>      
     </div>
-    <div class="control-group app_type by_hand">
+    <div class="control-group app_type by_hand course_nav">
       <label class="control-label" for="course_nav_link_text">Course Nav Link Text</label>
       <div class="controls">
         <input type="text" id="course_nav_link_text" placeholder="blank to use app name" name="course_nav_link_text" value="{{ course_nav_link_text }}"/>
       </div>      
     </div>
-    <div class="control-group app_type by_hand">
+    <div class="control-group app_type by_hand account_nav">
       <label class="control-label" for="account_nav_link_text">Account Nav Link Text</label>
       <div class="controls">
         <input type="text" id="account_nav_link_text" placeholder="blank to use app name" name="account_nav_link_text" value="{{ account_nav_link_text }}"/>
       </div>      
     </div>
-    <div class="control-group app_type by_hand">
+    <div class="control-group app_type by_hand user_nav">
       <label class="control-label" for="user_nav_link_text">User Nav Link Text</label>
       <div class="controls">
         <input type="text" id="user_nav_link_text" placeholder="blank to use app name" name="user_nav_link_text" value="{{ user_nav_link_text }}"/>
+      </div>      
+    </div>
+    <div class="control-group app_type data">
+      <label class="control-label" for="data_url">Data Source URL</label>
+      <div class="controls">
+        <input type="text" id="data_url" placeholder="must return CORS json result" name="data_url" value="{{ data_url }}"/>
+        &nbsp;&nbsp;
+        <a href="/build_json.html">what's a Data App?</a>
+      </div>      
+    </div>
+    <div class="control-group app_type data">
+      <label class="control-label" for="description">Data App JSON</label>
+      <div class="controls">
+        <textarea name="data_json" rows="4" class="span6" placeholder="not required if Data Source URL provided. If more than 500 records use data URL">{{ data_json }}</textarea>
       </div>      
     </div>
     <div class="control-group app_type open_launch data">
@@ -270,7 +294,7 @@
         <input type="text" id="preview_url" placeholder="youtube/vimeo or other iframe URL" name="preview[url]" value="{{ preview.url }}" class="span6"/>
       </div>      
     </div>
-    <div class="control-group app_type open_launch by_hand custom">
+    <div class="control-group app_type open_launch by_hand custom preview">
       <label class="control-label" for="preview_height">Preview Height</label>
       <div class="controls">
         <div class="input-append">
@@ -279,7 +303,7 @@
         </div>
       </div>      
     </div>
-    <div class="control-group">
+    <div class="control-group app_type by_hand custom">
       <label class="control-label" for="description">Testing Instructions</label>
       <div class="controls">
         <textarea name="test_instructions" rows="4" class="span6">{{ test_instructions }}</textarea><br/>

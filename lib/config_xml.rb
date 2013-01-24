@@ -8,19 +8,33 @@ module Sinatra
       app_config(params['tool_id'])
     end
     
+    get "/tools/:tool_id/data.json" do
+      load_app(params['tool_id'])
+      if @app['data_json']
+        @app['data_json'].to_json
+      elsif @app['data_url']
+        redirect to(@app['data_url'])
+      else
+        [].to_json
+      end
+    end
+    
     # Fallbacks if images are stored elsewhere
     get "/tools/:tool_id/icon.png" do
-      load_app(id)
+      load_app(params['tool_id'])
+      halt "Not Found" unless @app && @app['icon_url']
       redirect to @app['icon_url']
     end
     
     get "/tools/:tool_id/logo.png" do
-      load_app(id)
+      load_app(params['tool_id'])
+      halt "Not Found" unless @app && @app['logo_url']
       redirect to @app['logo_url']
     end
     
     get "/tools/:tool_id/banner.png" do
-      load_app(id)
+      load_app(params['tool_id'])
+      halt "Not Found" unless @app && @app['banner_url']
       redirect to @app['banner_url']
     end
     
@@ -270,8 +284,8 @@ module Sinatra
         return if @app && @app['id'] == id.to_s
         @app = App.load_apps.detect{|a| a['id'] == id.to_s }
         @id = id
-        @app_name = app['name']
-        @app_desc = app['short_description'] || app['description'].split("<br/>")[0]
+        @app_name = @app['name']
+        @app_desc = @app['short_description'] || @app['description'].split("<br/>")[0]
       end
       
     end

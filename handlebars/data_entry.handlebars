@@ -1,0 +1,23 @@
+<tr class="record">
+  <td class="tally">
+    <a href="{{ url }}" target="_blank">
+      <img src="{{ image_url }}" style="height: 20px; max-width: 30px;"/>
+    </a>
+    <div><span class="cnt"></span> / <span class="total"></span></div>
+  </td>
+  <td>
+    <input type="text" class="title span2" placeholder="Resource name" value="{{ name }}"/>
+  </td>
+  <td>
+    <input type="text" class="url span3" placeholder="https recommended" value="{{ url }}"/>
+  </td>
+  <td>
+    <input type="text" class="image_url span3" placeholder="https recommended" value="{{ image_url }}"/>
+  </td>
+  <td>
+    <textarea class="desc span4" placeholder="Resource description">{{ description }}</textarea>
+  </td>
+  <td>
+    <button class='btn delete'>Delete</button>
+  </td>
+</tr>
