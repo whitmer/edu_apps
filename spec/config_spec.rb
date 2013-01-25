@@ -70,7 +70,7 @@ describe 'Config Redirects' do
     
     describe "data json redirects" do
       it "should return stored json" do
-        App.create(:tool_id => 'tool', :pending => false, :settings => {'id' => 'tool', 'description' => '', 'data_json' => [{}, {}]})
+        App.create(:tool_id => 'tool', :pending => false, :settings => {'id' => 'tool', 'description' => '', 'data_json' => [{}, {}].to_json})
         get "/tools/tool/data.json"
         last_response.should be_ok
         last_response.body.should == [{}, {}].to_json
