@@ -470,7 +470,7 @@ function program12(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " dropdown\">\n                <a href=\"/code.html\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Coding <span class='caret' style=\"color: #fff;\"></span></a>\n                <ul class=\"dropdown-menu\">\n                    <li><a href=\"/code.html\">Basics</a></li>\n                    <li><a href=\"/extensions.html\">Examples</a></li>\n                    <li><a href=\"/api.html\">API</a></li>\n                    <li class=\"divider\"></li>\n                    <li><a href=\"https://github.com/whitmer/lti_example\">Source</a></li>\n                </ul>\n            </li>\n            ";
+  buffer += " dropdown\">\n                <a href=\"/code.html\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Coding <span class='caret' style=\"color: #fff;\"></span></a>\n                <ul class=\"dropdown-menu\">\n                    <li><a href=\"/code.html\">Basics</a></li>\n                    <li><a href=\"/extensions.html\">Extensions</a></li>\n                    <li><a href=\"/api.html\">API</a></li>\n                    <li class=\"divider\"></li>\n                    <li><a href=\"https://github.com/whitmer/lti_example\">Source</a></li>\n                </ul>\n            </li>\n            ";
   foundHelper = helpers.allow_admin;
   stack1 = foundHelper || depth0.allow_admin;
   stack2 = helpers['if'];
@@ -1717,7 +1717,7 @@ function program43(depth0,data) {
   stack1 = foundHelper || depth0.data_url;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "data_url", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\"/>\n        &nbsp;&nbsp;\n        <a href=\"/build_json.html\">what's a Data App?</a>\n      </div>      \n    </div>\n    <div class=\"control-group app_type data\">\n      <label class=\"control-label\" for=\"description\">Data App JSON</label>\n      <div class=\"controls\">\n        <textarea name=\"data_json\" rows=\"4\" class=\"span6\" placeholder=\"not required if Data Source URL provided. If more than 500 records use data URL\">";
+  buffer += escapeExpression(stack1) + "\"/>\n        &nbsp;&nbsp;\n        <a href=\"/build_json.html\" target=\"_blank\">what's a Data App?</a>\n      </div>      \n    </div>\n    <div class=\"control-group app_type data\">\n      <label class=\"control-label\" for=\"description\">Data App JSON</label>\n      <div class=\"controls\">\n        <textarea name=\"data_json\" rows=\"4\" class=\"span6\" placeholder=\"not required if Data Source URL provided. If more than 500 records use data URL\">";
   foundHelper = helpers.data_json;
   stack1 = foundHelper || depth0.data_json;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
