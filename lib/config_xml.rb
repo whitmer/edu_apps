@@ -11,7 +11,7 @@ module Sinatra
     get "/tools/:tool_id/data.json" do
       load_app(params['tool_id'])
       if @app['data_json']
-        @app['data_json'].to_json
+        @app['data_json']
       elsif @app['data_url']
         redirect to(@app['data_url'])
       else

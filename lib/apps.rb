@@ -130,7 +130,7 @@ module Sinatra
           end
         end
         if params['public'] && params['public'].length > 0
-          data = data.select{|e| (e['app_type'] == 'open_launch' || e['app_type'] == 'data') && !e['exclude_from_public_collections'] }
+          data = data.select{|e| (e['app_type'] == 'open_launch' || e['app_type'] == 'data') }
         end
         if params['platform'] && params['platform'].length > 0 
           if params['platform'] == 'Canvas'
@@ -192,7 +192,7 @@ module Sinatra
         tool['config_url'] ||= "/tools/#{tool['id']}/config.xml" if !tool['config_directions']
         
         if tool['app_type'] == 'data'
-          tool['data_url'] = "/tools/#{tool['id']}/data.json"
+          tool['data_url'] ||= "/tools/#{tool['id']}/data.json"
           tool['extensions'] = ["editor_button", "resource_selection"]
           tool['any_key'] = true
           tool['preview'] ||= {

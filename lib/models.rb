@@ -93,7 +93,7 @@ class App
     res['config_url'] ||= "/tools/#{res['id']}/config.xml" if !res['config_directions']
     
     if res['app_type'] == 'data'
-      res['data_url'] = "/tools/#{res['id']}/data.json"
+      res['data_url'] ||= "/tools/#{res['id']}/data.json"
       res['extensions'] = ["editor_button", "resource_selection"]
       res['any_key'] = true
       res['preview'] ||= {

@@ -171,16 +171,19 @@ module AppParser
       hash['data_json'] = parse_data_json(params['data_json'])
     end
     
-    if hash['app_type'] == 'open_launch' || hash['app_type'] == 'data'
-      hash['exclude_from_public_collections'] = unless_empty(params['exclude_from_public_collections'] == '1' || params['exclude_from_public_collections'] == true)
-    else
+    if hash['app_type'] != 'open_launch'
       hash['icon_url'] = unless_empty(params['icon_url'])
       hash['logo_url'] = unless_empty(params['logo_url'])
       hash['banner_url'] = unless_empty(params['banner_url'])
+    end
+    
+    if hash['app_type'] == 'open_launch' || hash['app_type'] == 'data'
+      hash['exclude_from_public_collections'] = unless_empty(params['exclude_from_public_collections'] == '1' || params['exclude_from_public_collections'] == true)
+    else
       hash['config_url'] = unless_empty(params['config_url'])
       hash['config_urls'] = parse_config_urls(params)
       hash['any_key'] = unless_empty(params['any_key'] == '1' || params['any_key'] == true)
-
+    
       if params['app_type'] != 'custom'
         hash['launch_url'] = unless_empty(params['launch_url'])
         hash['domain'] = unless_empty(params['domain'])
@@ -222,7 +225,7 @@ module AppParser
       res = nil if !record.is_a?(Hash) || !record['url'] || !record['name']
       break if res == nil
     end
-    res
+    res && JSON.pretty_generate(res)
   end
   
   def self.unless_zero(str)
@@ -240,7 +243,7 @@ module AppParser
   end
   
   def self.parse_preview(params)
-    if params['preview'] && params['preview']['url']
+    if params['preview'] && params['preview']['url'] && params['preview']['url'].length > 0
       {
         'url' => params['preview']['url'],
         'height' => unless_zero(params['preview']['height'])
