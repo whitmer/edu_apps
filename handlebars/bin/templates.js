@@ -524,7 +524,7 @@ function program9(depth0,data) {
   stack1 = foundHelper || depth0.banner_url;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "banner_url", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "' alt=''/>\n                ";
+  buffer += escapeExpression(stack1) + "' alt='' class=\"banner\"/>\n                ";
   return buffer;}
 
 function program11(depth0,data) {
@@ -535,7 +535,7 @@ function program11(depth0,data) {
   stack1 = foundHelper || depth0.logo_url;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "logo_url", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "' alt=''/>\n                ";
+  buffer += escapeExpression(stack1) + "' alt='' class=\"logo\"/>\n                ";
   return buffer;}
 
 function program13(depth0,data) {
@@ -1480,17 +1480,17 @@ function program43(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"logo_url\">Logo URL</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"logo_url\" placeholder=\"72x72 px https URL\" name=\"logo_url\" value=\"";
+  buffer += "\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"logo_url\">Logo URL</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"logo_url\" placeholder=\"72x72 px long-term https URL\" name=\"logo_url\" value=\"";
   foundHelper = helpers.logo_url;
   stack1 = foundHelper || depth0.logo_url;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "logo_url", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\" class=\"span6\"/>\n      </div>      \n    </div>\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"banner_url\">Banner URL</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"banner_url\" placeholder=\"240x125 px https URL\" name=\"banner_url\" value=\"";
+  buffer += escapeExpression(stack1) + "\" class=\"span6\"/>\n      </div>      \n    </div>\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"banner_url\">Banner URL</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"banner_url\" placeholder=\"240x125 px long-term https URL\" name=\"banner_url\" value=\"";
   foundHelper = helpers.banner_url;
   stack1 = foundHelper || depth0.banner_url;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "banner_url", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\" class=\"span6\"/>\n      </div>      \n    </div>\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"icon_url\">Icon URL</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"icon_url\" placeholder=\"16x16 px https URL\" name=\"icon_url\" value=\"";
+  buffer += escapeExpression(stack1) + "\" class=\"span6\"/>\n      </div>      \n    </div>\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"icon_url\">Icon URL</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"icon_url\" placeholder=\"16x16 px long-term https URL\" name=\"icon_url\" value=\"";
   foundHelper = helpers.icon_url;
   stack1 = foundHelper || depth0.icon_url;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
@@ -1712,7 +1712,7 @@ function program43(depth0,data) {
   stack1 = foundHelper || depth0.user_nav_link_text;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "user_nav_link_text", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type data\">\n      <label class=\"control-label\" for=\"data_url\">Data Source URL</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"data_url\" placeholder=\"must return json result\" name=\"data_url\" value=\"";
+  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type data\">\n      <label class=\"control-label\" for=\"data_url\">Data Source URL</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"data_url\" placeholder=\"must return CORS json result\" name=\"data_url\" value=\"";
   foundHelper = helpers.data_url;
   stack1 = foundHelper || depth0.data_url;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
