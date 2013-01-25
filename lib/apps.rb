@@ -314,7 +314,7 @@ module Sinatra
          
                 <title>LTI Apps</title>
                 <subtitle>A list of known LTI apps</subtitle>
-                <link href="#{host}/feed/" rel="self" />
+                <link href="#{host}/data/lti_apps.atom" rel="self" />
                 <link href="#{host}/" />
                 <id>urn:uuid:2d6341a0-a046-11e1-a8b1-0800200c9a66</id>
                 <updated>#{Time.now.iso8601}</updated>    
