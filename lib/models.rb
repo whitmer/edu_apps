@@ -154,7 +154,7 @@ class App
     
     # Do the parsing
     hash = AppParser.parse(params)
-    hash['added'] = (admin && params['added'] && params['added'].length > 0) || app.added || (!app.pending && Time.now.utc.iso8601)
+    hash['added'] = (admin && params['added'] && params['added'].length > 0 && params['added']) || app.added || (!app.pending && Time.now.utc.iso8601)
     hash['uses'] = (admin && params['uses'] && params['uses'].to_i) || (app.settings && app.settings['uses'])
     hash['author_name'] = app.settings && app.settings['author_name']
     hash['author_url'] = app.settings && app.settings['author_url']
