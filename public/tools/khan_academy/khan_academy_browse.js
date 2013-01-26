@@ -8,7 +8,7 @@ var breadcrumb;
   function loadTopic(id) {
     results.loading();
     $.ajax({
-      url: "http://www.khanacademy.org/api/v1/topic/" + id,
+      url: "https://www.khanacademy.org/api/v1/topic/" + id,
       success: function(data) {
         var records = [];
         for(var idx = 0; idx < data.children.length; idx++) {
@@ -40,7 +40,7 @@ var breadcrumb;
   function selectResource(record) {
     if(record.kind == 'Video') {
       $.ajax({
-        url: "http://www.khanacademy.org/api/v1/videos/" + record.id,
+        url: "https://www.khanacademy.org/api/v1/videos/" + record.id,
         success: function(data) {
           lti.resourceSelected({
             embed_type: 'link',
