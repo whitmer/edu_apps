@@ -1,0 +1,170 @@
+     .wrapper{
+          max-width:600px;
+          padding:0 20px;
+          margin:0 auto;
+     }
+     .pacman-holder{
+          position:relative;
+          width:400px;
+          margin:0 auto;
+     }
+     .pacman-container {
+          display:block;
+          width:50px;
+          height: 50px;
+          -webkit-transform:rotate(45deg);
+          -moz-transform:rotate(45deg);
+          -o-transform:rotate(45deg);
+          transform:rotate(45deg);
+          -moz-animation: bite 0.5s linear infinite; 
+          -webkit-animation: bite 0.5s linear infinite; 
+          animation: bite 0.5s linear infinite;
+     }
+     .pacman-body {
+          background-color: #0088CC;
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          -moz-border-radius: 25px;
+          -webkit-border-radius: 25px;
+          -o-border-radius: 25px;
+          border-radius: 25px;
+     }
+     .dot {
+          background-color: #0088CC;
+          position: absolute;
+          z-index:0;
+          top:20px;
+          left:70px;
+          width: 10px;
+          height: 10px;
+          -moz-border-radius: 25px;
+          -webkit-border-radius: 25px;
+          -o-border-radius: 25px;
+          border-radius: 25px;
+     }
+     .dot2 {
+      left: 100px;
+     }
+     .dot3 {
+      left: 130px;
+     }
+     .loading {
+      position: absolute;
+      left: 160px;
+      color: #0088CC;
+      top: 15px;
+      font-size: 30px;
+      font-weight: bold;
+     }
+     .pacman {
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          -moz-border-radius: 25px;
+          -webkit-border-radius: 25px;
+          -o-border-radius: 25px;
+          border-radius: 25px;
+          clip: rect(0px, 25px, 50px, 0px);
+          z-index:2;
+     }
+     .pacman-mouth {
+          position: absolute;
+          left:2px;
+          width: 51px;
+          height: 51px;
+          -moz-border-radius: 25px;
+          -webkit-border-radius: 25px;
+          -o-border-radius: 25px;
+          border-radius: 25px;
+          clip: rect(0px, 50px, 50px, 26px);
+     }
+
+     .pacman-mouth .pacman {
+          background-color: #fff;
+          -webkit-transform:rotate(90deg);
+          -moz-transform:rotate(90deg);
+          -o-transform:rotate(90deg);
+          transform:rotate(90deg);
+          -moz-animation: munch 0.5s linear infinite; 
+          -webkit-animation: munch 0.5s linear infinite; 
+          animation: munch 0.5s linear infinite;
+	
+		  /* To fix a yellow border on pacman's mouth */
+		  border: 3px solid #fff;
+     }
+
+     @-moz-keyframes munch 
+     {
+          0% {
+               -moz-transform:rotate(90deg);
+          }
+          50% {
+               -moz-transform:rotate(0deg);
+          }
+          100% {
+               -moz-transform:rotate(90deg);
+          }
+     }
+     @-webkit-keyframes munch 
+     {
+          0% {
+               -webkit-transform:rotate(90deg);
+          }
+          50% {
+               -webkit-transform:rotate(0deg);
+          }
+          100% {
+               -webkit-transform:rotate(90deg);
+          }
+     }
+     @keyframes munch
+     {
+          0% {
+               transform:rotate(90deg);
+          }
+          50% {
+               transform:rotate(0deg);
+          }
+          100% {
+               transform:rotate(90deg);
+          }
+     }
+
+     @-moz-keyframes bite 
+     {
+          0% {
+               -moz-transform:rotate(45deg);
+          }
+          50% {
+               -moz-transform:rotate(90deg);
+          }
+          100% {
+               -moz-transform:rotate(45deg);
+          }
+     }
+     @-webkit-keyframes bite 
+     {
+          0% {
+               -webkit-transform:rotate(45deg);
+          }
+          50% {
+               -webkit-transform:rotate(90deg);
+          }
+          100% {
+               -webkit-transform:rotate(45deg);
+          }
+     }
+     @keyframes bite
+     {
+          0% {
+               transform:rotate(45deg);
+          }
+          50% {
+               transform:rotate(90deg);
+          }
+          100% {
+               transform:rotate(45deg);
+          }
+     }
+

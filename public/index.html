@@ -9,6 +9,7 @@
 
     <!-- Le styles -->
     <link href="/common.css" rel="stylesheet">
+    <link href="/loading.css" rel="stylesheet">
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       footer {
@@ -90,7 +91,8 @@
         padding: 0 5px;
         text-align: center;
        }
-    </style>
+
+	    </style>
     <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -127,7 +129,20 @@
         <div style='font-size: 12px; text-align: right;'><a href="http://www.imscert.org/">see all IMS LTI-certified products</a></div>
       </div>
     </div>
-    <div id="contents"></div>
+    <div id="contents">
+      <div class="pacman-holder moving">
+        <span class="pacman-container">
+          <span class="pacman-body"></span>
+          <span class="pacman-mouth">
+          <span class="pacman"></span></span>
+        </span>
+        
+        <span class="dot"></span>
+        <span class="dot dot2"></span>
+        <span class="dot dot3"></span>
+        <span class="loading">Loading...</span>
+      </div>
+    </div>
   </div>
   <script src="jquery.min.js"></script>
   <script src="/analytics.js"></script>
