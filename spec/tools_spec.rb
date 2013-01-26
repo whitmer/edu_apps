@@ -104,7 +104,7 @@ describe 'Tools Selenium' do
   describe "/tools/khan_academy/index.html" do
     it "should load" do
       visit_tool '/tools/khan_academy/index.html'
-      youtube_test
+      keep_trying_until{ all('#results .result').length > 0 }
     end
   end
   

@@ -6,7 +6,7 @@ var results = (function() {
   $results.on('click', '.result', function(event) {
     event.preventDefault();
     event.stopPropagation();
-    $(this).data('clicked')();
+    $(this).data('clicked')(event);
   });
   return {
     'loading': function() {
@@ -26,8 +26,8 @@ var results = (function() {
         $entry.find(".img").attr('src', entry.image);
         $entry.find(".date").text(entry.date);
         $entry.find(".description").html(entry.description);
-        $entry.data('clicked', function() {
-          onSelect(entry);
+        $entry.data('clicked', function(event) {
+          onSelect(entry, event);
         });
         $results.append($entry.show());
       });

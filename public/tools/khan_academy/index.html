@@ -43,12 +43,12 @@ h1 {
   border-radius: 5px;
 }
 #results .result .img {
-  padding: 0 5px;
+  padding: 0;
 }
 #results .result .title {
   height: 28px;
   font-size: 12px;
-  padding-left: 5px;
+  padding-left: 8px;
   overflow: hidden;
   color: #444;
   line-height: 14px;
@@ -57,20 +57,34 @@ h1 {
   font-weight: bold;
   margin: 10px;
 }
+#breadcrumb {
+  margin-left: 70px;
+}
+#breadcrumb li {
+  max-width: 100px; 
+  overflow: hidden; 
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#breadcrumb li:last-child {
+  max-width: 200px;
+}
 </style>
 </head>
 <body>
 <div id="header">
   <img id="header_img" src="logo.png" style="padding-right: 10px; width: 70px; vertical-align: middle; float: left;"/>
   <h1>
-  Search Khan Academy videos:
+  Find Khan Academy resources:
   </h1>
   
-  <form id="search" class="form-inline">
-  <input type="text" id="query"/>
-  <button type="submit" class="btn"><span class="icon-search"></span> Search</button>
-  </form>
 </div>
+
+<ul id="breadcrumb" class="breadcrumb" style="margin-top: -10px;">
+  <li>
+    Loading...
+  </li>
+</ul>
 
 <div id="message"></div>
 
@@ -84,7 +98,8 @@ h1 {
 <script src="/analytics.js"></script>
 <script src="/lti.js"></script>
 <script src="/results.js"></script>
-<script src="/youtube_search.js"></script>
+<script src="/breadcrumb.js"></script>
+<script src="khan_academy_browse.js"></script>
 <script>
   window.youtubeAccount = "khanacademy";
 </script>
