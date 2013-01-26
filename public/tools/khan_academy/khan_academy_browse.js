@@ -15,7 +15,6 @@ var breadcrumb;
           var record = data.children[idx];
           if(record.hide) { continue; }
           record.durationString = durationString(parseInt(record.duration || "0", 10));
-          console.log(record);
           records.push({
             kind: record.kind,
             id: record.id,
@@ -65,7 +64,7 @@ var breadcrumb;
     return duration;
   }
   loadTopic('root');
-  breadcrumb.add("Root", "root");
+  breadcrumb.add("All", "root");
   breadcrumb.select = function(id) {
     loadTopic(id);
   };
