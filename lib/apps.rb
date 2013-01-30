@@ -258,12 +258,6 @@ module Sinatra
         end
       end
       
-      def admin?(id='any')
-        permission = AdminPermission.first(:username => "@#{session['user_key']}")
-        res = permission && permission.allowed_access?(id)
-        res
-      end
-      
       def get_tool
         id = params[:tool_id]
         @tool_summary = App.first(:tool_id => id )

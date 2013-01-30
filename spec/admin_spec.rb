@@ -8,7 +8,7 @@ describe 'Apps API' do
   end
     
   before(:each) do
-    App.create(:pending => true, :tool_id => 'pending_app', :settings => {'id' => 'pending'})
+    App.create(:pending => true, :tool_id => 'pending_app', :settings => {'id' => 'pending_app'})
     AdminPermission.create(:username => '@bob', :apps => 'any')
     AdminPermission.create(:username => '@fred', :apps => 'book,twitter')
     AdminPermission.create(:username => '@sam', :apps => 'book,paper')
@@ -110,6 +110,33 @@ describe 'Apps API' do
         last_response.should be_ok
         last_response.body.should match(/pending/)
       end
+      
+      it "should not allow admins to check pending app configs" do
+        app = JSON.parse(File.read('./public/data/lti_examples.json')).select{|a| !a['pending'] }[0]
+        app['pending'] = true
+        App.build_or_update(app['id'], app, true)
+        get "/tools/#{app['id']}/config.xml"
+        last_response.should be_ok
+        last_response.body.should == "App not found"
+
+        get "/tools/no_tool/config.xml", {}
+        last_response.should be_ok
+        last_response.body.should == "App not found"
+      end
+      
+      it "should allow admins to check pending app configs" do
+        app = JSON.parse(File.read('./public/data/lti_examples.json')).select{|a| !a['pending'] }[0]
+        app['pending'] = true
+        App.build_or_update(app['id'], app, true)
+        get "/tools/#{app['id']}/config.xml", {}, 'rack.session' => {'user_key' => 'bob'}
+        last_response.should be_ok
+        last_response.body.should_not == "No"
+
+        get "/tools/no_tool/config.xml", {}, 'rack.session' => {'user_key' => 'bob'}
+        last_response.should be_ok
+        last_response.body.should == "App not found"
+      end
+    
     end
   end
 end

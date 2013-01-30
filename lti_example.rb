@@ -151,6 +151,12 @@ def tool_redirect
   end
 end
 
+def admin?(id='any')
+  permission = AdminPermission.first(:username => "@#{session['user_key']}")
+  res = permission && permission.allowed_access?(id)
+  res
+end
+
 post "/tool_remember" do
   if params['key'] && session[params['key']]
     lr = LaunchRedirect.first_or_new(:token => params['key'])

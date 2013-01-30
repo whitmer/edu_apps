@@ -283,6 +283,11 @@ module Sinatra
       def load_app(id)
         return if @app && @app['id'] == id.to_s
         @app = App.load_apps.detect{|a| a['id'] == id.to_s }
+        if admin?(id) && !@app
+          a = App.first(:tool_id => id )
+          @app = a && a.settings
+        end
+        return unless @app
         @id = id
         @app_name = @app['name']
         @app_desc = @app['short_description'] || @app['description'].split("<br/>")[0]
