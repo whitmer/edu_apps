@@ -157,7 +157,7 @@ module AppParser
     hash['id'] = params['id']
     hash['categories'] = parse_categories(params)
     hash['levels'] = parse_levels(params)
-    hash['description'] = params['description']
+    hash['description'] = fix_description(params['description'])
     hash['app_type'] = parse_app_type(params['app_type'])
     hash['short_description'] = unless_empty(params['short_description'])
     hash['extensions'] = parse_extensions(params)
@@ -215,6 +215,13 @@ module AppParser
       hash.delete(key) if val == nil
     end
     hash
+  end
+  
+  def self.fix_description(str)
+    str ||= "No description"
+    # xml parsers get mad if there's invalid entity refs
+    str.gsub(/\&(?!\w+;)/, "&amp;")
+    str
   end
   
   def self.parse_data_json(str)

@@ -100,7 +100,7 @@ function manageAppFrd(tool, categories) {
   if(admin_tool.preview && admin_tool.preview.url == "/tools/" + admin_tool.id + "/index.html") {
     admin_tool.preview = null;
   }
-  admin_tool.config_url = null
+  admin_tool.config_url = null;
   var html = Handlebars.templates['tool_admin'](admin_tool);
   $("#contents .row:last").append(html);
   $("#app_type").change();
