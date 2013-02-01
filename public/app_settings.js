@@ -89,7 +89,7 @@ function manageAppFrd(tool, categories) {
     "icon_url": "/tools/" + admin_tool.id + "/icon.png",
     "logo_url": "/tools/" + admin_tool.id + "/logo.png",
     "banner_url": "/tools/" + admin_tool.id + "/banner.png",
-    "config": "/tools/" + admin_tool.id + "/config.xml",
+    "config_url": "/tools/" + admin_tool.id + "/config.xml",
     "icon_url": "/tools/" + admin_tool.id + "/icon.png"
   }
   for(var jdx in lookups) {
@@ -100,7 +100,6 @@ function manageAppFrd(tool, categories) {
   if(admin_tool.preview && admin_tool.preview.url == "/tools/" + admin_tool.id + "/index.html") {
     admin_tool.preview = null;
   }
-  admin_tool.config_url = null;
   var html = Handlebars.templates['tool_admin'](admin_tool);
   $("#contents .row:last").append(html);
   $("#app_type").change();
