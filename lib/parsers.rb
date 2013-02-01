@@ -184,7 +184,9 @@ module AppParser
       hash['config_urls'] = parse_config_urls(params)
       hash['any_key'] = unless_empty(params['any_key'] == '1' || params['any_key'] == true)
     
-      if params['app_type'] != 'custom'
+      if hash['app_type'] == 'custom'
+        hash['config_url'] = unless_empty(params['config_url'])
+      else
         hash['launch_url'] = unless_empty(params['launch_url'])
         hash['domain'] = unless_empty(params['domain'])
         hash['config_directions'] = unless_empty(params['config_directions'])
@@ -327,7 +329,7 @@ module AppParser
   end
   
   def self.parse_app_type(str)
-    APP_TYPES.include?(str) ? str : nil
+    (APP_TYPES + ['custom']).include?(str) ? str : nil
   end
   
   def self.parse_privacy_level(str)
