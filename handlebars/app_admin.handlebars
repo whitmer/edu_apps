@@ -4,5 +4,10 @@
   <td><a href="{{ author_url }}">{{ author_name }}</a></td>
   <td>{{ added }}</td>
   <td>{{ uses }}</td>
+  <td>
+    {{#if avg_rating}}
+      {{round avg_rating}}
+    {{/if}}
+  </td>
   <td><div class="description span4">{{description}}</div></td>
 </tr>
