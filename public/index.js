@@ -151,8 +151,13 @@
       if(tool.any_key && tools.length == 1) {
         tool.description = tool.description + "<br/><br/>Any key and secret will work for this app.";
       }
-      tool.desc = new Handlebars.SafeString(tool.description);
-      tool.config_dir = new Handlebars.SafeString(tool.config_directions);
+      if(!tool.pending) {
+        tool.desc = new Handlebars.SafeString(tool.description);
+        tool.config_dir = new Handlebars.SafeString(tool.config_directions);
+      } else {
+        tool.desc = tool.description;
+        tool.config_dir = tool.config_directions;
+      }
       tool.user_key = window.user_key;
       html = Handlebars.templates['tool'](tool);
       if(mod == 0) {

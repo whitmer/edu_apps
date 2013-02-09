@@ -1478,7 +1478,7 @@ function program43(depth0,data) {
   stack1 = foundHelper || depth0.name;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "name", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"id\">ID</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"id\" placeholder=\"tool_id\" name=\"id\" value=\"";
+  buffer += escapeExpression(stack1) + "\"/>\n      </div>      \n    </div>\n    <div class=\"control-group\">\n      <label class=\"control-label\" for=\"id\">ID</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"id\" placeholder=\"unique_tool_id\" name=\"id\" value=\"";
   foundHelper = helpers.id;
   stack1 = foundHelper || depth0.id;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
@@ -1603,7 +1603,7 @@ function program43(depth0,data) {
   stack1 = foundHelper || depth0.config_url;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "config_url", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\" class=\"span6\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand\">\n      <label class=\"control-label\" for=\"launch_url\">Launch URL</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"launch_url\" placeholder=\"https recommended\" name=\"launch_url\" value=\"";
+  buffer += escapeExpression(stack1) + "\" class=\"span6\"/>\n      </div>      \n    </div>\n    <div class=\"control-group app_type by_hand\">\n      <label class=\"control-label\" for=\"launch_url\">LTI Launch URL</label>\n      <div class=\"controls\">\n        <input type=\"text\" id=\"launch_url\" placeholder=\"https recommended\" name=\"launch_url\" value=\"";
   foundHelper = helpers.launch_url;
   stack1 = foundHelper || depth0.launch_url;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
