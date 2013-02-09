@@ -1,0 +1,175 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+    <style>
+body {
+  font-family: Arial;
+}
+h1 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+#results {
+  width: 560px;
+}
+#results .result {
+  float: left;
+  width: 130px;
+  padding: 5px;
+}
+#results .result:hover {
+  background: #ccc;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#results .result .img {
+  padding: 0;
+}
+#results .result .title {
+  height: 28px;
+  font-size: 12px;
+  padding-left: 8px;
+  overflow: hidden;
+  color: #444;
+  line-height: 14px;
+}
+#message {
+  font-weight: bold;
+  margin: 10px;
+}
+#breadcrumb {
+  margin-left: 70px;
+}
+#breadcrumb li {
+  max-width: 100px; 
+  overflow: hidden; 
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#breadcrumb li:last-child {
+  max-width: 200px;
+}
+#data thead th .field {
+  padding-left: 8px;
+}
+#data thead .delete {
+  padding-left: 10px;
+}
+#data .delete {
+  display: none;
+  cursor: pointer;
+  opacity: 0.3;
+}
+#data .delete:hover {
+  opacity: 1.0;
+}
+#data.multiple_variable_columns thead .delete {
+  display: inline;
+}
+#data.multiple_rows tbody .delete {
+  display: inline;
+}
+</style>
+</head>
+<body>
+<div id="header">
+  <img id="header_img" src="logo.png" style="padding-right: 10px; width: 70px; vertical-align: middle; float: left;"/>
+  <h1>
+  Google Charts:
+  </h1>
+  
+</div>
+
+<!--a href="data:text/csv;charset=utf-8,data" download="file.csv">Download</a-->
+<select id="chart_type">
+</select>
+<br/>
+<div style="width: 400px; float: left; overflow: auto; height: 260px;">
+<table id="data" class="table table-striped">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="5">
+        <button class='btn' id="add_row">Add Row</button>
+        <button class='btn' id="example">Example</button>
+        <button class='btn' id="clear">Clear</button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5">
+        <label>Chart Title: <input type="text" class="option" data-name="title"/></label>
+      </td>
+    </tr>
+      <td colspan="5">
+        <label>X Axis Label: <input type="text" class="option" data-name="hAxis.title"/></label>
+      </td>
+    </tr>
+      <td colspan="5">
+        <label style="display: inline;">X Axis Min: <input type="text" class="option span1" data-name="hAxis.minValue" data-type="number"/></label>
+        <label style="display: inline;">Max: <input type="text" class="option span1" data-name="hAxis.maxValue" data-type="number"/></label>
+      </td>
+    </tr>
+      <td colspan="5">
+        <label>Y Axis Label: <input type="text" class="option" data-name="vAxis.title"/></label>
+      </td>
+    </tr>
+      <td colspan="5">
+        <label style="display: inline;">Y Axis Min: <input type="text" class="option span1" data-name="vAxis.minValue" data-type="number"/></label>
+        <label style="display: inline;">Max: <input type="text" class="option span1" data-name="vAxis.maxValue" data-type="number"/></label>
+      </td>
+    </tr>
+      <td colspan="5">
+        <label style="display: inline;">Red From: <input type="text" class="option span1" data-name="redFrom" data-type="number"/></label>
+        <label style="display: inline;">To: <input type="text" class="option span1" data-name="redTo" data-type="number"/></label>
+      </td>
+    </tr>
+      <td colspan="5">
+        <label style="display: inline;">Yellow From: <input type="text" class="option span1" data-name="yellowFrom" data-type="number"/></label>
+        <label style="display: inline;">To: <input type="text" class="option span1" data-name="yellowTo" data-type="number"/></label>
+        
+      </td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<div style="width: 500px; float: left;" id="iframe_holder">
+<iframe id="chart" style="width: 500px; height: 220px;" frameborder="0"></iframe>
+<div style="text-align: right; display: none;" id="embedder">
+<label style="display: inline;">Width: <input type="text" class="span1" id="width" style="margin-top: 10px;" value="500"/></label>
+<label style="display: inline;">Height: <input type="text" class="span1" id="height" style="margin-top: 10px;" value="220"/></label>
+<button class='btn btn-primary' id="embed">Embed Chart</button>
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>var lti = {tool_id: "google_chart"};</script>
+<script src="/analytics.js"></script>
+<script src="/lti.js"></script>
+<script src="chart_builder.js"></script>
+</body>
+</html>

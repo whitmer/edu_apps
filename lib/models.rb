@@ -212,6 +212,17 @@ class CachedTweet
   property :data, Text
 end
 
+class GoogleChart
+  include DataMapper::Resource
+  property :id, Serial
+  property :chart_id, String, :length => 512
+  property :data, Json
+  
+  def to_json
+    {:key => self.chart_id, :data => self.data}.to_json
+  end
+end
+
 module Sinatra
   module Models
     configure do 

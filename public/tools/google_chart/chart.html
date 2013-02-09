@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+      var chartData = window.parent.chartData;
+      var key = location.href.split(/key=/)[1];
+      if(!chartData) {
+        if(!key) {
+          alert('no data found!');
+        } else {
+          $.getJSON("/google_chart?key=" + key, function(data) {
+            chartData = data.data;
+            google.load("visualization", "1", {packages:["corechart", "gauge", "geochart", "treemap"], callback: drawChart});
+          });
+        }
+      } else {
+        google.load("visualization", "1", {packages:["corechart", "gauge", "geochart", "treemap"], callback: drawChart});
+      }
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(chartData.data);
+
+        var options = chartData.options
+
+        var chart = new google.visualization[chartData.type](document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+    <style>
+      body:before, body:after {
+        content: "";
+        position: fixed;
+        z-index: 9999;
+        background: #ccc;
+        left: 0;
+        right: 0;
+        height: 2px;
+      }
+      body:before {
+        top: 0;
+      }
+      body:after {
+        bottom: 0;
+      }
+      body { 
+        margin: 2px 0;
+        border-left: 2px solid #ccc;
+        border-right: 2px solid #ccc;  
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart_div"></div>
+  </body>
+</html>

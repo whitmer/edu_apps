@@ -19,6 +19,23 @@ module Sinatra
       redirect to("http://lti-demo.speeqe.com")
     end
     
+    post "/google_chart" do
+      if session[params[:key]]
+        params[:data] = JSON.parse(params[:data]) if params[:data].is_a?(String)
+        chart = GoogleChart.first_or_new(:chart_id => params[:key])
+        chart.data = params[:data]
+        chart.save!
+        chart.to_json
+      else
+        nil.to_json
+      end
+    end
+    
+    get "/google_chart" do
+      chart = GoogleChart.first(:chart_id => params[:key])
+      chart.to_json
+    end
+    
     get "/data_stream" do
       uri = URI.parse("https://api.quizlet.com/2.0/search/sets")
       http = Net::HTTP.new(uri.host, uri.port)
