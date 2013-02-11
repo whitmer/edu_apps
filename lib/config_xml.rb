@@ -8,6 +8,10 @@ module Sinatra
       app_config(params['tool_id'])
     end
     
+    post "/tools/:tool_id/config.xml" do
+      app_config(params['tool_id'], true)
+    end
+    
     get "/tools/:tool_id/data.json" do
       load_app(params['tool_id'])
       if @app['data_json']
@@ -266,7 +270,7 @@ module Sinatra
         request.scheme + "://" + request.host_with_port
       end
       
-      def app_config(id)
+      def app_config(id, error=false)
         load_app(id)
         return "App not found" if !@app
         (@app['config_options'] || []).each do |args|
@@ -276,8 +280,12 @@ module Sinatra
           end
         end
         @opts = XmlConfigParser.config_options(@app, params, host)
-        headers 'Content-Type' => 'text/xml'
-        erb :lti_xml, :layout => false
+        if error
+          erb :xml_post, :layout => false
+        else
+          headers 'Content-Type' => 'text/xml'
+          erb :lti_xml, :layout => false
+        end
       end
       
       def load_app(id)

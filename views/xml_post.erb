@@ -1,0 +1,23 @@
+<% app = @opts %>
+<html>
+  <body>
+    <h1>Invalid tool launch</h1>
+    <p>
+      This tool was set up improperly. The URL set for the launch,
+    </p><p>
+      <a href="<%= request.url %>"><%= request.url %></a>
+    </p><p>
+      should be used for tool configuration, not launch. 
+    <% if app['launch_url'] %>
+        If your
+        learning system doesn't support XML configuration, you can
+        try pasting the launch URL:
+      </p><p>
+        <a href="<%= app['launch_url'] %>"><%= app['launch_url'] %></a>
+      </p><p>
+        into your configuration, but <b>this may not work correctly depending
+        on the tool</b>.
+    <% end %>
+    </p>
+  </body>
+</html>
