@@ -48,6 +48,25 @@ describe 'Config Redirects' do
           end
             
         end
+        
+        it "should error on POST requests with a useful message" do
+          post "/tools/#{app['id']}/config.xml"
+          if app['config_options'] && app['config_options'].any?{|o| o['required'] }
+            last_response.should be_ok
+            last_response.body.should match(/Missing required value/)
+            
+            args = []
+            app['config_options'].each{|o| args << "#{o['name']}=#{CGI.escape(o['value'].to_s || "junk")}" }
+            post "/tools/#{app['id']}/config.xml?" + args.join("&")
+            last_response.should be_ok
+            last_response.body.should match(/Invalid tool launch/)
+            last_response.body.should match(/This tool was set up improperly/)
+          else
+            last_response.should be_ok
+            last_response.body.should match(/Invalid tool launch/)
+            last_response.body.should match(/This tool was set up improperly/)
+          end
+        end
       end
     end
     
