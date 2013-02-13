@@ -33,7 +33,7 @@ module Sinatra
       session[:user_key] = access_token.params['screen_name']
       permission = AdminPermission.first(:username => "@#{session[:user_key]}")
       session[:admin] = permission && permission.apps == "any"
-      session[:apps] = permission.apps
+      session[:apps] = permission && permission.apps
       
       redirect to("/index.html?logged_in")
     end
