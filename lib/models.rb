@@ -173,6 +173,7 @@ class App
     app.added = hash['added']
     app.extensions = (hash['extensions'] || []).join(",")
     app.platforms = (hash['platforms'] || []).join(",")
+    app.tool_id = hash['id']
     app.settings = hash
     app.save
     app
