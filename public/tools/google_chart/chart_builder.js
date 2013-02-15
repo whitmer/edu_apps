@@ -342,7 +342,7 @@ $(document).ready(function() {
       $td.append($("<input/>", {'class': 'span1'}));
       $tr.append($td);
     }
-      var $td = $("<td/>").append($("<img/>", {'class': 'delete', src: '/delete.png'}));
+      var $td = $("<td/>").append($("<img/>", {'class': 'delete', src: '/delete.png', 'tabindex': 0}));
       $tr.append($td);
     $("#data tbody").append($tr);
     countRowsAndColumns();
@@ -378,9 +378,9 @@ $(document).ready(function() {
   }).on('click', '#data thead tr .add', function() {
     var idx = ++chart.variableColumns;
     var name = chart.fields[chart.fields.length - 1].replace(/\[\]/, '');
-    var $th = $("<th/>").html("<br/><span class='field'>" + name + idx + "</span>").prepend("<input class='span1'/>").data('idx', idx).addClass('extra variable');
-    var $delete = $("<img/>", {'class': 'delete', src: '/delete.png'});
-    $th.append($delete);
+    var $th = $("<th/>").html("<div class='field_holder'><span class='field'>" + name + idx + "</span></div>").prepend("<input class='span1'/>").data('idx', idx).addClass('extra variable');
+    var $delete = $("<img/>", {'class': 'delete', src: '/delete.png', 'tabindex': 0});
+    $th.find(".field_holder").append($delete);
     $("#data thead tr th:last").before($th);
     
     $("#data tbody tr").each(function() {
@@ -402,17 +402,18 @@ $(document).ready(function() {
     chart.variableColumns = 1;
     for(var idx in chart.fields) {
       if(chart.fields[idx].match(/\[\]/)) {
-        var $th = $("<th/>").html("<br/><span class='field'>" + chart.fields[idx].replace(/\[\]/, '1') + "</span>").prepend("<input class='span1'/>").data('idx', chart.variableColumns).addClass('variable');
-        $th.append($("<img/>", {'class': 'delete', src: '/delete.png'}))
+        var $th = $("<th/>").html("<div class='field_holder'><span class='field'>" + chart.fields[idx].replace(/\[\]/, '1') + "</span></div>").prepend("<input class='span1'/>").data('idx', chart.variableColumns).addClass('variable');
+        $th.find(".field_holder").append($("<img/>", {'class': 'delete', src: '/delete.png', 'tabindex': 0}))
         $("#data thead tr").append($th);
-        var $th = $("<th/>", {'class': 'button', 'style': 'vertical-align: top;'}).append("<button class='btn add'>Add Col</button>");
+        var $th = $("<th/>", {'class': 'button', 'style': 'vertical-align: top;'}).append("<button class='btn add'><span class='icon-plus icon'></span> Col</button>");
         $("#data thead tr").append($th);
       } else {
-        var $th = $("<th/>").html("<br/>&nbsp;&nbsp;" + chart.fields[idx]).prepend("<input class='span1'/>");
+        var $th = $("<th/>").html("<div class='field_holder'><span class='field'>" + chart.fields[idx] + "</span></div>").prepend("<input class='span1'/>");
         $("#data thead tr").append($th);
       }
     }
     $("#data tfoot tr").show();
+    $("#label_options").toggle(chart.type != "Tree Map Chart");
     $("#data input.option").each(function() {
       $(this).val("");
       var name = $(this).attr('data-name');
