@@ -54,7 +54,7 @@ $(function() {
           alert("Submitted! Thank you!");
           location.href = "/";
         } else {
-          location.reload();
+          location.href = "/index.html?tool=" + data.id;
         }
       },
       error: function() {
