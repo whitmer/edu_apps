@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Github Repo Summary</title>
+    <!-- FEED -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/common.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    
+    <!-- MORE STYLES -->
+    <style type="text/css">
+      #content.container {
+        margin: 20px 0;
+      }
+      .repo > img {
+        width: 40px;
+        float: left;
+        padding-right: 5px;
+      }
+      .repo .name {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .repo .fork {
+        padding-left: 10px;
+      }
+      .repo .details a {
+        color: #666;
+      }
+      .repo .stats {
+        padding-left: 15px;
+        color: #aaa;
+        font-size: 12px;
+      }
+      .repo .details {
+        padding-left: 15px;
+        color: #aaa;
+      }
+      .repo .description {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        color: #000;
+      }
+      .repo .stats th, .repo .stats td {
+        text-align: left;
+        padding: 2px 25px 2px 0;
+      }
+      .repo .stats thead th {
+        font-weight: normal;
+      }
+      .repo .stats tbody {
+        font-size: 16px;
+        font-weight: bold;
+        color: #666;
+      }
+    </style>
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+  </head>
+  <body>
+    <div class="container" id="content">
+      
+    </div>
+  <script src="/jquery.min.js"></script>
+  <script src="/analytics.js"></script>
+  <script src="repo.js"></script>
+  <script>
+    $(document).ready(function() {
+      var repo =  (location.hash || "#").substring(1) || "instructure/canvas-lms";
+      $.getJSON("/github_repo?repo=" + repo, function(data) {
+        console.log(data);
+        if(!data.url) {
+          $("#content").html("<h2>Invalid Repository</h2>");
+        } else {
+          $("#content").html(Handlebars.templates['repo'](data));
+        }
+      });
+    });
+  </script>
+  </body>
+</html>

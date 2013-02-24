@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'json'
 require 'nokogiri'
+require 'time'
 
 module Sinatra
   module ExternalSearch
@@ -52,6 +53,47 @@ module Sinatra
         CachedTweet.create(:tweet_id => params['id'], :data => response.body)
       end
       response.body
+    end
+    
+    get '/github_repo' do
+      # TODO: add caching API responses, or at least consider it
+      @github_config = ExternalConfig.first(:config_type => 'github')
+      return "Not configured" unless @github_config
+      url = "https://api.github.com/repos/#{params['repo']}?client_id=#{@github_config.value}&client_secret=#{@github_config.secret}"
+      uri = URI.parse(url)
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      request = Net::HTTP::Get.new(uri.request_uri)
+      response = http.request(request)
+      json = JSON.parse(response.body)
+      if json['message']
+        {:error => json['message']}.to_json
+      else
+        res = {
+          :repo => json['full_name'],
+          :description => json['description'],
+          :url => json['html_url'],
+          :owner => {
+            :name => json['owner']['login'],
+            :url => json['owner']['html_url'],
+            :image_url => json['owner']['avatar_url']
+          },
+          :fork => json['fork'],
+          :watchers => json['watchers_count'] || json['watchers'],
+          :language => json['language'],
+          :forks => json['forks_count'] || json['forks'],
+          :commits => 1
+        }
+        res['created_at'] = Time.iso8601(json['created_at']).strftime('%e %b %Y')
+        res['pushed_at'] = Time.iso8601(json['pushed_at']).strftime('%e %b %Y')
+        if json['parent']
+          res[:parent] = {
+            :repo => json['parent']['full_name'],
+            :url => json['parent']['html_url']
+          }
+        end
+        res.to_json
+      end
     end
     
     get '/usa_today_search' do
