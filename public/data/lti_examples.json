@@ -810,13 +810,14 @@
     },
     {
       "id": "aleks",
-      "name": "Aleks",
+      "name": "ALEKS",
       "added": "2012-12-01T00:00:00Z",
-      "description": "Aleks is a site that offers customized assessment and learning resources that can be integrated into the LMS.<br/><br/>Contact <a href='http://www.aleks.com/'>ALEKS</a> for configuration instructions.",
+      "description": "ALEKS is an artificial intelligent assessment and learning system which uses adaptive questioning to quickly and accurately determine exactly what a student knows and doesn't know in a course.",
       "launch_url": "https://secure.aleks.com/lti/canvas",
       "privacy_level": "public",
       "levels": ["K-6th Grade", "7th-12th Grade", "Postsecondary"],
-      "categories": ["Content", "Community"]
+      "categories": ["Content", "Community"],
+      "config_directions": "Visit <a href='http://www.aleks.com/highered/math/training_center'>the ALEKS Training Center</a> for directions on configuring your ALEKS Higher Education school account. Look for the 'LTI Integration' section"
     },
     {
       "id": "place_kitten",
