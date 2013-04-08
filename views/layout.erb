@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>PAGE TITLE</title>
+    <title>Edu Apps</title>
     <!-- FEED -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -10,6 +10,10 @@
     <!-- Le styles -->
     <link href="/common.css" rel="stylesheet">
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <% (@sheets || []).each do |sheet| %>
+      <link href="/<%= sheet %>.css" rel="stylesheet">
+    <% end %>
+
     
     <!-- MORE STYLES -->
     <style type="text/css">
@@ -17,6 +21,7 @@
         border-top: 1px solid #e5e5e5;
         margin-top: 40px;
       }
+
     </style>
     <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 

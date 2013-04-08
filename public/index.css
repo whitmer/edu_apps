@@ -1,0 +1,86 @@
+.app .icon {
+  text-align: center;
+}
+.app .icon .logo {
+  width: 72px;
+  height: 72px;
+}
+.app .icon .banner {
+  width: 240px;
+  height: 125px;
+}
+.app h3 {
+  text-align: center;
+}
+.app h3 a {
+  color: #000;
+}
+.app {
+  margin-bottom: 5px;
+}
+.app .config.alert {
+  margin-bottom: 5px;
+}
+.app .header {
+  padding: 5px;
+}
+.app:hover .header {
+  background-color: #E5E5E5;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.app.single_app:hover .header {
+  background: transparent;
+}
+.app .description {
+  height: 110px;
+  overflow: hidden;
+}
+.app.single_app .description {
+  height: auto;
+}
+.app .extensions {
+  margin-top: 5px;
+  line-height: 20px;
+}
+.app .config {
+  margin-top: 2px;
+  visibility: hidden;
+}
+.app:hover .config {
+  visibility: visible;
+}
+.app .author {
+  color: #888;
+  text-align: center;
+  font-size: 12px;
+}
+.data-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #E5E5E5;
+}
+.config_field {
+  height: auto;
+  width: 300px;
+ }
+ .filters.well {
+  margin-top: -15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  
+ }
+ #preview {
+  vertical-align: top;
+ }
+ #config_options td {
+  padding: 0 5px;
+  text-align: center;
+ }
+ .ratings_on_hover {
+  opacity: 0.5;
+ }
+ .app:hover .ratings_on_hover {
+  opacity: 1.0;
+ }

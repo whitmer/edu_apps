@@ -458,7 +458,7 @@ function program12(depth0,data) {
   
   return " class=\"active\"";}
 
-  buffer += "<header>\n  <div id=\"nav\" class=\"navbar navbar-fixed-top\">\n    <div class=\"navbar-inner\">\n      <div class=\"container\">\n        <a class=\"brand\" href=\"/index.html\">LTI of Magic</a>\n        <div class=\"nav-collapse\">\n          <ul class=\"nav\">\n            <li";
+  buffer += "<header>\n  <div id=\"nav\" class=\"navbar navbar-fixed-top\">\n    <div class=\"navbar-inner\">\n      <div class=\"container\">\n        <a class=\"brand\" href=\"/index.html\">Edu Apps</a>\n        <div class=\"nav-collapse\">\n          <ul class=\"nav\">\n            <li";
   foundHelper = helpers.index;
   stack1 = foundHelper || depth0.index;
   stack2 = helpers['if'];
