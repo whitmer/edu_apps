@@ -115,6 +115,51 @@ describe 'Apps API' do
         check_app_response(obj)
       end
     end
+    
+    it "should not include explicitly filtered-out apps" do
+      id = App.load_apps[0]['id']
+      filter = AppFilter.create(:code => 'abc', :settings => {'app_ids' => {id => false}})
+      get '/api/v1/apps?filter=abc'
+      last_response.should be_ok
+      json = JSON.parse(last_response.body)
+      json['objects'].detect{|o| o['id'] == id}.should == nil
+    end
+    
+    it "should include explicitly allowed apps" do
+      id = App.load_apps[0]['id']
+      filter = AppFilter.create(:code => 'abc', :settings => {'app_ids' => {id => true}})
+      get '/api/v1/apps?filter=abc'
+      last_response.should be_ok
+      json = JSON.parse(last_response.body)
+      json['objects'].detect{|o| o['id'] == id}.should_not == nil
+    end
+    
+    it "should not include unconfigured apps if not allowed" do
+      id = App.load_apps[0]['id']
+      filter = AppFilter.create(:code => 'abc', :settings => {'app_ids' => {}, 'allow_new' => false})
+      get '/api/v1/apps?filter=abc'
+      last_response.should be_ok
+      json = JSON.parse(last_response.body)
+      json['objects'].detect{|o| o['id'] == id}.should == nil
+    end
+    
+    it "should include unconfigured apps if allowed" do
+      id = App.load_apps[0]['id']
+      filter = AppFilter.create(:code => 'abc', :settings => {'app_ids' => {}, 'allow_new' => true})
+      get '/api/v1/apps?filter=abc'
+      last_response.should be_ok
+      json = JSON.parse(last_response.body)
+      json['objects'].detect{|o| o['id'] == id}.should_not == nil
+    end
+    
+    it "should include filter on pagination url" do
+      id = App.load_apps[0]['id']
+      filter = AppFilter.create(:code => 'abc', :settings => {'app_ids' => {}, 'allow_new' => true})
+      get '/api/v1/apps?filter=abc'
+      last_response.should be_ok
+      json = JSON.parse(last_response.body)
+      json['meta']['next'].should match(/filter=abc/)
+    end
   end
   
   describe "app details" do
@@ -164,6 +209,29 @@ describe 'Apps API' do
       json['categories'].should be_include('Community')
       json['categories'].should be_include('Media')
       json['categories'].should be_include('Web 2.0')
+    end
+  end
+  
+  describe "app filter create" do
+    it "should require a logged-in user" do
+      post "/api/v1/filter", {}
+      last_response.should_not be_ok
+      JSON.parse(last_response.body).should == {'error' => 'Not logged in'}
+    end
+    
+    it "should create filter on success" do
+      post "/api/v1/filter", {'app_ids' => []}, 'rack.session' => {'user_key' => 'bob'}
+      last_response.should be_ok
+      json = JSON.parse(last_response.body)
+      json['allow_new'].should == false
+      json['app_ids']['twitter'].should == false
+
+      post "/api/v1/filter", {'app_ids' => ['twitter'], 'allow_new' => '1'}, 'rack.session' => {'user_key' => 'bob'}
+      last_response.should be_ok
+      json = JSON.parse(last_response.body)
+      json['allow_new'].should == true
+      json['app_ids']['twitter'].should == true
+      json['app_ids']['youtube'].should == false
     end
   end
   

@@ -61,6 +61,13 @@ module Sinatra
         json_result(result.to_json)
       end
       
+      app.post "/api/v1/filter" do
+        halt 400, {:error => "Not logged in"}.to_json unless session['user_key']
+        @filter = AppFilter.first_or_new(:username => "@#{session['user_key']}")
+        @filter.update_settings(params)
+        json_result(@filter.to_json)
+      end
+      
       # review an app
       app.post "/api/v1/apps/:tool_id/reviews" do
         host = request.scheme + "://" + request.host_with_port
@@ -94,23 +101,6 @@ module Sinatra
         json_result(json.to_json)
       end
 
-      # deprecated
-      app.get "/data/lti_examples.jsonp" do
-        json = App.load_apps.to_json
-        return "#{params['callback'] || 'callback'}(#{json})"
-      end
-      
-      # deprecated
-      app.get "/data/lti_apps.json" do
-        return apps_list(request, false).to_json
-      end
-      
-      # deprecated
-      app.get "/data/lti_apps.jsonp" do
-        return "#{params['callback'] || 'callback'}(#{apps_list(request, false).to_json})"
-      end
-      
-  
       app.get "/data/app_reviews.atom" do
         reviews = AppReview.all(:created_at.gt => (Date.today - 60), :order => :id.desc)
         host = request.scheme + "://" + request.host_with_port
@@ -199,8 +189,9 @@ module Sinatra
         limit = 24
         params = request.params
         offset = params['offset'].to_i
+        filter = AppFilter.first(:code => params['filter'])
         
-        data = App.load_apps.sort_by{|a| [(0 - (a['uses'] || 0)), a['name'].downcase || 'zzz'] }
+        data = App.load_apps(filter).sort_by{|a| [(0 - (a['uses'] || 0)), a['name'].downcase || 'zzz'] }
         [['category', 'categories'], ['level', 'levels'], ['extension', 'extensions']].each do |filter, key|
           if params[filter] && params[filter].length > 0
             if params[filter] == 'all'
@@ -251,7 +242,7 @@ module Sinatra
         if paginated
           next_url = data.length > offset + limit ? (host + "/api/v1/apps?offset=#{offset + limit}") : nil
           if next_url
-            ['no_meta', 'category', 'level', 'extension', 'recent', 'public', 'platform', 'pending'].each do |key|
+            ['filter', 'no_meta', 'category', 'level', 'extension', 'recent', 'public', 'platform', 'pending'].each do |key|
               next_url += "&#{key}=#{CGI.escape(params[key])}" if params[key]
             end
             response.headers['Link'] = "<#{next_url}>; rel=\"next\""

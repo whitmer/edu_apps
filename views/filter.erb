@@ -1,0 +1,77 @@
+<div class="hero-unit">
+  <h1>Filtering</h1>
+  
+  <p>
+    You can create a filter that can be used in the interface and the API to
+    limit the results returned to only those apps that are explicitly allowed.
+    To do so, check the apps you'd like to allow and after you save you'll
+    see notes on how to apply your filter.
+  </p>
+  <% if @filter %>
+    You can apply your filter by adding the following code. You can also preview
+    your filter on
+    the home page <a href="/index.html?filter=<%= @filter.code %>">with this link</a>.<br/>
+    Code: <%= @filter.code %>
+  <% end %>
+</div>
+<% if !session['user_key'] %>
+  <div class='row'>
+    <div class="span10 offset1">
+      You need to be logged in to create/manage a filter.
+    </div>
+  </div>
+<% else %>
+  <% apps = App.load_apps.sort_by{|a| a['name'].downcase }; half = (apps.length / 2.0).ceil %>
+  <% apps.each {|app| app['checked'] = !@filter || @filter.settings['app_ids'][app['id']] != false || (@filter.settings['allow_new'] && @filter.settings['app_ids'][app['id']] == nil) } %>
+  <div class='row'>
+    <form class="form-horizontal" action="/api/v1/filter" method="POST" id="filter_settings">
+      <div class="span10">
+        <div class="control-group">
+          <div class="controls">
+            <label>
+              <input type="checkbox" id="allow_new" <%= 'checked' if !@filter || @filter.settings['allow_new'] %> name="allow_new" value="1"/>
+              List newly-added apps without explicit approval
+          </div>      
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <h2>Allowed Apps</h2>
+          </div>
+        </div>
+      </div>
+      <div class="span5">
+        <% apps[0, half].each do |app| %>
+          <div class="control-group">
+            <div class="controls">
+              <label class="app">
+                <input type="checkbox" <%= 'checked' if app['checked'] %> name="app_ids[]" value="<%= app['id'] %>"/>
+                  <img src="/tools/<%= app['id'] %>/logo.png" style="width: 32px;"/>
+                  <%= app['name'] %>
+              </label>
+            </div>      
+          </div>
+        <% end %>
+        <div class="control-group">
+          <div class="controls">
+            <button class='btn btn-primary' type="submit">Update Filter</button>
+          </div>
+        </div>
+      </div>
+      <div class="span5">
+        <% apps[half, half].each do |app| %>
+          <div class="control-group">
+            <div class="controls">
+              <label class="app">
+                <input type="checkbox" <%= 'checked' if app['checked'] %> name="app_ids[]" value="<%= app['id'] %>"/>
+                  <img src="/tools/<%= app['id'] %>/logo.png" style="width: 32px;"/>
+                  <%= app['name'] %>
+              </label>
+            </div>      
+          </div>
+        <% end %>
+      </div>
+    </form>
+  </div>
+<% end %>
+
+<% add_script '/filter.js' %>

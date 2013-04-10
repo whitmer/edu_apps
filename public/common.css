@@ -97,3 +97,9 @@ span.stars.star4_5 img.star5 {
 .filters select {
   margin-right: 20px;
 }
+label.app {
+  opacity: 0.5;
+}
+label.app.selected {
+  opacity: 1.0;
+}

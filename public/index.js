@@ -102,6 +102,9 @@
   } else {
     var tools = [];
     var url = '/api/v1/apps';
+    if(params.filter) {
+      url = url + "?filter=" + params.filter;
+    }
     function moreTools() {
       if(url) {
         $.getJSON(url, function(data) {
