@@ -40,7 +40,7 @@ module Sinatra
         end  
       end
       
-      app.get "/new_index.html" do
+      app.get "/index.html" do
         @sheets = ['loading', 'index']
         erb :index
       end
