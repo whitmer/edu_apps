@@ -92,7 +92,7 @@ module Sinatra
           params[:user_name] = key
           params[:user_url] = "https://twitter.com/#{key}"
           params[:user_id] = key
-          params[:user_avatar_url] = "https://api.twitter.com/1/users/profile_image/#{key}"
+          params[:user_avatar_url] = session[:user_image]
         end
         required_fields = [:user_name, :user_id, :rating]
         optional_fields = [:user_avatar_url, :comments, :user_url]
