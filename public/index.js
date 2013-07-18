@@ -1,5 +1,8 @@
 (function() {
   Handlebars.partials = Handlebars.templates;
+  if(location.host == "lti-examples.heroku.com") {
+    location.href = location.href.replace(/^http:/, 'https:').replace(/lti-examples\.heroku\.com/, "www.edu-apps.org");
+  }
   if(location.href.match(/http:\/\/lti-examples\.heroku\.com/)) {
     location.href = location.href.replace(/^http/, 'https')
   }
@@ -261,6 +264,7 @@
       }
     }
     visible_tools = tools.sort(function(a, b) {
+      
       if((a.uses || 0) > (b.uses || 0)) {
         return -1;
       } else if((a.uses || 0) < (b.uses || 0)) {
