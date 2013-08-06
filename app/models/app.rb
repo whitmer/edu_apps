@@ -84,8 +84,8 @@ class App
   
   def related_apps
     # Find apps that have the most shared reviewers with this app
-    sql = "SELECT COUNT(*), b.tool_id, MAX(b.tool_name) FROM app_reviews a, app_reviews b WHERE a.tool_id=? AND a.tool_id!=b.tool_id AND a.user_url=b.user_url GROUP BY b.tool_id ORDER BY COUNT(*), MAX(b.tool_name)"
-    apps = App.repository(:default).adapter.select(sql, self.tool_id).map{|row|
+    sql = "SELECT COUNT(*), b.tool_id, MAX(b.tool_name) FROM app_reviews a, app_reviews b, apps apps WHERE a.tool_id=? AND a.tool_id = apps.tool_id AND apps.pending=? AND a.tool_id!=b.tool_id AND a.user_url=b.user_url GROUP BY b.tool_id ORDER BY COUNT(*), MAX(b.tool_name)"
+    apps = App.repository(:default).adapter.select(sql, self.tool_id, false).map{|row|
       {
         :tool_id => row.tool_id,
         :name => row.max,
