@@ -261,7 +261,7 @@ module XmlConfigParser
 end
 
 module AppParser
-  CATEGORIES = ["Assessment", "Community", "Content", "Math", "Media", "Open Content", "Science", "Study Helps", "Textbooks/eBooks", "Web 2.0"]
+  CATEGORIES = ["Assessment", "Community", "Completely Free", "Content", "Math", "Media", "Open Content", "Science", "Study Helps", "Textbooks/eBooks", "Web 2.0"]
   LEVELS = ["K-6th Grade", "7th-12th Grade", "Postsecondary"]
   EXTENSIONS = ["course_nav", "user_nav", "account_nav", "editor_button", "resource_selection", "homework_submission"]
   PRIVACY_LEVELS = ["public", "name_only", "email_only", "anonymous"]
