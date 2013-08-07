@@ -94,7 +94,7 @@ class App
     }
     # Then find apps that match based on categories
     if apps.length < 5
-      apps += App.all(:categories => self.categories, :levels => self.levels, :tool_id.not => self.tool_id, :order => :name, :limit => 5).map{|app|
+      apps += App.all(:pending => false, :categories => self.categories, :levels => self.levels, :tool_id.not => self.tool_id, :order => :name, :limit => 5).map{|app|
         {
           :tool_id => app.tool_id,
           :name => app.name,
@@ -103,7 +103,7 @@ class App
       }
     end
     if apps.length < 5
-      apps += App.all(:categories => self.categories, :tool_id.not => self.tool_id, :order => :name, :limit => 5).map{|app|
+      apps += App.all(:pending => false, :categories => self.categories, :tool_id.not => self.tool_id, :order => :name, :limit => 5).map{|app|
         {
           :tool_id => app.tool_id,
           :name => app.name,
