@@ -100,6 +100,7 @@ module Sinatra
     module Helpers
       def tool_redirect
         url = params['url']
+        url = nil unless url && (url.match(/\Ahttp/) || url.match(/\A\//))
         
         # figure out the tool id, if there is one
         id = params['id'] || (url && OLD_REDIRECTS[url]) || (url && OLD_REDIRECTS[url.split(/\?/)[0]])
@@ -110,7 +111,7 @@ module Sinatra
         if url
           uri = URI.parse(url)
           Rack::Utils.parse_nested_query(uri.query).each do |key, value|
-            args << "#{CGI.escape(key)}=#{CGI.escape(value)}"
+            args << "#{CGI.escape(key || "")}=#{CGI.escape(value || "")}"
           end
         end
       

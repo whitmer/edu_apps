@@ -65,7 +65,9 @@
   <script src="/app_settings.js"></script>
   <script src="bootstrap-dropdown.js"></script>
   <script>
-    $("#form").attr('src', lti.params.url).show();
+    if(lti.params && lti.params.url && lti.params.url.match(/^http/)) {
+      $("#form").attr('src', lti.params.url).show();
+    }
     if($.store.get('user_key')) {
       manageApp({});
     } else {
