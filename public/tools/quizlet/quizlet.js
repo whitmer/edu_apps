@@ -8,7 +8,7 @@
   var $add = $("#add");
   function updatePreview() {
     var id = $quizlet_preview.attr('data-id');
-    url = "http://quizlet.com/" + id + "/" + $quizlet_type.val() + "/embed/?hideLinks";
+    url = "http://quizlet.com/" + id + "/" + $quizlet_type.val() + "/embedv2/";
     $quizlet.attr('rel', url);
     $quizlet_preview.attr('src', url);
     $results.hide();
