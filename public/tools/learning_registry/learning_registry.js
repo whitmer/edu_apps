@@ -1,5 +1,5 @@
 (function() {
-  var host = "http://12.109.40.31";
+  var host = "http://72.243.185.28";
   var $results = $("#results");
   var $message = $("#message");
   var $result = $("#result").detach().removeAttr('id');
